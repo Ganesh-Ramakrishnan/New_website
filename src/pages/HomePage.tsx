@@ -393,9 +393,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="">
             {/* AI-Powered Test Generation */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -410,29 +410,25 @@ const HomePage = () => {
                   Leverage advanced machine learning algorithms to automatically generate comprehensive test cases 
                   that understand your application structure, user flows, and business logic.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Smart Test Creation</h4>
-                    <p className="text-sm text-gray-600">AI analyzes your app and generates relevant test scenarios automatically</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Intelligent Assertions</h4>
-                    <p className="text-sm text-gray-600">Automatically generates meaningful assertions based on UI elements and data</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Self-Healing Tests</h4>
-                    <p className="text-sm text-gray-600">Tests automatically adapt to UI changes, reducing maintenance by 70%</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Pattern Recognition</h4>
-                    <p className="text-sm text-gray-600">Learns from existing tests to suggest improvements and optimizations</p>
-                  </div>
-                </div>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Smart Test Creation:</span> AI analyzes your app and generates relevant test scenarios automatically
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Intelligent Assertions:</span> Automatically generates meaningful assertions based on UI elements and data
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Self-Healing Tests:</span> Tests automatically adapt to UI changes, reducing maintenance by 70%
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Pattern Recognition:</span> Learns from existing tests to suggest improvements and optimizations
+                  </li>
+                </ul>
               </div>
             </div>
 
             {/* Cross-Platform Testing */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -447,29 +443,26 @@ const HomePage = () => {
                   Execute tests across web browsers, mobile devices, APIs, and desktop applications from a single platform. 
                   Ensure consistent user experience across all touchpoints.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Web Testing</h4>
-                    <p className="text-sm text-gray-600">Chrome, Firefox, Safari, Edge - all browsers covered with headless support</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Mobile Testing</h4>
-                    <p className="text-sm text-gray-600">Real device testing on iOS and Android with cloud device farm</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">API Testing</h4>
-                    <p className="text-sm text-gray-600">REST, SOAP, GraphQL - comprehensive API validation and performance testing</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Desktop Apps</h4>
-                    <p className="text-sm text-gray-600">Windows, macOS, Linux desktop application testing support</p>
-                  </div>
-                </div>
+            
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Web Testing:</span> Chrome, Firefox, Safari, Edge - all browsers covered with headless support
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Mobile Testing:</span> Real device testing on iOS and Android with cloud device farm
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">API Testing:</span> REST, SOAP, GraphQL - comprehensive API validation and performance testing
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Desktop Apps:</span> Windows, macOS, Linux desktop application testing support
+                    </li>
+                  </ul>
               </div>
             </div>
 
             {/* Enterprise Security */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -484,29 +477,26 @@ const HomePage = () => {
                   Meet the highest security standards with SOC 2 Type II compliance, end-to-end encryption, 
                   and comprehensive audit logging for enterprise peace of mind.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">SOC 2 Compliance</h4>
-                    <p className="text-sm text-gray-600">Type II certified with regular third-party security audits</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Data Encryption</h4>
-                    <p className="text-sm text-gray-600">End-to-end encryption for data in transit and at rest</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Access Control</h4>
-                    <p className="text-sm text-gray-600">Role-based permissions with SSO and multi-factor authentication</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Audit Logging</h4>
-                    <p className="text-sm text-gray-600">Comprehensive activity logs for compliance and security monitoring</p>
-                  </div>
-                </div>
+                
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">SOC 2 Compliance:</span> Type II certified with regular third-party security audits
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Data Encryption:</span> End-to-end encryption for data in transit and at rest
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Access Control:</span> Role-based permissions with SSO and multi-factor authentication
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Audit Logging:</span> Comprehensive activity logs for compliance and security monitoring
+                    </li>
+                  </ul>
               </div>
             </div>
 
             {/* Advanced Analytics */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -521,29 +511,26 @@ const HomePage = () => {
                   Transform testing data into actionable insights with real-time dashboards, predictive analytics, 
                   and comprehensive reporting that drives continuous improvement.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Real-time Dashboards</h4>
-                    <p className="text-sm text-gray-600">Live test execution monitoring with customizable views</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Predictive Analytics</h4>
-                    <p className="text-sm text-gray-600">AI-powered insights to predict and prevent quality issues</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Custom Reports</h4>
-                    <p className="text-sm text-gray-600">Executive summaries and detailed technical reports</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Trend Analysis</h4>
-                    <p className="text-sm text-gray-600">Historical data analysis to identify patterns and improvements</p>
-                  </div>
-                </div>
+                
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Real-time Dashboards:</span> Live test execution monitoring with customizable views
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Predictive Analytics:</span> AI-powered insights to predict and prevent quality issues
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Custom Reports:</span> Executive summaries and detailed technical reports
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Trend Analysis:</span> Historical data analysis to identify patterns and improvements
+                    </li>
+                  </ul>
               </div>
             </div>
 
             {/* CI/CD Integration */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -558,29 +545,26 @@ const HomePage = () => {
                   Integrate seamlessly with your existing DevOps pipeline. Trigger tests automatically, 
                   get instant feedback, and maintain quality gates throughout your development process.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Pipeline Integration</h4>
-                    <p className="text-sm text-gray-600">Jenkins, GitHub Actions, GitLab CI, Azure DevOps support</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Quality Gates</h4>
-                    <p className="text-sm text-gray-600">Automated quality checks that prevent bad code from deploying</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Parallel Execution</h4>
-                    <p className="text-sm text-gray-600">Run thousands of tests simultaneously for faster feedback</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Smart Notifications</h4>
-                    <p className="text-sm text-gray-600">Contextual alerts via Slack, Teams, email, and webhooks</p>
-                  </div>
-                </div>
+
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Pipeline Integration:</span> Jenkins, GitHub Actions, GitLab CI, Azure DevOps support
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Quality Gates:</span> Automated quality checks that prevent bad code from deploying
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Parallel Execution:</span> Run thousands of tests simultaneously for faster feedback
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Smart Notifications:</span> Contextual alerts via Slack, Teams, email, and webhooks
+                    </li>
+                  </ul>
               </div>
             </div>
 
             {/* Cloud Execution */}
-            <div className="group">
+            <div className="group mb-10">
               <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -595,24 +579,21 @@ const HomePage = () => {
                   Execute tests at massive scale with our cloud infrastructure. No setup required, 
                   automatic scaling, and global availability for consistent performance worldwide.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Auto Scaling</h4>
-                    <p className="text-sm text-gray-600">Automatically scale resources based on test execution demand</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Global Infrastructure</h4>
-                    <p className="text-sm text-gray-600">Test from multiple geographic locations for performance validation</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Zero Maintenance</h4>
-                    <p className="text-sm text-gray-600">No infrastructure to manage - focus on testing, not servers</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Cost Optimization</h4>
-                    <p className="text-sm text-gray-600">Pay only for what you use with intelligent resource allocation</p>
-                  </div>
-                </div>
+    
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Auto Scaling:</span> Automatically scale resources based on test execution demand
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Global Infrastructure:</span> Test from multiple geographic locations for performance validation
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Zero Maintenance:</span> No infrastructure to manage - focus on testing, not servers
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Cost Optimization:</span> Pay only for what you use with intelligent resource allocation
+                    </li>
+                  </ul>
               </div>
             </div>
 
@@ -632,24 +613,21 @@ const HomePage = () => {
                   Enable seamless collaboration across development, QA, and product teams with real-time sharing, 
                   comments, notifications, and role-based access controls.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Real-time Sharing</h4>
-                    <p className="text-sm text-gray-600">Share test results and reports instantly with stakeholders</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Comments & Reviews</h4>
-                    <p className="text-sm text-gray-600">Collaborative test review process with inline comments</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Role Management</h4>
-                    <p className="text-sm text-gray-600">Granular permissions for different team roles and responsibilities</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Activity Feeds</h4>
-                    <p className="text-sm text-gray-600">Stay updated with real-time notifications and activity streams</p>
-                  </div>
-                </div>
+              
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Real-time Sharing:</span> Share test results and reports instantly with stakeholders
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Comments & Reviews:</span> Collaborative test review process with inline comments
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Role Management:</span> Granular permissions for different team roles and responsibilities
+                    </li>
+                    <li className="text-gray-600 leading-relaxed text-sm">
+                      <span className="font-bold text-gray-900">Activity Feeds:</span> Stay updated with real-time notifications and activity streams
+                    </li>
+                  </ul>
               </div>
             </div>
           </div>
