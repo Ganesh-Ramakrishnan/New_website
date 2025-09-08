@@ -1,0 +1,205 @@
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Play, Brain, FileText, Bug, BarChart3, GitBranch, Users, Layers, Code, Settings } from 'lucide-react';
+
+const Hero = () => {
+  const [currentPhase, setCurrentPhase] = useState(0);
+
+  const almPhases = [
+    { 
+      name: "Agile Management", 
+      icon: <Users className="w-5 h-5" />,
+      description: "Optimize sprint cycles, manage backlogs efficiently, and enhance team productivity with intelligent automation"
+    },
+    { 
+      name: "Release Management", 
+      icon: <GitBranch className="w-5 h-5" />,
+      description: "Automate deployment pipelines, manage version control, and ensure quality releases with zero downtime"
+    },
+    { 
+      name: "Testing", 
+      icon: <Settings className="w-5 h-5" />,
+      description: "Automate test execution, generate smart test cases, and achieve 100% coverage with minimal effort"
+    },
+    { 
+      name: "Defect Management", 
+      icon: <Bug className="w-5 h-5" />,
+      description: "Automatically detect issues, prioritize critical bugs, and accelerate resolution with AI-driven insights"
+    },
+    { 
+      name: "Reports & Dashboard", 
+      icon: <BarChart3 className="w-5 h-5" />,
+      description: "Visualize real-time metrics, monitor project health, and generate executive-ready analytics instantly"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhase((prev) => (prev + 1) % almPhases.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentALM = almPhases[currentPhase];
+
+  return (
+    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      {/* Subtle Background Effects */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        {/* Main Content */}
+        <div className="text-center mb-16">
+          {/* AI Badge */}
+          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-300 font-medium mb-6">
+            <Brain className="w-4 h-4 mr-2" />
+            Next-Gen AI for Complete ALM
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight min-h-[12rem] flex items-center justify-center">
+            <div className="text-center">
+              <div className="transition-opacity duration-500 ease-in-out">
+                {currentPhase === 0 && (
+                  <>
+                    Streamline Your
+                    <div className="relative inline-block mx-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                        Agile Management
+                      </span>
+                    </div>
+                    <br />
+                    with AI-Powered Workflows
+                  </>
+                )}
+                {currentPhase === 1 && (
+                  <>
+                    Orchestrate Seamless
+                    <div className="relative inline-block mx-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                        Release Management
+                      </span>
+                      {" "}with Smart Automation
+                    </div>
+                  </>
+                )}
+                {currentPhase === 2 && (
+                  <>
+                    Accelerate Your
+                    <div className="relative inline-block mx-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                        Testing
+                      </span>
+                    </div>
+                    <br />
+                    with Intelligent Automation
+                  </>
+                )}
+                {currentPhase === 3 && (
+                  <>
+                    Intelligent
+                    <div className="relative inline-block mx-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+                        Defect Management
+                      </span>
+                    </div>
+                    <br />
+                    Tracking & Resolution
+                  </>
+                )}
+                {currentPhase === 4 && (
+                  <>
+                    Get Insights from
+                    <div className="relative inline-block mx-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+                        Reports & Dashboard
+                      </span>
+                    </div>
+                    <br />
+                    & Track Execution Status
+                  </>
+                )}
+              </div>
+            </div>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto h-16 flex items-center justify-center transition-opacity duration-500 ease-in-out">
+            {currentALM.description}
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+              Start Free Trial
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+            
+            <button className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
+              <Play className="h-4 w-4 mr-2" />
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        {/* ALM Phases */}
+        <div className="mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+            {almPhases.map((phase, index) => (
+              <div 
+                key={index}
+                className={`relative p-4 rounded-lg border transition-all duration-300 cursor-pointer ${
+                  index === currentPhase 
+                    ? 'bg-blue-500/20 border-blue-400/50 scale-105' 
+                    : 'bg-white/5 border-white/10 hover:bg-white/10'
+                }`}
+                onClick={() => setCurrentPhase(index)}
+              >
+                <div className="text-center">
+                  <div className={`mb-2 flex justify-center ${
+                    index === currentPhase ? 'text-blue-400' : 'text-gray-400'
+                  }`}>
+                    {phase.icon}
+                  </div>
+                  <h4 className="text-white font-medium text-sm">{phase.name}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
+              10x
+            </div>
+            <div className="text-gray-400 text-sm">Faster Execution</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-1">
+              85%
+            </div>
+            <div className="text-gray-400 text-sm">Efficiency Gain</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">
+              95%
+            </div>
+            <div className="text-gray-400 text-sm">Stabilize Tests</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-1">
+              70%
+            </div>
+            <div className="text-gray-400 text-sm">Reduce Maintenance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
