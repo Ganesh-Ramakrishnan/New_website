@@ -1,33 +1,31 @@
-import React, { useState } from 'react';
-import Hero from '../components/Hero';
-import WebinarForm from '../components/WebinarForm';
-import DemoRequestForm from '../components/DemoRequestForm';
-import { 
-  Zap, 
-  Shield, 
-  BarChart3, 
-  Cpu, 
-  CheckCircle, 
+import {
   ArrowRight,
-  Star,
-  GitBranch,
-  Users,
-  FileText,
+  BarChart3,
   Bug,
   Calendar,
-  Target,
-  TrendingUp,
-  Smartphone,
+  CheckCircle,
+  Clock,
   Cloud,
+  Cpu,
+  ExternalLink,
+  FileText,
+  GitBranch,
   Globe,
   Layers,
-  Settings,
-  ChevronLeft,
-  ChevronRight,
   Play,
-  Clock,
-  ExternalLink
+  Settings,
+  Shield,
+  Smartphone,
+  Star,
+  Target,
+  TrendingUp,
+  Users,
+  Zap
 } from 'lucide-react';
+import { useState } from 'react';
+import DemoRequestForm from '../components/DemoRequestForm';
+import Hero from '../components/Hero';
+import WebinarForm from '../components/WebinarForm';
 
 const HomePage = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -694,7 +692,7 @@ const HomePage = () => {
       </section>
 
       {/* Automation Capabilities Section */}
-      <section className="py-20 bg-gray-900">
+      {/* <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -705,9 +703,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Technology Ecosystem Visualization */}
+          Technology Ecosystem Visualization
           <div className="relative max-w-6xl mx-auto">
-            {/* Background Grid */}
+            Background Grid
             <div className="absolute inset-0 opacity-10">
               <div className="grid grid-cols-12 grid-rows-8 h-full w-full">
                 {Array.from({ length: 96 }).map((_, i) => (
@@ -716,17 +714,17 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Main Platform Container */}
+            Main Platform Container
             <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-cyan-500/30 p-12 min-h-[600px]">
               
-              {/* Platform Header */}
+              Platform Header
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-cyan-500/50 rounded-lg px-6 py-2">
                   <span className="text-cyan-400 font-semibold">Platform</span>
                 </div>
               </div>
 
-              {/* Left Side - Enterprise Applications */}
+              Left Side - Enterprise Applications
               <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-purple-500/50 rounded-lg px-3 py-2 mb-4 rotate-90">
                   <span className="text-purple-400 font-semibold text-sm">ERP & CRM</span>
@@ -753,7 +751,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right Side - Technology Categories */}
+              Right Side - Technology Categories
               <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-pink-500/50 rounded-lg px-3 py-2 mb-4 -rotate-90">
                   <span className="text-pink-400 font-semibold text-sm">Applications</span>
@@ -787,15 +785,15 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Central Hub Area */}
+              Central Hub Area
               <div className="flex items-center justify-center h-full">
                 <div className="relative">
-                  {/* Outer Ring with Orbiting Elements */}
+                  Outer Ring with Orbiting Elements
                   <div className="relative w-80 h-80">
-                    {/* Outer Ring */}
+                    Outer Ring
                     <div className="absolute inset-0 border-2 border-dashed border-cyan-500/30 rounded-full"></div>
                     
-                    {/* Orbiting Elements */}
+                    Orbiting Elements
                     {Array.from({ length: 8 }).map((_, index) => {
                       const angle = (index * 45) * (Math.PI / 180);
                       const radius = 140;
@@ -822,9 +820,9 @@ const HomePage = () => {
                     })}
                   </div>
 
-                  {/* Inner Ring */}
+                  Inner Ring
                   <div className="absolute inset-16 border border-dashed border-purple-500/30 rounded-full flex items-center justify-center">
-                    {/* Atto Label */}
+                    Atto Label
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
                       <div className="bg-gray-700 border border-purple-500/50 rounded-full px-4 py-2 flex items-center space-x-2">
                         <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
@@ -834,7 +832,7 @@ const HomePage = () => {
                       </div>
                     </div>
 
-                    {/* Copilot Label */}
+                    Copilot Label
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
                       <div className="bg-gray-700 border border-blue-500/50 rounded-full px-4 py-2 flex items-center space-x-2">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -845,7 +843,7 @@ const HomePage = () => {
                     </div>
                   </div>
 
-                  {/* Central Core */}
+                  Central Core
                   <div className="absolute inset-24 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full flex items-center justify-center shadow-2xl">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                       <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full flex items-center justify-center">
@@ -856,9 +854,9 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Connection Lines */}
+              Connection Lines
               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-                {/* Left side connections */}
+                Left side connections
                 <path
                   d="M 0 300 Q 150 300 300 300"
                   stroke="url(#leftGradient)"
@@ -867,7 +865,7 @@ const HomePage = () => {
                   strokeDasharray="5,5"
                   className="animate-pulse"
                 />
-                {/* Right side connections */}
+                Right side connections
                 <path
                   d="M 600 300 Q 450 300 300 300"
                   stroke="url(#rightGradient)"
@@ -877,7 +875,7 @@ const HomePage = () => {
                   className="animate-pulse"
                 />
                 
-                {/* Gradients */}
+                Gradients
                 <defs>
                   <linearGradient id="leftGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
@@ -892,7 +890,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Technology Details Section */}
+          Technology Details Section
           <div className="mt-16">
             <div className="text-center mb-12">
               <h3 className="text-2xl font-bold text-white mb-4">
@@ -901,7 +899,7 @@ const HomePage = () => {
             </div>
             
             <div className="min-h-[300px]">
-              {/* Dynamic Content Display */}
+              Dynamic Content Display
               {activeCategory === 'web' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-cyan-500/30">
@@ -946,7 +944,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              {/* Other technology categories remain similar but with dark theme */}
+              Other technology categories remain similar but with dark theme
               {activeCategory === 'db' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-green-500/30">
@@ -989,7 +987,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              {/* Similar updates for other categories... */}
+              Similar updates for other categories...
               {activeCategory === 'desktop' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/30">
@@ -1033,10 +1031,10 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Automation Capabilities Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6">
@@ -1055,16 +1053,16 @@ const HomePage = () => {
             </p>
           </div>
           
-          {/* Animated Technology Stack Visualization */}
+          Animated Technology Stack Visualization
           <div className="mb-20">
             <div className="relative max-w-4xl mx-auto">
-              {/* Central Hub */}
+              Central Hub
               <div className="relative flex items-center justify-center">
                 <div className="w-80 h-80 relative">
-                  {/* Outer rotating ring */}
+                  Outer rotating ring
                   <div className="absolute inset-0 rounded-full border-4 border-gray-200 animate-spin" style={{ animationDuration: '20s' }}></div>
                   
-                  {/* Inner segments - SDLC phases */}
+                  Inner segments - SDLC phases
                   <div className="absolute inset-8 rounded-full bg-gradient-to-br from-red-400 via-pink-400 to-purple-400 flex items-center justify-center">
                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
                       <div className="text-center">
@@ -1074,7 +1072,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  {/* Technology orbits */}
+                  Technology orbits
                   {[
                     { name: 'WEB', icon: '🌐', angle: 0, color: 'from-blue-500 to-cyan-500' },
                     { name: 'MOBILE', icon: '📱', angle: 60, color: 'from-green-500 to-emerald-500' },
@@ -1105,7 +1103,7 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* SDLC Phase Labels */}
+              SDLC Phase Labels
               <div className="absolute inset-0 pointer-events-none">
                 {[
                   { phase: 'Plan', angle: 30, radius: 200 },
@@ -1130,7 +1128,7 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Technology Stats */}
+            Technology Stats
             <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-8 text-center">
               {[
                 { name: 'Web Browsers', count: '5+', color: 'text-blue-600' },
@@ -1150,10 +1148,10 @@ const HomePage = () => {
             </div>
           </div>
           
-          {/* Interactive Circular Technology Selector */}
+          Interactive Circular Technology Selector
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="relative w-96 h-96 mx-auto">
-              {/* Central Hub */}
+              Central Hub
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full shadow-2xl border-4 border-gray-100 flex items-center justify-center z-10">
                 <div className="text-center">
                   <div className="text-lg font-bold text-gray-900">SimplifyQA</div>
@@ -1161,7 +1159,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Technology Orbits */}
+              Technology Orbits
               {[
                 { 
                   id: 'web', 
@@ -1244,7 +1242,7 @@ const HomePage = () => {
                 );
               })}
 
-              {/* Connecting Lines */}
+              Connecting Lines
               {activeCategory && (
                 <svg className="absolute inset-0 w-full h-full pointer-events-none">
                   <defs>
@@ -1268,9 +1266,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Dynamic Content Display */}
+          Dynamic Content Display
           <div className="relative">
-            {/* All Automation Cards in One Row */}
+            All Automation Cards in One Row
             <div className="animate-fadeIn">
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 mb-8">
                 <div className="text-center mb-8">
@@ -1292,7 +1290,7 @@ const HomePage = () => {
                 
                 <div className="flex justify-center overflow-x-auto">
                   <div className="flex gap-3 min-w-max">
-                    {/* Web Automation Cards */}
+                    Web Automation Cards
                     {activeCategory === 'web' && [
                       { name: 'Chrome', icon: '🟢', color: 'from-green-500 to-blue-500', market: '65%' },
                       { name: 'Firefox', icon: '🟠', color: 'from-orange-500 to-red-500', market: '18%' },
@@ -1313,7 +1311,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* Database Automation Cards */}
+                    Database Automation Cards
                     {activeCategory === 'db' && [
                       { name: 'MySQL', icon: '🟡', color: 'from-orange-500 to-blue-600', type: 'Relational' },
                       { name: 'Oracle', icon: '🔴', color: 'from-red-600 to-red-800', type: 'Enterprise' },
@@ -1336,7 +1334,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* Desktop Automation Cards */}
+                    Desktop Automation Cards
                     {activeCategory === 'desktop' && [
                       { name: 'Java', icon: '🟠', color: 'from-orange-500 to-red-600', platform: 'Cross-Platform' },
                       { name: 'Mainframe', icon: '⬛', color: 'from-gray-600 to-gray-800', platform: 'Legacy' },
@@ -1360,7 +1358,7 @@ const HomePage = () => {
                     ))}
 
 
-                    {/* Mobile Automation Cards */}
+                    Mobile Automation Cards
                     {activeCategory === 'mobile' && [
                       { name: 'Android', icon: '🟢', color: 'from-green-500 to-green-700', share: '71%' },
                       { name: 'iOS', icon: '⚪', color: 'from-gray-700 to-gray-900', share: '28%' },
@@ -1381,7 +1379,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* API Automation Cards */}
+                    API Automation Cards
                     {activeCategory === 'api' && [
                       { name: 'REST', icon: '🟢', color: 'from-green-600 to-blue-600', usage: '85%' },
                       { name: 'SOAP', icon: '🟡', color: 'from-yellow-500 to-orange-600', usage: '15%' },
@@ -1406,9 +1404,9 @@ const HomePage = () => {
             </div>
           </div>
           
-          {/* Bottom Stats */}
+          Bottom Stats
           <div className="mt-20 relative">
-            {/* Background with subtle pattern */}
+            Background with subtle pattern
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-3xl opacity-95"></div>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] rounded-3xl"></div>
             
@@ -1459,11 +1457,11 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Platform Ecosystem Section */}
-      <section className="py-12 bg-gray-900 relative overflow-hidden">
-        {/* Subtle Grid Background */}
+      {/* <section className="py-12 bg-gray-900 relative overflow-hidden">
+        Subtle Grid Background
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
@@ -1472,7 +1470,7 @@ const HomePage = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+          Header
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">The SimplifyQA Platform.</span>
@@ -1485,9 +1483,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Professional Platform Architecture */}
+          Professional Platform Architecture
           <div className="relative">
-            {/* Top Tier - Core Capabilities */}
+            Top Tier - Core Capabilities
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-cyan-300 mb-4 text-center border-b border-slate-700 pb-2">Testing Solutions</h3>
@@ -1556,16 +1554,16 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Central Platform Core */}
+            Central Platform Core
             <div className="flex justify-center mb-12">
               <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-2 rounded-lg border border-slate-600">
                 <span className="text-white font-medium text-sm uppercase tracking-wider">Core Platform</span>
               </div>
             </div>
 
-            {/* Enterprise Ecosystem Grid */}
+            Enterprise Ecosystem Grid
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {/* Left - Enterprise Systems */}
+              Left - Enterprise Systems
               <div className="space-y-4">
                 <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider text-center mb-6">Enterprise Systems</h3>
                 <div className="space-y-3">
@@ -1589,18 +1587,18 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Center - AI Core Platform */}
+              Center - AI Core Platform
               <div className="flex flex-col items-center justify-center">
                 <div className="relative">
-                  {/* Outer Ring */}
+                  Outer Ring
                   <div className="w-64 h-64 rounded-full border border-slate-600/50 flex items-center justify-center relative">
-                    {/* Connection Points */}
+                    Connection Points
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
 
-                    {/* Inner Platform Core */}
+                    Inner Platform Core
                     <div className="w-32 h-32 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full border border-slate-600 flex flex-col items-center justify-center shadow-2xl">
                       <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-2">
                         <Settings className="w-4 h-4 text-white" />
@@ -1612,7 +1610,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right - Application Types */}
+              Right - Application Types
               <div className="space-y-4">
                 <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider text-center mb-6">Application Types</h3>
                 <div className="space-y-3">
@@ -1639,16 +1637,16 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Enterprise Ready Badge */}
+            Enterprise Ready Badge
             <div className="flex justify-center mb-12">
               <div className="bg-gradient-to-r from-orange-600/20 to-yellow-600/20 backdrop-blur-sm border border-orange-500/30 px-6 py-2 rounded-lg">
                 <span className="text-orange-300 font-medium text-sm uppercase tracking-wider">Enterprise Ready</span>
               </div>
             </div>
 
-            {/* Bottom Tier - Enterprise Features */}
+            Bottom Tier - Enterprise Features
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Deployment */}
+              Deployment
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-orange-300 mb-4 text-center border-b border-slate-700 pb-2">Deployment Options</h3>
                 <div className="space-y-3 text-sm">
@@ -1682,7 +1680,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Integrations */}
+              Integrations
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-green-300 mb-4 text-center border-b border-slate-700 pb-2">Integrations</h3>
                 <div className="grid grid-cols-4 gap-2">
@@ -1703,7 +1701,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Security & Compliance */}
+              Security & Compliance
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-red-300 mb-4 text-center border-b border-slate-700 pb-2">Security & Compliance</h3>
                 <div className="grid grid-cols-2 gap-3">
@@ -1723,7 +1721,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Platform Capabilities */}
+            Platform Capabilities
             <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 mt-12">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div className="group">
@@ -1758,10 +1756,10 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Everything You Need Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
