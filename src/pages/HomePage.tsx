@@ -319,61 +319,56 @@ const HomePage = () => {
   ];
 
   return (
-  <div className="bg-black text-white min-h-screen">
-      <Hero />
+    <div className="bg-black text-white min-h-screen">
+  <div className="w-full text-white">
+        <Hero />
+      </div>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Features Section - Dark Theme */}
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Why Choose SimplifyQA?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
             </p>
           </div>
-          
-          {/* Simple Grid Layout */}
+          {/* Simple Grid Layout - Dark Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getCurrentFeatures().map((feature, index) => (
-              <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden">
-                {/* Background gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+              <div key={index} className="group relative rounded-2xl p-8 shadow-lg border border-gray-700 hover:shadow-2xl hover:border-blue-500 overflow-hidden bg-gray-800">
                 {/* Icon container with enhanced styling */}
                 <div className="relative mb-6 flex justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-xl">
-                  {feature.icon}
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    {feature.icon}
                   </div>
                 </div>
-                
                 {/* Content */}
                 <div className="relative text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
-                  {feature.description}
-                </p>
-                
-                {/* Subtle bottom accent */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-16 transition-all duration-500 rounded-full"></div>
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
+                  {/* Subtle bottom accent */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
                 </div>
               </div>
             ))}
           </div>
-          
-          {/* Dot Navigation */}
+          {/* Dot Navigation - Dark Theme */}
           <div className="flex justify-center space-x-3 mt-12">
             {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 rounded-full ${
                   index === currentSlide 
                     ? 'bg-blue-600 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                    : 'bg-gray-700 hover:bg-gray-500 hover:scale-110'
                 }`}
               />
             ))}
@@ -395,7 +390,7 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className='comprehensive_card_main position-relative'>
+            <div className='comprehensive_card_main position-relative bg-white/80'>
               <div className="text-center" style={{ cursor: 'pointer' }} onClick={() => setIsAIModalOpen(true)}>
                 <div className="w-16 m-auto h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Zap className="w-8 h-8 text-white" />
@@ -409,56 +404,7 @@ const HomePage = () => {
             </div>
               </div>
             </div>
-          {/* Modal for AI-Powered Test Generation card (global overlay) */}
-          {isAIModalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-              <div
-                className="bg-white rounded-2xl shadow-2xl p-2 w-[50%] relative"
-                style={{ maxWidth: '900px' }}
-              >
-                {/* Close icon at top right */}
-                <button
-                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors"
-                  onClick={() => setIsAIModalOpen(false)}
-                  aria-label="Close"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-                <div className='bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300'>
-                  <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">AI-Powered Test Generation</h3>
-                    <p className="text-blue-600 font-medium">Intelligent automation at scale</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Leverage advanced machine learning algorithms to automatically generate comprehensive test cases 
-                  that understand your application structure, user flows, and business logic.
-                </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Smart Test Creation:</span> AI analyzes your app and generates relevant test scenarios automatically
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Intelligent Assertions:</span> Automatically generates meaningful assertions based on UI elements and data
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Self-Healing Tests:</span> Tests automatically adapt to UI changes, reducing maintenance by 70%
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Pattern Recognition:</span> Learns from existing tests to suggest improvements and optimizations
-                  </li>
-                </ul>
-                </div>
-              </div>
-            </div>
-          )}
-            <div className='comprehensive_card_main'>
+            <div className='comprehensive_card_main bg-white/80'>
                 <div className="text-center">
                   <div className="w-16 m-auto h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Globe className="w-8 h-8 text-white" />
@@ -469,7 +415,7 @@ const HomePage = () => {
                   </div>
                 </div>
             </div>
-            <div className='comprehensive_card_main'>
+            <div className='comprehensive_card_main bg-white/80'>
                 <div className="text-center">
                   <div className="w-16 m-auto h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Shield className="w-8 h-8 text-white" />
@@ -480,7 +426,7 @@ const HomePage = () => {
                   </div>
                 </div>
             </div>
-            <div className='comprehensive_card_main'>
+            <div className='comprehensive_card_main bg-white/80'>
                 <div className="text-center">
                   <div className="w-16 m-auto h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <BarChart3 className="w-8 h-8 text-white" />
@@ -529,244 +475,7 @@ const HomePage = () => {
           </div>
           
 
-          <div className="">
-            {/* AI-Powered Test Generation */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">AI-Powered Test Generation</h3>
-                    <p className="text-blue-600 font-medium">Intelligent automation at scale</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Leverage advanced machine learning algorithms to automatically generate comprehensive test cases 
-                  that understand your application structure, user flows, and business logic.
-                </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Smart Test Creation:</span> AI analyzes your app and generates relevant test scenarios automatically
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Intelligent Assertions:</span> Automatically generates meaningful assertions based on UI elements and data
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Self-Healing Tests:</span> Tests automatically adapt to UI changes, reducing maintenance by 70%
-                  </li>
-                  <li className="text-gray-600 leading-relaxed text-sm">
-                    <span className="font-bold text-gray-900">Pattern Recognition:</span> Learns from existing tests to suggest improvements and optimizations
-                  </li>
-                </ul>
-              </div>
-            </div>
 
-            {/* Cross-Platform Testing */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Cross-Platform Testing</h3>
-                    <p className="text-green-600 font-medium">Test everywhere, deploy with confidence</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Execute tests across web browsers, mobile devices, APIs, and desktop applications from a single platform. 
-                  Ensure consistent user experience across all touchpoints.
-                </p>
-            
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Web Testing:</span> Chrome, Firefox, Safari, Edge - all browsers covered with headless support
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Mobile Testing:</span> Real device testing on iOS and Android with cloud device farm
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">API Testing:</span> REST, SOAP, GraphQL - comprehensive API validation and performance testing
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Desktop Apps:</span> Windows, macOS, Linux desktop application testing support
-                    </li>
-                  </ul>
-              </div>
-            </div>
-
-            {/* Enterprise Security */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Enterprise Security</h3>
-                    <p className="text-purple-600 font-medium">Bank-grade security and compliance</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Meet the highest security standards with SOC 2 Type II compliance, end-to-end encryption, 
-                  and comprehensive audit logging for enterprise peace of mind.
-                </p>
-                
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">SOC 2 Compliance:</span> Type II certified with regular third-party security audits
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Data Encryption:</span> End-to-end encryption for data in transit and at rest
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Access Control:</span> Role-based permissions with SSO and multi-factor authentication
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Audit Logging:</span> Comprehensive activity logs for compliance and security monitoring
-                    </li>
-                  </ul>
-              </div>
-            </div>
-
-            {/* Advanced Analytics */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <BarChart3 className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Advanced Analytics</h3>
-                    <p className="text-orange-600 font-medium">Data-driven testing insights</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Transform testing data into actionable insights with real-time dashboards, predictive analytics, 
-                  and comprehensive reporting that drives continuous improvement.
-                </p>
-                
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Real-time Dashboards:</span> Live test execution monitoring with customizable views
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Predictive Analytics:</span> AI-powered insights to predict and prevent quality issues
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Custom Reports:</span> Executive summaries and detailed technical reports
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Trend Analysis:</span> Historical data analysis to identify patterns and improvements
-                    </li>
-                  </ul>
-              </div>
-            </div>
-
-            {/* CI/CD Integration */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <GitBranch className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">CI/CD Integration</h3>
-                    <p className="text-cyan-600 font-medium">Seamless DevOps workflow</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Integrate seamlessly with your existing DevOps pipeline. Trigger tests automatically, 
-                  get instant feedback, and maintain quality gates throughout your development process.
-                </p>
-
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Pipeline Integration:</span> Jenkins, GitHub Actions, GitLab CI, Azure DevOps support
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Quality Gates:</span> Automated quality checks that prevent bad code from deploying
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Parallel Execution:</span> Run thousands of tests simultaneously for faster feedback
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Smart Notifications:</span> Contextual alerts via Slack, Teams, email, and webhooks
-                    </li>
-                  </ul>
-              </div>
-            </div>
-
-            {/* Cloud Execution */}
-            <div className="group mb-10">
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Cloud className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Cloud Execution</h3>
-                    <p className="text-pink-600 font-medium">Infinite scale, zero infrastructure</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Execute tests at massive scale with our cloud infrastructure. No setup required, 
-                  automatic scaling, and global availability for consistent performance worldwide.
-                </p>
-    
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Auto Scaling:</span> Automatically scale resources based on test execution demand
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Global Infrastructure:</span> Test from multiple geographic locations for performance validation
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Zero Maintenance:</span> No infrastructure to manage - focus on testing, not servers
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Cost Optimization:</span> Pay only for what you use with intelligent resource allocation
-                    </li>
-                  </ul>
-              </div>
-            </div>
-
-            {/* Team Collaboration */}
-            <div className="group lg:col-span-2">
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Team Collaboration</h3>
-                    <p className="text-indigo-600 font-medium">Built for distributed teams</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Enable seamless collaboration across development, QA, and product teams with real-time sharing, 
-                  comments, notifications, and role-based access controls.
-                </p>
-              
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Real-time Sharing:</span> Share test results and reports instantly with stakeholders
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Comments & Reviews:</span> Collaborative test review process with inline comments
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Role Management:</span> Granular permissions for different team roles and responsibilities
-                    </li>
-                    <li className="text-gray-600 leading-relaxed text-sm">
-                      <span className="font-bold text-gray-900">Activity Feeds:</span> Stay updated with real-time notifications and activity streams
-                    </li>
-                  </ul>
-              </div>
-            </div>
-          </div>
 
 
         
@@ -1904,7 +1613,7 @@ const HomePage = () => {
                 {/* Smarter Control */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Users className="w-7 h-7 text-white" />
@@ -1933,7 +1642,7 @@ const HomePage = () => {
                 {/* AI Assistance */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Cpu className="w-7 h-7 text-white" />
@@ -1965,7 +1674,7 @@ const HomePage = () => {
                 {/* Dynamic Test Data */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
@@ -1994,7 +1703,7 @@ const HomePage = () => {
                 {/* Virtualization & Integrations */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <GitBranch className="w-7 h-7 text-white" />
@@ -2026,7 +1735,7 @@ const HomePage = () => {
                 {/* Modern Execution */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Zap className="w-7 h-7 text-white" />
@@ -2055,7 +1764,7 @@ const HomePage = () => {
                 {/* Powerful Reporting */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
