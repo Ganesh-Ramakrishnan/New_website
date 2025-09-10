@@ -28,6 +28,7 @@ import Hero from '../components/Hero';
 import WebinarForm from '../components/WebinarForm';
 
 const HomePage = () => {
+  const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeCategory, setActiveCategory] = useState('web');
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -110,7 +111,7 @@ const HomePage = () => {
       ]
     }
   ];
-
+  const [isGaneshModalOpen, setIsGaneshModalOpen] = useState(false);
   const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
   const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
 
@@ -318,7 +319,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div>
+  <div className="bg-black text-white min-h-screen">
       <Hero />
 
       {/* Features Section */}
@@ -392,6 +393,141 @@ const HomePage = () => {
               to enterprise-grade security and reporting.
             </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className='comprehensive_card_main position-relative'>
+              <div className="text-center" style={{ cursor: 'pointer' }} onClick={() => setIsAIModalOpen(true)}>
+                <div className="w-16 m-auto h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">AI-Powered Test Generation</h3>
+                  <p className="text-blue-600 font-medium comprehensive_card_subHeader">Intelligent automation at scale</p>
+                </div>
+                <div className='position-absolute bottom-0 start-50 translate-middle-x mb-2'>
+              read more <a href="#features" className="text-blue-600 hover:underline">here</a>
+            </div>
+              </div>
+            </div>
+          {/* Modal for AI-Powered Test Generation card (global overlay) */}
+          {isAIModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+              <div
+                className="bg-white rounded-2xl shadow-2xl p-2 w-[50%] relative"
+                style={{ maxWidth: '900px' }}
+              >
+                {/* Close icon at top right */}
+                <button
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors"
+                  onClick={() => setIsAIModalOpen(false)}
+                  aria-label="Close"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div className='bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300'>
+                  <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">AI-Powered Test Generation</h3>
+                    <p className="text-blue-600 font-medium">Intelligent automation at scale</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Leverage advanced machine learning algorithms to automatically generate comprehensive test cases 
+                  that understand your application structure, user flows, and business logic.
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Smart Test Creation:</span> AI analyzes your app and generates relevant test scenarios automatically
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Intelligent Assertions:</span> Automatically generates meaningful assertions based on UI elements and data
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Self-Healing Tests:</span> Tests automatically adapt to UI changes, reducing maintenance by 70%
+                  </li>
+                  <li className="text-gray-600 leading-relaxed text-sm">
+                    <span className="font-bold text-gray-900">Pattern Recognition:</span> Learns from existing tests to suggest improvements and optimizations
+                  </li>
+                </ul>
+                </div>
+              </div>
+            </div>
+          )}
+            <div className='comprehensive_card_main'>
+                <div className="text-center">
+                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Globe className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Cross-Platform Testing</h3>
+                    <p className="text-green-600 font-medium comprehensive_card_subHeader">Test everywhere, deploy with confidence</p>
+                  </div>
+                </div>
+            </div>
+            <div className='comprehensive_card_main'>
+                <div className="text-center">
+                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Enterprise Security</h3>
+                    <p className="text-purple-600 font-medium comprehensive_card_subHeader">Bank-grade security and compliance</p>
+                  </div>
+                </div>
+            </div>
+            <div className='comprehensive_card_main'>
+                <div className="text-center">
+                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <BarChart3 className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Advanced Analytics</h3>
+                    <p className="text-orange-600 font-medium comprehensive_card_subHeader">Data-driven testing insights</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-3">
+            <div className='comprehensive_card_main'>
+                <div className="text-center">
+                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <GitBranch className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">CI/CD Integration</h3>
+                    <p className="text-cyan-600 font-medium comprehensive_card_subHeader">Seamless DevOps workflow</p>
+                  </div>
+                </div>
+            </div>
+            <div className='comprehensive_card_main'>
+                  <div className="text-center">
+                    <div className="w-16 m-auto h-16 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Cloud className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Cloud Execution</h3>
+                      <p className="text-pink-600 font-medium comprehensive_card_subHeader">Infinite scale, zero infrastructure</p>
+                    </div>
+                  </div>
+            </div>
+            <div className='comprehensive_card_main'>
+                  <div className="text-center">
+                    <div className="w-16 m-auto h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Team Collaboration</h3>
+                      <p className="text-indigo-600 font-medium comprehensive_card_subHeader">Built for distributed teams</p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          
 
           <div className="">
             {/* AI-Powered Test Generation */}
@@ -631,6 +767,9 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+
+
+        
 
           {/* Feature Highlights */}
           <div className="mt-20 text-center">

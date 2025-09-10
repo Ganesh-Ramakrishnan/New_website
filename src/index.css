@@ -1,3 +1,57 @@
+body {
+  background: #111;
+  color: #f3f3f3;
+}
+
+section, .bg-gray-50, .bg-white {
+  background: #18181b !important;
+  color: #f3f3f3 !important;
+}
+
+.comprehensive_card_main, .group.bg-white, .group.bg-gray-50 {
+  background: #232323 !important;
+  color: #f3f3f3 !important;
+  border-color: #333 !important;
+}
+
+.text-gray-900, .text-gray-600, .text-gray-700 {
+  color: #f3f3f3 !important;
+}
+
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600 {
+  color: #dd246a !important;
+}
+
+.bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
+  background: #232323 !important;
+}
+body {
+  background: #111;
+  color: #f3f3f3;
+}
+
+section, .bg-gray-50, .bg-white {
+  background: #18181b !important;
+  color: #f3f3f3 !important;
+}
+
+.card-hover-group, .comprehensive_card_main {
+  background: #232323 !important;
+  color: #f3f3f3 !important;
+  border-color: #333 !important;
+}
+
+.text-gray-900, .text-gray-600, .text-gray-700 {
+  color: #f3f3f3 !important;
+}
+
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600 {
+  color: #dd246a !important;
+}
+
+.bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
+  background: #232323 !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,4 +102,36 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.comprehensive_card_main{
+  padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comprehensive_card_main {
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.comprehensive_card_main:hover {
+  background: #f7f7f7;
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.08), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  transform: translateY(-6px) scale(1.03);
+}
+.comprehensive_card_header{
+      font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 20px;
+    margin-top: 10px;
+}
+.comprehensive_card_subHeader{
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 10px;
+    color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
