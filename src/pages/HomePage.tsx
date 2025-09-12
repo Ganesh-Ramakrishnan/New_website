@@ -7,12 +7,10 @@ import {
   Clock,
   Cloud,
   Cpu,
-  ExternalLink,
   FileText,
   GitBranch,
   Globe,
   Layers,
-  Play,
   Settings,
   Shield,
   Smartphone,
@@ -26,6 +24,9 @@ import { useState } from 'react';
 import DemoRequestForm from '../components/DemoRequestForm';
 import Hero from '../components/Hero';
 import WebinarForm from '../components/WebinarForm';
+
+
+import CarouselCard from '../components/CarouselCard';
 
 const HomePage = () => {
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
@@ -338,7 +339,7 @@ const HomePage = () => {
           {/* Simple Grid Layout - Dark Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getCurrentFeatures().map((feature, index) => (
-              <div key={index} className="group relative rounded-2xl p-8 shadow-lg border border-gray-700 hover:shadow-2xl hover:border-blue-500 overflow-hidden bg-gray-800">
+              <div key={index} className="feature-gradient-bg rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
                 {/* Icon container with enhanced styling */}
                 <div className="relative mb-6 flex justify-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
@@ -353,8 +354,7 @@ const HomePage = () => {
                   <p className="text-gray-300 leading-relaxed text-sm">
                     {feature.description}
                   </p>
-                  {/* Subtle bottom accent */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                  {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
                 </div>
               </div>
             ))}
@@ -389,93 +389,8 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className='comprehensive_card_main position-relative bg-white/80'>
-              <div className="text-center" style={{ cursor: 'pointer' }} onClick={() => setIsAIModalOpen(true)}>
-                <div className="w-16 m-auto h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">AI-Powered Test Generation</h3>
-                  <p className="text-blue-600 font-medium comprehensive_card_subHeader">Intelligent automation at scale</p>
-                </div>
-                <div className='position-absolute bottom-0 start-50 translate-middle-x mb-2'>
-              read more <a href="#features" className="text-blue-600 hover:underline">here</a>
-            </div>
-              </div>
-            </div>
-            <div className='comprehensive_card_main bg-white/80'>
-                <div className="text-center">
-                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Cross-Platform Testing</h3>
-                    <p className="text-green-600 font-medium comprehensive_card_subHeader">Test everywhere, deploy with confidence</p>
-                  </div>
-                </div>
-            </div>
-            <div className='comprehensive_card_main bg-white/80'>
-                <div className="text-center">
-                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Enterprise Security</h3>
-                    <p className="text-purple-600 font-medium comprehensive_card_subHeader">Bank-grade security and compliance</p>
-                  </div>
-                </div>
-            </div>
-            <div className='comprehensive_card_main bg-white/80'>
-                <div className="text-center">
-                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <BarChart3 className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Advanced Analytics</h3>
-                    <p className="text-orange-600 font-medium comprehensive_card_subHeader">Data-driven testing insights</p>
-                  </div>
-                </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-3">
-            <div className='comprehensive_card_main'>
-                <div className="text-center">
-                  <div className="w-16 m-auto h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <GitBranch className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">CI/CD Integration</h3>
-                    <p className="text-cyan-600 font-medium comprehensive_card_subHeader">Seamless DevOps workflow</p>
-                  </div>
-                </div>
-            </div>
-            <div className='comprehensive_card_main'>
-                  <div className="text-center">
-                    <div className="w-16 m-auto h-16 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Cloud className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Cloud Execution</h3>
-                      <p className="text-pink-600 font-medium comprehensive_card_subHeader">Infinite scale, zero infrastructure</p>
-                    </div>
-                  </div>
-            </div>
-            <div className='comprehensive_card_main'>
-                  <div className="text-center">
-                    <div className="w-16 m-auto h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">Team Collaboration</h3>
-                      <p className="text-indigo-600 font-medium comprehensive_card_subHeader">Built for distributed teams</p>
-                    </div>
-                  </div>
-            </div>
-          </div>
-          
-
-
+          {/* Carousel Card Example with Toggle */}
+          <CarouselCard />
 
 
         
@@ -1613,7 +1528,7 @@ const HomePage = () => {
                 {/* Smarter Control */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg min-h-365">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Users className="w-7 h-7 text-white" />
@@ -1642,7 +1557,7 @@ const HomePage = () => {
                 {/* AI Assistance */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Cpu className="w-7 h-7 text-white" />
@@ -1674,7 +1589,7 @@ const HomePage = () => {
                 {/* Dynamic Test Data */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
@@ -1703,7 +1618,7 @@ const HomePage = () => {
                 {/* Virtualization & Integrations */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <GitBranch className="w-7 h-7 text-white" />
@@ -1735,7 +1650,7 @@ const HomePage = () => {
                 {/* Modern Execution */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Zap className="w-7 h-7 text-white" />
@@ -1764,7 +1679,7 @@ const HomePage = () => {
                 {/* Powerful Reporting */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
@@ -1795,192 +1710,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Comprehensive Webinar Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
-              <Play className="w-5 h-5 text-blue-600 mr-2" />
-              <span className="text-blue-800 font-semibold">Expert Webinars</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Learn from Industry Experts
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Join our live sessions and access our extensive library of on-demand webinars covering 
-              everything from automation basics to advanced enterprise strategies.
-            </p>
-          </div>
-
-          {/* Upcoming Webinar Spotlight */}
-          <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div>
-            
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse mr-3"></div>
-                  <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                    Next Live Session
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  {upcomingWebinar.title}
-                </h3>
-                <p className="text-blue-100 text-lg mb-6 leading-relaxed">
-                  {upcomingWebinar.description}
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Calendar className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Date & Time</span>
-                    </div>
-                    <div className="text-white font-bold">{upcomingWebinar.date}</div>
-                    <div className="text-blue-200">{upcomingWebinar.time}</div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Users className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Registrations</span>
-                    </div>
-                    <div className="text-white font-bold text-2xl">{upcomingWebinar.registrations.toLocaleString()}</div>
-                    <div className="text-blue-200 text-sm">and counting...</div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center justify-center w-full"
-                  >
-                    Register Free Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
-                  <button className="border-2 border-white/30 hover:border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl font-semibold transition-all">
-                    Add to Calendar
-                  </button>
-                </div>
-              </div>
-              
-              <div className="relative">
-                <img
-                  src={upcomingWebinar.image}
-                  alt="Upcoming Webinar"
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
-                    <Play className="h-12 w-12 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Past Webinars Library */}
-          <div>
-            <div className="flex justify-between items-center mb-12">
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">On-Demand Webinar Library</h3>
-                <p className="text-lg text-gray-600">Access our complete collection of expert-led sessions</p>
-              </div>
-              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all items-center">
-                View All Sessions
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {pastWebinars.map((webinar, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer">
-                  <div className="relative">
-                    <img
-                      src={webinar.thumbnail}
-                      alt={webinar.title}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-                        <Play className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full font-medium">
-                      {webinar.duration}
-                    </div>
-                    <div className="absolute bottom-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
-                      {webinar.views.toLocaleString()} views
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {webinar.title}
-                    </h4>
-                    <div className="flex items-center text-sm text-gray-600 mb-4">
-                      <Users className="h-4 w-4 mr-2" />
-                      <span className="font-medium">{webinar.presenter}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        <span>{webinar.date}</span>
-                      </div>
-                      <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center">
-                        Watch Now
-                        <ArrowRight className="ml-1 h-3 w-3" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Webinar Stats & CTA */}
-            <div className="mt-16 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                    Join Our Growing Community
-                  </h4>
-                  <p className="text-gray-600 mb-6">
-                    Subscribe to our webinar series and never miss expert insights, product updates, 
-                    and exclusive Q&A sessions with our team.
-                  </p>
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center"
-                  >
-                    Subscribe to Webinars
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-8 text-center">
-                  <div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">25+</div>
-                    <div className="text-gray-600">Expert Sessions</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-green-600 mb-1">15K+</div>
-                    <div className="text-gray-600">Total Attendees</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">4.9/5</div>
-                    <div className="text-gray-600">Average Rating</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">100%</div>
-                    <div className="text-gray-600">Free Access</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Webinar Registration Form */}
       <WebinarForm
