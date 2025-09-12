@@ -1,5 +1,4 @@
-import React from 'react';
-import { Target, Users, Award, ArrowRight, Linkedin } from 'lucide-react';
+import { ArrowRight, Award, Linkedin, Target, Users } from 'lucide-react';
 
 const AboutPage = () => {
   const team = [
@@ -132,7 +131,7 @@ const AboutPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
+              <div key={index} className="rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group feature-gradient-bg">
                 <img
                   src={member.image}
                   alt={member.name}

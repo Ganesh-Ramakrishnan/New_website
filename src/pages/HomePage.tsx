@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import Hero from '../components/Hero';
-import WebinarForm from '../components/WebinarForm';
-import DemoRequestForm from '../components/DemoRequestForm';
-import { 
-  Zap, 
-  Shield, 
-  BarChart3, 
-  Cpu, 
-  CheckCircle, 
+import {
   ArrowRight,
-  Star,
-  GitBranch,
-  Users,
-  FileText,
+  BarChart3,
   Bug,
   Calendar,
-  Target,
-  TrendingUp,
-  Smartphone,
+  CheckCircle,
+  Clock,
   Cloud,
+  Cpu,
+  FileText,
+  GitBranch,
   Globe,
   Layers,
   Settings,
-  ChevronLeft,
-  ChevronRight,
-  Play,
-  Clock,
-  ExternalLink
+  Shield,
+  Smartphone,
+  Star,
+  Target,
+  TrendingUp,
+  Users,
+  Zap
 } from 'lucide-react';
+import { useState } from 'react';
+import DemoRequestForm from '../components/DemoRequestForm';
+import Hero from '../components/Hero';
+import WebinarForm from '../components/WebinarForm';
+
+
+import CarouselCard from '../components/CarouselCard';
 
 const HomePage = () => {
+  const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeCategory, setActiveCategory] = useState('web');
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -112,7 +112,7 @@ const HomePage = () => {
       ]
     }
   ];
-
+  const [isGaneshModalOpen, setIsGaneshModalOpen] = useState(false);
   const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
   const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
 
@@ -320,61 +320,55 @@ const HomePage = () => {
   ];
 
   return (
-    <div>
-      <Hero />
+    <div className="bg-black text-white min-h-screen">
+  <div className="w-full text-white">
+        <Hero />
+      </div>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Features Section - Dark Theme */}
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Why Choose SimplifyQA?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
             </p>
           </div>
-          
-          {/* Simple Grid Layout */}
+          {/* Simple Grid Layout - Dark Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getCurrentFeatures().map((feature, index) => (
-              <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden">
-                {/* Background gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
                 {/* Icon container with enhanced styling */}
                 <div className="relative mb-6 flex justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-xl">
-                  {feature.icon}
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    {feature.icon}
                   </div>
                 </div>
-                
                 {/* Content */}
                 <div className="relative text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
-                  {feature.description}
-                </p>
-                
-                {/* Subtle bottom accent */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-16 transition-all duration-500 rounded-full"></div>
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
+                  {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
                 </div>
               </div>
             ))}
           </div>
-          
-          {/* Dot Navigation */}
+          {/* Dot Navigation - Dark Theme */}
           <div className="flex justify-center space-x-3 mt-12">
             {Array.from({ length: totalSlides }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 rounded-full ${
                   index === currentSlide 
                     ? 'bg-blue-600 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                    : 'bg-gray-700 hover:bg-gray-500 hover:scale-110'
                 }`}
               />
             ))}
@@ -395,266 +389,11 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* AI-Powered Test Generation */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">AI-Powered Test Generation</h3>
-                    <p className="text-blue-600 font-medium">Intelligent automation at scale</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Leverage advanced machine learning algorithms to automatically generate comprehensive test cases 
-                  that understand your application structure, user flows, and business logic.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Smart Test Creation</h4>
-                    <p className="text-sm text-gray-600">AI analyzes your app and generates relevant test scenarios automatically</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Intelligent Assertions</h4>
-                    <p className="text-sm text-gray-600">Automatically generates meaningful assertions based on UI elements and data</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Self-Healing Tests</h4>
-                    <p className="text-sm text-gray-600">Tests automatically adapt to UI changes, reducing maintenance by 70%</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Pattern Recognition</h4>
-                    <p className="text-sm text-gray-600">Learns from existing tests to suggest improvements and optimizations</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Carousel Card Example with Toggle */}
+          <CarouselCard />
 
-            {/* Cross-Platform Testing */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Cross-Platform Testing</h3>
-                    <p className="text-green-600 font-medium">Test everywhere, deploy with confidence</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Execute tests across web browsers, mobile devices, APIs, and desktop applications from a single platform. 
-                  Ensure consistent user experience across all touchpoints.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Web Testing</h4>
-                    <p className="text-sm text-gray-600">Chrome, Firefox, Safari, Edge - all browsers covered with headless support</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Mobile Testing</h4>
-                    <p className="text-sm text-gray-600">Real device testing on iOS and Android with cloud device farm</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">API Testing</h4>
-                    <p className="text-sm text-gray-600">REST, SOAP, GraphQL - comprehensive API validation and performance testing</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Desktop Apps</h4>
-                    <p className="text-sm text-gray-600">Windows, macOS, Linux desktop application testing support</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Enterprise Security */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Enterprise Security</h3>
-                    <p className="text-purple-600 font-medium">Bank-grade security and compliance</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Meet the highest security standards with SOC 2 Type II compliance, end-to-end encryption, 
-                  and comprehensive audit logging for enterprise peace of mind.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">SOC 2 Compliance</h4>
-                    <p className="text-sm text-gray-600">Type II certified with regular third-party security audits</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Data Encryption</h4>
-                    <p className="text-sm text-gray-600">End-to-end encryption for data in transit and at rest</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Access Control</h4>
-                    <p className="text-sm text-gray-600">Role-based permissions with SSO and multi-factor authentication</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Audit Logging</h4>
-                    <p className="text-sm text-gray-600">Comprehensive activity logs for compliance and security monitoring</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Advanced Analytics */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <BarChart3 className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Advanced Analytics</h3>
-                    <p className="text-orange-600 font-medium">Data-driven testing insights</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Transform testing data into actionable insights with real-time dashboards, predictive analytics, 
-                  and comprehensive reporting that drives continuous improvement.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Real-time Dashboards</h4>
-                    <p className="text-sm text-gray-600">Live test execution monitoring with customizable views</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Predictive Analytics</h4>
-                    <p className="text-sm text-gray-600">AI-powered insights to predict and prevent quality issues</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Custom Reports</h4>
-                    <p className="text-sm text-gray-600">Executive summaries and detailed technical reports</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Trend Analysis</h4>
-                    <p className="text-sm text-gray-600">Historical data analysis to identify patterns and improvements</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CI/CD Integration */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <GitBranch className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">CI/CD Integration</h3>
-                    <p className="text-cyan-600 font-medium">Seamless DevOps workflow</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Integrate seamlessly with your existing DevOps pipeline. Trigger tests automatically, 
-                  get instant feedback, and maintain quality gates throughout your development process.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Pipeline Integration</h4>
-                    <p className="text-sm text-gray-600">Jenkins, GitHub Actions, GitLab CI, Azure DevOps support</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Quality Gates</h4>
-                    <p className="text-sm text-gray-600">Automated quality checks that prevent bad code from deploying</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Parallel Execution</h4>
-                    <p className="text-sm text-gray-600">Run thousands of tests simultaneously for faster feedback</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Smart Notifications</h4>
-                    <p className="text-sm text-gray-600">Contextual alerts via Slack, Teams, email, and webhooks</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Cloud Execution */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Cloud className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Cloud Execution</h3>
-                    <p className="text-pink-600 font-medium">Infinite scale, zero infrastructure</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Execute tests at massive scale with our cloud infrastructure. No setup required, 
-                  automatic scaling, and global availability for consistent performance worldwide.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Auto Scaling</h4>
-                    <p className="text-sm text-gray-600">Automatically scale resources based on test execution demand</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Global Infrastructure</h4>
-                    <p className="text-sm text-gray-600">Test from multiple geographic locations for performance validation</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Zero Maintenance</h4>
-                    <p className="text-sm text-gray-600">No infrastructure to manage - focus on testing, not servers</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Cost Optimization</h4>
-                    <p className="text-sm text-gray-600">Pay only for what you use with intelligent resource allocation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Team Collaboration */}
-            <div className="group lg:col-span-2">
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Team Collaboration</h3>
-                    <p className="text-indigo-600 font-medium">Built for distributed teams</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Enable seamless collaboration across development, QA, and product teams with real-time sharing, 
-                  comments, notifications, and role-based access controls.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Real-time Sharing</h4>
-                    <p className="text-sm text-gray-600">Share test results and reports instantly with stakeholders</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Comments & Reviews</h4>
-                    <p className="text-sm text-gray-600">Collaborative test review process with inline comments</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Role Management</h4>
-                    <p className="text-sm text-gray-600">Granular permissions for different team roles and responsibilities</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-2">Activity Feeds</h4>
-                    <p className="text-sm text-gray-600">Stay updated with real-time notifications and activity streams</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
 
           {/* Feature Highlights */}
           <div className="mt-20 text-center">
@@ -694,7 +433,7 @@ const HomePage = () => {
       </section>
 
       {/* Automation Capabilities Section */}
-      <section className="py-20 bg-gray-900">
+      {/* <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -705,9 +444,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Technology Ecosystem Visualization */}
+          Technology Ecosystem Visualization
           <div className="relative max-w-6xl mx-auto">
-            {/* Background Grid */}
+            Background Grid
             <div className="absolute inset-0 opacity-10">
               <div className="grid grid-cols-12 grid-rows-8 h-full w-full">
                 {Array.from({ length: 96 }).map((_, i) => (
@@ -716,17 +455,17 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Main Platform Container */}
+            Main Platform Container
             <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-cyan-500/30 p-12 min-h-[600px]">
               
-              {/* Platform Header */}
+              Platform Header
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-cyan-500/50 rounded-lg px-6 py-2">
                   <span className="text-cyan-400 font-semibold">Platform</span>
                 </div>
               </div>
 
-              {/* Left Side - Enterprise Applications */}
+              Left Side - Enterprise Applications
               <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-purple-500/50 rounded-lg px-3 py-2 mb-4 rotate-90">
                   <span className="text-purple-400 font-semibold text-sm">ERP & CRM</span>
@@ -753,7 +492,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right Side - Technology Categories */}
+              Right Side - Technology Categories
               <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
                 <div className="bg-gray-700 border border-pink-500/50 rounded-lg px-3 py-2 mb-4 -rotate-90">
                   <span className="text-pink-400 font-semibold text-sm">Applications</span>
@@ -787,15 +526,15 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Central Hub Area */}
+              Central Hub Area
               <div className="flex items-center justify-center h-full">
                 <div className="relative">
-                  {/* Outer Ring with Orbiting Elements */}
+                  Outer Ring with Orbiting Elements
                   <div className="relative w-80 h-80">
-                    {/* Outer Ring */}
+                    Outer Ring
                     <div className="absolute inset-0 border-2 border-dashed border-cyan-500/30 rounded-full"></div>
                     
-                    {/* Orbiting Elements */}
+                    Orbiting Elements
                     {Array.from({ length: 8 }).map((_, index) => {
                       const angle = (index * 45) * (Math.PI / 180);
                       const radius = 140;
@@ -822,9 +561,9 @@ const HomePage = () => {
                     })}
                   </div>
 
-                  {/* Inner Ring */}
+                  Inner Ring
                   <div className="absolute inset-16 border border-dashed border-purple-500/30 rounded-full flex items-center justify-center">
-                    {/* Atto Label */}
+                    Atto Label
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
                       <div className="bg-gray-700 border border-purple-500/50 rounded-full px-4 py-2 flex items-center space-x-2">
                         <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
@@ -834,7 +573,7 @@ const HomePage = () => {
                       </div>
                     </div>
 
-                    {/* Copilot Label */}
+                    Copilot Label
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
                       <div className="bg-gray-700 border border-blue-500/50 rounded-full px-4 py-2 flex items-center space-x-2">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -845,7 +584,7 @@ const HomePage = () => {
                     </div>
                   </div>
 
-                  {/* Central Core */}
+                  Central Core
                   <div className="absolute inset-24 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full flex items-center justify-center shadow-2xl">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                       <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full flex items-center justify-center">
@@ -856,9 +595,9 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Connection Lines */}
+              Connection Lines
               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-                {/* Left side connections */}
+                Left side connections
                 <path
                   d="M 0 300 Q 150 300 300 300"
                   stroke="url(#leftGradient)"
@@ -867,7 +606,7 @@ const HomePage = () => {
                   strokeDasharray="5,5"
                   className="animate-pulse"
                 />
-                {/* Right side connections */}
+                Right side connections
                 <path
                   d="M 600 300 Q 450 300 300 300"
                   stroke="url(#rightGradient)"
@@ -877,7 +616,7 @@ const HomePage = () => {
                   className="animate-pulse"
                 />
                 
-                {/* Gradients */}
+                Gradients
                 <defs>
                   <linearGradient id="leftGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
@@ -892,7 +631,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Technology Details Section */}
+          Technology Details Section
           <div className="mt-16">
             <div className="text-center mb-12">
               <h3 className="text-2xl font-bold text-white mb-4">
@@ -901,7 +640,7 @@ const HomePage = () => {
             </div>
             
             <div className="min-h-[300px]">
-              {/* Dynamic Content Display */}
+              Dynamic Content Display
               {activeCategory === 'web' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-cyan-500/30">
@@ -946,7 +685,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              {/* Other technology categories remain similar but with dark theme */}
+              Other technology categories remain similar but with dark theme
               {activeCategory === 'db' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-green-500/30">
@@ -989,7 +728,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              {/* Similar updates for other categories... */}
+              Similar updates for other categories...
               {activeCategory === 'desktop' && (
                 <div className="animate-slideIn">
                   <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/30">
@@ -1033,10 +772,10 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Automation Capabilities Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6">
@@ -1055,16 +794,16 @@ const HomePage = () => {
             </p>
           </div>
           
-          {/* Animated Technology Stack Visualization */}
+          Animated Technology Stack Visualization
           <div className="mb-20">
             <div className="relative max-w-4xl mx-auto">
-              {/* Central Hub */}
+              Central Hub
               <div className="relative flex items-center justify-center">
                 <div className="w-80 h-80 relative">
-                  {/* Outer rotating ring */}
+                  Outer rotating ring
                   <div className="absolute inset-0 rounded-full border-4 border-gray-200 animate-spin" style={{ animationDuration: '20s' }}></div>
                   
-                  {/* Inner segments - SDLC phases */}
+                  Inner segments - SDLC phases
                   <div className="absolute inset-8 rounded-full bg-gradient-to-br from-red-400 via-pink-400 to-purple-400 flex items-center justify-center">
                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
                       <div className="text-center">
@@ -1074,7 +813,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  {/* Technology orbits */}
+                  Technology orbits
                   {[
                     { name: 'WEB', icon: '🌐', angle: 0, color: 'from-blue-500 to-cyan-500' },
                     { name: 'MOBILE', icon: '📱', angle: 60, color: 'from-green-500 to-emerald-500' },
@@ -1105,7 +844,7 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* SDLC Phase Labels */}
+              SDLC Phase Labels
               <div className="absolute inset-0 pointer-events-none">
                 {[
                   { phase: 'Plan', angle: 30, radius: 200 },
@@ -1130,7 +869,7 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Technology Stats */}
+            Technology Stats
             <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-8 text-center">
               {[
                 { name: 'Web Browsers', count: '5+', color: 'text-blue-600' },
@@ -1150,10 +889,10 @@ const HomePage = () => {
             </div>
           </div>
           
-          {/* Interactive Circular Technology Selector */}
+          Interactive Circular Technology Selector
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="relative w-96 h-96 mx-auto">
-              {/* Central Hub */}
+              Central Hub
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full shadow-2xl border-4 border-gray-100 flex items-center justify-center z-10">
                 <div className="text-center">
                   <div className="text-lg font-bold text-gray-900">SimplifyQA</div>
@@ -1161,7 +900,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Technology Orbits */}
+              Technology Orbits
               {[
                 { 
                   id: 'web', 
@@ -1244,7 +983,7 @@ const HomePage = () => {
                 );
               })}
 
-              {/* Connecting Lines */}
+              Connecting Lines
               {activeCategory && (
                 <svg className="absolute inset-0 w-full h-full pointer-events-none">
                   <defs>
@@ -1268,9 +1007,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Dynamic Content Display */}
+          Dynamic Content Display
           <div className="relative">
-            {/* All Automation Cards in One Row */}
+            All Automation Cards in One Row
             <div className="animate-fadeIn">
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 mb-8">
                 <div className="text-center mb-8">
@@ -1292,7 +1031,7 @@ const HomePage = () => {
                 
                 <div className="flex justify-center overflow-x-auto">
                   <div className="flex gap-3 min-w-max">
-                    {/* Web Automation Cards */}
+                    Web Automation Cards
                     {activeCategory === 'web' && [
                       { name: 'Chrome', icon: '🟢', color: 'from-green-500 to-blue-500', market: '65%' },
                       { name: 'Firefox', icon: '🟠', color: 'from-orange-500 to-red-500', market: '18%' },
@@ -1313,7 +1052,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* Database Automation Cards */}
+                    Database Automation Cards
                     {activeCategory === 'db' && [
                       { name: 'MySQL', icon: '🟡', color: 'from-orange-500 to-blue-600', type: 'Relational' },
                       { name: 'Oracle', icon: '🔴', color: 'from-red-600 to-red-800', type: 'Enterprise' },
@@ -1336,7 +1075,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* Desktop Automation Cards */}
+                    Desktop Automation Cards
                     {activeCategory === 'desktop' && [
                       { name: 'Java', icon: '🟠', color: 'from-orange-500 to-red-600', platform: 'Cross-Platform' },
                       { name: 'Mainframe', icon: '⬛', color: 'from-gray-600 to-gray-800', platform: 'Legacy' },
@@ -1360,7 +1099,7 @@ const HomePage = () => {
                     ))}
 
 
-                    {/* Mobile Automation Cards */}
+                    Mobile Automation Cards
                     {activeCategory === 'mobile' && [
                       { name: 'Android', icon: '🟢', color: 'from-green-500 to-green-700', share: '71%' },
                       { name: 'iOS', icon: '⚪', color: 'from-gray-700 to-gray-900', share: '28%' },
@@ -1381,7 +1120,7 @@ const HomePage = () => {
                       </div>
                     ))}
 
-                    {/* API Automation Cards */}
+                    API Automation Cards
                     {activeCategory === 'api' && [
                       { name: 'REST', icon: '🟢', color: 'from-green-600 to-blue-600', usage: '85%' },
                       { name: 'SOAP', icon: '🟡', color: 'from-yellow-500 to-orange-600', usage: '15%' },
@@ -1406,9 +1145,9 @@ const HomePage = () => {
             </div>
           </div>
           
-          {/* Bottom Stats */}
+          Bottom Stats
           <div className="mt-20 relative">
-            {/* Background with subtle pattern */}
+            Background with subtle pattern
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-3xl opacity-95"></div>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] rounded-3xl"></div>
             
@@ -1459,11 +1198,11 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Platform Ecosystem Section */}
-      <section className="py-12 bg-gray-900 relative overflow-hidden">
-        {/* Subtle Grid Background */}
+      {/* <section className="py-12 bg-gray-900 relative overflow-hidden">
+        Subtle Grid Background
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
@@ -1472,7 +1211,7 @@ const HomePage = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+          Header
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">The SimplifyQA Platform.</span>
@@ -1485,9 +1224,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Professional Platform Architecture */}
+          Professional Platform Architecture
           <div className="relative">
-            {/* Top Tier - Core Capabilities */}
+            Top Tier - Core Capabilities
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-cyan-300 mb-4 text-center border-b border-slate-700 pb-2">Testing Solutions</h3>
@@ -1556,16 +1295,16 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Central Platform Core */}
+            Central Platform Core
             <div className="flex justify-center mb-12">
               <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-2 rounded-lg border border-slate-600">
                 <span className="text-white font-medium text-sm uppercase tracking-wider">Core Platform</span>
               </div>
             </div>
 
-            {/* Enterprise Ecosystem Grid */}
+            Enterprise Ecosystem Grid
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {/* Left - Enterprise Systems */}
+              Left - Enterprise Systems
               <div className="space-y-4">
                 <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider text-center mb-6">Enterprise Systems</h3>
                 <div className="space-y-3">
@@ -1589,18 +1328,18 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Center - AI Core Platform */}
+              Center - AI Core Platform
               <div className="flex flex-col items-center justify-center">
                 <div className="relative">
-                  {/* Outer Ring */}
+                  Outer Ring
                   <div className="w-64 h-64 rounded-full border border-slate-600/50 flex items-center justify-center relative">
-                    {/* Connection Points */}
+                    Connection Points
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-2 h-2 bg-cyan-400 rounded-full"></div>
 
-                    {/* Inner Platform Core */}
+                    Inner Platform Core
                     <div className="w-32 h-32 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full border border-slate-600 flex flex-col items-center justify-center shadow-2xl">
                       <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-2">
                         <Settings className="w-4 h-4 text-white" />
@@ -1612,7 +1351,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Right - Application Types */}
+              Right - Application Types
               <div className="space-y-4">
                 <h3 className="text-sm font-medium text-slate-400 uppercase tracking-wider text-center mb-6">Application Types</h3>
                 <div className="space-y-3">
@@ -1639,16 +1378,16 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Enterprise Ready Badge */}
+            Enterprise Ready Badge
             <div className="flex justify-center mb-12">
               <div className="bg-gradient-to-r from-orange-600/20 to-yellow-600/20 backdrop-blur-sm border border-orange-500/30 px-6 py-2 rounded-lg">
                 <span className="text-orange-300 font-medium text-sm uppercase tracking-wider">Enterprise Ready</span>
               </div>
             </div>
 
-            {/* Bottom Tier - Enterprise Features */}
+            Bottom Tier - Enterprise Features
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Deployment */}
+              Deployment
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-orange-300 mb-4 text-center border-b border-slate-700 pb-2">Deployment Options</h3>
                 <div className="space-y-3 text-sm">
@@ -1682,7 +1421,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Integrations */}
+              Integrations
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-green-300 mb-4 text-center border-b border-slate-700 pb-2">Integrations</h3>
                 <div className="grid grid-cols-4 gap-2">
@@ -1703,7 +1442,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Security & Compliance */}
+              Security & Compliance
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-red-300 mb-4 text-center border-b border-slate-700 pb-2">Security & Compliance</h3>
                 <div className="grid grid-cols-2 gap-3">
@@ -1723,7 +1462,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Platform Capabilities */}
+            Platform Capabilities
             <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 mt-12">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div className="group">
@@ -1758,10 +1497,10 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Everything You Need Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -1789,7 +1528,7 @@ const HomePage = () => {
                 {/* Smarter Control */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg min-h-365">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Users className="w-7 h-7 text-white" />
@@ -1818,7 +1557,7 @@ const HomePage = () => {
                 {/* AI Assistance */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Cpu className="w-7 h-7 text-white" />
@@ -1850,7 +1589,7 @@ const HomePage = () => {
                 {/* Dynamic Test Data */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
@@ -1879,7 +1618,7 @@ const HomePage = () => {
                 {/* Virtualization & Integrations */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <GitBranch className="w-7 h-7 text-white" />
@@ -1911,7 +1650,7 @@ const HomePage = () => {
                 {/* Modern Execution */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <Zap className="w-7 h-7 text-white" />
@@ -1940,7 +1679,7 @@ const HomePage = () => {
                 {/* Powerful Reporting */}
                 <div className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                         <BarChart3 className="w-7 h-7 text-white" />
@@ -1971,192 +1710,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Comprehensive Webinar Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
-              <Play className="w-5 h-5 text-blue-600 mr-2" />
-              <span className="text-blue-800 font-semibold">Expert Webinars</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Learn from Industry Experts
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Join our live sessions and access our extensive library of on-demand webinars covering 
-              everything from automation basics to advanced enterprise strategies.
-            </p>
-          </div>
-
-          {/* Upcoming Webinar Spotlight */}
-          <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div>
-            
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse mr-3"></div>
-                  <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                    Next Live Session
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  {upcomingWebinar.title}
-                </h3>
-                <p className="text-blue-100 text-lg mb-6 leading-relaxed">
-                  {upcomingWebinar.description}
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Calendar className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Date & Time</span>
-                    </div>
-                    <div className="text-white font-bold">{upcomingWebinar.date}</div>
-                    <div className="text-blue-200">{upcomingWebinar.time}</div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Users className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Registrations</span>
-                    </div>
-                    <div className="text-white font-bold text-2xl">{upcomingWebinar.registrations.toLocaleString()}</div>
-                    <div className="text-blue-200 text-sm">and counting...</div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center justify-center w-full"
-                  >
-                    Register Free Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
-                  <button className="border-2 border-white/30 hover:border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl font-semibold transition-all">
-                    Add to Calendar
-                  </button>
-                </div>
-              </div>
-              
-              <div className="relative">
-                <img
-                  src={upcomingWebinar.image}
-                  alt="Upcoming Webinar"
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
-                    <Play className="h-12 w-12 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Past Webinars Library */}
-          <div>
-            <div className="flex justify-between items-center mb-12">
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">On-Demand Webinar Library</h3>
-                <p className="text-lg text-gray-600">Access our complete collection of expert-led sessions</p>
-              </div>
-              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all items-center">
-                View All Sessions
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {pastWebinars.map((webinar, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer">
-                  <div className="relative">
-                    <img
-                      src={webinar.thumbnail}
-                      alt={webinar.title}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-                        <Play className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full font-medium">
-                      {webinar.duration}
-                    </div>
-                    <div className="absolute bottom-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
-                      {webinar.views.toLocaleString()} views
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {webinar.title}
-                    </h4>
-                    <div className="flex items-center text-sm text-gray-600 mb-4">
-                      <Users className="h-4 w-4 mr-2" />
-                      <span className="font-medium">{webinar.presenter}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        <span>{webinar.date}</span>
-                      </div>
-                      <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center">
-                        Watch Now
-                        <ArrowRight className="ml-1 h-3 w-3" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Webinar Stats & CTA */}
-            <div className="mt-16 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                    Join Our Growing Community
-                  </h4>
-                  <p className="text-gray-600 mb-6">
-                    Subscribe to our webinar series and never miss expert insights, product updates, 
-                    and exclusive Q&A sessions with our team.
-                  </p>
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center"
-                  >
-                    Subscribe to Webinars
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-8 text-center">
-                  <div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">25+</div>
-                    <div className="text-gray-600">Expert Sessions</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-green-600 mb-1">15K+</div>
-                    <div className="text-gray-600">Total Attendees</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">4.9/5</div>
-                    <div className="text-gray-600">Average Rating</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">100%</div>
-                    <div className="text-gray-600">Free Access</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Webinar Registration Form */}
       <WebinarForm

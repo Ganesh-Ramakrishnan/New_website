@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Brain, FileText, Bug, BarChart3, GitBranch, Users, Layers, Code, Settings } from 'lucide-react';
+import { ArrowRight, BarChart3, Brain, Bug, GitBranch, Play, Settings, Users } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
@@ -42,7 +42,7 @@ const Hero = () => {
   const currentALM = almPhases[currentPhase];
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+  <section className="relative bg-black overflow-hidden">
       {/* Subtle Background Effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +20,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-gray-50 shadow-lg border-b border-gray-200' 
-        : 'bg-gray-50/95 backdrop-blur-sm'
+        ? 'bg-gray-900 shadow-lg border-b border-gray-800' 
+        : 'bg-gray-900 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
