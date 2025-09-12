@@ -138,3 +138,11 @@ section, .bg-gray-50, .bg-white {
     margin-top: 10px;
     color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
+
+/* Custom min-height utility for cards */
+.min-h-365 {
+  min-height: 365px;
+}
+.feature-gradient-bg {
+  background: linear-gradient(180deg,rgba(6, 1, 19, 1) 0%, rgba(86, 84, 94, 1) 82%) !important;
+}

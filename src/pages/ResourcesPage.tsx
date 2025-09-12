@@ -1,7 +1,80 @@
-import React from 'react';
-import { Calendar, Download, Play, BookOpen, Users, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  Download,
+  ExternalLink,
+  Play,
+  Users
+} from 'lucide-react';
+import { useState } from 'react';
 
 const ResourcesPage = () => {
+  // Webinar modal state
+  const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
+
+  // Upcoming webinar data
+  const upcomingWebinar = {
+    title: "Advanced Test Automation with AI: Best Practices for 2025",
+    date: "January 30, 2025",
+    time: "2:00 PM EST",
+    presenter: "Dr. Sarah Kim, CTO",
+    description: "Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.",
+    registrations: 1247,
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+  };
+
+  // Past webinars data
+  const pastWebinars = [
+    {
+      title: "Building Scalable Test Automation Frameworks",
+      presenter: "Alex Rivera, CEO",
+      date: "December 15, 2024",
+      duration: "45 min",
+      views: 2340,
+      thumbnail: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Mobile Testing Strategies for Modern Apps",
+      presenter: "Marcus Johnson, VP Engineering",
+      date: "November 28, 2024", 
+      duration: "38 min",
+      views: 1890,
+      thumbnail: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Enterprise Security in Test Automation",
+      presenter: "Elena Rodriguez, VP Customer Success",
+      date: "November 10, 2024",
+      duration: "42 min", 
+      views: 1650,
+      thumbnail: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "CI/CD Integration Best Practices",
+      presenter: "Michael Chen, Lead Developer",
+      date: "October 25, 2024",
+      duration: "50 min",
+      views: 2100,
+      thumbnail: "https://images.pexels.com/photos/574073/pexels-photo-574073.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Performance Testing at Scale",
+      presenter: "Sarah Johnson, QA Director",
+      date: "October 12, 2024",
+      duration: "35 min",
+      views: 1780,
+      thumbnail: "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "API Testing Automation Masterclass",
+      presenter: "David Park, Senior Engineer",
+      date: "September 28, 2024",
+      duration: "55 min",
+      views: 2450,
+      thumbnail: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    }
+  ];
   const blogPosts = [
     {
       title: "10 Best Practices for Test Automation",
@@ -174,6 +247,195 @@ const ResourcesPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* Comprehensive Webinar Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
+              <Play className="w-5 h-5 text-blue-600 mr-2" />
+              <span className="text-blue-800 font-semibold">Expert Webinars</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Learn from Industry Experts
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Join our live sessions and access our extensive library of on-demand webinars covering 
+              everything from automation basics to advanced enterprise strategies.
+            </p>
+          </div>
+
+          {/* Upcoming Webinar Spotlight */}
+          <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div>
+            
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse mr-3"></div>
+                  <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
+                    Next Live Session
+                  </span>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                  {upcomingWebinar.title}
+                </h3>
+                <p className="text-blue-100 text-lg mb-6 leading-relaxed">
+                  {upcomingWebinar.description}
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                    <div className="flex items-center text-blue-100 mb-2">
+                      <Calendar className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">Date & Time</span>
+                    </div>
+                    <div className="text-white font-bold">{upcomingWebinar.date}</div>
+                    <div className="text-blue-200">{upcomingWebinar.time}</div>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                    <div className="flex items-center text-blue-100 mb-2">
+                      <Users className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">Registrations</span>
+                    </div>
+                    <div className="text-white font-bold text-2xl">{upcomingWebinar.registrations.toLocaleString()}</div>
+                    <div className="text-blue-200 text-sm">and counting...</div>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => setIsWebinarFormOpen(true)}
+                    className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center justify-center w-full"
+                  >
+                    Register Free Now
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </button>
+                  <button className="border-2 border-white/30 hover:border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl font-semibold transition-all">
+                    Add to Calendar
+                  </button>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <img
+                  src={upcomingWebinar.image}
+                  alt="Upcoming Webinar"
+                  className="rounded-2xl shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl flex items-center justify-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
+                    <Play className="h-12 w-12 text-white" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Past Webinars Library */}
+          <div>
+            <div className="flex justify-between items-center mb-12">
+              <div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">On-Demand Webinar Library</h3>
+                <p className="text-lg text-gray-600">Access our complete collection of expert-led sessions</p>
+              </div>
+              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all items-center">
+                View All Sessions
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {pastWebinars.map((webinar, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer">
+                  <div className="relative">
+                    <img
+                      src={webinar.thumbnail}
+                      alt={webinar.title}
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full font-medium">
+                      {webinar.duration}
+                    </div>
+                    <div className="absolute bottom-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
+                      {webinar.views.toLocaleString()} views
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      {webinar.title}
+                    </h4>
+                    <div className="flex items-center text-sm text-gray-600 mb-4">
+                      <Users className="h-4 w-4 mr-2" />
+                      <span className="font-medium">{webinar.presenter}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>{webinar.date}</span>
+                      </div>
+                      <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center">
+                        Watch Now
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Webinar Stats & CTA */}
+            <div className="mt-16 to-blue-50 rounded-2xl p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-4">
+                    Join Our Growing Community
+                  </h4>
+                  <p className="text-gray-600 mb-6">
+                    Subscribe to our webinar series and never miss expert insights, product updates, 
+                    and exclusive Q&A sessions with our team.
+                  </p>
+                  <button
+                    onClick={() => setIsWebinarFormOpen(true)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center"
+                  >
+                    Subscribe to Webinars
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </button>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-8 text-center">
+                  <div>
+                    <div className="text-3xl font-bold text-blue-600 mb-1">25+</div>
+                    <div className="text-gray-600">Expert Sessions</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-green-600 mb-1">15K+</div>
+                    <div className="text-gray-600">Total Attendees</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-purple-600 mb-1">4.9/5</div>
+                    <div className="text-gray-600">Average Rating</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-orange-600 mb-1">100%</div>
+                    <div className="text-gray-600">Free Access</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
