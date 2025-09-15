@@ -1,5 +1,4 @@
-import React from 'react';
-import { Star, ArrowRight, TrendingUp, Users, Clock, Shield } from 'lucide-react';
+import { ArrowRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
 
 const CustomerSuccessPage = () => {
   const testimonials = [
@@ -105,23 +104,6 @@ const CustomerSuccessPage = () => {
             Discover how leading organizations are transforming their testing workflows 
             and achieving remarkable results with SimplifyQA.
           </p>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 mb-8">Trusted by 500+ companies worldwide</p>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
-            {clientLogos.map((logo, index) => (
-              <img
-                key={index}
-                src={logo}
-                alt={`Client ${index + 1}`}
-                className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-              />
-            ))}
-          </div>
         </div>
       </section>
 

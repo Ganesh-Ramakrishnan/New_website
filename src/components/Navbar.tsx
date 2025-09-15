@@ -18,20 +18,20 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed text-white top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
         ? 'bg-gray-900 shadow-lg border-b border-gray-800' 
         : 'bg-gray-900 backdrop-blur-sm'
-    }`}>
+    }`} style={{ background: '#08090a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2 group">
               <img 
-                src="/SimplifyQA logo Grey.png" 
+                src="/simplify_logo.svg" 
                 alt="SimplifyQA" 
-                className="h-4 w-auto"
+                className="h-5 w-auto"
               />
             </Link>
           </div>
@@ -91,9 +91,12 @@ const Navbar = () => {
             >
               Sign In
             </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
+            <Link
+              to="/request-demo"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+            >
               Request Demo
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -152,12 +155,13 @@ const Navbar = () => {
             </div>
             
             <div className="pt-4 border-t border-gray-200">
-              <button 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200"
+              <Link
+                to="/request-demo"
+                className="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Request Demo
-              </button>
+              </Link>
             </div>
           </div>
           </div>

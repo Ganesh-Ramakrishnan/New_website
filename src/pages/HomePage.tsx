@@ -1,9 +1,7 @@
 import {
-  ArrowRight,
   BarChart3,
   Bug,
   Calendar,
-  CheckCircle,
   Clock,
   Cloud,
   Cpu,
@@ -26,13 +24,93 @@ import Hero from '../components/Hero';
 import WebinarForm from '../components/WebinarForm';
 
 
+import { useEffect } from 'react';
 import CarouselCard from '../components/CarouselCard';
 
+import React from "react";
+
 const HomePage = () => {
+  // Horizontal scroll image + text pairs
+  const imageTextPairs = [
+    {
+      img: '/assets/banner/unnamed (1).jpg',
+      heading: 'Banner 1',
+      text: 'Description for Banner 1.'
+    },
+    {
+      img: '/assets/banner/unnamed (2).jpg',
+      heading: 'Banner 2',
+      text: 'Description for Banner 2.'
+    },
+    {
+      img: '/assets/banner/unnamed (3).jpg',
+      heading: 'Banner 3',
+      text: 'Description for Banner 3.'
+    },
+    {
+      img: '/assets/banner/unnamed (4).jpg',
+      heading: 'Banner 4',
+      text: 'Description for Banner 4.'
+    },
+    {
+      img: '/assets/banner/unnamed.jpg',
+      heading: 'Banner 5',
+      text: 'Description for Banner 5.'
+    }
+  ];
+
+  // Refs for scroll effect
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const pairStripRef = React.useRef<HTMLDivElement>(null);
+
+  // Horizontal scroll effect
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      const pairStrip = pairStripRef.current;
+      if (!section || !pairStrip) return;
+      const sectionRect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const totalPairs = imageTextPairs.length;
+
+      // Buffer: first 20% of sticky section keeps first image fixed
+      const bufferRatio = 0.2;
+      const bufferPx = (sectionRect.height - windowHeight) * bufferRatio;
+
+      if (sectionRect.top <= 0 && sectionRect.bottom > windowHeight) {
+        // Calculate vertical scroll within sticky section
+        const verticalScroll = windowHeight - sectionRect.top;
+        let scrollProgress = 0;
+        if (verticalScroll > bufferPx) {
+          // Start horizontal scroll after buffer
+          scrollProgress = Math.min(
+            1,
+            (verticalScroll - bufferPx) / (sectionRect.height - windowHeight - bufferPx)
+          );
+        }
+        const maxTranslateX = (totalPairs - 1) * window.innerWidth;
+        pairStrip.style.transform = `translateX(-${scrollProgress * maxTranslateX}px)`;
+      } else if (sectionRect.bottom <= windowHeight) {
+        pairStrip.style.transform = `translateX(-${(totalPairs - 1) * window.innerWidth}px)`;
+      } else {
+        pairStrip.style.transform = 'translateX(0px)';
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [imageTextPairs.length]);
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeCategory, setActiveCategory] = useState('web');
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [dissolveActive, setDissolveActive] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDissolveActive((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
   const mainFeatures = [
     {
       icon: <Cpu className="h-12 w-12 text-blue-600" />,
@@ -325,56 +403,35 @@ const HomePage = () => {
         <Hero />
       </div>
 
-      {/* Features Section - Dark Theme */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Choose SimplifyQA?
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose SimplifyQA?</h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
             </p>
           </div>
-          {/* Simple Grid Layout - Dark Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {getCurrentFeatures().map((feature, index) => (
-              <div key={index} className="feature-gradient-bg rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-                {/* Icon container with enhanced styling */}
-                <div className="relative mb-6 flex justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    {feature.icon}
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="relative text-center">
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm">
-                    {feature.description}
-                  </p>
-                  {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
+        </div>
+
+      {/* Features Section - Horizontal Image + Text Scroll */}
+      <section className="image-text-section relative" style={{ height: '500vh' }} ref={sectionRef}> 
+        <div className="sticky-container sticky top-0 flex h-screen bg-white overflow-hidden">
+          <div className="pair-strip flex absolute top-0 left-0 h-[100vh] transition-transform duration-100" ref={pairStripRef}>
+            {imageTextPairs.map((pair, idx) => (
+              <div className="pair flex w-screen h-[100vh]" key={idx}>
+                <img src={pair.img} alt={pair.heading} className="w-1/2 object-cover" />
+                <div className="text w-1/2 flex flex-col justify-center items-center p-8 bg-gray-50 text-gray-800 text-2xl">
+                  <h2 className="font-bold mb-4">{pair.heading}</h2>
+                  <p className="text-lg">{pair.text}</p>
                 </div>
               </div>
             ))}
           </div>
-          {/* Dot Navigation - Dark Theme */}
-          <div className="flex justify-center space-x-3 mt-12">
-            {Array.from({ length: totalSlides }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-4 h-4 rounded-full ${
-                  index === currentSlide 
-                    ? 'bg-blue-600 scale-125' 
-                    : 'bg-gray-700 hover:bg-gray-500 hover:scale-110'
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </section>
+
+  {/* Removed start and end horizontal scroll section divs as requested */}
+
+  {/* Horizontal scroll effect JS (React useEffect) */}
 
       {/* Detailed Features Section */}
       <section id="features" className="py-20 bg-white">
@@ -1527,7 +1584,7 @@ const HomePage = () => {
               <div className="space-y-8 flex flex-col">
                 {/* Smarter Control */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute inset-0 from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg min-h-365">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1556,7 +1613,7 @@ const HomePage = () => {
 
                 {/* AI Assistance */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute  from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1588,7 +1645,7 @@ const HomePage = () => {
               <div className="space-y-8 flex flex-col">
                 {/* Dynamic Test Data */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute  from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1617,7 +1674,7 @@ const HomePage = () => {
 
                 {/* Virtualization & Integrations */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute  from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1649,7 +1706,7 @@ const HomePage = () => {
               <div className="space-y-8 flex flex-col">
                 {/* Modern Execution */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute  from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1678,7 +1735,7 @@ const HomePage = () => {
 
                 {/* Powerful Reporting */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="absolute  from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                   <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg">
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
@@ -1717,105 +1774,133 @@ const HomePage = () => {
         onClose={() => setIsWebinarFormOpen(false)}
         webinarTitle={upcomingWebinar.title}
         webinarDate={upcomingWebinar.date}
-        presenter={upcomingWebinar.presenter}
-      />
+        presenter={upcomingWebinar.presenter} webinarTime={''}      />
       {/* Demo Request Form */}
       <DemoRequestForm
         isOpen={isDemoFormOpen}
         onClose={() => setIsDemoFormOpen(false)}
       />
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Transform Your Testing Strategy
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-                Discover how SimplifyQA delivers the comprehensive automation capabilities 
-                your team needs to deliver quality software at scale.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                {[
-                  "Reduce manual testing effort by 80%",
-                  "Accelerate release cycles by 60%",
-                  "Improve test coverage across all platforms",
-                  "Real-time collaboration for distributed teams",
-                  "Enterprise-grade security and compliance"
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
+         {/* Client Logos */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+          <p className="text-center text-gray-500 mb-8">Trusted by 500+ companies worldwide</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 place-content-center">
+            <div className="image-dissolve-container">
+              <img
+                  src="/assets/client/technotree.png"
+                  alt="Technotree"
+                  className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+              />
+              <img
+                  src="/assets/client/Technology Mindz.png"
+                  alt="Technology Mindz"
+                  className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+              />
+            </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/Svatantra.png"
+                    alt="Svatantra"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Sunbots.png"
+                    alt="Sunbots"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
               </div>
             </div>
-            
-            <div className="relative">
-              <div className="relative bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-slate-900/95 rounded-3xl p-12 border border-slate-700/50">
-                {/* Central Platform Visual */}
-                <div className="flex justify-center mb-8">
-                  <div className="relative">
-                    <div className="w-32 h-32 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-2xl">
-                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">⚡</span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Connection Lines */}
-                    <div className="absolute top-1/2 left-full w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent"></div>
-                    <div className="absolute top-1/2 right-full w-16 h-0.5 bg-gradient-to-l from-cyan-400 to-transparent"></div>
-                    <div className="absolute left-1/2 top-full h-16 w-0.5 bg-gradient-to-b from-cyan-400 to-transparent"></div>
-                    <div className="absolute left-1/2 bottom-full h-16 w-0.5 bg-gradient-to-t from-cyan-400 to-transparent"></div>
-                  </div>
-                </div>
-
-                <h3 className="text-3xl font-bold text-white mb-4">
-                  One Unified Platform, Infinite Possibilities
-                </h3>
-                <p className="text-slate-300 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Experience the power of integrated testing capabilities working seamlessly together. 
-                  From intelligent automation to comprehensive analytics, everything connects.
-                </p>
-
-                {/* Platform Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-                  <div className="text-center group">
-                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300">6</div>
-                    <div className="text-slate-400 text-sm">Core Capabilities</div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-2 group-hover:scale-110 transition-transform duration-300">∞</div>
-                    <div className="text-slate-400 text-sm">Scalability</div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2 group-hover:scale-110 transition-transform duration-300">1</div>
-                    <div className="text-slate-400 text-sm">Unified Platform</div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400 mb-2 group-hover:scale-110 transition-transform duration-300">0</div>
-                    <div className="text-slate-400 text-sm">Setup Complexity</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center shadow-lg">
-                    Experience the Platform
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
-                  <button
-                    onClick={() => setIsDemoFormOpen(true)}
-                    className="border-2 border-slate-600 hover:border-slate-500 text-white hover:bg-slate-800 px-8 py-4 rounded-xl text-lg font-semibold transition-all flex items-center justify-center"
-                  >
-                    Schedule Demo
-                  </button>
-                </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/SMFG india credits.png"
+                    alt="SMFG India Credits"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Smartx technologies.png"
+                    alt="Smartx Technologies"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
               </div>
             </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/Quest alliance.png"
+                    alt="Quest Alliance"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Piramal finance.png"
+                    alt="Piramal Finance"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+              </div>
+            </div>
+           
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 place-content-center mt-3">
+            <div className="image-dissolve-container">
+              <img
+                  src="/assets/client/Dr reddys laboratory.png"
+                  alt="Dr Reddys Laboratory"
+                  className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+              />
+              <img
+                  src="/assets/client/carelon globalsolutions.png"
+                  alt="Carelon Global Solutions"
+                  className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+              />
+            </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/Availity.png"
+                    alt="Availity"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Adithya birla fashion retail.png"
+                    alt="Adithya Birla Fashion Retail"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/images.png"
+                    alt="Images"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Opentext.png"
+                    alt="Opentext"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="image-dissolve-container">
+                <img
+                    src="/assets/client/leap scholar.png"
+                    alt="Leap Scholar"
+                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+                <img
+                    src="/assets/client/Persyst.png"
+                    alt="Persyst"
+                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
+                />
+              </div>
+            </div>
+           
+          </div>
         </div>
+        
       </section>
 
       {/* Testimonials Section */}
