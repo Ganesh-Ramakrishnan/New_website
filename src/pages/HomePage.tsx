@@ -17,13 +17,14 @@ import {
   Zap
 } from 'lucide-react';
 import { useState } from 'react';
+import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import Hero from '../components/Hero';
 import WebinarForm from '../components/WebinarForm';
 
-
 import { useEffect } from 'react';
 import CarouselCard from '../components/CarouselCard';
+import FeatureCategorySlider from '../components/FeatureCategorySlider';
 
 import React from "react";
 
@@ -413,130 +414,18 @@ const HomePage = () => {
         <Hero />
       </div>
 
-      {/* Client Logos */}
+      {/* Client Logos Slider */}
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-          <p className="text-center text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">Trusted by 500+ companies worldwide</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 place-content-center">
-            <div className="image-dissolve-container">
-              <img
-                  src="/assets/client/technotree.png"
-                  alt="Technotree"
-                  className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-              />
-              <img
-                  src="/assets/client/Technology Mindz.png"
-                  alt="Technology Mindz"
-                  className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-              />
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/Svatantra.png"
-                    alt="Svatantra"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Sunbots.png"
-                    alt="Sunbots"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/SMFG india credits.png"
-                    alt="SMFG India Credits"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Smartx technologies.png"
-                    alt="Smartx Technologies"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/Quest alliance.png"
-                    alt="Quest Alliance"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Piramal finance.png"
-                    alt="Piramal Finance"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-           
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 place-content-center mt-3">
-            <div className="image-dissolve-container">
-              <img
-                  src="/assets/client/Dr reddys laboratory.png"
-                  alt="Dr Reddys Laboratory"
-                  className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-              />
-              <img
-                  src="/assets/client/carelon globalsolutions.png"
-                  alt="Carelon Global Solutions"
-                  className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-              />
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/Availity.png"
-                    alt="Availity"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Adithya birla fashion retail.png"
-                    alt="Adithya Birla Fashion Retail"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/images.png"
-                    alt="Images"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Opentext.png"
-                    alt="Opentext"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="image-dissolve-container">
-                <img
-                    src="/assets/client/leap scholar.png"
-                    alt="Leap Scholar"
-                    className={`image-dissolve image1${dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-                <img
-                    src="/assets/client/Persyst.png"
-                    alt="Persyst"
-                    className={`image-dissolve image2${!dissolveActive ? ' active' : ''} filter grayscale`}
-                />
-              </div>
-            </div>
-           
+          <div className="relative">
+            {/* Slider for Client Logos */}
+            <ClientLogoSlider />
           </div>
         </div>
-        
       </section>
 
       {/* Features Section - Dark Theme */}
-      <section className="py-10 bg-gray-900">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -569,19 +458,24 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          {/* Dot Navigation - Dark Theme */}
-          <div className="flex justify-center space-x-3 mt-12">
-            {Array.from({ length: totalSlides }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-4 h-4 rounded-full ${
-                  index === currentSlide 
-                    ? 'bg-blue-600 scale-125' 
-                    : 'bg-gray-700 hover:bg-gray-500 hover:scale-110'
-                }`}
-              />
-            ))}
+          {/* Arrow Navigation - Dark Theme */}
+          <div className="flex justify-center items-center space-x-6 mt-12">
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 0}
+              className={`bg-gray-700 hover:bg-gray-500 text-white rounded-full p-2 shadow-lg transition-all duration-200 flex items-center justify-center ${currentSlide === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              aria-label="Previous"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              disabled={currentSlide === totalSlides - 1}
+              className={`bg-gray-700 hover:bg-gray-500 text-white rounded-full p-2 shadow-lg transition-all duration-200 flex items-center justify-center ${currentSlide === totalSlides - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              aria-label="Next"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
           </div>
         </div>
       </section>
@@ -616,7 +510,7 @@ const HomePage = () => {
   {/* Horizontal scroll effect JS (React useEffect) */}
 
       {/* Detailed Features Section */}
-      <section id="features" className="py-10 bg-white">
+      <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -634,8 +528,22 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section id="features" className="pb-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Plug into your favorite tools seamlessly
+            </h2>
+            <div>
+              <img src="../assets/linked.png" alt="LinkedIn Logo" width="100%" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Everything You Need Section */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -657,190 +565,8 @@ const HomePage = () => {
               }}></div>
             </div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Left Column */}
-              <div className="space-y-8 flex flex-col">
-                {/* Smarter Control */}
-                <div className="group relative">
-                  <div className="absolute inset-0 from-blue-600/10 to-cyan-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg min-h-365">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <Users className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">Smarter Control</h3>
-                        <p className="font-medium text-sm light_grey">One sign-in for all roles</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "Custom team & project layouts with flexible field configuration",
-                        "Organize by product lines and business units for scalability",
-                        "Advanced role-based access control with granular permissions",
-                        "Multi-tenant architecture for enterprise security"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* AI Assistance */}
-                <div className="group relative">
-                  <div className="absolute  from-purple-600/10 to-indigo-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <Cpu className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">AI Assistance</h3>
-                        <p className="font-medium text-sm light_grey">AI-generated acceptance criteria</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "End-to-end self-healing with intelligent flakiness detection",
-                        "AI assistant for smart test case generation and suggestions",
-                        "Automated test optimization and performance enhancement",
-                        "Machine learning-powered failure analysis and resolution"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-purple-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Center Column */}
-              <div className="space-y-8 flex flex-col">
-                {/* Dynamic Test Data */}
-                <div className="group relative">
-                  <div className="absolute  from-green-600/10 to-emerald-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <BarChart3 className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">Dynamic Test Data</h3>
-                        <p className="font-medium text-sm light_grey">Auto-generate data</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "Parameterize manual and automated tests with dynamic variables",
-                        "Create reusable functions and components across projects",
-                        "Smart data generation with realistic test datasets",
-                        "Advanced data masking for security and compliance"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-green-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Virtualization & Integrations */}
-                <div className="group relative">
-                  <div className="absolute  from-cyan-600/10 to-blue-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <GitBranch className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">Virtualization & Integrations</h3>
-                        <p className="font-medium text-sm light_grey">DevOps integration</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "Connect to Jenkins, Azure, GitLab, Jira",
-                        "Advanced service virtualization capabilities",
-                        "API mocking and simulation tools",
-                        "Real-time integration monitoring"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-cyan-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column */}
-              <div className="space-y-8 flex flex-col">
-                {/* Modern Execution */}
-                <div className="group relative">
-                  <div className="absolute  from-orange-600/10 to-red-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <Zap className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">Modern Execution</h3>
-                        <p className="font-medium text-sm light_grey">Resume failed runs from any step</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "Unified manual and automation test suites in one platform",
-                        "Effortless scheduling with remote execution capabilities",
-                        "Automatic step-wise screenshots and detailed logging",
-                        "Parallel execution with intelligent load balancing"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-orange-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Powerful Reporting */}
-                <div className="group relative">
-                  <div className="absolute  from-indigo-600/10 to-purple-600/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
-                  <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                    <div className="flex items-center mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                        <BarChart3 className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">Powerful Reporting</h3>
-                        <p className="font-medium text-sm light_grey">Drag-and-drop requirements</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-grow">
-                      {[
-                        "Role-based dashboards with fully customizable reports",
-                        "Detailed step-level logs and custom notification systems",
-                        "Real-time analytics with predictive insights and trends",
-                        "Executive summaries and automated compliance reporting"
-                      ].map((feature, index) => (
-                        <div key={index} className="flex items-start group/item">
-                          <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200"></div>
-                          <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Slider for Feature Categories */}
+            <FeatureCategorySlider />
           </div>
         </div>
       </section>
@@ -860,7 +586,7 @@ const HomePage = () => {
       />
 
       {/* Testimonials Section */}
-      <section className="py-10 bg-blue-600">
+      <section className="py-20 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -898,7 +624,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-10 bg-gray-900">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Testing?
