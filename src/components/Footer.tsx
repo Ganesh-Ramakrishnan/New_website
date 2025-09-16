@@ -1,16 +1,22 @@
-import React from 'react';
+import { FileText, Github, Linkedin, Mail, MessageCircle, Phone, Play, Shield, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { TestTube2, Mail, Phone, MapPin, Linkedin, Twitter, Github, Play, MessageCircle, FileText, Shield } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white" style={{ background: '#08090a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <TestTube2 className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">SimplifyQA</span>
+              {/* <TestTube2 className="h-8 w-8 text-blue-400" />
+              <span className="text-xl font-bold">SimplifyQA</span> */}
+              <Link to="/" className="flex items-center space-x-2 group">
+              <img 
+                src="/simplify_logo.svg" 
+                alt="SimplifyQA" 
+                className="h-4 w-auto"
+              />
+            </Link>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Streamline your testing workflows with our AI-powered automation platform. 

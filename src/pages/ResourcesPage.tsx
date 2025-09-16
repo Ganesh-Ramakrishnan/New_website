@@ -9,7 +9,11 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
+import { useEffect } from 'react';
 const ResourcesPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Webinar modal state
   const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
 

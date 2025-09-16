@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import { CheckCircle, ArrowRight, HelpCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, HelpCircle } from 'lucide-react';
+import { useState } from 'react';
 
+import { useEffect } from 'react';
 const PricingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annually'>('monthly');
 
   const plans = [

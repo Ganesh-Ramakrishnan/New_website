@@ -1,6 +1,10 @@
 import { ArrowRight, Award, Linkedin, Target, Users } from 'lucide-react';
 
+import { useEffect } from 'react';
 const AboutPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const team = [
     {
       name: "Alex Rivera",
