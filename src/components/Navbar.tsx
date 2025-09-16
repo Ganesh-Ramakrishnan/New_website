@@ -113,7 +113,8 @@ const Navbar = () => {
             </button>
             <Link
               to="/request-demo"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+              className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+              style={{ background: '#fff', color: '#000' }}
             >
               Request Demo
             </Link>
