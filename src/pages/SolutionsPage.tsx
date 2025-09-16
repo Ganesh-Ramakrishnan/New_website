@@ -1,16 +1,19 @@
-import React from 'react';
-import { 
-  Users, 
-  Rocket, 
-  Building, 
-  Smartphone, 
-  Globe, 
-  Zap,
+import {
+  ArrowRight,
+  Building,
   CheckCircle,
-  ArrowRight 
+  Globe,
+  Rocket,
+  Smartphone,
+  Users,
+  Zap
 } from 'lucide-react';
 
+import { useEffect } from 'react';
 const SolutionsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const solutions = [
     {
       icon: <Building className="h-12 w-12 text-blue-600" />,

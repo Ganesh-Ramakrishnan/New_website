@@ -174,3 +174,12 @@ section, .bg-gray-50, .bg-white {
 /* .feature-gradient-bg {
   background: linear-gradient(180deg,rgba(6, 1, 19, 1) 0%, rgba(86, 84, 94, 1) 82%) !important;
 } */
+
+.liener_bg{
+  background: #141516 !important;
+  border: 1px solid hsla(0, 0%, 100%, .05);
+}
+
+.light_grey{
+  color: #8a8f98 !important;
+}

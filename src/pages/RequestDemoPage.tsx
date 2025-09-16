@@ -1,15 +1,20 @@
 
+import { useEffect } from 'react';
+
 const RequestDemoPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left Side */}
-      <div className="md:w-1/2 flex flex-col justify-center items-center px-8 py-16 bg_white relative" style={{ background: '#ffffff !important' }}>
+      <div className="md:w-1/2 flex flex-col justify-center bg-white items-center px-8 py-16 relative" style={{ background: '#ffffff !important' }}>
         <div className="max-w-md">
-          <h1 className="text-4xl font-bold mb-6 text-black">
-            <span className="text-purple-600">Zero blindspots</span>, 100% visibility of your freelancers
+          <h1 className="text-4xl font-bold mb-6 text-white">
+            <span className="text-purple-600 ">Zero blindspots</span>, 100% visibility of your freelancers
           </h1>
-          <p className="mb-8 text-lg text-black">
-            The fastest way to streamline your global <span className="font-semibold text-black">freelance management</span>—from hiring and onboarding to compliance, invoicing, payments, and more.
+          <p className="mb-8 text-lg text-black text-white">
+            The fastest way to streamline your global <span className="font-semibold text-white">freelance management</span>—from hiring and onboarding to compliance, invoicing, payments, and more.
           </p>
           <div className="bg-gray-100 rounded-xl p-6 mb-4">
             <p className="text-lg mb-4 text-center text-black">Trusted by 350+ leading brands and agencies</p>
@@ -29,27 +34,27 @@ const RequestDemoPage = () => {
         {/* Decorative SVG or background can be added here */}
       </div>
       {/* Right Side */}
-      <div className="md:w-1/2 flex flex-col justify-center items-center px-8 py-16 bg-white">
+      <div className="md:w-1/2 flex flex-col justify-center items-center px-8 py-16 bg_white">
         <div className="max-w-md w-full">
-          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Schedule a call to get started</h2>
+          <h2 className="text-3xl font-bold text-center mb-4 text-black">Schedule a call to get started</h2>
           <p className="text-center text-gray-500 mb-8">Schedule a 30 minute demo with an expert Q+A</p>
           <form className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="First name" className="border border-red-400 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
-              <input type="text" placeholder="Last name" className="border border-red-400 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+              <input type="text" placeholder="First name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+              <input type="text" placeholder="Last name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="Company name" className="border border-red-400 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
-              <input type="email" placeholder="Work email" className="border border-red-400 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+              <input type="text" placeholder="Company name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+              <input type="email" placeholder="Work email" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
             </div>
-            <select className="border border-red-400 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
+            <select className="border rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
               <option># of Freelancers</option>
               <option>1-10</option>
               <option>11-50</option>
               <option>51-200</option>
               <option>201+</option>
             </select>
-            <select className="border border-red-400 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
+            <select className="border rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
               <option>Company Country</option>
               <option>India</option>
               <option>USA</option>

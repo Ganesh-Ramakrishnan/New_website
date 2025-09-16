@@ -1,7 +1,10 @@
-import React from 'react';
-import { ArrowRight, ExternalLink, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
 
+import { useEffect } from 'react';
 const IntegrationsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const integrationCategories = [
     {
       title: "CI/CD & DevOps",

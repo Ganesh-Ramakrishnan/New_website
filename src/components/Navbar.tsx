@@ -1,11 +1,12 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,18 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // ...existing code...
+  const handleFeatureClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/?scrollTo=features');
+    } else {
+      const el = document.getElementById('features');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   return (
     <nav className={`fixed text-white top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
@@ -40,6 +53,13 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <div className="flex items-center space-x-8">
               {/* Navigation Links */}
+              <a
+                href="#features"
+                onClick={handleFeatureClick}
+                className="font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+              >
+                Features
+              </a>
               <Link
                 to="/pricing"
                 className={`font-medium transition-colors duration-200 ${
@@ -114,9 +134,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="lg:hidden">
-          <div className="px-4 pt-2 pb-6 space-y-1 bg-white border-t border-gray-200 shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-1 bg-gray-50 border-t border-gray-200 shadow-lg">
             <div className="space-y-1">
+              <a
+                href="#features"
+                onClick={e => { handleFeatureClick(e); setIsOpen(false); }}
+                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+              >
+                Features
+              </a>
               <Link 
                 to="/pricing" 
                 className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
@@ -153,7 +179,6 @@ const Navbar = () => {
                 Contact
               </Link>
             </div>
-            
             <div className="pt-4 border-t border-gray-200">
               <Link
                 to="/request-demo"
@@ -163,7 +188,6 @@ const Navbar = () => {
                 Request Demo
               </Link>
             </div>
-          </div>
           </div>
         </div>
       )}

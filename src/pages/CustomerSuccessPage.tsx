@@ -1,6 +1,10 @@
 import { ArrowRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
 
+import { useEffect } from 'react';
 const CustomerSuccessPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const testimonials = [
     {
       name: "Sarah Johnson",
