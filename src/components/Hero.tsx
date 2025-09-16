@@ -145,7 +145,7 @@ const Hero = () => {
         </div>
 
         {/* ALM Phases */}
-        <div className="mb-16">
+        <div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {almPhases.map((phase, index) => (
               <div 
@@ -170,33 +170,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
-              10x
-            </div>
-            <div className="text-gray-400 text-sm">Faster Execution</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-1">
-              85%
-            </div>
-            <div className="text-gray-400 text-sm">Efficiency Gain</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">
-              95%
-            </div>
-            <div className="text-gray-400 text-sm">Stabilize Tests</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-1">
-              70%
-            </div>
-            <div className="text-gray-400 text-sm">Reduce Maintenance</div>
-          </div>
-        </div>
       </div>
     </section>
   );
