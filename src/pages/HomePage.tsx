@@ -22,11 +22,9 @@ import Hero from '../components/Hero';
 import TestimonySection from '../components/TestimonySection';
 import WebinarForm from '../components/WebinarForm';
 
-import { useEffect } from 'react';
+import React, { useEffect } from "react";
 import CarouselCard from '../components/CarouselCard';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
-
-import React from "react";
 
 const HomePage = () => {
   useEffect(() => {
@@ -391,7 +389,7 @@ const HomePage = () => {
       </div>
 
       {/* Client Logos Slider */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="relative">
             {/* Slider for Client Logos */}
@@ -504,10 +502,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="features" className="pb-20 bg-white">
+      <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-20">
               Plug into your favorite tools seamlessly
             </h2>
             <div>
@@ -612,20 +610,17 @@ const HomePage = () => {
           <div className="mb-6 flex items-center justify-center gap-2">
             <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Advanced Test Automation with AI: Best Practices for 2025</h2>
-          <p className="text-base md:text-lg text-gray-300 mb-6">Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.</p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center items-center">
-            <div className="bg-gray-800 rounded-lg px-6 py-4 flex flex-col items-center" style={{ minWidth: '200px' }}>
-              <span className="text-gray-400 text-xs font-semibold mb-1">Date & Time</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Advanced Test Automation with AI: Best Practices for 2025</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <p className="text-base md:text-lg text-gray-300 mb-0">Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.</p>
+            
+          </div>
+          <p className="flex items-center gap-2 justify-center m-auto my-2">
+              <span className="text-gray-400 text-xs font-semibold">Date & Time</span>
               <span className="text-white font-bold text-lg">January 30, 2025</span>
               <span className="text-gray-300 text-sm">2:00 PM EST</span>
-            </div>
-            <div className="bg-gray-800 rounded-lg px-6 py-4 flex flex-col items-center" style={{ minWidth: '200px' }}>
-              <span className="text-gray-400 text-xs font-semibold mb-1">Registrations</span>
-              <span className="text-white font-bold text-lg">1,247</span>
-              <span className="text-gray-300 text-sm">and counting...</span>
-            </div>
-          </div>
+            </p>
+          <button className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center m-auto">Register Now</button>
         </div>
       </section>
 
