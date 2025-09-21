@@ -10,7 +10,6 @@ import {
   Layers,
   Settings,
   Shield,
-  Star,
   Target,
   TrendingUp,
   Users,
@@ -20,13 +19,12 @@ import { useState } from 'react';
 import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import Hero from '../components/Hero';
+import TestimonySection from '../components/TestimonySection';
 import WebinarForm from '../components/WebinarForm';
 
-import { useEffect } from 'react';
+import React, { useEffect } from "react";
 import CarouselCard from '../components/CarouselCard';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
-
-import React from "react";
 
 const HomePage = () => {
   useEffect(() => {
@@ -323,30 +321,6 @@ const HomePage = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "QA Director",
-      company: "TechCorp",
-      content: "SimplifyQA reduced our testing time by 70% while improving coverage. Game-changer for our team.",
-      avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-    },
-    {
-      name: "Michael Chen",
-      role: "Lead Developer",
-      company: "StartupXYZ", 
-      content: "The AI capabilities are incredible. Our test maintenance went from hours to minutes.",
-      avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "QA Manager",
-      company: "Enterprise Inc",
-      content: "Best testing platform we've used. The integrations work seamlessly with our existing stack.",
-      avatar: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-    }
-  ];
-
   const upcomingWebinar = {
     title: "Advanced Test Automation with AI: Best Practices for 2025",
     date: "January 30, 2025",
@@ -415,7 +389,7 @@ const HomePage = () => {
       </div>
 
       {/* Client Logos Slider */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="relative">
             {/* Slider for Client Logos */}
@@ -528,10 +502,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="features" className="pb-20 bg-white">
+      <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-20">
               Plug into your favorite tools seamlessly
             </h2>
             <div>
@@ -596,35 +570,15 @@ const HomePage = () => {
               See how SimplifyQA is helping teams worldwide deliver better software faster.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-gray-600">{testimonial.role}, {testimonial.company}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Testimony Section (reference style) */}
+      <TestimonySection />
         </div>
       </section>
 
+      
+
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      {/* <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Testing?
@@ -635,7 +589,7 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setIsDemoFormOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
+              className="bg-purple-500 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
             >
               Start Free Trial
             </button>
@@ -647,7 +601,29 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+      </section> */}
+
+
+      {/* Next Live Session Section */}
+      <section className="bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6 flex items-center justify-center gap-2">
+            <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Advanced Test Automation with AI: Best Practices for 2025</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <p className="text-base md:text-lg text-gray-300 mb-0">Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.</p>
+            
+          </div>
+          <p className="flex items-center gap-2 justify-center m-auto my-2">
+              <span className="text-gray-400 text-xs font-semibold">Date & Time</span>
+              <span className="text-white font-bold text-lg">January 30, 2025</span>
+              <span className="text-gray-300 text-sm">2:00 PM EST</span>
+            </p>
+          <button className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center m-auto">Register Now</button>
+        </div>
       </section>
+
     </div>
   );
 };

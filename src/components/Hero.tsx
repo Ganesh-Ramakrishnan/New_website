@@ -49,7 +49,7 @@ const Hero = () => {
         <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pb-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pb-20">
         {/* Main Content */}
         <div className="text-center mb-16">
           {/* AI Badge */}
@@ -132,7 +132,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>

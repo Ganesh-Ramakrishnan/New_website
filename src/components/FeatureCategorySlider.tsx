@@ -84,10 +84,7 @@ const featureCategories = [
 
 
 const getCardsVisible = () => {
-  if (typeof window !== 'undefined') {
-    if (window.innerWidth < 500) return 1;
-    if (window.innerWidth < 800) return 2;
-  }
+  // Always show 3 cards, regardless of screen size
   return 3;
 };
 const FeatureCategorySlider: React.FC = () => {
@@ -112,18 +109,20 @@ const FeatureCategorySlider: React.FC = () => {
 
   return (
     <div className="relative">
+      {/* Overlay gradients to hide card edges */}
+      <div className="pointer-events-none absolute top-0 left-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
+      <div className="pointer-events-none absolute top-0 right-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
       {/* Overlay arrows */}
-     
-      <div className="overflow-hidden px-8">
+      <div className="overflow-hidden px-8" style={{maxWidth: '1200px', margin: '0 auto'}}>
         <div
           className="flex transition-transform duration-500"
-          style={{ transform: `translateX(-${currentIndex * (100 / cardsVisible)}%)` }}
+          style={{ transform: `translateX(-${currentIndex * (100 / cardsVisible)}%)`, width: '100%' }}
         >
           {featureCategories.map((card, idx) => (
             <div
               key={idx}
-              className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] px-3`}
-              style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
+              className={`min-w-[33.3333%] max-w-[33.3333%] px-3`}
+              style={{ boxSizing: 'border-box', minWidth: '33.3333%', maxWidth: '33.3333%' }}
             >
               <div className="group relative">
                 <div className={`absolute inset-0 ${card.bg} rounded-2xl transform group-hover:scale-105 transition-transform duration-300`}></div>

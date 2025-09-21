@@ -2,22 +2,55 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const clientLogos = [
-  { src: '/assets/client/technotree.png', alt: 'Technotree' },
-  { src: '/assets/client/Technology Mindz.png', alt: 'Technology Mindz' },
-  { src: '/assets/client/Svatantra.png', alt: 'Svatantra' },
-  { src: '/assets/client/Sunbots.png', alt: 'Sunbots' },
-  { src: '/assets/client/SMFG india credits.png', alt: 'SMFG India Credits' },
-  { src: '/assets/client/Smartx technologies.png', alt: 'Smartx Technologies' },
-  { src: '/assets/client/Quest alliance.png', alt: 'Quest Alliance' },
-  { src: '/assets/client/Piramal finance.png', alt: 'Piramal Finance' },
-  { src: '/assets/client/Dr reddys laboratory.png', alt: 'Dr Reddys Laboratory' },
-  { src: '/assets/client/carelon globalsolutions.png', alt: 'Carelon Global Solutions' },
-  { src: '/assets/client/Availity.png', alt: 'Availity' },
-  { src: '/assets/client/Adithya birla fashion retail.png', alt: 'Adithya Birla Fashion Retail' },
-  { src: '/assets/client/images.png', alt: 'Images' },
-  { src: '/assets/client/Opentext.png', alt: 'Opentext' },
-  { src: '/assets/client/leap scholar.png', alt: 'Leap Scholar' },
-  { src: '/assets/client/Persyst.png', alt: 'Persyst' },
+  { src: '/assets/client/ADA Malaysia.svg', alt: 'ADA Malaysia' },
+  { src: '/assets/client/Adithya birla fashion retail.svg', alt: 'Adithya Birla Fashion Retail' },
+  { src: '/assets/client/AKPK Logo.svg', alt: 'AKPK' },
+  { src: '/assets/client/Analec logo.svg', alt: 'Analec' },
+  { src: '/assets/client/Atrium logo.svg', alt: 'Atrium' },
+  { src: '/assets/client/Availity.svg', alt: 'Availity' },
+  { src: '/assets/client/BMMB.svg', alt: 'BMMB' },
+  { src: '/assets/client/CARELON.svg', alt: 'Carelon' },
+  { src: '/assets/client/carwford.svg', alt: 'Carwford' },
+  { src: '/assets/client/CGC.svg', alt: 'CGC' },
+  { src: '/assets/client/Dexcom Logo.svg', alt: 'Dexcom' },
+  { src: '/assets/client/Dr reddys laboratory.svg', alt: 'Dr Reddys Laboratory' },
+  { src: '/assets/client/Elevence health.svg', alt: 'Elevence Health' },
+  { src: '/assets/client/Envista Logo.svg', alt: 'Envista' },
+  { src: '/assets/client/Equity.svg', alt: 'Equity' },
+  { src: '/assets/client/euNetworks.svg', alt: 'euNetworks' },
+  { src: '/assets/client/Finfort Logo.svg', alt: 'Finfort' },
+  { src: '/assets/client/Globitel.svg', alt: 'Globitel' },
+  { src: '/assets/client/hucu.svg', alt: 'Hucu' },
+  { src: '/assets/client/IQST Logo.svg', alt: 'IQST' },
+  { src: '/assets/client/korber.svg', alt: 'Korber' },
+  { src: '/assets/client/Leadway assurance.svg', alt: 'Leadway Assurance' },
+  { src: '/assets/client/leapscholar.svg', alt: 'Leap Scholar' },
+  { src: '/assets/client/logisfleet.svg', alt: 'Logisfleet' },
+  { src: '/assets/client/Malaysia Airlines Logo.svg', alt: 'Malaysia Airlines' },
+  { src: '/assets/client/Mesiniaga Logo.svg', alt: 'Mesiniaga' },
+  { src: '/assets/client/my eg.svg', alt: 'My EG' },
+  { src: '/assets/client/NCBA.svg', alt: 'NCBA' },
+  { src: '/assets/client/Net Health.svg', alt: 'Net Health' },
+  { src: '/assets/client/opentext.svg', alt: 'Opentext' },
+  { src: '/assets/client/Perfios-Logo.svg', alt: 'Perfios' },
+  { src: '/assets/client/persyst.svg', alt: 'Persyst' },
+  { src: '/assets/client/pirmal.svg', alt: 'Piramal' },
+  { src: '/assets/client/Quest alliance.svg', alt: 'Quest Alliance' },
+  { src: '/assets/client/Rawbank.svg', alt: 'Rawbank' },
+  { src: '/assets/client/Shikshalokam Logo.svg', alt: 'Shikshalokam' },
+  { src: '/assets/client/smartkarrot.svg', alt: 'Smartkarrot' },
+  { src: '/assets/client/Smartx technologies.svg', alt: 'Smartx Technologies' },
+  { src: '/assets/client/SMFG-Logo.svg', alt: 'SMFG' },
+  { src: '/assets/client/Sunbots.svg', alt: 'Sunbots' },
+  { src: '/assets/client/Svatantra.svg', alt: 'Svatantra' },
+  { src: '/assets/client/Technology Mindz.svg', alt: 'Technology Mindz' },
+  { src: '/assets/client/technotree.svg', alt: 'Technotree' },
+  { src: '/assets/client/udChalo.svg', alt: 'udChalo' },
+  { src: '/assets/client/UST Global Logo.svg', alt: 'UST Global' },
+  { src: '/assets/client/Vodacom.svg', alt: 'Vodacom' },
+  { src: '/assets/client/website logo-04.svg', alt: 'Website Logo' },
+  { src: '/assets/client/worklama.svg', alt: 'Worklama' },
+  { src: '/assets/client/Zipcar Logo.svg', alt: 'Zipcar' },
 ];
 
 
@@ -83,63 +116,94 @@ const ClientLogoSlider = () => {
     // Use parent container width for card width calculation
     const parent = marquee.parentElement;
     const parentWidth = parent ? parent.offsetWidth : marquee.offsetWidth;
-  const cardWidth = parentWidth / cardsVisible; // responsive visible cards
+    const cardWidth = parentWidth / cardsVisible; // responsive visible cards
+    let target = start;
     if (dir === 'left') {
-      start += cardWidth;
-      if (start > 0) {
-        start = -marquee.scrollWidth / 2 + cardWidth;
+      target += cardWidth;
+      if (target > 0) {
+        target = -marquee.scrollWidth / 2 + cardWidth;
       }
     } else {
-      start -= cardWidth;
-      if (Math.abs(start) >= marquee.scrollWidth / 2) {
-        start = 0;
+      target -= cardWidth;
+      if (Math.abs(target) >= marquee.scrollWidth / 2) {
+        target = 0;
       }
     }
-    marquee.style.transform = `translateX(${start}px)`;
-    positionRef.current = start;
+    // Animate the scroll smoothly
+    const duration = 400; // ms
+    const frameRate = 1000 / 60;
+    const frames = duration / frameRate;
+    const diff = target - start;
+    let frame = 0;
+    function animate() {
+      frame++;
+      const progress = frame / frames;
+      const ease = 0.5 - Math.cos(progress * Math.PI) / 2; // easeInOut
+      const current = start + diff * ease;
+      if (marquee) {
+        marquee.style.transform = `translateX(${current}px)`;
+        positionRef.current = current;
+      }
+      if (frame < frames) {
+        requestAnimationFrame(animate);
+      } else {
+        if (marquee) {
+          marquee.style.transform = `translateX(${target}px)`;
+          positionRef.current = target;
+        }
+      }
+    }
+    animate();
   };
 
   return (
-    <div className="relative py-8 overflow-hidden px-12">
-      {/* Arrows */}
-      <button
-        onClick={() => scrollBy('left')}
-        onMouseEnter={handleArrowMouseEnter}
-        onMouseLeave={handleArrowMouseLeave}
-        aria-label="Previous"
-  className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 border border-gray-300 rounded-full p-3 shadow-lg transition-all duration-200 flex items-center justify-center`}
-  style={{marginLeft: 0}}
-      >
-        <ChevronLeft className="h-6 w-6 text-black" />
-      </button>
-      <button
-        onClick={() => scrollBy('right')}
-        onMouseEnter={handleArrowMouseEnter}
-        onMouseLeave={handleArrowMouseLeave}
-        aria-label="Next"
-  className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 border border-gray-300 rounded-full p-3 shadow-lg transition-all duration-200 flex items-center justify-center`}
-  style={{marginRight: 0}}
-      >
-        <ChevronRight className="h-6 w-6 text-black" />
-      </button>
-      <div
-        ref={marqueeRef}
-        className="flex"
-        style={{ willChange: 'transform' }}
-      >
-        {logos.map((logo, idx) => (
+    <div className="relative py-8 overflow-hidden">
+      <div className="flex items-center">
+        {/* Left Arrow */}
+        <button
+          onClick={() => scrollBy('left')}
+          onMouseEnter={handleArrowMouseEnter}
+          onMouseLeave={handleArrowMouseLeave}
+          aria-label="Previous"
+          className="z-10 p-2 flex items-center justify-center"
+          style={{ background: 'none', boxShadow: 'none', border: 'none' }}
+        >
+          <ChevronLeft className="h-7 w-7 text-white" />
+        </button>
+        {/* Logo Marquee with extra margin to prevent overlap */}
+        <div className="flex-1 mx-4 overflow-hidden">
           <div
-            key={idx}
-            className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] flex items-center justify-center px-6`}
-            style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
+            ref={marqueeRef}
+            className="flex"
+            style={{ willChange: 'transform' }}
           >
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              className="w-32 h-20 object-contain grayscale opacity-80 hover:opacity-100 transition duration-300 bg-white rounded-xl shadow"
-            />
+            {logos.map((logo, idx) => (
+              <div
+                key={idx}
+                className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] flex items-center justify-center px-6`}
+                style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="w-32 h-20 object-contain bg-white rounded-xl shadow"
+                  style={{}}
+                />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        {/* Right Arrow */}
+        <button
+          onClick={() => scrollBy('right')}
+          onMouseEnter={handleArrowMouseEnter}
+          onMouseLeave={handleArrowMouseLeave}
+          aria-label="Next"
+          className="z-10 p-2 flex items-center justify-center"
+          style={{ background: 'none', boxShadow: 'none', border: 'none' }}
+        >
+          <ChevronRight className="h-7 w-7 text-white" />
+        </button>
       </div>
     </div>
   );
