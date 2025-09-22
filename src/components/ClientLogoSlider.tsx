@@ -2,22 +2,40 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const clientLogos = [
-  { src: '/assets/client/technotree.png', alt: 'Technotree' },
-  { src: '/assets/client/Technology Mindz.png', alt: 'Technology Mindz' },
-  { src: '/assets/client/Svatantra.png', alt: 'Svatantra' },
-  { src: '/assets/client/Sunbots.png', alt: 'Sunbots' },
-  { src: '/assets/client/SMFG india credits.png', alt: 'SMFG India Credits' },
-  { src: '/assets/client/Smartx technologies.png', alt: 'Smartx Technologies' },
-  { src: '/assets/client/Quest alliance.png', alt: 'Quest Alliance' },
-  { src: '/assets/client/Piramal finance.png', alt: 'Piramal Finance' },
-  { src: '/assets/client/Dr reddys laboratory.png', alt: 'Dr Reddys Laboratory' },
-  { src: '/assets/client/carelon globalsolutions.png', alt: 'Carelon Global Solutions' },
-  { src: '/assets/client/Availity.png', alt: 'Availity' },
-  { src: '/assets/client/Adithya birla fashion retail.png', alt: 'Adithya Birla Fashion Retail' },
-  { src: '/assets/client/images.png', alt: 'Images' },
-  { src: '/assets/client/Opentext.png', alt: 'Opentext' },
-  { src: '/assets/client/leap scholar.png', alt: 'Leap Scholar' },
-  { src: '/assets/client/Persyst.png', alt: 'Persyst' },
+  { src: '/assets/client/AKPK Logo.svg', alt: 'AKPK' },
+  { src: '/assets/client/Analec logo.svg', alt: 'Analec' },
+  { src: '/assets/client/BMMB.svg', alt: 'BMMB' },
+  { src: '/assets/client/CARELON.svg', alt: 'Carelon' },
+  { src: '/assets/client/carwford.svg', alt: 'Carwford' },
+  { src: '/assets/client/CGC.svg', alt: 'CGC' },
+  { src: '/assets/client/Dexcom Logo.svg', alt: 'Dexcom' },
+  { src: '/assets/client/Dr reddys laboratory.svg', alt: 'Dr Reddys Laboratory' },
+  { src: '/assets/client/Elevence health.svg', alt: 'Elevence Health' },
+  { src: '/assets/client/Envista Logo.svg', alt: 'Envista' },
+  { src: '/assets/client/Equity.svg', alt: 'Equity' },
+  { src: '/assets/client/euNetworks.svg', alt: 'euNetworks' },
+  { src: '/assets/client/Finfort Logo.svg', alt: 'Finfort' },
+  { src: '/assets/client/Globitel.svg', alt: 'Globitel' },
+  { src: '/assets/client/hucu.svg', alt: 'Hucu' },
+  { src: '/assets/client/IQST Logo.svg', alt: 'IQST' },
+  { src: '/assets/client/leapscholar.svg', alt: 'Leap Scholar' },
+  { src: '/assets/client/logisfleet.svg', alt: 'Logisfleet' },
+  { src: '/assets/client/Malaysia Airlines Logo.svg', alt: 'Malaysia Airlines' },
+  { src: '/assets/client/Net Health.svg', alt: 'Net Health' },
+  { src: '/assets/client/Perfios-Logo.svg', alt: 'Perfios' },
+  { src: '/assets/client/persyst.svg', alt: 'Persyst' },
+  { src: '/assets/client/pirmal.svg', alt: 'Piramal' },
+  { src: '/assets/client/Quest alliance.svg', alt: 'Quest Alliance' },
+  { src: '/assets/client/Rawbank.svg', alt: 'Rawbank' },
+  { src: '/assets/client/Shikshalokam Logo.svg', alt: 'Shikshalokam' },
+  { src: '/assets/client/smartkarrot.svg', alt: 'Smartkarrot' },
+  { src: '/assets/client/Smartx technologies.svg', alt: 'Smartx Technologies' },
+  { src: '/assets/client/SMFG-Logo.svg', alt: 'SMFG' },
+  { src: '/assets/client/Svatantra.svg', alt: 'Svatantra' },
+  { src: '/assets/client/technotree.svg', alt: 'Technotree' },
+  { src: '/assets/client/UST Global Logo.svg', alt: 'UST Global' },
+  { src: '/assets/client/website logo-04.svg', alt: 'Website Logo' },
+  { src: '/assets/client/worklama.svg', alt: 'Worklama' },
 ];
 
 
@@ -153,7 +171,8 @@ const ClientLogoSlider = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="w-32 h-20 object-contain grayscale opacity-80 hover:opacity-100 transition duration-300 bg-white rounded-xl shadow"
+                  className="w-32 h-20 object-contain bg-white rounded-xl shadow"
+                  style={{}}
                 />
               </div>
             ))}
