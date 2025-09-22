@@ -517,13 +517,13 @@ const HomePage = () => {
       </section>
 
       {/* Everything You Need Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Everything You Need in One Platform
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed light_grey">
+            <p className="text-base sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed light_grey">
               From AI-powered automation to comprehensive reporting, SimplifyQA provides all the tools 
               modern QA teams need to deliver exceptional software quality.
             </p>
@@ -532,7 +532,7 @@ const HomePage = () => {
           {/* Feature Categories */}
           <div className="relative">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0 opacity-5 pointer-events-none">
               <div className="absolute inset-0" style={{
                 backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59,130,246,0.5) 1px, transparent 0)`,
                 backgroundSize: '32px 32px'
@@ -540,7 +540,9 @@ const HomePage = () => {
             </div>
 
             {/* Slider for Feature Categories */}
-            <FeatureCategorySlider />
+            <div className="w-full">
+              <FeatureCategorySlider />
+            </div>
           </div>
         </div>
       </section>
@@ -603,6 +605,19 @@ const HomePage = () => {
         </div>
       </section> */}
 
+
+      {/* Compliance Badges Section */}
+      <section className="bg-white py-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-4">Our Certifications & Compliance</h2>
+          <div className="flex flex-row items-center justify-between gap-8 bg-white w-full">
+            <img src="/assets/crt/SOC.png" alt="SOC 2 TYPE 2" className="h-40 w-1/4 object-contain" />
+            <img src="/assets/crt/GDPR compliant.png" alt="GDPR Compliant" className="h-40 w-1/4 object-contain" />
+            <img src="/assets/crt/Intercert.Png" alt="ISO 27001" className="h-40 w-1/4 object-contain" />
+            <img src="/assets/crt/HIPAA compliant.png" alt="HIPAA Compliant" className="h-40 w-1/4 object-contain" />
+          </div>
+        </div>
+      </section>
 
       {/* Next Live Session Section */}
       <section className="bg-gray-900 py-12">

@@ -1,4 +1,4 @@
-import { BarChart3, Cloud, GitBranch, Globe, Plus, Shield, Zap } from 'lucide-react';
+import { BarChart3, Cloud, GitBranch, Globe, Shield, Zap } from 'lucide-react';
 import React, { useState } from 'react';
 
 const cards = [
@@ -112,7 +112,7 @@ const CarouselCard: React.FC = () => {
           left: 0,
           width: '100vw',
           height: '100vh',
-          background: 'rgba(28, 28, 28, 0.55)',
+          background: 'rgba(28, 28, 28, 0.95)',
           zIndex: 999,
           display: openIndex !== null ? 'flex' : 'none',
           alignItems: 'center',
@@ -122,9 +122,9 @@ const CarouselCard: React.FC = () => {
       >
         <div
           style={{
-            background: '#fff',
+            background: '#18181b',
             borderRadius: 20,
-            boxShadow: '0 8px 40px rgba(0,0,0,0.18)',
+            boxShadow: '0 8px 40px rgba(0,0,0,0.28)',
             padding: '40px 32px',
             minWidth: 320,
             maxWidth: 480,
@@ -134,6 +134,7 @@ const CarouselCard: React.FC = () => {
             opacity: openIndex !== null ? 1 : 0,
             transition: 'transform 0.7s cubic-bezier(.4,1,.4,1), opacity 0.7s cubic-bezier(.4,1,.4,1)',
             pointerEvents: openIndex !== null ? 'auto' : 'none',
+            color: '#fff',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -163,7 +164,7 @@ const CarouselCard: React.FC = () => {
               <div className={`w-16 m-auto h-16 bg-gradient-to-br ${cards[openIndex].gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                 {cards[openIndex].icon}
               </div>
-              <h3 className="text-2xl font-bold comprehensive_card_header mt-4" style={{ color: '#222' }}>{cards[openIndex].title}</h3>
+              <h3 className="text-2xl font-bold comprehensive_card_header mt-4" style={{ color: '#fff' }}>{cards[openIndex].title}</h3>
               <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: '#dd246a', fontSize: 14, fontWeight: 500, marginTop: 8 }}>{cards[openIndex].header}</p>
               <div className='light_grey' style={{ color: '#444', fontSize: '1rem', fontWeight: 400, marginTop: 16, textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: cards[openIndex].description }} />
             </div>
@@ -208,18 +209,7 @@ const CarouselCard: React.FC = () => {
                               <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: '#dd246a', fontSize: 12, fontWeight: 500 }}>{card.header}</p>
                             </div>
                             <div className="flex justify-end items-center mt-4">
-                              <Plus
-                                className="plus-custom-icon"
-                                style={{
-                                  color: 'white',
-                                  border: '1px solid #3b3b3b',
-                                  padding: '5px',
-                                  height: '35px',
-                                  width: '35px',
-                                  borderRadius: '5px',
-                                  marginTop: '13px',
-                                }}
-                              />
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link h-4 w-4 text-white opacity-80"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
                             </div>
                             {/* Description removed from collapsed card view */}
                           </div>

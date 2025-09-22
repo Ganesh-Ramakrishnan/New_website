@@ -2,12 +2,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const clientLogos = [
-  { src: '/assets/client/ADA Malaysia.svg', alt: 'ADA Malaysia' },
-  { src: '/assets/client/Adithya birla fashion retail.svg', alt: 'Adithya Birla Fashion Retail' },
   { src: '/assets/client/AKPK Logo.svg', alt: 'AKPK' },
   { src: '/assets/client/Analec logo.svg', alt: 'Analec' },
-  { src: '/assets/client/Atrium logo.svg', alt: 'Atrium' },
-  { src: '/assets/client/Availity.svg', alt: 'Availity' },
   { src: '/assets/client/BMMB.svg', alt: 'BMMB' },
   { src: '/assets/client/CARELON.svg', alt: 'Carelon' },
   { src: '/assets/client/carwford.svg', alt: 'Carwford' },
@@ -22,16 +18,10 @@ const clientLogos = [
   { src: '/assets/client/Globitel.svg', alt: 'Globitel' },
   { src: '/assets/client/hucu.svg', alt: 'Hucu' },
   { src: '/assets/client/IQST Logo.svg', alt: 'IQST' },
-  { src: '/assets/client/korber.svg', alt: 'Korber' },
-  { src: '/assets/client/Leadway assurance.svg', alt: 'Leadway Assurance' },
   { src: '/assets/client/leapscholar.svg', alt: 'Leap Scholar' },
   { src: '/assets/client/logisfleet.svg', alt: 'Logisfleet' },
   { src: '/assets/client/Malaysia Airlines Logo.svg', alt: 'Malaysia Airlines' },
-  { src: '/assets/client/Mesiniaga Logo.svg', alt: 'Mesiniaga' },
-  { src: '/assets/client/my eg.svg', alt: 'My EG' },
-  { src: '/assets/client/NCBA.svg', alt: 'NCBA' },
   { src: '/assets/client/Net Health.svg', alt: 'Net Health' },
-  { src: '/assets/client/opentext.svg', alt: 'Opentext' },
   { src: '/assets/client/Perfios-Logo.svg', alt: 'Perfios' },
   { src: '/assets/client/persyst.svg', alt: 'Persyst' },
   { src: '/assets/client/pirmal.svg', alt: 'Piramal' },
@@ -41,16 +31,11 @@ const clientLogos = [
   { src: '/assets/client/smartkarrot.svg', alt: 'Smartkarrot' },
   { src: '/assets/client/Smartx technologies.svg', alt: 'Smartx Technologies' },
   { src: '/assets/client/SMFG-Logo.svg', alt: 'SMFG' },
-  { src: '/assets/client/Sunbots.svg', alt: 'Sunbots' },
   { src: '/assets/client/Svatantra.svg', alt: 'Svatantra' },
-  { src: '/assets/client/Technology Mindz.svg', alt: 'Technology Mindz' },
   { src: '/assets/client/technotree.svg', alt: 'Technotree' },
-  { src: '/assets/client/udChalo.svg', alt: 'udChalo' },
   { src: '/assets/client/UST Global Logo.svg', alt: 'UST Global' },
-  { src: '/assets/client/Vodacom.svg', alt: 'Vodacom' },
   { src: '/assets/client/website logo-04.svg', alt: 'Website Logo' },
   { src: '/assets/client/worklama.svg', alt: 'Worklama' },
-  { src: '/assets/client/Zipcar Logo.svg', alt: 'Zipcar' },
 ];
 
 

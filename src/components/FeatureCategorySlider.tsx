@@ -84,7 +84,13 @@ const featureCategories = [
 
 
 const getCardsVisible = () => {
-  // Always show 3 cards, regardless of screen size
+  if (typeof window !== 'undefined') {
+    if (window.innerWidth < 640) {
+      return 1;
+    } else if (window.innerWidth < 1024) {
+      return 2;
+    }
+  }
   return 3;
 };
 const FeatureCategorySlider: React.FC = () => {
@@ -110,10 +116,10 @@ const FeatureCategorySlider: React.FC = () => {
   return (
     <div className="relative">
       {/* Overlay gradients to hide card edges */}
-      <div className="pointer-events-none absolute top-0 left-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
-      <div className="pointer-events-none absolute top-0 right-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
+  <div className="hidden sm:block pointer-events-none absolute top-0 left-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
+  <div className="hidden sm:block pointer-events-none absolute top-0 right-0 h-full w-12 z-20" style={{background: 'linear-gradient(to left, rgb(8 9 10) 90%, transparent)' }}></div>
       {/* Overlay arrows */}
-      <div className="overflow-hidden px-8" style={{maxWidth: '1200px', margin: '0 auto'}}>
+      <div className="overflow-hidden px-2 sm:px-8" style={{maxWidth: '1200px', margin: '0 auto'}}>
         <div
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentIndex * (100 / cardsVisible)}%)`, width: '100%' }}
@@ -121,26 +127,26 @@ const FeatureCategorySlider: React.FC = () => {
           {featureCategories.map((card, idx) => (
             <div
               key={idx}
-              className={`min-w-[33.3333%] max-w-[33.3333%] px-3`}
-              style={{ boxSizing: 'border-box', minWidth: '33.3333%', maxWidth: '33.3333%' }}
+              className={`px-2 sm:px-3 min-w-full sm:min-w-[50%] md:min-w-[33.3333%] max-w-full sm:max-w-[50%] md:max-w-[33.3333%]`}
+              style={{ boxSizing: 'border-box' }}
             >
               <div className="group relative">
                 <div className={`absolute inset-0 ${card.bg} rounded-2xl transform group-hover:scale-105 transition-transform duration-300`}></div>
-                <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
-                  <div className="flex items-center mb-6">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${card.color} rounded-2xl flex items-center justify-center mr-4 shadow-lg`}>
+                <div className="min-h-365 relative backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col feature-gradient-bg liener_bg">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${card.color} rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg`}>
                       {card.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">{card.title}</h3>
-                      <p className="font-medium text-sm light_grey">{card.subtitle}</p>
+                      <h3 className="text-base sm:text-xl font-bold text-gray-900">{card.title}</h3>
+                      <p className="font-medium text-xs sm:text-sm light_grey">{card.subtitle}</p>
                     </div>
                   </div>
-                  <div className="space-y-3 flex-grow">
+                  <div className="space-y-2 sm:space-y-3 flex-grow">
                     {card.features.map((feature, i) => (
                       <div key={i} className="flex items-start group/item">
-                        <div className={`w-2 h-2 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200 ${card.color.split(' ')[0]}`}></div>
-                        <span className="text-gray-700 text-sm leading-relaxed light_grey">{feature}</span>
+                        <div className={`w-2 h-2 rounded-full mr-2 sm:mr-3 mt-2 group-hover/item:scale-125 transition-transform duration-200 ${card.color.split(' ')[0]}`}></div>
+                        <span className="text-gray-700 text-xs sm:text-sm leading-relaxed light_grey">{feature}</span>
                       </div>
                     ))}
                   </div>
