@@ -1,28 +1,28 @@
 import {
-  BarChart3,
-  Bug,
-  Calendar,
-  Cloud,
-  Cpu,
-  FileText,
-  GitBranch,
-  Globe,
-  Layers,
-  Settings,
-  Shield,
-  Target,
-  TrendingUp,
-  Users,
-  Zap
+    BarChart3,
+    Bug,
+    Calendar,
+    Cloud,
+    Cpu,
+    FileText,
+    GitBranch,
+    Globe,
+    Layers,
+    Settings,
+    Shield,
+    Target,
+    TrendingUp,
+    Users,
+    Zap
 } from 'lucide-react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
+import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
 import TestimonySection from '../components/TestimonySection';
 import WebinarForm from '../components/WebinarForm';
 
-import React, { useEffect } from "react";
 import CarouselCard from '../components/CarouselCard';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
 
@@ -398,7 +398,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features Section - Dark Theme */}
+  {/* Features Section - Dark Theme */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -451,6 +451,9 @@ const HomePage = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
+
+          {/* Favorite Tools Grid Section */}
+          <FavoriteToolsGrid />
         </div>
       </section>
 

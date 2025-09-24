@@ -1,4 +1,4 @@
-import { FileText, Github, Linkedin, Mail, MessageCircle, Phone, Play, Shield, Twitter } from 'lucide-react';
+import { FileText, Github, Linkedin, Mail, MessageCircle, Phone, Play, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -49,24 +49,26 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <Link to="/resources#webinars" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <Play className="h-4 w-4 mr-2" />
                   Webinars
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://discord.gg/simplifyqa" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <a href="https://discord.gg/e58NZySa2T" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   Join Discord
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <a href="https://docs.simplifyqa.ai/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <FileText className="h-4 w-4 mr-2" />
                   Help Documents
                 </a>
               </li>
-              <li><Link to="/resources" className="text-gray-400 hover:text-white transition-colors">Blog & Guides</Link></li>
+              <li>
+                <Link to="/resources#blogs" className="text-gray-400 hover:text-white transition-colors">Blog & Guides</Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -80,41 +82,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Security Certifications */}
-        <div className="border-t border-gray-800 pt-8 mt-8">
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 flex items-center">
-              <Shield className="h-4 w-4 mr-2" />
-              Security & Compliance
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-blue-400 mb-1">SOC 2</div>
-                <div className="text-xs text-gray-400">Type II</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-green-400 mb-1">ISO 27001</div>
-                <div className="text-xs text-gray-400">Certified</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-purple-400 mb-1">GDPR</div>
-                <div className="text-xs text-gray-400">Compliant</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-orange-400 mb-1">HIPAA</div>
-                <div className="text-xs text-gray-400">Ready</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-red-400 mb-1">PCI DSS</div>
-                <div className="text-xs text-gray-400">Level 1</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-cyan-400 mb-1">FedRAMP</div>
-                <div className="text-xs text-gray-400">Authorized</div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-6 text-gray-400 text-sm">

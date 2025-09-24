@@ -1,5 +1,5 @@
+import { Building, Calendar, CheckCircle, Mail, X } from 'lucide-react';
 import React, { useState } from 'react';
-import { X, Calendar, Users, CheckCircle, ArrowRight, Building, Mail, Phone } from 'lucide-react';
 
 interface DemoRequestFormProps {
   isOpen: boolean;
@@ -349,13 +349,24 @@ const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) =>
                 </label>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all flex items-center justify-center"
-              >
-                Schedule My Demo
-                <Calendar className="ml-2 h-5 w-5" />
-              </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all flex items-center justify-center"
+                >
+                  Schedule My Demo
+                  <Calendar className="ml-2 h-5 w-5" />
+                </button>
+
+                <a
+                  href="https://calendly.com/simplifyqa/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center border border-gray-200 rounded-lg px-6 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  Schedule via Calendly
+                </a>
+              </div>
 
               <p className="mt-4 text-xs text-gray-500 text-center">
                 By submitting this form, you agree to our Terms of Service and Privacy Policy. 
