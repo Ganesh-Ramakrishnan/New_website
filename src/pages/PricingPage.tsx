@@ -1,7 +1,7 @@
-import { ArrowRight, CheckCircle, HelpCircle } from 'lucide-react';
-import { useState } from 'react';
-
-import { useEffect } from 'react';
+import { HelpCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import PricingOne from '../components/PricingOne';
+import PricingSix from '../components/PricingSix';
 const PricingPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -143,7 +143,7 @@ const PricingPage = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 bg-black">
+      {/* <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
@@ -209,7 +209,13 @@ const PricingPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+
+      {/* Main Pricing Plans */}
+      <PricingSix header={true} ptClass="bg-white" />
+
+      {/* Add-Ons Section */}
+      <PricingOne header={true} ptClass="bg-black" />
 
       {/* FAQ Section */}
       <section className="py-20 bg-black">

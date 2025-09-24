@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
+  const [isTourOpen, setIsTourOpen] = useState(false);
 
   const almPhases = [
     { 
@@ -137,15 +138,27 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             
-            <button className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
+            <button onClick={() => setIsTourOpen(true)} className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
               <Play className="h-4 w-4 mr-2" />
-              Watch Demo
+              Product Tour
             </button>
           </div>
         </div>
 
         {/* ALM Phases */}
         <div>
+        {isTourOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+            <div className="bg-black rounded-lg w-full max-w-4xl h-[60vh] overflow-hidden">
+              <div className="p-3 flex justify-end">
+                <button className="text-white text-xl" onClick={() => setIsTourOpen(false)}>✕</button>
+              </div>
+              <div className="h-full">
+                <iframe className="w-full h-full" src="https://www.youtube.com/embed/4IUKqRsq_oc" title="Product Tour" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              </div>
+            </div>
+          </div>
+        )}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {almPhases.map((phase, index) => (
               <div 
