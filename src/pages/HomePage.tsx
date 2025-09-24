@@ -452,8 +452,7 @@ const HomePage = () => {
             </button>
           </div>
 
-          {/* Favorite Tools Grid Section */}
-          <FavoriteToolsGrid />
+        
         </div>
       </section>
 
@@ -549,6 +548,9 @@ const HomePage = () => {
         isOpen={isDemoFormOpen}
         onClose={() => setIsDemoFormOpen(false)}
       />
+
+        {/* Favorite Tools Grid Section */}
+          <FavoriteToolsGrid />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-blue-600">
