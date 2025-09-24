@@ -1,19 +1,19 @@
 import {
-    BarChart3,
-    Bug,
-    Calendar,
-    Cloud,
-    Cpu,
-    FileText,
-    GitBranch,
-    Globe,
-    Layers,
-    Settings,
-    Shield,
-    Target,
-    TrendingUp,
-    Users,
-    Zap
+  BarChart3,
+  Bug,
+  Calendar,
+  Cloud,
+  Cpu,
+  FileText,
+  GitBranch,
+  Globe,
+  Layers,
+  Settings,
+  Shield,
+  Target,
+  TrendingUp,
+  Users,
+  Zap
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import ClientLogoSlider from '../components/ClientLogoSlider';
@@ -501,20 +501,6 @@ const HomePage = () => {
 
           {/* Carousel Card Example with Toggle */}
           <CarouselCard />
-
-        </div>
-      </section>
-
-      <section id="features" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-20">
-              Plug into your favorite tools seamlessly
-            </h2>
-            <div>
-              <img src="../assets/linked.png" alt="LinkedIn Logo" width="100%" />
-            </div>
-          </div>
 
         </div>
       </section>

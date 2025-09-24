@@ -12,7 +12,7 @@ interface PricingOneProps {
 const PricingOne: React.FC<PricingOneProps> = ({ header, ptClass }) => {
   return (
     <section className={`py-20 relative z-10 ${ptClass ? ptClass : ""}`}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative rounded-lg p-4 sm:p-6 lg:p-8 border-gray-800 mb-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative rounded-lg p-4 sm:p-6 lg:p-8 border-gray-800 mb-6 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
         {header && (
           <div className="text-center mb-16">
             <div className="max-w-2xl mx-auto">

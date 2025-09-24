@@ -20,6 +20,16 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
   // Duplicate cards for seamless infinite scroll
   const allCards = [...cards, ...cards];
   const animationName = direction === 'left' ? 'scrollLeft' : 'scrollRight';
+  const innerRef = React.useRef<HTMLDivElement | null>(null);
+
+  const handleMouseEnter = () => {
+    if (innerRef.current) innerRef.current.style.animationPlayState = 'paused';
+  };
+
+  const handleMouseLeave = () => {
+    if (innerRef.current) innerRef.current.style.animationPlayState = 'running';
+  };
+
   return (
     <div style={{
       overflow: 'hidden',
@@ -28,11 +38,21 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
       height: '150px',
     }}>
       <div
+        ref={innerRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         style={{
           display: 'flex',
           gap: '10px',
           width: 'max-content',
-          animation: `${animationName} ${duration}s linear infinite`,
+          animationName: animationName,
+          animationDuration: `${duration}s`,
+          animationTimingFunction: 'linear',
+          animationIterationCount: 'infinite',
+          willChange: 'transform',
+          transform: 'translate3d(0,0,0)',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
         }}
       >
         {allCards.map((card, idx) => (
@@ -43,17 +63,23 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
   );
 };
 
-// Add keyframes for scrolling animation
+// Add keyframes for scrolling animation (use translate3d for GPU acceleration)
 const style = document.createElement('style');
 style.innerHTML = `
 @keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); -webkit-transform: translate3d(-50%, 0, 0); }
 }
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}`;
+  0% { transform: translate3d(-50%, 0, 0); -webkit-transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); }
+}
+/* Optional: prefer compositor-only properties for smoother playback */
+@media (prefers-reduced-motion: reduce) {
+  @keyframes scrollLeft { 0% { transform: none; } 100% { transform: none; } }
+  @keyframes scrollRight { 0% { transform: none; } 100% { transform: none; } }
+}
+`;
 if (!document.head.querySelector('style[data-scroll-anim]')) {
   style.setAttribute('data-scroll-anim', 'true');
   document.head.appendChild(style);
