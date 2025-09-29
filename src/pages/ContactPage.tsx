@@ -2,6 +2,7 @@ import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
 import React, { useState } from 'react';
 
 import { useEffect } from 'react';
+import OurOffice from '../components/OurOffice';
 const ContactPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -261,6 +262,9 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
+  {/* Offices section */}
+  <OurOffice />
     </div>
   );
 };

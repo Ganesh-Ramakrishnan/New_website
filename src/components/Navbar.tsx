@@ -44,7 +44,7 @@ const Navbar = () => {
               <img 
                 src="/simplify_logo.svg" 
                 alt="SimplifyQA" 
-                className="h-5 w-auto"
+                className="" style={{ width: '190px' }}
               />
             </Link>
           </div>

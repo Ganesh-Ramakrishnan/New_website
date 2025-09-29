@@ -27,7 +27,6 @@ const clientLogos = [
   { src: '/assets/client/pirmal.svg', alt: 'Piramal' },
   { src: '/assets/client/Quest alliance.svg', alt: 'Quest Alliance' },
   { src: '/assets/client/Rawbank.svg', alt: 'Rawbank' },
-  { src: '/assets/client/Shikshalokam Logo.svg', alt: 'Shikshalokam' },
   { src: '/assets/client/smartkarrot.svg', alt: 'Smartkarrot' },
   { src: '/assets/client/Smartx technologies.svg', alt: 'Smartx Technologies' },
   { src: '/assets/client/SMFG-Logo.svg', alt: 'SMFG' },

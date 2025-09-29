@@ -34,34 +34,71 @@ const RequestDemoPage = () => {
         {/* Decorative SVG or background can be added here */}
       </div>
       {/* Right Side */}
-      <div className="md:w-1/2 flex flex-col justify-center items-center px-8 py-16 bg_white">
+      <div className="md:w-1/2 flex flex-col justify-center items-center px-8 py-16 pt-20 bg_white">
         <div className="max-w-md w-full">
           <h2 className="text-3xl font-bold text-center mb-4 text-black">Schedule a call to get started</h2>
           <p className="text-center text-gray-500 mb-8">Schedule a 30 minute demo with an expert Q+A</p>
           <form className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="First name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
-              <input type="text" placeholder="Last name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+            <input
+              type="text"
+              name="name"
+              placeholder="Full name"
+              className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-full"
+            />
+
+            <div className="flex gap-4">
+              <select
+                name="phoneCountry"
+                className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-1/3"
+              >
+                <option>Country</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+                <option>Other</option>
+              </select>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 flex-1"
+              />
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="Company name" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
-              <input type="email" placeholder="Work email" className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
-            </div>
-            <select className="border rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
-              <option># of Freelancers</option>
-              <option>1-10</option>
-              <option>11-50</option>
-              <option>51-200</option>
-              <option>201+</option>
-            </select>
-            <select className="border rounded-lg px-4 py-3 w-full focus:outline-none focus:border-purple-500">
-              <option>Company Country</option>
-              <option>India</option>
-              <option>USA</option>
-              <option>UK</option>
-              <option>Other</option>
-            </select>
-            <button type="submit" className="w-full bg-purple-500 text-white font-semibold py-3 rounded-lg mt-4 hover:bg-purple-600 transition">Book a call</button>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Work email"
+              className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-full"
+            />
+
+            <input
+              type="text"
+              name="organisation"
+              placeholder="Organisation"
+              className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-full"
+            />
+
+            <input
+              type="text"
+              name="designation"
+              placeholder="Designation"
+              className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-full"
+            />
+
+            <textarea
+              name="comments"
+              placeholder="Comments"
+              rows={4}
+              className="border rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 w-full"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full bg-purple-500 text-white font-semibold py-3 rounded-lg mt-4 hover:bg-purple-600 transition"
+            >
+              Book a call
+            </button>
           </form>
         </div>
       </div>

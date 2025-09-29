@@ -125,9 +125,7 @@ const FavoriteToolsGrid: React.FC = () => (
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
               { src: "/assets/fav_tool/Google chat.svg", label: "Chat" },
               { src: "/assets/fav_tool/Browser stack.svg", label: "Browser stack" },
-              { src: "/assets/fav_tool/Sauce labs.svg", label: "Sauce labs" },
               { src: "/assets/fav_tool/LambdaTest.svg", label: "Lambdatest" },
-              { src: "/assets/fav_tool/Kobiton.svg", label: "Kobiton" },
             ]}
           />
           {/* Row 2: scroll right */}
@@ -139,10 +137,9 @@ const FavoriteToolsGrid: React.FC = () => (
               { src: "/assets/fav_tool/freshrelease.svg", label: "Fresh release" },
               { src: "/assets/fav_tool/YouTrack.svg", label: "Youtrack" },
               { src: "/assets/fav_tool/Backlog.svg", label: "Backlog" },
-              { src: "/assets/fav_tool/Zepel.svg", label: "Zepel" },
               { src: "/assets/fav_tool/Bugzilla_logo_(2022) 1.svg", label: "Bugzilla" },
-              { src: "/assets/fav_tool/Trello.svg", label: "Trello" },
-              { src: "/assets/fav_tool/Codeship.svg", label: "Codeship" },
+              // { src: "/assets/fav_tool/Trello.svg", label: "Trello" },
+              // { src: "/assets/fav_tool/Codeship.svg", label: "Codeship" },
             ]}
           />
           {/* Row 3: scroll left */}
@@ -152,9 +149,7 @@ const FavoriteToolsGrid: React.FC = () => (
             cards={[
               { src: "/assets/fav_tool/Linear.svg", label: "Linear" },
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Jenkins" },
-              { src: "/assets/fav_tool/Circle CL.svg", label: "Circle CL" },
               { src: "/assets/fav_tool/Azure devops.svg", label: "Azure Devops" },
-              { src: "/assets/fav_tool/Bamboo.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/AWS.svg", label: "Aws" },
               { src: "/assets/fav_tool/Travis CI.svg", label: "Travis CL" },
             ]}

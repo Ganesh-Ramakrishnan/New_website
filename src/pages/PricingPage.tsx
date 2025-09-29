@@ -167,16 +167,8 @@ const PricingPage = () => {
                     {plan.description}
                   </p>
                   <div className="mb-4">
-                    {typeof plan.price[billingPeriod] === 'number' ? (
-                      <div>
-                        <span className="text-4xl font-bold text-white">
-                          ${plan.price[billingPeriod]}
-                        </span>
-                        <span className="text-gray-300 text-lg">
-                          /{billingPeriod === 'monthly' ? 'month' : 'year'}
-                        </span>
-                      </div>
-                    ) : (
+                    // Price removed per request; keep label for non-numeric values
+                    {typeof plan.price[billingPeriod] !== 'number' && (
                       <span className="text-4xl font-bold text-white">
                         {plan.price[billingPeriod]}
                       </span>
@@ -210,12 +202,12 @@ const PricingPage = () => {
           </div>
         </div>
       </section> */}
-
       {/* Main Pricing Plans */}
-      <PricingSix header={true} ptClass="bg-white" />
+      <PricingOne header={true} ptClass="bg-black" />
 
       {/* Add-Ons Section */}
-      <PricingOne header={true} ptClass="bg-black" />
+      <PricingSix header={true} ptClass="bg-white" />
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-black">
@@ -257,7 +249,7 @@ const PricingPage = () => {
           <p className="text-xl text-gray-300 mb-8">
             Our team is here to help you find the perfect plan for your needs.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+          <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>
             Talk to Sales Team
           </button>
         </div>

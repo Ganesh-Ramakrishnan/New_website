@@ -72,41 +72,56 @@ const HomePage = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const pairStripRef = React.useRef<HTMLDivElement>(null);
 
-  // Horizontal scroll effect
+  // Smooth scroll-linked horizontal animator using RAF + easing
   React.useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      const pairStrip = pairStripRef.current;
-      if (!section || !pairStrip) return;
-      const sectionRect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const totalPairs = imageTextPairs.length;
+    const strip = pairStripRef.current;
+    if (!strip) return;
 
-      // Buffer: first 20% of sticky section keeps first image fixed
-      const bufferRatio = 0.2;
-      const bufferPx = (sectionRect.height - windowHeight) * bufferRatio;
+    // measurement-based CSS animation for smooth continuous scroll
+    const PX_PER_SEC = 0.2; // very slow motion; tune to 0.1 for almost static
 
-      if (sectionRect.top <= 0 && sectionRect.bottom > windowHeight) {
-        // Calculate vertical scroll within sticky section
-        const verticalScroll = windowHeight - sectionRect.top;
-        let scrollProgress = 0;
-        if (verticalScroll > bufferPx) {
-          // Start horizontal scroll after buffer
-          scrollProgress = Math.min(
-            1,
-            (verticalScroll - bufferPx) / (sectionRect.height - windowHeight - bufferPx)
-          );
-        }
-        const maxTranslateX = (totalPairs - 1) * window.innerWidth;
-        pairStrip.style.transform = `translateX(-${scrollProgress * maxTranslateX}px)`;
-      } else if (sectionRect.bottom <= windowHeight) {
-        pairStrip.style.transform = `translateX(-${(totalPairs - 1) * window.innerWidth}px)`;
-      } else {
-        pairStrip.style.transform = 'translateX(0px)';
+    // ensure style
+    strip.style.willChange = 'transform';
+    strip.style.backfaceVisibility = 'hidden';
+
+  const totalWidth = strip.scrollWidth || 0;
+  const originalWidth = totalWidth / 2 || 0;
+  if (originalWidth === 0) return;
+
+  // fixed duration as requested by user
+  const durationSec = 1; // 1 second full loop
+    const animName = `homeLoop_${Math.floor(Math.random() * 1e9)}`;
+    const styleEl = document.createElement('style');
+    styleEl.setAttribute('data-home-loop', animName);
+    styleEl.innerHTML = `
+      @keyframes ${animName} {
+        0% { transform: translate3d(0,0,0); }
+        100% { transform: translate3d(-${originalWidth}px,0,0); }
       }
+      @media (prefers-reduced-motion: reduce) {
+        @keyframes ${animName} { 0% { transform: none; } 100% { transform: none; } }
+      }
+    `;
+    document.head.appendChild(styleEl);
+
+    strip.style.animationName = animName;
+    strip.style.animationDuration = `${durationSec}s`;
+    strip.style.animationTimingFunction = 'linear';
+    strip.style.animationIterationCount = 'infinite';
+
+    // pause on hover
+    const onEnter = () => { strip.style.animationPlayState = 'paused'; };
+    const onLeave = () => { strip.style.animationPlayState = 'running'; };
+    strip.addEventListener('mouseenter', onEnter);
+    strip.addEventListener('mouseleave', onLeave);
+
+    return () => {
+      strip.removeEventListener('mouseenter', onEnter);
+      strip.removeEventListener('mouseleave', onLeave);
+      const el = document.head.querySelector(`style[data-home-loop="${animName}"]`);
+      if (el) el.remove();
+      strip.style.animationName = '';
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [imageTextPairs.length]);
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
@@ -465,21 +480,7 @@ const HomePage = () => {
           </div>
         </div> */}
 
-      {/* <section className="image-text-section relative" style={{ height: '500vh' }} ref={sectionRef}> 
-        <div className="sticky-container sticky top-0 flex h-screen bg-white overflow-hidden">
-          <div className="pair-strip flex absolute top-0 left-0 h-[100vh] transition-transform duration-100" ref={pairStripRef}>
-            {imageTextPairs.map((pair, idx) => (
-              <div className="pair flex w-screen h-[100vh]" key={idx}>
-                <img src={pair.img} alt={pair.heading} className="w-1/2 object-cover" />
-                <div className="text w-1/2 flex flex-col justify-center items-center p-8 bg-gray-50 text-gray-800 text-2xl">
-                  <h2 className="font-bold mb-4">{pair.heading}</h2>
-                  <p className="text-lg">{pair.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+
 
   {/* Removed start and end horizontal scroll section divs as requested */}
 

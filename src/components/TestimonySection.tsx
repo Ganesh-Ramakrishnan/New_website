@@ -98,7 +98,7 @@ export default function TestimonySection() {
                 </a>
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
-                <p className="light_grey text-base mb-6" style={{minHeight: '110px'}}>"{t.text}"</p>
+                <p className="light_grey text-base mb-6" style={{minHeight: '125px'}}>"{t.text}"</p>
                 <div className="border-t border-gray-700 pt-4">
                   <span className="font-semibold text-white">{t.name}</span>
                   {t.role && <span className="ml-2 text-gray-400 text-xs font-medium">{t.role}</span>}

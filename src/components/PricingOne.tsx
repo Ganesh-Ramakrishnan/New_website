@@ -1,100 +1,145 @@
-import { CheckCircle } from "lucide-react";
 import React from "react";
-import { Link } from "react-router-dom";
-
+// pricing add-ons data
 import { pricingData } from "../utils/data.ts";
 
-interface PricingOneProps {
-  header?: boolean;
-  ptClass?: string;
-}
+type PricingItem = {
+  title: string;
+  price: string;
+  time: string;
+  bgColor?: string;
+  textColor?: string;
+  btnColor?: string;
+  shape?: string | null;
+  listItem: { li: string }[];
+};
 
-const PricingOne: React.FC<PricingOneProps> = ({ header, ptClass }) => {
+const PricingOne: React.FC<{ header?: boolean; ptClass?: string }> = ({ header, ptClass }) => {
   return (
-    <section className={`py-20 relative z-10 ${ptClass ? ptClass : ""}`}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative rounded-lg p-4 sm:p-6 lg:p-8 border-gray-800 mb-6 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <section
+      className={`pricing-section position-relative z-2 ${ptClass ? ptClass : ""
+        }`}
+    >
+      <div className="container mx-auto px-4 lg:w-[90%]">
         {header && (
-          <div className="text-center mb-16">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-4xl font-bold text-white mb-4">Add-Ons</h2>
-              <p className="text-xl text-gray-300">
-                Customize Your Plan with Our Add-Ons
-              </p>
-            </div>
-          </div>
-        )}
-        
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {pricingData.map((pricing, i) => (
-            <div key={i + 1} className="relative">
-              <div
-                className={`comprehensive_card_main position-relative bg-white/80 feature-gradient-bg liener_bg relative rounded-lg p-4 sm:p-6 border-gray-800 mb-6 h-full border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 ${
-                  pricing.bgColor === 'bg-gray-50'
-                    ? 'bg-[#18181b]'
-                    : pricing.bgColor === 'bg-blue-50'
-                    ? 'bg-[#1e293b]'
-                    : 'bg-[#1f2937]'
-                }`}
-                style={{ boxShadow: 'rgba(0, 0, 0, 0.18) 0px 8px 40px' }}
-              >
-                
-                <div className="inline-block px-4 py-1 mb-6 text-sm font-medium text-gray-400 border border-gray-600 rounded-full">
-                  ADD-ON
-                </div>
-                
-                <div className="mb-6">
-                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                    {pricing.price}
-                    <span className="text-base sm:text-lg text-gray-400 font-normal ml-2">
-                      {pricing.time}
+          <div>
+            {/* <div className="row justify-content-center mb-5">
+              <div className="col-lg-3">
+                <div className="media d-flex align-items-center py-2 p-sm-2">
+                  <div className="icon-box mb-0 bg-primary-soft rounded-circle d-block me-3">
+                    <span className="fal text-primary text-center">
+                      <BsCreditCard />
                     </span>
                   </div>
-                  <h3 className={`text-lg sm:text-2xl font-bold ${
-                    pricing.textColor === 'text-blue-600' ? 'text-blue-400' :
-                    pricing.textColor === 'text-green-600' ? 'text-green-400' :
-                    'text-purple-400'
-                  }`}>
-                    {pricing.title}
-                  </h3>
-                </div>
-                
-                <div className="mb-8">
-                  <ul className="space-y-2 text-sm sm:text-base">
-                    {pricing.listItem.map((list, i) => (
-                      <li key={i + 1} className="flex items-start text-gray-300">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                        <span>{list.li}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="mt-auto">
-                  <Link 
-                    to="/request-demo"
-                    className={`w-full inline-flex justify-center items-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                      pricing.btnColor === 'btn-primary' ? 'bg-blue-600 hover:bg-blue-700 text-white' :
-                      pricing.btnColor === 'btn-success' ? 'bg-green-600 hover:bg-green-700 text-white' :
-                      'bg-orange-600 hover:bg-orange-700 text-white'
-                    }`}
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-
-                {/* Background decorative shape */}
-                {pricing.shape && (
-                  <div className={`absolute -z-10 opacity-10 ${
-                    pricing.shape === 'top-right' ? 'top-4 right-4' :
-                    pricing.shape === 'bottom-left' ? 'bottom-4 left-4' :
-                    'top-4 right-4'
-                  }`}>
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gray-400 to-gray-600"></div>
+                  <div className="media-body fw-medium h6 mb-0">
+                    No credit card required
                   </div>
-                )}
+                </div>
               </div>
+              <div className="col-lg-3">
+                <div className="media d-flex align-items-center py-2 p-sm-2">
+                  <div className="icon-box mb-0 bg-success-soft rounded-circle d-block me-3">
+                    <span className="fal text-success">
+                      <BsCalendar2Check />
+                    </span>
+                  </div>
+                  <div className="media-body fw-medium h6 mb-0">
+                    Get 30 day free trial
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="media d-flex align-items-center py-2 p-sm-2">
+                  <div className="icon-box mb-0 bg-danger-soft rounded-circle d-block me-3">
+                    <span className="fal text-danger">
+                      <BsCalendarX />
+                    </span>
+                  </div>
+                  <div className="media-body fw-medium h6 mb-0">
+                    Cancel anytime
+                  </div>
+                </div>
+              </div>
+            </div> */}
+          </div>
+        )}
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
+          {/* Left large panel (use first pricing entry) */}
+          {pricingData && pricingData.length > 0 && (
+            <div className="col-span-1 lg:col-span-7 mb-4 lg:mb-0">
+              {(() => {
+                const main = pricingData[0] as PricingItem;
+                return (
+                  <div className={`position-relative rounded-md bg-white border border-grayTwo p-6 h-100 liener_bg`}>
+                    <div className="flex items-start justify-between flex-wrap">
+                      <div>
+                        <p className={`text-sm text-red-700 font-semibold mb-2`}>Essentials</p>
+                        <button className="btn btn-outline-primary border text-red-600 px-6 py-2 rounded" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>Contact Sales</button>
+                      </div>
+                    </div>
+
+                    <hr className="my-6 border-dashed" />
+
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                      <div className="col-span-1 md:col-span-7">
+                        <h5 className="text-sm font-semibold mb-4">FEATURES</h5>
+                        <ul className="pricing-feature-list mb-0 space-y-3 text-gray-500">
+                          {main.listItem.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <span className="w-2 h-2 rounded-full bg-green-400 mt-2" />
+                              <span>{item.li}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="col-span-1 md:col-span-5 flex justify-center">
+                        {/* inset add-on card (moves below on small screens) */}
+                        <div className="w-full max-w-sm border rounded-md p-6 bg-white shadow-md liener_bg">
+                          <div className="mb-4">
+                            <span className="add-on btn btn-outline-primary border-gray text-gray px-3 py-1 mb-3 rounded-3 inline-block">ADD-ON</span>
+                            <h4 className="text-xl font-semibold text-red-700 mt-2">{main.title}</h4>
+                          </div>
+                          <ul className="list-disc list-inside text-gray-600 space-y-2">
+                            {main.listItem.map((li, k) => (
+                              <li key={k}>{li.li}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                );
+              })()}
             </div>
-          ))}
+          )}
+
+          {/* Right slim dark panel (use last pricing entry) */}
+          {pricingData && pricingData.length > 1 && (
+            <div className="col-span-1 lg:col-span-3">
+              {(() => {
+                const right = pricingData[pricingData.length - 1] as PricingItem;
+                return (
+                  <div className={`position-relative single-pricing-wrap rounded-md bg-gray-900 text-white p-6 h-full`}>
+                    <p className={`text-sm text-gray-300 mb-2`}>Enterprise</p>
+
+                    <button className="bg-red-700 px-6 py-3 rounded mb-2" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>Request Quote</button>
+
+                    <hr className="my-4 border-dashed border-gray-700" />
+
+                    <h5 className="text-sm font-semibold mb-4 text-gray-300">FEATURES</h5>
+                    <ul className="pricing-feature-list mb-0 space-y-3 text-gray-300">
+                      {right.listItem.slice(0, 8).map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="w-2 h-2 rounded-full bg-green-400 mt-2" />
+                          <span>{item.li}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
         </div>
       </div>
     </section>
