@@ -168,7 +168,7 @@ const ResourcesPage = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
               <p className="text-lg text-gray-600">Stay up-to-date with testing trends and SimplifyQA updates</p>
             </div>
-            <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors items-center">
+            <button className="hidden md:flex px-6 py-3 rounded-lg font-semibold transition-colors items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
               View All Posts
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
@@ -194,7 +194,7 @@ const ResourcesPage = () => {
                     <Calendar className="h-4 w-4 mr-1" />
                     {post.date}
                     <span className="mx-2">•</span>
-                    {post.readTime}
+                    {post.readTime}r
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {post.title}
@@ -202,10 +202,6 @@ const ResourcesPage = () => {
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <button className="text-blue-600 hover:text-blue-700 font-semibold flex items-center">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
                 </div>
               </article>
             ))}
@@ -244,7 +240,7 @@ const ResourcesPage = () => {
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {whitepaper.description}
                   </p>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all w-full flex items-center justify-center">
+                  <button className="px-6 py-3 rounded-lg font-semibold transition-all w-full flex items-center justify-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
                     <Download className="mr-2 h-4 w-4" />
                     Download Free
                   </button>
@@ -261,87 +257,26 @@ const ResourcesPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
+            {/* <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
               <Play className="w-5 h-5 text-blue-600 mr-2" />
               <span className="text-blue-800 font-semibold">Expert Webinars</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            </div> */}
+            {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Learn from Industry Experts
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Join our live sessions and access our extensive library of on-demand webinars covering 
               everything from automation basics to advanced enterprise strategies.
-            </p>
+            </p> */}
           </div>
 
           {/* Upcoming Webinar Spotlight */}
-          <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
+          {/* <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div> */}
             
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse mr-3"></div>
-                  <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                    Next Live Session
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  {upcomingWebinar.title}
-                </h3>
-                <p className="text-blue-100 text-lg mb-6 leading-relaxed">
-                  {upcomingWebinar.description}
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Calendar className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Date & Time</span>
-                    </div>
-                    <div className="text-white font-bold">{upcomingWebinar.date}</div>
-                    <div className="text-blue-200">{upcomingWebinar.time}</div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center text-blue-100 mb-2">
-                      <Users className="h-5 w-5 mr-2" />
-                      <span className="text-sm font-medium">Registrations</span>
-                    </div>
-                    <div className="text-white font-bold text-2xl">{upcomingWebinar.registrations.toLocaleString()}</div>
-                    <div className="text-blue-200 text-sm">and counting...</div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center justify-center w-full"
-                  >
-                    Register Free Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
-                  <button className="border-2 border-white/30 hover:border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl font-semibold transition-all">
-                    Add to Calendar
-                  </button>
-                </div>
-              </div>
-              
-              <div className="relative">
-                <img
-                  src={upcomingWebinar.image}
-                  alt="Upcoming Webinar"
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
-                    <Play className="h-12 w-12 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+          {/* </div> */}
 
           {/* Past Webinars Library */}
           <div>
@@ -350,7 +285,7 @@ const ResourcesPage = () => {
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">On-Demand Webinar Library</h3>
                 <p className="text-lg text-gray-600">Access our complete collection of expert-led sessions</p>
               </div>
-              <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all items-center">
+              <button className="hidden md:flex px-6 py-3 rounded-lg font-semibold transition-all items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
                 View All Sessions
                 <ExternalLink className="ml-2 h-4 w-4" />
               </button>
@@ -390,7 +325,7 @@ const ResourcesPage = () => {
                         <Calendar className="h-4 w-4 mr-1" />
                         <span>{webinar.date}</span>
                       </div>
-                      <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center">
+                      <button className="font-semibold text-sm flex items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
                         Watch Now
                         <ArrowRight className="ml-1 h-3 w-3" />
                       </button>
@@ -444,52 +379,7 @@ const ResourcesPage = () => {
         </div>
       </section>
 
-      {/* Webinars Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Upcoming Webinars
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our experts for live sessions on testing best practices and SimplifyQA features.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {webinars.map((webinar, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={webinar.image}
-                    alt={webinar.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <Play className="h-16 w-16 text-white opacity-80" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {webinar.title}
-                  </h3>
-                  <div className="flex items-center text-gray-600 mb-2">
-                    <Users className="h-4 w-4 mr-2" />
-                    {webinar.presenter}
-                  </div>
-                  <div className="flex items-center text-gray-600 mb-6">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {webinar.date} at {webinar.time}
-                  </div>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all w-full">
-                    Register Now
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
@@ -500,7 +390,7 @@ const ResourcesPage = () => {
           <p className="text-xl text-blue-100 mb-8">
             Ready to put your new knowledge into practice? Start your free trial now.
           </p>
-          <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto">
+          <button className="px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
             Start Free Trial
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>

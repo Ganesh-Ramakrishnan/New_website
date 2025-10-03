@@ -165,7 +165,7 @@ const CarouselCard: React.FC = () => {
                 {cards[openIndex].icon}
               </div>
               <h3 className="text-2xl font-bold comprehensive_card_header mt-4" style={{ color: '#fff' }}>{cards[openIndex].title}</h3>
-              <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: '#dd246a', fontSize: 14, fontWeight: 500, marginTop: 8 }}>{cards[openIndex].header}</p>
+              <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: 'rgb(168 85 247 / var(--tw-bg-opacity, 1))', fontSize: 14, fontWeight: 500, marginTop: 8 }}>{cards[openIndex].header}</p>
               <div className='light_grey' style={{ color: '#444', fontSize: '1rem', fontWeight: 400, marginTop: 16, textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: cards[openIndex].description }} />
             </div>
           )}
@@ -206,7 +206,7 @@ const CarouselCard: React.FC = () => {
                             </div>
                             <div>
                               <h3 className="text-2xl font-bold text-gray-900 comprehensive_card_header">{card.title}</h3>
-                              <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: '#dd246a', fontSize: 12, fontWeight: 500 }}>{card.header}</p>
+                              <p className="font-medium comprehensive_card_subHeader light_grey" style={{ color: 'rgb(168 85 247 / var(--tw-bg-opacity, 1))', fontSize: 12, fontWeight: 500 }}>{card.header}</p>
                             </div>
                             <div className="flex justify-end items-center mt-4">
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link h-4 w-4 text-white opacity-80"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>

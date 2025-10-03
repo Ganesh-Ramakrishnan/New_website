@@ -20,9 +20,11 @@ import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
+import ProductWheel from '../components/ProductWheel';
 import TestimonySection from '../components/TestimonySection';
 import WebinarForm from '../components/WebinarForm';
 
+import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CarouselCard from '../components/CarouselCard';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
 
@@ -401,6 +403,7 @@ const HomePage = () => {
     <div className="bg-black text-white min-h-screen">
   <div className="w-full text-white">
         <Hero />
+      
       </div>
 
       {/* Client Logos Slider */}
@@ -481,10 +484,23 @@ const HomePage = () => {
         </div> */}
 
 
+        {/* Product wheel inserted below hero */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <ProductWheel />
+        </div>
+      </section>
+
+
 
   {/* Removed start and end horizontal scroll section divs as requested */}
 
   {/* Horizontal scroll effect JS (React useEffect) */}
+
+      {/* AI Features Two-Column Scroller */}
+
+      {/* AI Features Showcase */}
+      <AIFeaturesShowcase />
 
       {/* Detailed Features Section */}
       <section id="features" className="py-20 bg-white">
@@ -599,20 +615,20 @@ const HomePage = () => {
 
 
       {/* Compliance Badges Section */}
-      <section className="bg-white py-10">
+      <section className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-4">Our Certifications & Compliance</h2>
           <div className="flex flex-row items-center justify-between gap-8 bg-white w-full">
-            <img src="/assets/crt/SOC.png" alt="SOC 2 TYPE 2" className="h-40 w-1/4 object-contain" />
-            <img src="/assets/crt/GDPR compliant.png" alt="GDPR Compliant" className="h-40 w-1/4 object-contain" />
-            <img src="/assets/crt/Intercert.Png" alt="ISO 27001" className="h-40 w-1/4 object-contain" />
-            <img src="/assets/crt/HIPAA compliant.png" alt="HIPAA Compliant" className="h-40 w-1/4 object-contain" />
+            <img src="/assets/crt/SOC.png" width={'100px'} alt="SOC 2 TYPE 2" className=" object-contain" />
+            <img src="/assets/crt/GDPR compliant.png" width={'154px'} alt="GDPR Compliant" className=" object-contain" />
+            <img src="/assets/crt/Intercert.Png" width={'150px'} alt="ISO 27001" className=" object-contain" />
+            <img src="/assets/crt/HIPAA compliant.png" width={'150px'} alt="HIPAA Compliant" className=" object-contain" />
           </div>
         </div>
       </section>
 
       {/* Next Live Session Section */}
-      <section className="bg-gray-900 py-12">
+      <section className="bg-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 flex items-center justify-center gap-2">
             <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>

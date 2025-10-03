@@ -131,7 +131,7 @@ const PricingOne: React.FC<{ header?: boolean; ptClass?: string }> = ({ header, 
                       {right.listItem.slice(0, 8).map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                           <span className="w-2 h-2 rounded-full bg-green-400 mt-2" />
-                          <span>{item.li}</span>
+                          <span className="text-gray-300">{item.li}</span>
                         </li>
                       ))}
                     </ul>
