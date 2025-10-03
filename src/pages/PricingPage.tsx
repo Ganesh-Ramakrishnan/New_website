@@ -2,7 +2,11 @@ import { HelpCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import PricingOne from '../components/PricingOne';
 import PricingSix from '../components/PricingSix';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const PricingPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -109,14 +113,14 @@ const PricingPage = () => {
       {/* Hero Section */}
       <section className="bg-black py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
+          <h1 className="text-5xl font-bold text-white mb-6 animate-on-scroll">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-300 mb-8 animate-on-scroll animate-delay-200">
             Choose the perfect plan for your team. Start free, scale as you grow.
           </p>
           {/* Billing Toggle */}
-          <div className="flex items-center justify-center mb-12">
+          <div className="flex items-center justify-center mb-12 animate-on-scroll animate-delay-300">
             <span className={`mr-3 ${billingPeriod === 'monthly' ? 'text-white' : 'text-gray-500'}`}> 
               Monthly
             </span>
@@ -203,16 +207,20 @@ const PricingPage = () => {
         </div>
       </section> */}
       {/* Main Pricing Plans */}
-      <PricingOne header={true} ptClass="bg-black" />
+      <div className="animate-on-scroll">
+        <PricingOne header={true} ptClass="bg-black" />
+      </div>
 
       {/* Add-Ons Section */}
-      <PricingSix header={true} ptClass="bg-white" />
+      <div className="animate-on-scroll">
+        <PricingSix header={true} ptClass="bg-white" />
+      </div>
 
 
       {/* FAQ Section */}
       <section className="py-20 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-4xl font-bold text-white mb-4">
               Frequently Asked Questions
             </h2>
@@ -222,7 +230,7 @@ const PricingPage = () => {
           </div>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-[#18181b] rounded-xl p-6 shadow-lg border border-gray-800 text-white text-left">
+              <div key={index} className={`bg-[#18181b] rounded-xl p-6 shadow-lg border border-gray-800 text-white text-left animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
                 <div className="flex items-start">
                   <HelpCircle className="h-6 w-6 text-white mr-4 flex-shrink-0 mt-1" />
                   <div>

@@ -10,7 +10,11 @@ import {
 import { useState } from 'react';
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const ResourcesPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -149,11 +153,11 @@ const ResourcesPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Resources & 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Learning Hub</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll animate-delay-200">
             Expand your testing knowledge with our comprehensive collection of guides, 
             best practices, and expert insights.
           </p>
@@ -163,7 +167,7 @@ const ResourcesPage = () => {
       {/* Blog Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-between items-center mb-12 animate-on-scroll">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
               <p className="text-lg text-gray-600">Stay up-to-date with testing trends and SimplifyQA updates</p>
@@ -176,7 +180,7 @@ const ResourcesPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <article key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <article key={index} className={`bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
                 <div className="relative overflow-hidden">
                   <img
                     src={post.image}

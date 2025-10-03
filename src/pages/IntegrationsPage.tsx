@@ -1,7 +1,11 @@
 import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const IntegrationsPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -61,15 +65,15 @@ const IntegrationsPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             200+ Integrations for 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Seamless Workflows</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-on-scroll animate-delay-200">
             Connect SimplifyQA with your existing toolchain. From project management to deployment, 
             we integrate with the tools your team already loves.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto animate-on-scroll animate-delay-300">
             Explore All Integrations
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
@@ -80,7 +84,7 @@ const IntegrationsPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {integrationCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16">
+            <div key={categoryIndex} className="mb-16 animate-on-scroll">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   {category.title}

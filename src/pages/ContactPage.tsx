@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 
 import { useEffect } from 'react';
 import OurOffice from '../components/OurOffice';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const ContactPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,11 +40,11 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Get in Touch with 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Our Experts</span>
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 animate-on-scroll animate-delay-200">
             Ready to transform your testing process? Let's discuss how SimplifyQA can help your team deliver quality software faster.
           </p>
         </div>

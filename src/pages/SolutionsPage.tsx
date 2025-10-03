@@ -10,7 +10,11 @@ import {
 } from 'lucide-react';
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const SolutionsPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -93,11 +97,11 @@ const SolutionsPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Solutions Tailored for 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Your Team</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll animate-delay-200">
             Whether you're a startup or enterprise, SimplifyQA adapts to your unique testing requirements 
             and development workflow.
           </p>
@@ -110,9 +114,9 @@ const SolutionsPage = () => {
           {solutions.map((solution, index) => (
             <div 
               key={index} 
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 animate-on-scroll ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
+              } ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}
             >
               <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="mb-6">
