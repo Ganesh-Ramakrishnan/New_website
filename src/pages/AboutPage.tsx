@@ -1,4 +1,4 @@
-import { ArrowRight, Award, Linkedin, Target, Users } from 'lucide-react';
+import { ArrowRight, Award, Target, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
 const AboutPage = () => {
@@ -14,7 +14,7 @@ const AboutPage = () => {
     },
     {
       name: "Dr. Sarah Kim",
-      role: "CTO & Co-Founder", 
+      role: "CTO & Co-Founder",
       bio: "PhD in Computer Science, former Principal Engineer at Google focusing on testing infrastructure.",
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
     },
@@ -63,19 +63,20 @@ const AboutPage = () => {
     <div className="pt-16">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Building the Future of 
+                Building the Future of
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Testing</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Founded by testing experts who understand the challenges of delivering quality software at scale. 
+                Founded by testing experts who understand the challenges of delivering quality software at scale.
                 We're on a mission to simplify testing for every development team worldwide.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center">
+                <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>
                   Join Our Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </button>
@@ -95,8 +96,71 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Mission & Values */}
-      <section className="py-20 bg-white">
+      {/* Illustrated sections: left image, right text (repeatable) */}
+      <section className='plan_white_bg'>
+
+        <div className="w-full md:w-[85%] lg:w-[85%] mx-auto py-20 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+              The SimplifyQA Story
+            </h2>
+          </div>
+          {/* small reusable section component */}
+          {/* eslint-disable-next-line react/no-unstable-nested-components */}
+          {(() => {
+            const IllustratedSection = ({ img, title, text, reverse = false }: { img: string; title: string; text: string; reverse?: boolean }) => (
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="w-full rounded-lg p-2">
+                  <img src={img} alt={title} />
+                </div>
+                <div className="w-full rounded-lg p-8">
+                  <p className="text-black leading-relaxed">{text}</p>
+                </div>
+              </div>
+            );
+
+            const illustrations = [
+              '/assets/illustrate/about-01.avif',
+              '/assets/illustrate/about-02.avif',
+              '/assets/illustrate/about-09.avif',
+            ];
+
+            const sections = [
+              {
+                title: 'Quality Assurance', text: `Quality Assurance was supposed to make software better. Instead, somewhere along the way, it became complicated.
+
+  Ever counted how many apps you juggle every day for testing? There was a time when manual checklists and spreadsheets ruled the quality game. Then came the age of automation, where scripts took center stage—but also deepened the rift between "functional" and "technical" teams. One tool for test management, another for automation, a third for defect tracking. Teams started working in silos, wasting more time switching tabs than actually improving quality. The very process meant to ensure confidence in software ended up creating chaos.` },
+
+              { title: 'Our Vision', text: `We started SimplifyQA because we believed testing deserved better. Our vision was simple: to build a platform where all those scattered parts finally fit together. A single, unified space where test planning, automation, execution, and reporting all live together—like LEGO blocks snapped into a single, intuitive workspace.` },
+
+              { title: 'Inclusivity', text: `At the heart of our platform is inclusivity. We pioneered scriptless automation so that anyone—whether a tester, developer, or business user—can create and run a test case without needing to know code. Testing shouldn’t belong only to specialists. It should be something every team member can contribute to.` },
+
+              { title: 'Built for Impact', text: `But unifying tools wasn’t enough. We wanted to push QA forward. That’s why SimplifyQA is built with impact analysis that sees change before it breaks things, cloud execution that finishes in hours what used to take days, and dashboards that turn raw data into clear decisions.` },
+
+              { title: 'Our Belief', text: `More than a platform, SimplifyQA is a belief: that quality should be simple, scalable, and accessible for everyone. We invest heavily in innovation, listening to real teams, solving real bottlenecks, and constantly evolving our platform to match the pace of technology. Today, SimplifyQA is trusted by teams across industries and geographies who share the same frustration we once felt—and the same dream we’re building toward.` },
+
+              { title: 'Inventing the Future', text: `Because we believe the best way to predict the future of quality is not to wait for it. It's to invent it—and make it radically accessible for everyone.` }
+            ];
+
+            return (
+              <>
+                {sections.map((s, i) => (
+                  <IllustratedSection
+                    key={i}
+                    img={illustrations[i % illustrations.length]}
+                    title={s.title}
+                    text={s.text}
+                    reverse={i % 2 === 1}
+                  />
+                ))}
+              </>
+            );
+          })()}
+        </div>
+      </section>
+
+
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Mission & Values</h2>
@@ -123,7 +187,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
+  
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -159,7 +223,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Company Timeline */}
+   
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -191,7 +255,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
@@ -204,7 +267,10 @@ const AboutPage = () => {
             View Open Positions
           </button>
         </div>
-      </section>
+      </section> */}
+
+
+
     </div>
   );
 };

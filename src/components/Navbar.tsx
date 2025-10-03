@@ -44,7 +44,7 @@ const Navbar = () => {
               <img 
                 src="/simplify_logo.svg" 
                 alt="SimplifyQA" 
-                className="h-5 w-auto"
+                className="" style={{ width: '190px' }}
               />
             </Link>
           </div>
@@ -80,7 +80,7 @@ const Navbar = () => {
               >
                 Resources
               </Link>
-              <Link
+              {/* <Link
                 to="/customer-success"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/customer-success')
@@ -89,7 +89,7 @@ const Navbar = () => {
                 }`}
               >
                 Customers
-              </Link>
+              </Link> */}
               <Link
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${

@@ -40,8 +40,8 @@ section, .bg-gray-50, .bg-white {
   color: #f3f3f3 !important;
 }
 
-.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600 {
-  color: #dd246a !important;
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600, .text-red-500, .text-red-600, .text-red-700 {
+  color: rgb(168 85 247 / var(--tw-bg-opacity, 1)) !important;
 }
 
 .bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
@@ -66,8 +66,8 @@ section, .bg-gray-50, .bg-white {
   color: #f3f3f3 !important;
 }
 
-.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600 {
-  color: #dd246a !important;
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600, .text-red-500, .text-red-600, .text-red-700 {
+  color: rgb(168 85 247 / var(--tw-bg-opacity, 1)) !important;
 }
 
 .bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
@@ -182,4 +182,36 @@ section, .bg-gray-50, .bg-white {
 
 .light_grey{
   color: #8a8f98 !important;
+}
+
+/* Ensure hover overlay shows 30% black when parent .group is hovered */
+.group .group-hover\:bg-black\/30 {
+  /* smooth transition for overlay when hover state changes */
+  transition: background-color 0.6s ease;
+}
+
+.group:hover .group-hover\:bg-black\/30 {
+  /* increase overlay to 60% black on hover */
+  background-color: rgb(0 0 0 / 0.6);
+}
+
+section.plan_white_bg {
+  background: #ffffff !important;
+}
+
+.wheel-option {
+  opacity: 0.6;
+  cursor: pointer;
+
+}
+
+.wheel-option:hover {
+    opacity: 1;
+  }
+
+.wheel-option-show {
+  opacity: 1;
+}
+.wheel-option-hide {
+  opacity: 0.6;
 }
