@@ -1,7 +1,11 @@
 import { ArrowRight, Award, Target, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const AboutPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -66,7 +70,7 @@ const AboutPage = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="animate-on-scroll fade-in-left">
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
                 Building the Future of
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Testing</span>
@@ -85,7 +89,7 @@ const AboutPage = () => {
                 </button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative animate-on-scroll fade-in-right animate-delay-200">
               <img
                 src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="SimplifyQA Team"
@@ -100,7 +104,7 @@ const AboutPage = () => {
       <section className='plan_white_bg'>
 
         <div className="w-full md:w-[85%] lg:w-[85%] mx-auto py-20 px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 animate-on-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
               The SimplifyQA Story
             </h2>
@@ -108,12 +112,12 @@ const AboutPage = () => {
           {/* small reusable section component */}
           {/* eslint-disable-next-line react/no-unstable-nested-components */}
           {(() => {
-            const IllustratedSection = ({ img, title, text, reverse = false }: { img: string; title: string; text: string; reverse?: boolean }) => (
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="w-full rounded-lg p-2">
+            const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => (
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 animate-on-scroll ${reverse ? 'lg:flex-row-reverse' : ''} ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
+                <div className="w-full rounded-lg p-2 animate-on-scroll fade-in-left">
                   <img src={img} alt={title} />
                 </div>
-                <div className="w-full rounded-lg p-8">
+                <div className="w-full rounded-lg p-8 animate-on-scroll fade-in-right animate-delay-200">
                   <p className="text-black leading-relaxed">{text}</p>
                 </div>
               </div>
@@ -151,6 +155,7 @@ const AboutPage = () => {
                     title={s.title}
                     text={s.text}
                     reverse={i % 2 === 1}
+                    index={i}
                   />
                 ))}
               </>

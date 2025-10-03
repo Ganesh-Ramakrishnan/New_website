@@ -20,15 +20,18 @@ import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
-import ProductWheel from '../components/ProductWheel';
 import TestimonySection from '../components/TestimonySection';
 import WebinarForm from '../components/WebinarForm';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CarouselCard from '../components/CarouselCard';
+import CircularWorkflow from '../components/CircularWorkflow';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
 
 const HomePage = () => {
+  useScrollAnimations();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const params = new URLSearchParams(window.location.search);
@@ -41,6 +44,7 @@ const HomePage = () => {
       }, 100);
     }
   }, []);
+
   // Horizontal scroll image + text pairs
   const imageTextPairs = [
     {
@@ -408,7 +412,7 @@ const HomePage = () => {
 
       {/* Client Logos Slider */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
           <div className="relative">
             {/* Slider for Client Logos */}
             <ClientLogoSlider />
@@ -418,7 +422,7 @@ const HomePage = () => {
 
   {/* Features Section - Dark Theme */}
       <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="features-section">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Why Choose SimplifyQA?
@@ -486,8 +490,8 @@ const HomePage = () => {
 
         {/* Product wheel inserted below hero */}
       <section className="py-12">
-        <div className="container mx-auto px-4">
-          <ProductWheel />
+        <div className="container mx-auto px-4 animate-on-scroll" id="circular-workflow">
+          <CircularWorkflow />
         </div>
       </section>
 
@@ -500,11 +504,13 @@ const HomePage = () => {
       {/* AI Features Two-Column Scroller */}
 
       {/* AI Features Showcase */}
-      <AIFeaturesShowcase />
+      <div className="animate-on-scroll" id="ai-features">
+        <AIFeaturesShowcase />
+      </div>
 
       {/* Detailed Features Section */}
       <section id="features" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="detailed-features">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Comprehensive Testing Platform
@@ -516,14 +522,16 @@ const HomePage = () => {
           </div>
 
           {/* Carousel Card Example with Toggle */}
-          <CarouselCard />
+          <div className="animate-on-scroll animate-delay-200" id="carousel-card">
+            <CarouselCard />
+          </div>
 
         </div>
       </section>
 
       {/* Everything You Need Section */}
       <section className="py-12 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="everything-section">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Everything You Need in One Platform
@@ -567,11 +575,13 @@ const HomePage = () => {
       />
 
         {/* Favorite Tools Grid Section */}
-          <FavoriteToolsGrid />
+          <div className="animate-on-scroll" id="favorite-tools">
+            <FavoriteToolsGrid />
+          </div>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="testimonials-section">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Trusted by Industry Leaders
@@ -581,7 +591,9 @@ const HomePage = () => {
             </p>
           </div>
           {/* Testimony Section (reference style) */}
-      <TestimonySection />
+      <div className="animate-on-scroll animate-delay-200" id="testimonials">
+        <TestimonySection />
+      </div>
         </div>
       </section>
 

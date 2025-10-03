@@ -157,6 +157,7 @@ const AIFeaturesShowcase: React.FC = () => {
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header with Dynamic Title */}
+
         <div className="mb-8 md:mb-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 transition-all duration-300">
             {dynamicHeadings[headingIndex]}

@@ -1,7 +1,10 @@
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const RequestDemoPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

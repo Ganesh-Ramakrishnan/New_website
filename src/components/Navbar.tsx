@@ -53,6 +53,16 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <div className="flex items-center space-x-8">
               {/* Navigation Links */}
+              <Link
+                to="/"
+                className={`font-medium transition-colors duration-200 ${
+                  isActive('/')
+                    ? 'text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                Home
+              </Link>
               <a
                 href="#features"
                 onClick={handleFeatureClick}
@@ -80,7 +90,7 @@ const Navbar = () => {
               >
                 Resources
               </Link>
-              {/* <Link
+              <Link
                 to="/customer-success"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/customer-success')
@@ -89,7 +99,7 @@ const Navbar = () => {
                 }`}
               >
                 Customers
-              </Link> */}
+              </Link>
               <Link
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${
@@ -137,6 +147,13 @@ const Navbar = () => {
         <div className="lg:hidden">
           <div className="px-4 pt-2 pb-6 space-y-1 bg-gray-50 border-t border-gray-200 shadow-lg">
             <div className="space-y-1">
+              <Link 
+                to="/" 
+                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
               <a
                 href="#features"
                 onClick={e => { handleFeatureClick(e); setIsOpen(false); }}

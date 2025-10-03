@@ -1,7 +1,11 @@
 import { ArrowRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
+
 const CustomerSuccessPage = () => {
+  useScrollAnimations();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
