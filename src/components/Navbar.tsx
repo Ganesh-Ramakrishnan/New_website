@@ -57,8 +57,8 @@ const Navbar = () => {
                 to="/"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/')
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
                 Home
@@ -66,7 +66,7 @@ const Navbar = () => {
               <a
                 href="#features"
                 onClick={handleFeatureClick}
-                className="font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+                className="font-medium transition-colors duration-200 text-gray-300 hover:text-white"
               >
                 Features
               </a>
@@ -74,8 +74,8 @@ const Navbar = () => {
                 to="/pricing"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/pricing')
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
                 Pricing
@@ -84,8 +84,8 @@ const Navbar = () => {
                 to="/resources"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/resources')
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
                 Resources
@@ -94,8 +94,8 @@ const Navbar = () => {
                 to="/customer-success"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/customer-success')
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
                 Customers
@@ -104,8 +104,8 @@ const Navbar = () => {
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/about')
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
                 About
@@ -117,7 +117,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <button 
               onClick={() => window.open('https://app.simplifyqa.ai/login', '_blank')}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              className="text-gray-300 hover:text-purple-600 font-medium transition-colors duration-200"
             >
               Sign In
             </button>
@@ -134,7 +134,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-purple-600 hover:bg-gray-800 transition-colors duration-200"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -149,7 +149,7 @@ const Navbar = () => {
             <div className="space-y-1">
               <Link 
                 to="/" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Home
@@ -157,41 +157,41 @@ const Navbar = () => {
               <a
                 href="#features"
                 onClick={e => { handleFeatureClick(e); setIsOpen(false); }}
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors duration-200"
               >
                 Features
               </a>
               <Link 
                 to="/pricing" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Pricing
               </Link>
               <Link 
                 to="/resources" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Resources
               </Link>
               <Link 
                 to="/customer-success" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Customers
               </Link>
               <Link 
                 to="/about" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
               <Link 
                 to="/contact" 
-                className="block px-3 py-2 text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Contact

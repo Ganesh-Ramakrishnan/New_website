@@ -21,13 +21,13 @@ import DemoRequestForm from '../components/DemoRequestForm';
 import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
 import TestimonySection from '../components/TestimonySection';
-import WebinarForm from '../components/WebinarForm';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CarouselCard from '../components/CarouselCard';
 import CircularWorkflow from '../components/CircularWorkflow';
 import FeatureCategorySlider from '../components/FeatureCategorySlider';
+import ProjectDashboard from '../components/ProjectDashboard';
 
 const HomePage = () => {
   useScrollAnimations();
@@ -495,7 +495,10 @@ const HomePage = () => {
         </div>
       </section>
 
-
+      {/* Project Dashboard Section */}
+      <div className="animate-on-scroll" id="project-dashboard">
+        <ProjectDashboard />
+      </div>
 
   {/* Removed start and end horizontal scroll section divs as requested */}
 
@@ -562,12 +565,12 @@ const HomePage = () => {
 
 
       {/* Webinar Registration Form */}
-      <WebinarForm
+      {/* <WebinarForm
         isOpen={isWebinarFormOpen}
         onClose={() => setIsWebinarFormOpen(false)}
         webinarTitle={upcomingWebinar.title}
         webinarDate={upcomingWebinar.date}
-        presenter={upcomingWebinar.presenter} webinarTime={''}      />
+        presenter={upcomingWebinar.presenter} webinarTime={''}      /> */}
       {/* Demo Request Form */}
       <DemoRequestForm
         isOpen={isDemoFormOpen}
@@ -640,7 +643,7 @@ const HomePage = () => {
       </section>
 
       {/* Next Live Session Section */}
-      <section className="bg-gray-900 py-20">
+      {/* <section className="bg-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 flex items-center justify-center gap-2">
             <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>
@@ -657,7 +660,7 @@ const HomePage = () => {
             </p>
           <button className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center m-auto">Register Now</button>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

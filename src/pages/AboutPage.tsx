@@ -1,4 +1,4 @@
-import { ArrowRight, Award, Target, Users } from 'lucide-react';
+import { Award, Target, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
@@ -14,25 +14,25 @@ const AboutPage = () => {
       name: "Alex Rivera",
       role: "CEO & Co-Founder",
       bio: "Former VP of Engineering at TestTech with 15+ years in quality assurance and test automation.",
-      image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+      image: "/assets/illustrate/people.png"
     },
     {
       name: "Dr. Sarah Kim",
       role: "CTO & Co-Founder",
       bio: "PhD in Computer Science, former Principal Engineer at Google focusing on testing infrastructure.",
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+      image: "/assets/illustrate/Girl.png"
     },
     {
       name: "Marcus Johnson",
       role: "VP of Engineering",
       bio: "Led testing teams at Microsoft and Amazon, expert in scalable testing architectures.",
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+      image: "/assets/illustrate/people.png"
     },
     {
       name: "Elena Rodriguez",
       role: "VP of Customer Success",
       bio: "15+ years helping enterprise customers optimize their testing and quality processes.",
-      image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+      image: "/assets/illustrate/Girl.png"
     }
   ];
 
@@ -65,40 +65,7 @@ const AboutPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-on-scroll fade-in-left">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Building the Future of
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Testing</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Founded by testing experts who understand the challenges of delivering quality software at scale.
-                We're on a mission to simplify testing for every development team worldwide.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>
-                  Join Our Team
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-                <button className="border border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-6 py-3 rounded-lg font-semibold transition-all">
-                  Our Story
-                </button>
-              </div>
-            </div>
-            <div className="relative animate-on-scroll fade-in-right animate-delay-200">
-              <img
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="SimplifyQA Team"
-                className="rounded-2xl shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Illustrated sections: left image, right text (repeatable) */}
       <section className='plan_white_bg'>
@@ -124,9 +91,11 @@ const AboutPage = () => {
             );
 
             const illustrations = [
-              '/assets/illustrate/about-01.avif',
-              '/assets/illustrate/about-02.avif',
-              '/assets/illustrate/about-09.avif',
+              '/assets/illustrate/Artboard 1@2x 9.png',
+              // '/assets/illustrate/Girl.png',
+              '/assets/illustrate/people.png',
+              '/assets/illustrate/Puzzle.png',
+              '/assets/illustrate/SQA bot.png',
             ];
 
             const sections = [

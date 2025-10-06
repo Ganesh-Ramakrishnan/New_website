@@ -1,4 +1,4 @@
-import { HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import PricingOne from '../components/PricingOne';
 import PricingSix from '../components/PricingSix';
@@ -87,26 +87,28 @@ const PricingPage = () => {
 
   const faqs = [
     {
-      question: "How does the free trial work?",
-      answer: "Start with a 14-day free trial that includes all Professional features. No credit card required to begin."
+      question: "What types of processes can you automate?",
+      answer: "We specialize in automating repetitive workflows across operations, marketing, sales, and customer support using AI and custom logic."
     },
     {
-      question: "Can I change plans at any time?",
-      answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately for upgrades, or at the next billing cycle for downgrades."
+      question: "Do I need technical knowledge to use your service?",
+      answer: "Not at all. Our team handles the setup, integration, and optimization. You just focus on your goals — we'll automate the rest."
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards, PayPal, and can arrange wire transfers for Enterprise customers."
+      question: "Can you integrate with our existing tools?",
+      answer: "Yes! We support integrations with CRMs, project management tools, communication apps, and more — tailored to your stack."
     },
     {
-      question: "Is there a setup fee?",
-      answer: "No setup fees for any plan. Enterprise customers receive white-glove onboarding at no additional cost."
+      question: "How long does implementation take?",
+      answer: "Implementation typically takes 2-4 weeks depending on complexity. We work closely with your team to ensure smooth deployment and minimal disruption."
     },
     {
-      question: "What happens if I exceed my test execution limit?",
-      answer: "We'll notify you when you're approaching your limit. You can either upgrade your plan or purchase additional executions as needed."
+      question: "Is your AI secure and compliant?",
+      answer: "Absolutely. We follow enterprise-grade security protocols and comply with GDPR, CCPA, and other industry standards to protect your data."
     }
   ];
+
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="pt-16">
@@ -219,7 +221,8 @@ const PricingPage = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-4xl font-bold text-white mb-4">
               Frequently Asked Questions
@@ -228,38 +231,56 @@ const PricingPage = () => {
               Everything you need to know about our pricing and plans.
             </p>
           </div>
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className={`bg-[#18181b] rounded-xl p-6 shadow-lg border border-gray-800 text-white text-left animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
-                <div className="flex items-start">
-                  <HelpCircle className="h-6 w-6 text-white mr-4 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {faq.answer}
-                    </p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Still Have Questions */}
+            <div className="animate-on-scroll">
+              <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-700/50 rounded-full mb-6">
+                    <HelpCircle className="h-8 w-8 text-gray-300" />
                   </div>
+                  <h2 className="text-3xl font-bold text-white mb-4">
+                    Still Have Questions?
+                  </h2>
+                  <p className="text-gray-400 mb-8">
+                    Still have questions? Feel free to get in touch with us today!
+                  </p>
+                  <button className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200">
+                    Ask A Question
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Still Have Questions?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Our team is here to help you find the perfect plan for your needs.
-          </p>
-          <button className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105" style={{ background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)' }}>
-            Talk to Sales Team
-          </button>
+            {/* Right Column - FAQ Accordions */}
+            <div className="space-y-4 animate-on-scroll animate-delay-200">
+              {faqs.map((faq, index) => (
+                <div key={index} className="bg-gray-800/30 rounded-xl border border-gray-700 overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-800/50 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-white pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className={`transform transition-transform duration-700 ease-out ${openFaq === index ? 'rotate-180' : 'rotate-0'}`}>
+                      <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                    </div>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-700 ease-out ${
+                    openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="px-6 pb-5">
+                      <p className="text-gray-300 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>

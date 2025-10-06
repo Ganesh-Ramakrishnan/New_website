@@ -338,66 +338,7 @@ const ResourcesPage = () => {
                 </div>
               ))}
             </div>
-            
-            {/* Webinar Stats & CTA */}
-            <div className="mt-16 to-blue-50 rounded-2xl p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                    Join Our Growing Community
-                  </h4>
-                  <p className="text-gray-600 mb-6">
-                    Subscribe to our webinar series and never miss expert insights, product updates, 
-                    and exclusive Q&A sessions with our team.
-                  </p>
-                  <button
-                    onClick={() => setIsWebinarFormOpen(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 flex items-center"
-                  >
-                    Subscribe to Webinars
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-8 text-center">
-                  <div>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">25+</div>
-                    <div className="text-gray-600">Expert Sessions</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-green-600 mb-1">15K+</div>
-                    <div className="text-gray-600">Total Attendees</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">4.9/5</div>
-                    <div className="text-gray-600">Average Rating</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-orange-600 mb-1">100%</div>
-                    <div className="text-gray-600">Free Access</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-
-
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Get Started with SimplifyQA Today
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Ready to put your new knowledge into practice? Start your free trial now.
-          </p>
-          <button className="px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
-            Start Free Trial
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
         </div>
       </section>
     </div>
