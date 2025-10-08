@@ -80,22 +80,22 @@ const AboutPage = () => {
           {/* eslint-disable-next-line react/no-unstable-nested-components */}
           {(() => {
             const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => (
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 animate-on-scroll ${reverse ? 'lg:flex-row-reverse' : ''} ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
-                <div className="w-full rounded-lg p-2 animate-on-scroll fade-in-left">
-                  <img src={img} alt={title} />
+              <div className={`flex items-center mb-20 animate-on-scroll ${index % 2 === 1 ? 'flex-row-reverse' : ''} ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
+                <div className="w-1/2 p-4 animate-on-scroll fade-in-left">
+                  <img src={img} alt={title} className="w-full rounded-lg" />
                 </div>
-                <div className="w-full rounded-lg p-8 animate-on-scroll fade-in-right animate-delay-200">
+                <div className="w-1/2 p-8 animate-on-scroll fade-in-right animate-delay-200">
                   <p className="text-black leading-relaxed">{text}</p>
                 </div>
               </div>
             );
 
             const illustrations = [
-              '/assets/illustrate/Artboard 1@2x 9.png',
-              // '/assets/illustrate/Girl.png',
-              '/assets/illustrate/people.png',
-              '/assets/illustrate/Puzzle.png',
-              '/assets/illustrate/SQA bot.png',
+              '/assets/illustrate/Artboard 1@2x 10.png',
+              '/assets/illustrate/Girl 1.png',
+              '/assets/illustrate/people copy 1.png',
+              '/assets/illustrate/Puzzle 1.png',
+              '/assets/illustrate/SQA bot 1.png',
             ];
 
             const sections = [

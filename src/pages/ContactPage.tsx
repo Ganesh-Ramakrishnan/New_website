@@ -2,7 +2,6 @@ import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
 import React, { useState } from 'react';
 
 import { useEffect } from 'react';
-import OurOffice from '../components/OurOffice';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const ContactPage = () => {
@@ -54,7 +53,7 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Contact Information */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 animate-on-scroll">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
               
               <div className="space-y-6">
@@ -102,7 +101,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 animate-on-scroll animate-delay-200">
               <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Request a Demo</h2>
                 
@@ -231,13 +230,13 @@ const ContactPage = () => {
       {/* Alternative Contact Methods */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-on-scroll">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Other Ways to Connect</h2>
             <p className="text-lg text-gray-600">Choose the method that works best for you</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 animate-on-scroll">
               <Mail className="h-12 w-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Email Support</h3>
               <p className="text-gray-600 mb-4">Get help from our support team via email</p>
@@ -246,7 +245,7 @@ const ContactPage = () => {
               </button>
             </div>
 
-            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 animate-on-scroll animate-delay-200">
               <Phone className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Phone Support</h3>
               <p className="text-gray-600 mb-4">Speak directly with our experts</p>
@@ -255,7 +254,7 @@ const ContactPage = () => {
               </button>
             </div>
 
-            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 animate-on-scroll animate-delay-300">
               <CheckCircle className="h-12 w-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Live Chat</h3>
               <p className="text-gray-600 mb-4">Chat with our team in real-time</p>
@@ -268,7 +267,126 @@ const ContactPage = () => {
       </section>
 
   {/* Offices section */}
-  <OurOffice />
+  {/* <OurOffice /> */}
+
+      {/* Trusted by Industry Leaders Section */}
+      <section className="py-20" style={{ background: '#000' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-on-scroll">
+            <h2 className="text-4xl font-bold text-white mb-4">Trusted by Industry Leaders</h2>
+            <p className="text-lg text-gray-400">See how SimplifyQA is helping teams worldwide deliver better software faster.</p>
+          </div>
+
+          <div className="animate-on-scroll animate-delay-200">
+            <TrustedBySection />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Trusted By Section Component with rotating countries
+const TrustedBySection = () => {
+  const [activeCountry, setActiveCountry] = useState(0);
+
+  const countries = [
+    {
+      name: 'Malaysia',
+      flag: '/assets/map/flag_mal.svg',
+      map: '/assets/map/map_mal.svg',
+      address: {
+        title: 'Kuala Lumpur, Malaysia',
+        details: '466, Unit 6, Level 4, SetiaWalk Mall (Block K) SetiaWalk, Persiaran Wawasan Pusat Bandar Puchong (47160)',
+        phone: '+603 8602 2095 (Mon - Fri)',
+        email: 'info@simplify3x.com'
+      }
+    },
+    {
+      name: 'India',
+      flag: '/assets/map/flag_ind.svg',
+      map: '/assets/map/map_india.svg',
+      address: {
+        title: 'Bengaluru, India',
+        details: 'BCIT, Block 1, Ground Floor Bhartiya City, RK Hegde Nagar, Bangalore',
+        phone: '+91 9019407023 (Mon - Fri)',
+        email: 'info@simplify3x.com'
+      }
+    },
+    {
+      name: 'USA',
+      flag: '/assets/map/flag_usa.svg',
+      map: '/assets/map/map_usa.svg',
+      address: {
+        title: 'Orlando, Florida, USA',
+        details: '1317, Edgewater Dr 897, Orlando Florida (32804)',
+        phone: '+1 (678) 954-3946 (Mon - Fri)',
+        email: 'info@simplify3x.com'
+      }
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCountry((prev) => (prev + 1) % countries.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [countries.length]);
+
+  const currentCountry = countries[activeCountry];
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      <div className="rounded-2xl overflow-hidden relative" style={{ 
+        background: '#1a1a1a',
+        border: '1px solid #333',
+        height: '420px'
+      }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] h-full">
+        {/* Left side - World Map (70%) */}
+        <div className="flex items-center justify-center p-8" style={{ background: '#1a1a1a' }}>
+            <img 
+              key={activeCountry}
+              src={currentCountry.map}
+              alt={`${currentCountry.name} map`}
+              style={{ width: '800px', maxWidth: '100%' }}
+              className="h-auto"
+            />
+        </div>
+
+        {/* Vertical divider line */}
+        <div className="hidden lg:block absolute left-[70%] top-0 bottom-0" style={{ 
+          width: '2px',
+          background: 'rgb(108 108 108)',
+          borderRadius: '100%',
+          height: '85%',
+          margin: 'auto'
+        }}></div>
+
+        {/* Right side - Country Info and Address (30%) */}
+        <div className="flex flex-col justify-center p-6 relative">
+          <div key={`country-${activeCountry}`}>
+            <div className="mb-8">
+              <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
+                {currentCountry.name} 
+                <img src={currentCountry.flag} alt={`${currentCountry.name} flag`} className="w-6 h-6 object-contain" style={{ marginBottom: '12px' }} />
+              </h3>
+            </div>
+
+            {/* Office Address */}
+            <div>
+              <h4 className="text-2xl font-semibold text-white mb-4">{currentCountry.address.title}</h4>
+              <p className="text-gray-300 text-base mb-6 leading-relaxed">{currentCountry.address.details}</p>
+              <div className="space-y-2 border-t border-gray-700 pt-4">
+                <p className="text-gray-400 text-sm">{currentCountry.address.phone}</p>
+                <p className="text-gray-400 text-sm">{currentCountry.address.email}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   );
 };

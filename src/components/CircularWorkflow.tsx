@@ -182,7 +182,7 @@ const CircularWorkflow: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Complete Test Automation Platform
           </h2>
@@ -371,21 +371,19 @@ const CircularWorkflow: React.FC = () => {
                     {/* Icon */}
                     {renderIcon(section.icon, x, y, isActive)}
                     
-                    {/* Label text only visible when active/highlighted */}
-                    {isActive && (
-                      <text
-                        x={x}
-                        y={y - 35}
-                        textAnchor="middle"
-                        dominantBaseline="auto"
-                        fill="#10b981"
-                        fontSize="12"
-                        fontWeight="bold"
-                        className="transition-all duration-300 pointer-events-none"
-                      >
-                        {section.title}
-                      </text>
-                    )}
+                    {/* Label text always visible */}
+                    <text
+                      x={x}
+                      y={y - 35}
+                      textAnchor="middle"
+                      dominantBaseline="auto"
+                      fill={isActive ? "#10b981" : "#9ca3af"}
+                      fontSize="12"
+                      fontWeight="bold"
+                      className="transition-all duration-300 pointer-events-none"
+                    >
+                      {section.title}
+                    </text>
                   </g>
                 );
               })}
