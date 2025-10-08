@@ -62,7 +62,7 @@ export default function TestimonySection() {
     if (!isHovered) {
       scrollInterval = window.setInterval(() => {
         if (scrollRef.current) {
-          scrollRef.current.scrollLeft += 8;
+          scrollRef.current.scrollLeft += 2;
           // Get width of a single card
           const card = scrollRef.current.querySelector('.min-w-[320px]');
           const cardWidth = card ? (card as HTMLElement).offsetWidth + 32 : 320 + 32; // 32px gap
@@ -90,7 +90,7 @@ export default function TestimonySection() {
           style={{ scrollBehavior: 'smooth', msOverflowStyle: 'none', scrollbarWidth: 'none' }}
         >
           {loopedTestimonies.map((t, idx) => (
-            <div key={idx} className="min-w-[320px] max-w-xs border border-gray-800 rounded-xl liener_bg shadow-sm flex flex-col h-full bg-gray-900" style={{minHeight: '260px'}}>
+            <div key={idx} className="min-w-[320px] max-w-xs border border-gray-800 rounded-xl liener_bg shadow-sm flex flex-col bg-gray-900" style={{minHeight: '300px', height: '300px'}}>
               <div className="flex items-center px-4 py-3 rounded-t-xl">
                 <span className="font-semibold text-white text-sm">Review on {t.source}</span>
                 <a href={t.link} target="_blank" rel="noopener noreferrer" className="ml-auto">
@@ -98,7 +98,7 @@ export default function TestimonySection() {
                 </a>
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
-                <p className="light_grey text-base mb-6" style={{minHeight: '125px'}}>"{t.text}"</p>
+                <p className="light_grey text-base mb-6">"{t.text}"</p>
                 <div className="border-t border-gray-700 pt-4">
                   <span className="font-semibold text-white">{t.name}</span>
                   {t.role && <span className="ml-2 text-gray-400 text-xs font-medium">{t.role}</span>}

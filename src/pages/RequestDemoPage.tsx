@@ -21,7 +21,7 @@ const RequestDemoPage = () => {
             <p className="text-lg text-gray-400">Have questions or need help? We're here for you</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-6 max-w-6xl mx-auto">
             {/* Left side - Contact Cards */}
             <div className="space-y-6 animate-on-scroll animate-delay-200">
               {/* Email Us Card */}
@@ -54,7 +54,7 @@ const RequestDemoPage = () => {
                   </p>
                   <a 
                     href="mailto:support@simplify3x.com" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-white hover:text-gray-300 transition-colors"
                     target="_blank"
                     rel="noopener"
                   >
@@ -102,7 +102,7 @@ const RequestDemoPage = () => {
                   </p>
                   <a 
                     href="#" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors underline"
+                    className="text-white hover:text-gray-300 transition-colors underline"
                   >
                     Book a call
                   </a>
