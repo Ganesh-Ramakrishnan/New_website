@@ -24,9 +24,7 @@ import TestimonySection from '../components/TestimonySection';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
-import CarouselCard from '../components/CarouselCard';
 import CircularWorkflow from '../components/CircularWorkflow';
-import FeatureCategorySlider from '../components/FeatureCategorySlider';
 import ProjectDashboard from '../components/ProjectDashboard';
 
 const HomePage = () => {
@@ -512,7 +510,7 @@ const HomePage = () => {
       </div>
 
       {/* Detailed Features Section */}
-      <section id="features" className="py-20 bg-white">
+      {/* <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="detailed-features">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -524,16 +522,15 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Carousel Card Example with Toggle */}
           <div className="animate-on-scroll animate-delay-200" id="carousel-card">
             <CarouselCard />
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* Everything You Need Section */}
-      <section className="py-12 sm:py-20 bg-white">
+      {/* <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="everything-section">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -545,9 +542,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Feature Categories */}
           <div className="relative">
-            {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
               <div className="absolute inset-0" style={{
                 backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59,130,246,0.5) 1px, transparent 0)`,
@@ -555,13 +550,12 @@ const HomePage = () => {
               }}></div>
             </div>
 
-            {/* Slider for Feature Categories */}
             <div className="w-full">
               <FeatureCategorySlider />
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Webinar Registration Form */}
