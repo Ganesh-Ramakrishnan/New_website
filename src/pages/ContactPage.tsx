@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { CheckCircle, Mail, Phone } from 'lucide-react';
 import React, { useState } from 'react';
 
 import { useEffect } from 'react';
@@ -78,7 +78,6 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-1">Email</h3>
-                      <p className="text-gray-400 text-sm">hello@simplifyqa.com</p>
                       <p className="text-gray-400 text-sm">support@simplifyqa.com</p>
                     </div>
                   </div>
@@ -129,43 +128,6 @@ const ContactPage = () => {
                   }}
                 />
               </div>
-
-              {/* Office Card */}
-              <div 
-                className="rounded-2xl p-6 relative overflow-hidden" 
-                style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
-                  borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset'
-                }}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start">
-                    <div 
-                      className="p-2 rounded-lg flex items-center justify-center mr-4" 
-                      style={{ 
-                        background: 'rgb(16, 19, 28)',
-                        borderRadius: '8px',
-                        boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
-                      }}
-                    >
-                      <MapPin className="h-5 w-5 text-white" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-1">Office</h3>
-                      <p className="text-gray-400 text-sm">123 Tech Boulevard<br />San Francisco, CA 94105</p>
-                    </div>
-                  </div>
-                </div>
-                <div 
-                  className="absolute top-0 right-0 w-full h-full pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(50% 50% at 93.7% 8.1%, rgba(184, 199, 217, 0.5) 0%, rgba(4, 7, 13, 0) 100%)',
-                    opacity: 0.1
-                  }}
-                />
-              </div>
             </div>
 
             {/* Contact Form */}
@@ -181,75 +143,31 @@ const ContactPage = () => {
                 }}
               >
                 <div className="relative z-10">
-                  <h2 className="text-3xl font-bold text-white mb-8">Request a Demo</h2>
+                  <div className="flex items-start gap-4 mb-6">
+                    <div 
+                      className="p-3 rounded-lg flex items-center justify-center" 
+                      style={{ 
+                        background: 'rgb(16, 19, 28)',
+                        borderRadius: '8px',
+                        boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
+                      }}
+                    >
+                      <CheckCircle className="h-6 w-6 text-white" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">We'd love to help! Let us know how</h3>
+                    </div>
+                  </div>
                 
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="relative w-full">
-                        <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>First Name *</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="John"
-                          className="w-full focus:outline-none transition-all"
-                          style={{ 
-                            background: '#04070d',
-                            border: '1px solid rgba(216, 231, 242, 0.07)',
-                            borderRadius: '8px',
-                            color: '#d5dbe6',
-                            padding: '12px',
-                            fontSize: '14px',
-                            fontWeight: 400,
-                            lineHeight: '1.2em',
-                            letterSpacing: '0em',
-                            fontFamily: 'Inter, sans-serif',
-                            height: '48px'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
-                          onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                    />
-                  </div>
-                      <div className="relative w-full">
-                        <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Last Name *</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Doe"
-                          className="w-full focus:outline-none transition-all"
-                          style={{ 
-                            background: '#04070d',
-                            border: '1px solid rgba(216, 231, 242, 0.07)',
-                            borderRadius: '8px',
-                            color: '#d5dbe6',
-                            padding: '12px',
-                            fontSize: '14px',
-                            fontWeight: 400,
-                            lineHeight: '1.2em',
-                            letterSpacing: '0em',
-                            fontFamily: 'Inter, sans-serif',
-                            height: '48px'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
-                          onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                    />
-                  </div>
-                </div>
-
                     <div className="relative w-full">
-                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Work Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="john.doe@company.com"
+                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Full Name</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="Ikta Sollork"
                         className="w-full focus:outline-none transition-all"
                         style={{ 
                           background: '#04070d',
@@ -262,77 +180,81 @@ const ContactPage = () => {
                           lineHeight: '1.2em',
                           letterSpacing: '0em',
                           fontFamily: 'Inter, sans-serif',
-                          height: '48px'
+                          height: '48px',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap'
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
                         onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                  />
-                </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="relative w-full">
-                        <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Company *</label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your Company"
-                          className="w-full focus:outline-none transition-all"
-                          style={{ 
-                            background: '#04070d',
-                            border: '1px solid rgba(216, 231, 242, 0.07)',
-                            borderRadius: '8px',
-                            color: '#d5dbe6',
-                            padding: '12px',
-                            fontSize: '14px',
-                            fontWeight: 400,
-                            lineHeight: '1.2em',
-                            letterSpacing: '0em',
-                            fontFamily: 'Inter, sans-serif',
-                            height: '48px'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
-                          onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                    />
-                  </div>
-                      <div className="relative w-full">
-                        <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Job Title</label>
-                    <input
-                      type="text"
-                      name="jobTitle"
-                      value={formData.jobTitle}
-                      onChange={handleInputChange}
-                      placeholder="QA Manager"
-                          className="w-full focus:outline-none transition-all"
-                          style={{ 
-                            background: '#04070d',
-                            border: '1px solid rgba(216, 231, 242, 0.07)',
-                            borderRadius: '8px',
-                            color: '#d5dbe6',
-                            padding: '12px',
-                            fontSize: '14px',
-                            fontWeight: 400,
-                            lineHeight: '1.2em',
-                            letterSpacing: '0em',
-                            fontFamily: 'Inter, sans-serif',
-                            height: '48px'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
-                          onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                    />
-                  </div>
-                </div>
+                      />
+                    </div>
 
                     <div className="relative w-full">
-                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Tell us about your testing needs</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Describe your current testing challenges and goals..."
+                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Business Mail</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="your@business-email.com"
+                        className="w-full focus:outline-none transition-all"
+                        style={{ 
+                          background: '#04070d',
+                          border: '1px solid rgba(216, 231, 242, 0.07)',
+                          borderRadius: '8px',
+                          color: '#d5dbe6',
+                          padding: '12px',
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          lineHeight: '1.2em',
+                          letterSpacing: '0em',
+                          fontFamily: 'Inter, sans-serif',
+                          height: '48px',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap'
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
+                        onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
+                      />
+                    </div>
+
+                    <div className="relative w-full">
+                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Company Name</label>
+                      <input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Your Company"
+                        className="w-full focus:outline-none transition-all"
+                        style={{ 
+                          background: '#04070d',
+                          border: '1px solid rgba(216, 231, 242, 0.07)',
+                          borderRadius: '8px',
+                          color: '#d5dbe6',
+                          padding: '12px',
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          lineHeight: '1.2em',
+                          letterSpacing: '0em',
+                          fontFamily: 'Inter, sans-serif',
+                          height: '48px',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap'
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
+                        onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
+                      />
+                    </div>
+
+                    <div className="relative w-full">
+                      <label className="block text-sm mb-2" style={{ color: '#d5dbe6', cursor: 'default' }}>Message</label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={4}
+                        placeholder="Give us more info.."
                         className="w-full focus:outline-none transition-all resize-none"
                         style={{ 
                           background: '#04070d',
@@ -348,24 +270,8 @@ const ContactPage = () => {
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'rgba(213, 219, 230, 0.15)'}
                         onBlur={(e) => e.target.style.borderColor = 'rgba(216, 231, 242, 0.07)'}
-                  />
-                </div>
-
-                    <div>
-                      <label className="flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="demoRequest"
-                      checked={formData.demoRequest}
-                      onChange={handleInputChange}
-                          className="h-4 w-4 rounded"
-                          style={{ accentColor: '#3b82f6' }}
-                    />
-                        <span className="ml-3 text-sm" style={{ color: '#d5dbe6' }}>
-                      I would like to schedule a personalized demo
-                    </span>
-                  </label>
-                </div>
+                      />
+                    </div>
 
                 <button
                   type="submit"
@@ -414,15 +320,8 @@ const ContactPage = () => {
                       />
                       
                       {/* Button text */}
-                      <span className="relative flex items-center" style={{ zIndex: 10 }}>
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                      </span>
+                      <span className="relative" style={{ zIndex: 10 }}>Send to support@simplify3x.com</span>
                 </button>
-
-                    <p className="mt-4 text-sm text-center" style={{ color: '#9ca3af' }}>
-                  By submitting this form, you agree to our privacy policy. We'll respond within 24 hours.
-                </p>
               </form>
                 </div>
 
