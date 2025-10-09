@@ -1,6 +1,7 @@
-import { ArrowRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Clock, Shield, TrendingUp, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
+import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const CustomerSuccessPage = () => {
@@ -112,67 +113,6 @@ const CustomerSuccessPage = () => {
             Discover how leading organizations are transforming their testing workflows 
             and achieving remarkable results with SimplifyQA.
           </p>
-        </div>
-      </section>
-
-      {/* Detailed Testimonials */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-            <p className="text-xl text-gray-600">Real results from real teams</p>
-          </div>
-          
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
-            >
-              <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <blockquote className="text-lg text-gray-700 mb-6 italic leading-relaxed">
-                    "{testimonial.content}"
-                  </blockquote>
-                  <div className="flex items-center mb-6">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-gray-600">{testimonial.role}</div>
-                      <div className="text-blue-600 font-medium">{testimonial.company}</div>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100">
-                    {testimonial.metrics.map((metric, metricIndex) => (
-                      <div key={metricIndex} className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">{metric.value}</div>
-                        <div className="text-sm text-gray-600">{metric.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <img
-                  src={testimonial.companyLogo}
-                  alt={testimonial.company}
-                  className="w-full h-80 object-cover rounded-2xl shadow-xl"
-                />
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -416,6 +356,9 @@ const CustomerSuccessPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Success Stories Carousel */}
+      <SuccessStoriesCarousel />
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">

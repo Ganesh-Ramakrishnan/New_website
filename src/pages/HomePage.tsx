@@ -26,6 +26,7 @@ import { useScrollAnimations } from '../utils/useScrollAnimations';
 import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CircularWorkflow from '../components/CircularWorkflow';
 import ProjectDashboard from '../components/ProjectDashboard';
+import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 
 const HomePage = () => {
   useScrollAnimations();
@@ -418,6 +419,11 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* AI Features Showcase */}
+      <div className="animate-on-scroll" id="ai-features">
+        <AIFeaturesShowcase />
+      </div>
+
   {/* Features Section - Dark Theme */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="features-section">
@@ -487,11 +493,9 @@ const HomePage = () => {
 
 
         {/* Product wheel inserted below hero */}
-      <section className="py-12">
         <div className="container mx-auto px-4 animate-on-scroll" id="circular-workflow">
           <CircularWorkflow />
-        </div>
-      </section>
+        </div>  
 
       {/* Project Dashboard Section */}
       <div className="animate-on-scroll" id="project-dashboard">
@@ -503,11 +507,6 @@ const HomePage = () => {
   {/* Horizontal scroll effect JS (React useEffect) */}
 
       {/* AI Features Two-Column Scroller */}
-
-      {/* AI Features Showcase */}
-      <div className="animate-on-scroll" id="ai-features">
-        <AIFeaturesShowcase />
-      </div>
 
       {/* Detailed Features Section */}
       {/* <section id="features" className="py-20 bg-white">
@@ -570,6 +569,9 @@ const HomePage = () => {
         isOpen={isDemoFormOpen}
         onClose={() => setIsDemoFormOpen(false)}
       />
+
+      {/* Success Stories Carousel */}
+      <SuccessStoriesCarousel />
 
         {/* Favorite Tools Grid Section */}
           <div className="animate-on-scroll" id="favorite-tools">

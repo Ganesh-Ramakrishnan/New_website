@@ -91,16 +91,6 @@ const Navbar = () => {
                 Resources
               </Link>
               <Link
-                to="/customer-success"
-                className={`font-medium transition-colors duration-200 ${
-                  isActive('/customer-success')
-                    ? 'text-purple-600'
-                    : 'text-gray-300 hover:text-purple-600'
-                }`}
-              >
-                Customers
-              </Link>
-              <Link
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/about')
@@ -109,6 +99,16 @@ const Navbar = () => {
                 }`}
               >
                 About
+              </Link>
+              <Link
+                to="/contact"
+                className={`font-medium transition-colors duration-200 ${
+                  isActive('/contact')
+                    ? 'text-purple-600'
+                    : 'text-gray-300 hover:text-purple-600'
+                }`}
+              >
+                Contact
               </Link>
             </div>
           </div>
@@ -174,13 +174,6 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Resources
-              </Link>
-              <Link 
-                to="/customer-success" 
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Customers
               </Link>
               <Link 
                 to="/about" 

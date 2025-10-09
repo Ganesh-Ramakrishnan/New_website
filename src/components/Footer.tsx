@@ -1,4 +1,4 @@
-import { FileText, Linkedin, Mail, MessageCircle, Phone, Play } from 'lucide-react';
+import { FileText, Linkedin, Mail, MessageCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -71,7 +71,10 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/resources#blogs" className="text-gray-400 hover:text-white transition-colors">Blog & Guides</Link>
+                <Link to="/resources#blogs" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <FileText className="h-4 w-4 mr-2" />
+                  Blog & Guides
+                </Link>
               </li>
             </ul>
           </div>
@@ -92,10 +95,6 @@ const Footer = () => {
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
                 support@simplify3x.com
-              </div>
-              <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                +1 (555) 123-4567
               </div>
             </div>
             <div className="mt-4 md:mt-0">

@@ -54,57 +54,98 @@ const AIFeaturesShowcase: React.FC = () => {
 
   // Dynamic headings array
   const dynamicHeadings = [
-    "AI for Faster Test Creation",
-    "Streamlined Manual Testing", 
-    "Adaptive Self-Healing Technology",
-    "AI-Powered Code Assistant",
-    "Intelligent Test Data Management",
-    "Smart Regression Testing",
-    "Conversational QA Assistant"
+    "AI-Powered Requirement Management",
+    "AI-Powered Release Management",
+    "AI-Powered Test Management",
+    "AI-Powered Defect Management"
   ];
 
   // Dynamic card content based on heading index
   const getDynamicCardContent = () => {
     const cardContents = [
       {
-        title: "Intelligent User Story Creation",
-        description: "Automatically generate clear, detailed user stories from requirements."
+        mainTitle: "AI-Powered Requirement Management",
+        subTitle: "Transform How You Capture & Manage Requirements",
+        subPoints: [
+          {
+            title: "Intelligent Requirement Generation",
+            description: "Automatically convert BRDs, specs, wireframes, Figma screens, and meeting discussions into structured Epics, Features, and User Stories."
+          },
+          {
+            title: "Traceability & Context",
+            description: "Link every requirement to its source, whether a document, design element, or meeting timestamp, ensuring full visibility and accountability."
+          },
+          {
+            title: "Quality & Priority Insights",
+            description: "AI detects ambiguities, highlights missing flows, and flags high-priority items to keep your requirements complete, precise, and aligned with business goals."
+          }
+        ]
       },
       {
-        title: "Streamlined Manual Test Case Authoring",
-        description: "Generate detailed manual test cases automatically to ensure full coverage."
+        mainTitle: "AI-Powered Release Management",
+        subTitle: "Plan, Predict, and Deliver Releases with Confidence",
+        subPoints: [
+          {
+            title: "Predictive Risk & Intelligent Planning",
+            description: "AI anticipates potential bottlenecks, assesses code, test results, and historical defect trends, highlights high-risk modules, and optimizes the sequencing of features, bug fixes, and test cases for smooth, efficient releases."
+          },
+          {
+            title: "Actionable Release Insights",
+            description: "Calculate Go/No-Go readiness scores, detect areas likely to cause regression or failures, and receive step-by-step recommendations to mitigate risks before deployment."
+          },
+          {
+            title: "Automated Reporting & Stakeholder Visibility",
+            description: "Generate real-time dashboards, scrum summaries, velocity charts, story progress, blockers, and detailed release health metrics to keep teams and stakeholders fully informed."
+          }
+        ]
       },
       {
-        title: "Adaptive Self-Healing Automation",
-        description: "AI-driven test scripts that automatically adapt to application changes."
+        mainTitle: "AI-Powered Test Management",
+        subTitle: "Smarter, Faster, and More Reliable Testing",
+        subPoints: [
+          {
+            title: "Intelligent Test Planning & Generation",
+            description: "AI suggests and generates test cases and automation scripts based on requirements, user stories, past defects, and risk analysis, while prioritizing tests for maximum coverage and business impact."
+          },
+          {
+            title: "Optimized Execution & Self-Healing",
+            description: "Detect duplicate steps, optimize test sequences, adapt to UI changes, dynamically schedule across devices and environments, and predict failures for faster, cleaner, and more reliable testing."
+          },
+          {
+            title: "Automated Insights & Analytics",
+            description: "Gain real-time test health insights, detect anomalies, ensure coverage, and generate executive-ready dashboards and reports for data-driven decisions."
+          }
+        ]
       },
       {
-        title: "AI-Powered Co-Pilot for Test Code",
-        description: "Real-time smart code suggestions and debugging within your IDE."
-      },
-      {
-        title: "Intelligent Test Data Creation",
-        description: "Generate realistic, compliant test data sets automatically."
-      },
-      {
-        title: "AI-Optimized Regression Testing",
-        description: "Prioritize tests intelligently to speed up regression cycles."
-      },
-      {
-        title: "Conversational AI Assistant",
-        description: "Instant QA support and guidance through natural language chat."
+        mainTitle: "AI-Powered Defect Management",
+        subTitle: "Accelerate Defect Resolution with Intelligence",
+        subPoints: [
+          {
+            title: "Root Cause & Pattern Analysis",
+            description: "AI examines logs, test steps, and historical defects to identify probable causes and detect recurring patterns across modules for systemic issue resolution."
+          },
+          {
+            title: "Data-Driven Prioritization",
+            description: "Quickly identify, analyze, and prioritize defects to focus on high-impact issues and streamline resolution."
+          },
+          {
+            title: "Automated Reporting & Metrics",
+            description: "Generate real-time dashboards, executive-ready reports, and track quality metrics across releases for continuous improvement and actionable insights."
+          }
+        ]
       }
     ];
     return cardContents[headingIndex] || cardContents[0];
   };
 
-  // Generate dynamic aiFeatures based on current heading
+  // Generate dynamic aiFeatures based on current heading - creates 3 cards from subPoints
   const getAIFeatures = (): AIFeature[] => {
     const dynamicContent = getDynamicCardContent();
-    return baseFeatures.map(feature => ({
-      ...feature,
-      title: dynamicContent.title,
-      description: dynamicContent.description
+    return dynamicContent.subPoints.map((subPoint, index) => ({
+      ...baseFeatures[index],
+      title: subPoint.title,
+      description: subPoint.description
     }));
   };
 
@@ -126,7 +167,7 @@ const AIFeaturesShowcase: React.FC = () => {
   };
 
   return (
-    <section className="py-8 md:py-16 bg-white relative">
+    <section id="features" className="py-8 md:py-16 bg-white relative">
       {/* Left Arrow - Closer to Container */}
       <button
         onClick={goToPreviousHeading}
@@ -159,9 +200,12 @@ const AIFeaturesShowcase: React.FC = () => {
         {/* Header with Dynamic Title */}
 
         <div className="mb-8 md:mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 transition-all duration-300">
-            {dynamicHeadings[headingIndex]}
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 transition-all duration-300">
+            Intelligent Automation Across the ALM
           </h2>
+          <h3 className="text-lg text-gray-300 max-w-3xl mx-auto mb-4 transition-all duration-300">
+            {getDynamicCardContent().subTitle}
+          </h3>
           <div className="w-16 h-0.5 bg-gray-300 mx-auto"></div>
         </div>
 
@@ -175,13 +219,12 @@ const AIFeaturesShowcase: React.FC = () => {
                 onClick={() => setActiveFeature(feature.id)}
                 className={`flex items-start gap-4 p-4 md:p-6 cursor-pointer transition-all duration-200 relative min-h-[120px] md:min-h-[130px] linear_bg ${
                   activeFeature === feature.id
-                    ? 'text-white rounded-l-lg opacity-100'
+                    ? 'text-white rounded-l-lg opacity-100 border-t border-b border-l border-gray-700'
                     : 'text-white rounded-l-lg border-t border-b border-l border-gray-700 opacity-40 hover:opacity-100'
                 }`}
                 style={{
                   boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 0px 0px inset, rgba(207, 231, 255, 0.1) 0px -1px 0px 0px inset, rgba(207, 231, 255, 0.1) 1px 0px 0px 0px inset, rgba(207, 231, 255, 0.1) -1px 0px 0px 0px inset',
-                  backgroundColor: activeFeature === feature.id ? '#141516 !important' : undefined,
-                  border: activeFeature === feature.id ? 'unset' : undefined
+                  backgroundColor: activeFeature === feature.id ? '#141516 !important' : undefined
                 }}
               >
                 {/* Icon */}
