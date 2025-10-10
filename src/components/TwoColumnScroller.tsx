@@ -102,7 +102,7 @@ const TwoColumnScroller: React.FC<{ topics?: Topic[] }> = ({ topics = sampleTopi
   };
 
   return (
-    <section ref={containerRef} className="w-full bg-white py-10">
+    <section ref={containerRef} className="w-full bg-white py-16">
       <div className="container mx-auto">
         <div 
           className="flex flex-col md:flex-row gap-6 items-start"

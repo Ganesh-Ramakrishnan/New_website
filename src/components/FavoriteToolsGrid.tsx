@@ -45,12 +45,16 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
 
       if (!isPausedRef.current) {
         const elapsed = currentTime - startTimeRef.current;
-        const progress = (elapsed / (duration * 1000)) % 1;
-        
+        let progress = (elapsed / (duration * 1000)) % 1;
+
+        // For seamless looping, we need to ensure smooth transition between sets
+        // The key is that progress goes from 0 to 1, and when it reaches 1, it should seamlessly continue
+
         // Calculate total width of one complete set of cards
-        const cardWidth = 160; // 150px + 10px gap
+        // Each card is 150px + 10px gap = 160px per card
+        const cardWidth = 160;
         const totalWidth = cards.length * cardWidth;
-        
+
         let translateX;
         if (direction === 'left') {
           translateX = -progress * totalWidth;
@@ -93,6 +97,7 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
           width: 'max-content',
           willChange: 'transform',
           backfaceVisibility: 'hidden',
+          gap: '0px', // Ensure no gap between card sets
         } as React.CSSProperties}
       >
         {/* First set of cards */}
@@ -101,16 +106,10 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
             <ToolCard key={`set1_${idx}_${card.label}`} src={card.src} label={card.label} />
           ))}
         </div>
-        {/* Second set of cards for seamless loop */}
+        {/* Duplicate set for seamless loop */}
         <div style={{ display: 'flex', gap: '10px' }}>
           {cards.map((card, idx) => (
             <ToolCard key={`set2_${idx}_${card.label}`} src={card.src} label={card.label} />
-          ))}
-        </div>
-        {/* Third set of cards for extra smoothness */}
-        <div style={{ display: 'flex', gap: '10px' }}>
-          {cards.map((card, idx) => (
-            <ToolCard key={`set3_${idx}_${card.label}`} src={card.src} label={card.label} />
           ))}
         </div>
       </div>
@@ -122,11 +121,11 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
 // the translation distance matches the measured group width and avoids blank gaps.
 
 const FavoriteToolsGrid: React.FC = () => (
-  <section className="py-20 bg-black">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="py-16 bg-black">
+    <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Integrations & Favorite Tools</h2>
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto">Connect with your favorite DevOps, collaboration, and testing tools for a seamless workflow.</p>
+        <h2 className="heading font-bold text-white">Integrations & Favorite Tools</h2>
+        <p className="subheading text-gray-300 max-w-3xl mx-auto">Connect with your favorite DevOps, collaboration, and testing tools for a seamless workflow.</p>
       </div>
       <div style={{ position: 'relative', width: '100%' }}>
         {/* Vignette effect only for grid */}
@@ -157,16 +156,20 @@ const FavoriteToolsGrid: React.FC = () => (
             direction="left"
             duration={40}
             cards={[
-              { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
+              { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
-              { src: "/assets/fav_tool/Google chat.svg", label: "Chat" },
+              { src: "/assets/fav_tool/Azure devops.svg", label: "Azure" },
               { src: "/assets/fav_tool/Browser stack.svg", label: "Browser stack" },
-              { src: "/assets/fav_tool/LambdaTest.svg", label: "Lambdatest" },
-              { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
+              { src: "/assets/fav_tool/Slack.svg", label: "Sauce labs" },
+              { src: "/assets/fav_tool/AWS.svg", label: "Aws" },
+              { src: "/assets/fav_tool/Vector (16).svg", label: "VM Based" },
+              { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
-              { src: "/assets/fav_tool/Google chat.svg", label: "Chat" },
+              { src: "/assets/fav_tool/Azure devops.svg", label: "Azure" },
               { src: "/assets/fav_tool/Browser stack.svg", label: "Browser stack" },
-              { src: "/assets/fav_tool/LambdaTest.svg", label: "Lambdatest" },
+              { src: "/assets/fav_tool/Slack.svg", label: "Sauce labs" },
+              { src: "/assets/fav_tool/AWS.svg", label: "Aws" },
+              { src: "/assets/fav_tool/Vector (16).svg", label: "VM Based" },
             ]}
           />
           {/* Row 2: scroll right */}
@@ -174,35 +177,20 @@ const FavoriteToolsGrid: React.FC = () => (
             direction="right"
             duration={40}
             cards={[
-              { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
-              { src: "/assets/fav_tool/freshrelease.svg", label: "Fresh release" },
-              { src: "/assets/fav_tool/YouTrack.svg", label: "Youtrack" },
-              { src: "/assets/fav_tool/Backlog.svg", label: "Backlog" },
-              { src: "/assets/fav_tool/Bugzilla_logo_(2022) 1.svg", label: "Bugzilla" },
-              { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
-              { src: "/assets/fav_tool/freshrelease.svg", label: "Fresh release" },
-              { src: "/assets/fav_tool/YouTrack.svg", label: "Youtrack" },
-              { src: "/assets/fav_tool/Backlog.svg", label: "Backlog" },
-              { src: "/assets/fav_tool/Bugzilla_logo_(2022) 1.svg", label: "Bugzilla" },
-              // { src: "/assets/fav_tool/Trello.svg", label: "Trello" },
-              // { src: "/assets/fav_tool/Codeship.svg", label: "Codeship" },
-            ]}
-          />
-          {/* Row 3: scroll left */}
-          <ScrollingRow
-            direction="left"
-            duration={40}
-            cards={[
-              { src: "/assets/fav_tool/Linear.svg", label: "Linear" },
+              { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
+              { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Jenkins" },
               { src: "/assets/fav_tool/Azure devops.svg", label: "Azure Devops" },
-              { src: "/assets/fav_tool/AWS.svg", label: "Aws" },
-              { src: "/assets/fav_tool/Travis CI.svg", label: "Travis CL" },
-              { src: "/assets/fav_tool/Linear.svg", label: "Linear" },
+              { src: "/assets/fav_tool/Linear.svg", label: "GitLab" },
+              { src: "/assets/fav_tool/Travis CI.svg", label: "Concourse" },
+              { src: "/assets/fav_tool/Travis CI.svg", label: "Bamboo" },
+              { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
+              { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Jenkins" },
               { src: "/assets/fav_tool/Azure devops.svg", label: "Azure Devops" },
-              { src: "/assets/fav_tool/AWS.svg", label: "Aws" },
-              { src: "/assets/fav_tool/Travis CI.svg", label: "Travis CL" },
+              { src: "/assets/fav_tool/Linear.svg", label: "GitLab" },
+              { src: "/assets/fav_tool/Travis CI.svg", label: "Concourse" },
+              { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
             ]}
           />
         </div>

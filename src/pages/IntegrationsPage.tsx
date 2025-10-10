@@ -63,7 +63,7 @@ const IntegrationsPage = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             200+ Integrations for 
@@ -81,7 +81,7 @@ const IntegrationsPage = () => {
       </section>
 
       {/* Integration Categories */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {integrationCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-16 animate-on-scroll">
@@ -119,7 +119,7 @@ const IntegrationsPage = () => {
       </section>
 
       {/* API Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -183,7 +183,7 @@ console.log('Test created:', test.id);`}
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Connect Your Tools?

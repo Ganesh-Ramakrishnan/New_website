@@ -1,11 +1,11 @@
 import {
-  ArrowRight,
-  BookOpen,
-  Calendar,
-  Download,
-  ExternalLink,
-  Play,
-  Users
+    ArrowRight,
+    BookOpen,
+    Calendar,
+    Download,
+    ExternalLink,
+    Play,
+    Users
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -151,7 +151,7 @@ const ResourcesPage = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Resources & 
@@ -165,7 +165,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Blog Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12 animate-on-scroll">
             <div>
@@ -214,7 +214,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Whitepapers Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -258,7 +258,7 @@ const ResourcesPage = () => {
       
 
       {/* Comprehensive Webinar Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             {/* <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
