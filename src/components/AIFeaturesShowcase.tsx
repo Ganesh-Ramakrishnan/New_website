@@ -200,10 +200,10 @@ const AIFeaturesShowcase: React.FC = () => {
         {/* Header with Dynamic Title */}
 
         <div className="mb-8 md:mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 transition-all duration-300">
+          <h2 className="heading font-bold text-white transition-all duration-300">
             Intelligent Automation Across the ALM
           </h2>
-          <h3 className="text-lg text-gray-300 max-w-3xl mx-auto mb-4 transition-all duration-300">
+          <h3 className="subheading text-gray-300 max-w-3xl mx-auto mb-4 transition-all duration-300">
             {getDynamicCardContent().subTitle}
           </h3>
           <div className="w-16 h-0.5 bg-gray-300 mx-auto"></div>

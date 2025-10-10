@@ -1,4 +1,4 @@
-import { CheckCircle, Mail, Phone } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import React, { useState } from 'react';
 
 import { useEffect } from 'react';
@@ -37,7 +37,7 @@ const ContactPage = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Get in Touch with 
@@ -49,86 +49,9 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#0a0a0a' }}>
+      <section className="py-16" style={{ background: '#0a0a0a' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-6 max-w-6xl mx-auto">
-            {/* Contact Information */}
-            <div className="animate-on-scroll space-y-4">
-              {/* Email Card */}
-              <div 
-                className="rounded-2xl p-6 relative overflow-hidden" 
-                style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
-                  borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset'
-                }}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start">
-                    <div 
-                      className="p-2 rounded-lg flex items-center justify-center mr-4" 
-                      style={{ 
-                        background: 'rgb(16, 19, 28)',
-                        borderRadius: '8px',
-                        boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
-                      }}
-                    >
-                      <Mail className="h-5 w-5 text-white" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-1">Email</h3>
-                      <p className="text-gray-400 text-sm">support@simplifyqa.com</p>
-                    </div>
-                  </div>
-                </div>
-                <div 
-                  className="absolute top-0 right-0 w-full h-full pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(50% 50% at 93.7% 8.1%, rgba(184, 199, 217, 0.5) 0%, rgba(4, 7, 13, 0) 100%)',
-                    opacity: 0.1
-                  }}
-                />
-              </div>
-
-              {/* Phone Card */}
-              <div 
-                className="rounded-2xl p-6 relative overflow-hidden" 
-                style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
-                  borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset'
-                }}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start">
-                    <div 
-                      className="p-2 rounded-lg flex items-center justify-center mr-4" 
-                      style={{ 
-                        background: 'rgb(16, 19, 28)',
-                        borderRadius: '8px',
-                        boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
-                      }}
-                    >
-                      <Phone className="h-5 w-5 text-white" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-1">Phone</h3>
-                      <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
-                      <p className="text-sm text-gray-500">Mon-Fri, 9 AM - 6 PM EST</p>
-                    </div>
-                  </div>
-                </div>
-                <div 
-                  className="absolute top-0 right-0 w-full h-full pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(50% 50% at 93.7% 8.1%, rgba(184, 199, 217, 0.5) 0%, rgba(4, 7, 13, 0) 100%)',
-                    opacity: 0.1
-                  }}
-                />
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto">
 
             {/* Contact Form */}
             <div className="animate-on-scroll animate-delay-200">
@@ -155,7 +78,7 @@ const ContactPage = () => {
                       <CheckCircle className="h-6 w-6 text-white" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white">We'd love to help! Let us know how</h3>
+                      <h3 className="text-2xl font-bold text-white">We'd love to connect!</h3>
                     </div>
                   </div>
                 
@@ -343,7 +266,7 @@ const ContactPage = () => {
   {/* <OurOffice /> */}
 
       {/* Trusted by Industry Leaders Section */}
-      <section className="py-20" style={{ background: '#000' }}>
+      <section className="py-16" style={{ background: '#000' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-on-scroll">
             <h2 className="text-4xl font-bold text-white mb-4">Trusted by Industry Leaders</h2>
@@ -362,6 +285,7 @@ const ContactPage = () => {
 // Trusted By Section Component with rotating countries
 const TrustedBySection = () => {
   const [activeCountry, setActiveCountry] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const countries = [
     {
@@ -381,7 +305,7 @@ const TrustedBySection = () => {
       map: '/assets/map/map_india.svg',
       address: {
         title: 'Bengaluru, India',
-        details: 'BCIT, Block 1, Ground Floor Bhartiya City, RK Hegde Nagar, Bangalore',
+        details: 'BCIT, Block 1 & 3, Ground Floor Bhartiya City, RK Hegde Nagar, Bangalore',
         phone: '+91 9019407023 (Mon - Fri)',
         email: 'info@simplify3x.com'
       }
@@ -400,12 +324,15 @@ const TrustedBySection = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCountry((prev) => (prev + 1) % countries.length);
-    }, 2000);
+    // Only auto-change when not hovered
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setActiveCountry((prev) => (prev + 1) % countries.length);
+      }, 2000);
 
-    return () => clearInterval(interval);
-  }, [countries.length]);
+      return () => clearInterval(interval);
+    }
+  }, [countries.length, isHovered]);
 
   const currentCountry = countries[activeCountry];
 
@@ -438,11 +365,15 @@ const TrustedBySection = () => {
         }}></div>
 
         {/* Right side - Country Info and Address (30%) */}
-        <div className="flex flex-col justify-center p-6 relative">
+        <div
+          className="flex flex-col justify-center p-6 relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div key={`country-${activeCountry}`}>
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
-                {currentCountry.name} 
+                {currentCountry.name}
                 <img src={currentCountry.flag} alt={`${currentCountry.name} flag`} className="w-6 h-6 object-contain" style={{ marginBottom: '12px' }} />
               </h3>
             </div>

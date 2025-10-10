@@ -55,14 +55,14 @@ const ProjectDashboard: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black" style={{ paddingTop: '65px', paddingBottom: '65px' }}>
+    <section className="bg-gradient-to-b from-gray-900 to-black py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Complete Test Automation Platform
+          <h2 className="heading font-bold text-white">
+          Why Choose SimplifyQA?
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-12">
-            Automate across every technology stack with our comprehensive testing solution
+          <p className="subheading text-gray-300 max-w-4xl mx-auto mb-12">
+          Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
           </p>
         </div>
 

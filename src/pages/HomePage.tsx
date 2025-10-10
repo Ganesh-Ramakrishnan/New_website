@@ -27,6 +27,7 @@ import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CircularWorkflow from '../components/CircularWorkflow';
 import ProjectDashboard from '../components/ProjectDashboard';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
+import { TrialForm } from '../components/TrialForm';
 
 const HomePage = () => {
   useScrollAnimations();
@@ -222,6 +223,7 @@ const HomePage = () => {
   const [isGaneshModalOpen, setIsGaneshModalOpen] = useState(false);
   const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
   const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
+  const [isTrialFormOpen, setIsTrialFormOpen] = useState(false);
 
   const features = [
     {
@@ -410,7 +412,7 @@ const HomePage = () => {
       </div>
 
       {/* Client Logos Slider */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
           <div className="relative">
             {/* Slider for Client Logos */}
@@ -425,27 +427,33 @@ const HomePage = () => {
       </div>
 
   {/* Features Section - Dark Theme */}
-      <section className="py-20 bg-gray-900">
+
+  <div className="animate-on-scroll" id="project-dashboard">
+        <ProjectDashboard />
+      </div>
+
+{/*       
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="features-section">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="heading font-bold text-white">
               Why Choose SimplifyQA?
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="subheading text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
             </p>
           </div>
-          {/* Simple Grid Layout - Dark Cards */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getCurrentFeatures().map((feature, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-                {/* Icon container with enhanced styling */}
+             
                 <div className="relative mb-6 flex justify-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
                     {feature.icon}
                   </div>
                 </div>
-                {/* Content */}
+             
                 <div className="relative text-center">
                   <h3 className="text-xl font-bold text-white mb-4">
                     {feature.title}
@@ -453,12 +461,10 @@ const HomePage = () => {
                   <p className="text-gray-300 leading-relaxed text-sm light_grey">
                     {feature.description}
                   </p>
-                  {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div> */}
                 </div>
               </div>
             ))}
           </div>
-          {/* Arrow Navigation - Dark Theme */}
           <div className="flex justify-center items-center space-x-6 mt-12">
             <button
               onClick={prevSlide}
@@ -480,11 +486,11 @@ const HomePage = () => {
 
         
         </div>
-      </section>
+      </section> */}
 
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose SimplifyQA?</h2>
+            <h2 className="heading font-bold text-gray-900 mb-6">Why Choose SimplifyQA?</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
             </p>
@@ -493,14 +499,12 @@ const HomePage = () => {
 
 
         {/* Product wheel inserted below hero */}
-        <div className="container mx-auto px-4 animate-on-scroll" id="circular-workflow">
+        <div className="container mx-auto animate-on-scroll" id="circular-workflow">
           <CircularWorkflow />
         </div>  
 
       {/* Project Dashboard Section */}
-      <div className="animate-on-scroll" id="project-dashboard">
-        <ProjectDashboard />
-      </div>
+      
 
   {/* Removed start and end horizontal scroll section divs as requested */}
 
@@ -509,7 +513,7 @@ const HomePage = () => {
       {/* AI Features Two-Column Scroller */}
 
       {/* Detailed Features Section */}
-      {/* <section id="features" className="py-20 bg-white">
+      {/* <section id="features" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="detailed-features">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -529,7 +533,7 @@ const HomePage = () => {
       </section> */}
 
       {/* Everything You Need Section */}
-      {/* <section className="py-12 sm:py-20 bg-white">
+      {/* <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="everything-section">
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -579,13 +583,13 @@ const HomePage = () => {
           </div>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="testimonials-section">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="heading font-bold text-white">
               Trusted by Industry Leaders
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="subheading text-blue-100 max-w-4xl mx-auto leading-relaxed">
               See how SimplifyQA is helping teams worldwide deliver better software faster.
             </p>
           </div>
@@ -599,7 +603,7 @@ const HomePage = () => {
       
 
       {/* CTA Section */}
-      {/* <section className="py-20 bg-gray-900">
+      {/* <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Testing?
@@ -609,7 +613,7 @@ const HomePage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => setIsDemoFormOpen(true)}
+              onClick={() => setIsTrialFormOpen(true)}
               className="bg-purple-500 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
             >
               Start Free Trial
@@ -626,20 +630,36 @@ const HomePage = () => {
 
 
       {/* Compliance Badges Section */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-4">Our Certifications & Compliance</h2>
-          <div className="flex flex-row items-center justify-between gap-8 bg-white w-full">
-            <img src="/assets/crt/SOC.png" width={'100px'} alt="SOC 2 TYPE 2" className=" object-contain" />
-            <img src="/assets/crt/GDPR compliant.png" width={'154px'} alt="GDPR Compliant" className=" object-contain" />
-            <img src="/assets/crt/Intercert.Png" width={'150px'} alt="ISO 27001" className=" object-contain" />
-            <img src="/assets/crt/HIPAA compliant.png" width={'150px'} alt="HIPAA Compliant" className=" object-contain" />
+          <h2 className="text-center heading font-bold text-white mb-8">Our Certifications & Compliance</h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
+            <img
+              src="/assets/crt/SOC.png"
+              alt="SOC 2 TYPE 2"
+              className="h-auto w-[108px] object-contain transition-transform hover:scale-105"
+            />
+            <img
+              src="/assets/crt/GDPR compliant.png"
+              alt="GDPR Compliant"
+              className="h-auto w-[150px] object-contain transition-transform hover:scale-105"
+            />
+            <img
+              src="/assets/crt/Intercert.Png"
+              alt="ISO 27001"
+              className="h-auto w-[150px] object-contain transition-transform hover:scale-105"
+            />
+            <img
+              src="/assets/crt/HIPAA compliant.png"
+              alt="HIPAA Compliant"
+              className="h-auto w-[150px] object-contain transition-transform hover:scale-105"
+            />
           </div>
         </div>
       </section>
 
       {/* Next Live Session Section */}
-      {/* <section className="bg-gray-900 py-20">
+      {/* <section className="bg-gray-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6 flex items-center justify-center gap-2">
             <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>
@@ -658,6 +678,8 @@ const HomePage = () => {
         </div>
       </section> */}
 
+      {/* Trial Form Modal */}
+      <TrialForm isOpen={isTrialFormOpen} onClose={() => setIsTrialFormOpen(false)} />
     </div>
   );
 };

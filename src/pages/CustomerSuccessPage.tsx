@@ -103,7 +103,7 @@ const CustomerSuccessPage = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
             Customer 
@@ -117,7 +117,7 @@ const CustomerSuccessPage = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -225,7 +225,7 @@ const CustomerSuccessPage = () => {
       </div>
 
       {/* Original case studies section - now updated */}
-      <section className="py-20 bg-white" style={{ display: 'none' }}>
+      <section className="py-16 bg-white" style={{ display: 'none' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -276,7 +276,7 @@ const CustomerSuccessPage = () => {
       </section>
 
       {/* Success Metrics */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl font-bold mb-4">Success by the Numbers</h2>
           <p className="text-xl text-blue-100 mb-16 max-w-3xl mx-auto">
@@ -309,7 +309,7 @@ const CustomerSuccessPage = () => {
       </section>
 
       {/* Customer Support Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -361,7 +361,7 @@ const CustomerSuccessPage = () => {
       <SuccessStoriesCarousel />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Join Our Success Stories?
@@ -370,7 +370,7 @@ const CustomerSuccessPage = () => {
             See how SimplifyQA can transform your testing process and deliver measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center">
+            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center">
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>

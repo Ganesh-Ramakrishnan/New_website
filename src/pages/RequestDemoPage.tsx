@@ -36,7 +36,7 @@ const RequestDemoPage = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Request Demo Section */}
-      <section className="py-20" style={{ background: '#0a0a0a' }}>
+      <section className="py-16" style={{ background: '#0a0a0a' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-on-scroll">
             <h2 className="text-5xl font-bold text-white mb-4">

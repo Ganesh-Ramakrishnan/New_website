@@ -63,9 +63,8 @@ export default function TestimonySection() {
       scrollInterval = window.setInterval(() => {
         if (scrollRef.current) {
           scrollRef.current.scrollLeft += 2;
-          // Get width of a single card
-          const card = scrollRef.current.querySelector('.min-w-[320px]');
-          const cardWidth = card ? (card as HTMLElement).offsetWidth + 32 : 320 + 32; // 32px gap
+          // Use fixed card width since we know cards are min-w-[320px] + gap
+          const cardWidth = 320 + 32; // 320px card width + 32px gap
           const singleSetWidth = cardWidth * testimonies.length;
           if (scrollRef.current.scrollLeft >= singleSetWidth) {
             // Reset to the start of the first set for seamless loop

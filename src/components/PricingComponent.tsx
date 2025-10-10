@@ -1,8 +1,11 @@
 import { Check } from 'lucide-react';
+import { useState } from 'react';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
+import ContactFormModal from './ContactFormModal';
 
 const PricingComponent = () => {
   useScrollAnimations();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const baseFeatures = [
     'Test Case Management',
     'Requirements Traceability',
@@ -68,7 +71,7 @@ const PricingComponent = () => {
   return (
     <div className="min-h-screen text-white">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 pt-32">
+      <section className="max-w-7xl mx-auto px-6 py-16 pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent animate-on-scroll">
             Simple, Transparent Pricing
@@ -99,7 +102,7 @@ const PricingComponent = () => {
               ))}
             </div>
 
-            <button className="w-full bg-white text-black font-semibold py-4 rounded-lg hover:bg-zinc-200 transition-colors duration-200">
+            <button onClick={() => setIsModalOpen(true)} className="w-full bg-white text-black font-semibold py-4 rounded-lg hover:bg-zinc-200 transition-colors duration-200">
               Get Started
             </button>
           </div>
@@ -154,24 +157,27 @@ const PricingComponent = () => {
               Save $296
             </span>
           </div>
-          <button className="bg-emerald-500 text-black font-semibold px-8 py-4 rounded-lg hover:bg-emerald-400 transition-colors duration-200">
+          <button onClick={() => setIsModalOpen(true)} className="bg-emerald-500 text-black font-semibold px-8 py-4 rounded-lg hover:bg-emerald-400 transition-colors duration-200">
             Get Complete Bundle
           </button>
         </div>
       </section>
 
       {/* FAQ or Contact */}
-      <section className="max-w-7xl mx-auto px-6 pb-32">
+      <section className="max-w-7xl mx-auto px-6">
         <div className="text-center animate-on-scroll">
           <h3 className="text-3xl font-bold mb-4">Need a Custom Plan?</h3>
           <p className="text-zinc-400 text-lg mb-8">
             Contact our sales team for enterprise pricing and custom solutions
           </p>
-          <button className="border border-zinc-700 text-white font-medium px-8 py-4 rounded-lg hover:bg-zinc-900 transition-colors duration-200">
+          <button onClick={() => setIsModalOpen(true)} className="border border-zinc-700 text-white font-medium px-8 py-4 rounded-lg hover:bg-zinc-900 transition-colors duration-200">
             Contact Sales
           </button>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

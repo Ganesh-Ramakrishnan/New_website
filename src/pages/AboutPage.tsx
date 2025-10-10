@@ -64,14 +64,14 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 about-bg">
     
 
       {/* Illustrated sections: left image, right text (repeatable) */}
       <section className='plan_white_bg'>
 
-        <div className="w-full md:w-[85%] lg:w-[85%] mx-auto py-20 px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 animate-on-scroll">
+        <div className="w-full md:w-[85%] lg:w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center pt-16 animate-on-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
               The SimplifyQA Story
             </h2>
@@ -80,7 +80,7 @@ const AboutPage = () => {
           {/* eslint-disable-next-line react/no-unstable-nested-components */}
           {(() => {
             const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => (
-              <div className={`flex items-center mb-20 animate-on-scroll ${index % 2 === 1 ? 'flex-row-reverse' : ''} ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
+              <div className={`flex items-center py-10 animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
                 <div className="w-1/2 p-4 animate-on-scroll fade-in-left">
                   <img src={img} alt={title} className="w-full rounded-lg" />
                 </div>
@@ -134,7 +134,7 @@ const AboutPage = () => {
       </section>
 
 
-      {/* <section className="py-20 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Mission & Values</h2>
@@ -162,7 +162,7 @@ const AboutPage = () => {
       </section>
 
   
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Team</h2>
@@ -198,7 +198,7 @@ const AboutPage = () => {
       </section>
 
    
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
@@ -229,7 +229,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Join Our Growing Team

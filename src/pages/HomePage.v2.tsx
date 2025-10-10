@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import Hero from '../components/Hero';
-import { 
-  Zap, 
-  Shield, 
-  BarChart3, 
-  Cpu, 
-  CheckCircle, 
-  ArrowRight,
-  Star,
-  GitBranch,
-  Users,
-  FileText,
-  Bug,
-  Calendar,
-  Target,
-  Layers,
-  Settings,
-  TrendingUp
+import {
+    ArrowRight,
+    BarChart3,
+    Bug,
+    Calendar,
+    CheckCircle,
+    Cpu,
+    FileText,
+    GitBranch,
+    Layers,
+    Settings,
+    Shield,
+    Star,
+    Target,
+    TrendingUp,
+    Users,
+    Zap
 } from 'lucide-react';
+import { useState } from 'react';
+import Hero from '../components/Hero';
 
 const HomePage = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -148,7 +148,7 @@ const HomePage = () => {
       <Hero />
 
       {/* Why Choose SimplifyQA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -206,7 +206,7 @@ const HomePage = () => {
       </section>
 
       {/* Automation Capabilities Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -570,7 +570,7 @@ const HomePage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -615,7 +615,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -653,7 +653,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Testing?
