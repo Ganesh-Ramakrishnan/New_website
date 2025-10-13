@@ -79,16 +79,33 @@ const AboutPage = () => {
           {/* small reusable section component */}
           {/* eslint-disable-next-line react/no-unstable-nested-components */}
           {(() => {
-            const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => (
-              <div className={`flex items-center py-10 animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
-                <div className="w-1/2 p-4 animate-on-scroll fade-in-left">
-                  <img src={img} alt={title} className="w-full rounded-lg" />
+            const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => {
+              // Get the total number of sections to determine last and second-to-last
+              const totalSections = 6; // Based on the sections array length
+              const isLastImage = index === totalSections - 1;
+              const isSecondToLastImage = index === totalSections - 2;
+              const isPuzzleImage = img === '/assets/illustrate/Puzzle 1.png';
+              
+              let imageWidth = '350px'; // default
+              if (isLastImage) {
+                imageWidth = '320px';
+              } else if (isSecondToLastImage) {
+                imageWidth = '280px';
+              } else if (isPuzzleImage) {
+                imageWidth = '280px';
+              }
+              
+              return (
+                <div className={`flex items-center py-10 animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
+                  <div className="w-1/2 p-4 animate-on-scroll fade-in-up">
+                    <img src={img} alt={title} className="w-full rounded-lg" style={{ maxWidth: imageWidth, width: '100%', margin: 'auto' }} />
+                  </div>
+                  <div className="w-1/2 p-8 animate-on-scroll fade-in-up animate-delay-200">
+                    <p className="text-black leading-relaxed">{text}</p>
+                  </div>
                 </div>
-                <div className="w-1/2 p-8 animate-on-scroll fade-in-right animate-delay-200">
-                  <p className="text-black leading-relaxed">{text}</p>
-                </div>
-              </div>
-            );
+              );
+            };
 
             const illustrations = [
               '/assets/illustrate/Artboard 1@2x 10.png',
@@ -178,6 +195,7 @@ const AboutPage = () => {
                   src={member.image}
                   alt={member.name}
                   className="w-24 h-24 rounded-full mx-auto mb-4 group-hover:scale-105 transition-transform duration-300"
+                  style={{ maxWidth: '350px', width: '100%', margin: 'auto' }}
                 />
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}

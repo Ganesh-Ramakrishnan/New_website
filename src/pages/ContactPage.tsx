@@ -36,24 +36,75 @@ const ContactPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
-            Get in Touch with 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Our Experts</span>
-          </h1>
-          <p className="text-xl text-gray-600 animate-on-scroll animate-delay-200">
-            Ready to transform your testing process? Let's discuss how SimplifyQA can help your team deliver quality software faster.
-          </p>
-        </div>
-      </section>
-
       <section className="py-16" style={{ background: '#0a0a0a' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* 35% / 65% Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-[35%_1fr] gap-8 items-start">
+            
+            {/* Left Side - Text Content (35%) */}
+            <div className="animate-on-scroll">
+              <div 
+                className="rounded-2xl p-8 relative overflow-hidden" 
+                style={{ 
+                  background: 'rgb(4, 7, 13)',
+                  border: '1px solid rgba(216, 231, 242, 0.07)',
+                  borderRadius: '16px',
+                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
+                  width: '100%'
+                }}
+              >
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div 
+                      className="p-3 rounded-lg flex items-center justify-center" 
+                      style={{ 
+                        background: 'rgb(16, 19, 28)',
+                        borderRadius: '8px',
+                        boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
+                      }}
+                    >
+                      <CheckCircle className="h-6 w-6 text-white" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h1 className="text-3xl font-bold text-white mb-4">
+                        Get in Touch with 
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Our Experts</span>
+                      </h1>
+                    </div>
+                  </div>
+                  
+                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                    Ready to transform your ALM? Let's discuss how SimplifyQA can help your team deliver quality software faster.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                      <span className="text-gray-300">Expert consultation</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                      <span className="text-gray-300">Custom solutions</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                      <span className="text-gray-300">24/7 support</span>
+                    </div>
+                  </div>
+                </div>
 
-            {/* Contact Form */}
+                {/* Gradient light effect */}
+                <div 
+                  className="absolute top-0 right-0 w-full h-full pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(50% 50% at 93.7% 8.1%, rgba(184, 199, 217, 0.5) 0%, rgba(4, 7, 13, 0) 100%)',
+                    opacity: 0.1
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Right Side - Contact Form (65%) */}
             <div className="animate-on-scroll animate-delay-200">
               <div 
                 className="rounded-2xl p-8 relative overflow-hidden" 
@@ -90,7 +141,7 @@ const ContactPage = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        placeholder="Ikta Sollork"
+                        placeholder="John Doe"
                         className="w-full focus:outline-none transition-all"
                         style={{ 
                           background: '#04070d',
@@ -196,55 +247,24 @@ const ContactPage = () => {
                       />
                     </div>
 
-                <button
-                  type="submit"
-                      className="w-full font-semibold text-white transition-all hover:opacity-90 relative overflow-visible cursor-pointer flex items-center justify-center"
-                      style={{ 
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: '8px',
-                        willChange: 'transform',
-                        padding: '14px 28px',
-                        height: 'min-content'
-                      }}
-                    >
-                      {/* Glow effect */}
-                      <div 
-                        className="absolute pointer-events-none overflow-hidden"
-                        style={{
-                          inset: '0 -1px 0 0',
-                          zIndex: 0,
-                          background: 'radial-gradient(25% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%)',
-                          filter: 'blur(15px)',
-                          borderRadius: '8px',
-                          willChange: 'transform'
-                        }}
-                      />
-                      
-                      {/* Stroke effect */}
-                      <div 
-                        className="absolute pointer-events-none overflow-hidden"
-                        style={{
-                          inset: '0 -1px 0 0',
-                          zIndex: 0,
-                          background: 'radial-gradient(20.7% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%)',
-                          borderRadius: '8px',
-                          willChange: 'auto'
-                        }}
-                      />
-                      
-                      {/* Fill background */}
-                      <div 
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          backgroundColor: 'rgb(0, 0, 0)',
-                          borderRadius: '8px',
-                          zIndex: 1
-                        }}
-                      />
-                      
-                      {/* Button text */}
-                      <span className="relative" style={{ zIndex: 10 }}>Send to support@simplify3x.com</span>
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    className="font-semibold transition-all hover:opacity-90 relative overflow-visible cursor-pointer flex items-center justify-center"
+                    style={{ 
+                      backgroundColor: 'rgb(255, 255, 255)',
+                      color: 'rgb(0, 0, 0)',
+                      borderRadius: '8px',
+                      willChange: 'transform',
+                      padding: '10px',
+                      height: 'min-content',
+                      border: 'none',
+                      width: '200px'
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
               </form>
                 </div>
 
