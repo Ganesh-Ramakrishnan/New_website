@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+// Removed ChevronLeft, ChevronRight imports as manual controls are removed
 import { useEffect, useRef, useState } from 'react';
 
 const clientLogos = [
@@ -44,7 +44,7 @@ const ClientLogoSlider = () => {
   const logos = [...clientLogos, ...clientLogos];
   const positionRef = useRef(0);
   const reqIdRef = useRef(0);
-  const speed = 1.2; // px per frame (increased speed)
+  const speed = 1.0; // px per frame (matching tools speed)
 
   // Responsive visible cards
   const getCardsVisible = () => {
@@ -84,110 +84,44 @@ const ClientLogoSlider = () => {
     return () => cancelAnimationFrame(reqIdRef.current);
   }, []);
 
-  // Pause/resume auto-scroll on arrow hover
-  const handleArrowMouseEnter = () => {
+  // Pause/resume auto-scroll on hover (like tools grid)
+  const handleMouseEnter = () => {
     isPausedRef.current = true;
   };
-  const handleArrowMouseLeave = () => {
+  const handleMouseLeave = () => {
     isPausedRef.current = false;
   };
 
-  // Manual scroll by arrow
-  const scrollBy = (dir: 'left' | 'right') => {
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    let start = positionRef.current;
-    // Use parent container width for card width calculation
-    const parent = marquee.parentElement;
-    const parentWidth = parent ? parent.offsetWidth : marquee.offsetWidth;
-    const cardWidth = parentWidth / cardsVisible; // responsive visible cards
-    let target = start;
-    if (dir === 'left') {
-      target += cardWidth;
-      if (target > 0) {
-        target = -marquee.scrollWidth / 2 + cardWidth;
-      }
-    } else {
-      target -= cardWidth;
-      if (Math.abs(target) >= marquee.scrollWidth / 2) {
-        target = 0;
-      }
-    }
-    // Animate the scroll smoothly
-    const duration = 400; // ms
-    const frameRate = 1000 / 60;
-    const frames = duration / frameRate;
-    const diff = target - start;
-    let frame = 0;
-    function animate() {
-      frame++;
-      const progress = frame / frames;
-      const ease = 0.5 - Math.cos(progress * Math.PI) / 2; // easeInOut
-      const current = start + diff * ease;
-      if (marquee) {
-        marquee.style.transform = `translateX(${current}px)`;
-        positionRef.current = current;
-      }
-      if (frame < frames) {
-        requestAnimationFrame(animate);
-      } else {
-        if (marquee) {
-          marquee.style.transform = `translateX(${target}px)`;
-          positionRef.current = target;
-        }
-      }
-    }
-    animate();
-  };
+  // Removed manual scroll controls for continuous looping
 
   return (
-    <div className="relative py-8 overflow-hidden">
-      <div className="flex items-center">
-        {/* Left Arrow */}
-        <button
-          onClick={() => scrollBy('left')}
-          onMouseEnter={handleArrowMouseEnter}
-          onMouseLeave={handleArrowMouseLeave}
-          aria-label="Previous"
-          className="z-10 p-2 flex items-center justify-center"
-          style={{ background: 'none', boxShadow: 'none', border: 'none' }}
+    <div 
+      className="relative py-8 overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Logo Marquee - continuous loop */}
+      <div className="overflow-hidden">
+        <div
+          ref={marqueeRef}
+          className="flex"
+          style={{ willChange: 'transform' }}
         >
-          <ChevronLeft className="h-7 w-7 text-white" />
-        </button>
-        {/* Logo Marquee with extra margin to prevent overlap */}
-        <div className="flex-1 mx-4 overflow-hidden">
-          <div
-            ref={marqueeRef}
-            className="flex"
-            style={{ willChange: 'transform' }}
-          >
-            {logos.map((logo, idx) => (
-              <div
-                key={idx}
-                className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] flex items-center justify-center px-6`}
-                style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="w-32 h-20 object-contain bg-white rounded-xl shadow"
-                  style={{}}
-                />
-              </div>
-            ))}
-          </div>
+          {logos.map((logo, idx) => (
+            <div
+              key={idx}
+              className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] flex items-center justify-center px-6`}
+              style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="w-32 h-20 object-contain bg-white rounded-xl shadow"
+                style={{}}
+              />
+            </div>
+          ))}
         </div>
-        {/* Right Arrow */}
-        <button
-          onClick={() => scrollBy('right')}
-          onMouseEnter={handleArrowMouseEnter}
-          onMouseLeave={handleArrowMouseLeave}
-          aria-label="Next"
-          className="z-10 p-2 flex items-center justify-center"
-          style={{ background: 'none', boxShadow: 'none', border: 'none' }}
-        >
-          <ChevronRight className="h-7 w-7 text-white" />
-        </button>
       </div>
     </div>
   );

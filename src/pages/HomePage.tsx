@@ -499,7 +499,7 @@ const HomePage = () => {
 
 
         {/* Product wheel inserted below hero */}
-        <div className="container mx-auto animate-on-scroll" id="circular-workflow">
+        <div className="mx-auto animate-on-scroll" id="circular-workflow">
           <CircularWorkflow />
         </div>  
 

@@ -77,23 +77,20 @@ const stories: Story[] = [
 const SuccessStoriesCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-scroll functionality
+  // Auto-scroll functionality with pause on hover
   useEffect(() => {
+    if (isPaused) return; // Don't start interval if paused
+    
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % stories.length);
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
-  const handlePrevious = () => {
-    setActiveIndex((prev) => (prev === 0 ? stories.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
-  };
+  // Removed unused navigation functions
 
   const handleCardClick = (index: number) => {
     setActiveIndex(index);
@@ -167,7 +164,12 @@ const SuccessStoriesCarousel = () => {
         </div>
 
          {/* Carousel Container */}
-         <div className="relative min-h-[425px] sm:min-h-[425px]" style={{ top: '135px' }}>
+         <div 
+           className="relative min-h-[425px] sm:min-h-[425px]" 
+           style={{ top: '135px' }}
+           onMouseEnter={() => setIsPaused(true)}
+           onMouseLeave={() => setIsPaused(false)}
+         >
            {/* Cards Stack */}
            <div className="relative flex items-start justify-center pt-8 px-4">
             {stories.map((story, index) => (
@@ -179,8 +181,14 @@ const SuccessStoriesCarousel = () => {
                   width: 'min(900px, 90vw)',
                   maxWidth: '90vw'
                 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => {
+                  setHoveredIndex(index);
+                  setIsPaused(true);
+                }}
+                onMouseLeave={() => {
+                  setHoveredIndex(null);
+                  setIsPaused(false);
+                }}
                 onClick={() => handleCardClick(index)}
               >
                  {/* Card Content */}
