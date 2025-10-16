@@ -183,7 +183,7 @@ const DataAnalyticsShowcase: React.FC = () => {
                 </div>
 
                 {/* Column 2 - Last 2 cards */}
-                <div className="flex-1" style={{ gap: '10px', position: 'relative', bottom: '-120px' }}>
+                <div className="flex-1" style={{ gap: '10px', position: 'relative', bottom: '-100px' }}>
                   {features.slice(2, 4).map((feature, index) => (
                     <div
                       key={feature.id}
