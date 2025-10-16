@@ -20,12 +20,11 @@ import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
-import TestimonySection from '../components/TestimonySection';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
-import AIFeaturesShowcase from '../components/AIFeaturesShowcase';
 import CircularWorkflow from '../components/CircularWorkflow';
-import ProjectDashboard from '../components/ProjectDashboard';
+import DataAnalyticsShowcase from '../components/DataAnalyticsShowcase';
+import FeatureShowcase from '../components/FeatureShowcase';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { TrialForm } from '../components/TrialForm';
 
@@ -411,6 +410,11 @@ const HomePage = () => {
       
       </div>
 
+      {/* Data Analytics Showcase - First section after Hero */}
+      <div className="animate-on-scroll" id="data-analytics-showcase">
+        <DataAnalyticsShowcase />
+      </div>
+
       {/* Client Logos Slider */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
@@ -422,15 +426,21 @@ const HomePage = () => {
       </section>
 
       {/* AI Features Showcase */}
-      <div className="animate-on-scroll" id="ai-features">
+      {/* <div className="animate-on-scroll" id="ai-features">
         <AIFeaturesShowcase />
+      </div> */}
+
+      {/* Feature Showcase */}
+      <div className="animate-on-scroll" id="feature-showcase">
+        <FeatureShowcase />
       </div>
+
 
   {/* Features Section - Dark Theme */}
 
-  <div className="animate-on-scroll" id="project-dashboard">
+  {/* <div className="animate-on-scroll" id="project-dashboard">
         <ProjectDashboard />
-      </div>
+      </div> */}
 
 {/*       
       <section className="py-16 bg-gray-900">
@@ -583,7 +593,7 @@ const HomePage = () => {
           </div>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-blue-600">
+      {/* <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="testimonials-section">
           <div className="text-center mb-10">
             <h2 className="heading font-bold text-white">
@@ -593,12 +603,11 @@ const HomePage = () => {
               See how SimplifyQA is helping teams worldwide deliver better software faster.
             </p>
           </div>
-          {/* Testimony Section (reference style) */}
       <div className="animate-on-scroll animate-delay-200" id="testimonials">
         <TestimonySection />
       </div>
         </div>
-      </section>
+      </section> */}
 
       
 

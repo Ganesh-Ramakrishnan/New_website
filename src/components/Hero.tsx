@@ -135,7 +135,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button onClick={() => window.open('https://calendly.com/ankita-simplify3x/30min', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>

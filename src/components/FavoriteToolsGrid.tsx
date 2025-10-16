@@ -9,10 +9,10 @@ type ToolCardProps = {
 const ToolCard = ({ src, label }: ToolCardProps) => (
   <div
     className="flex flex-col items-center justify-center p-8 shadow-lg"
-    style={{ width: '150px', height: '150px', background: '#535353', borderRadius: 0 }}
+    style={{ width: '150px', height: '150px', background: '#535353', borderRadius: 0, marginRight: '5px' }}
   >
     <img src={src} alt={label} className="h-12 w-12 mb-4 object-contain" />
-    <span className="text-gray-200 text-base font-medium mt-2">{label}</span>
+    <span className="text-gray-200 text-base font-medium">{label}</span>
   </div>
 );
 
@@ -101,13 +101,13 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
         } as React.CSSProperties}
       >
         {/* First set of cards */}
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '0px' }}>
           {cards.map((card, idx) => (
             <ToolCard key={`set1_${idx}_${card.label}`} src={card.src} label={card.label} />
           ))}
         </div>
         {/* Duplicate set for seamless loop */}
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '0px' }}>
           {cards.map((card, idx) => (
             <ToolCard key={`set2_${idx}_${card.label}`} src={card.src} label={card.label} />
           ))}
@@ -154,7 +154,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 1: scroll left */}
           <ScrollingRow
             direction="left"
-            duration={20}
+            duration={40}
             cards={[
               { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
@@ -175,7 +175,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 2: scroll right */}
           <ScrollingRow
             direction="right"
-            duration={20}
+            duration={40}
             cards={[
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
@@ -183,7 +183,6 @@ const FavoriteToolsGrid: React.FC = () => (
               { src: "/assets/fav_tool/Azure devops.svg", label: "Azure Devops" },
               { src: "/assets/fav_tool/Linear.svg", label: "GitLab" },
               { src: "/assets/fav_tool/Travis CI.svg", label: "Concourse" },
-              { src: "/assets/fav_tool/Travis CI.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Jenkins" },

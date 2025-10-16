@@ -80,7 +80,7 @@ const Navbar = () => {
               >
                 Pricing
               </Link>
-              <Link
+              {/* <Link
                 to="/resources"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/resources')
@@ -89,7 +89,8 @@ const Navbar = () => {
                 }`}
               >
                 Resources
-              </Link>
+              </Link> */}
+              
               <Link
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${
@@ -100,7 +101,15 @@ const Navbar = () => {
               >
                 About
               </Link>
-              <Link
+              <a
+                href="https://discord.com/invite/e58NZySa2T"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium transition-colors duration-200 text-gray-300 hover:text-purple-600"
+              >
+                Discord
+              </a>
+              {/* <Link
                 to="/contact"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/contact')
@@ -109,7 +118,7 @@ const Navbar = () => {
                 }`}
               >
                 Contact
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -168,13 +177,15 @@ const Navbar = () => {
               >
                 Pricing
               </Link>
-              <Link 
-                to="/resources" 
+              <a
+                href="https://discord.com/invite/e58NZySa2T"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Resources
-              </Link>
+                Discord
+              </a>
               <Link 
                 to="/about" 
                 className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"

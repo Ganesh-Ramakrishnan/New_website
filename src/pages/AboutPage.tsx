@@ -67,7 +67,7 @@ const AboutPage = () => {
     <div className="pt-16 about-bg">
     
 
-      {/* Illustrated sections: left image, right text (repeatable) */}
+      {/* Zigzag sections: alternating left-right layout */}
       <section className='plan_white_bg'>
 
         <div className="w-full md:w-[85%] lg:w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,10 +76,10 @@ const AboutPage = () => {
               The SimplifyQA Story
             </h2>
           </div>
-          {/* small reusable section component */}
+          {/* Zigzag Layout Component */}
           {/* eslint-disable-next-line react/no-unstable-nested-components */}
           {(() => {
-            const IllustratedSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => {
+            const ZigzagSection = ({ img, title, text, reverse = false, index }: { img: string; title: string; text: string; reverse?: boolean; index: number }) => {
               // Get the total number of sections to determine last and second-to-last
               const totalSections = 6; // Based on the sections array length
               const isLastImage = index === totalSections - 1;
@@ -96,12 +96,24 @@ const AboutPage = () => {
               }
               
               return (
-                <div className={`flex items-center py-10 animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
-                  <div className="w-1/2 p-4 animate-on-scroll fade-in-up">
-                    <img src={img} alt={title} className="w-full rounded-lg" style={{ maxWidth: imageWidth, width: '100%', margin: 'auto' }} />
-                  </div>
-                  <div className="w-1/2 p-8 animate-on-scroll fade-in-up animate-delay-200">
-                    <p className="text-black leading-relaxed">{text}</p>
+                <div>
+                  <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+                    {/* Image Section */}
+                    <div className="w-full lg:w-1/2 flex justify-center">
+                      <img 
+                        src={img} 
+                        alt={title} 
+                        className="w-full rounded-lg" 
+                        style={{ maxWidth: imageWidth, width: '100%' }} 
+                      />
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="w-full lg:w-1/2 p-4 lg:p-8">
+                      <p className="text-black leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );
@@ -135,14 +147,33 @@ const AboutPage = () => {
             return (
               <>
                 {sections.map((s, i) => (
-                  <IllustratedSection
-                    key={i}
-                    img={illustrations[i % illustrations.length]}
-                    title={s.title}
-                    text={s.text}
-                    reverse={i % 2 === 1}
-                    index={i}
-                  />
+                  <div key={i}>
+                    <ZigzagSection
+                      img={illustrations[i % illustrations.length]}
+                      title={s.title}
+                      text={s.text}
+                      reverse={i % 2 === 1}
+                      index={i}
+                    />
+                    {/* Dot section between each main section */}
+                    {i < sections.length - 1 && (
+                      <div style={{ width: '75%', margin: 'auto' }}>
+                        {(i === 0 || i === 2 || i === 4 || i === 6) ? (
+                          <img 
+                            src="/assets/illustrate/right_dot.svg" 
+                            alt="Right dot" 
+                            className="w-full"
+                          />
+                        ) : (
+                          <img 
+                            src="/assets/illustrate/left_dot.svg" 
+                            alt="Left dot" 
+                            className="w-full"
+                          />
+                        )}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </>
             );
