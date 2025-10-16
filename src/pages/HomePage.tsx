@@ -34,9 +34,9 @@ const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const params = new URLSearchParams(window.location.search);
-    if (params.get('scrollTo') === 'features') {
+    if (params.get('scrollTo') === 'feature-showcase') {
       setTimeout(() => {
-        const el = document.getElementById('features');
+        const el = document.getElementById('feature-showcase');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }

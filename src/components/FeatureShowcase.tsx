@@ -33,7 +33,7 @@ const FeatureShowcase: React.FC = () => {
       id: 'ai-requirement-management',
       title: 'AI-Powered Requirement Management',
       description: 'Transform How You Capture & Manage Requirements',
-      icon: <Zap className="h-6 w-6 text-blue-500" />,
+      icon: <Zap className="h-6 w-6 text-white" />,
       details: {
         description: 'Revolutionize your requirement management with AI that automatically converts business documents, designs, and discussions into structured, traceable requirements.',
         features: [
@@ -47,7 +47,7 @@ const FeatureShowcase: React.FC = () => {
       id: 'ai-release-management',
       title: 'AI-Powered Release Management',
       description: 'Plan, Predict, and Deliver Releases with Confidence',
-      icon: <Shield className="h-6 w-6 text-blue-500" />,
+      icon: <Shield className="h-6 w-6 text-white" />,
       details: {
         description: 'Leverage AI to anticipate risks, optimize release planning, and deliver high-quality releases with predictive insights and automated reporting.',
         features: [
@@ -61,7 +61,7 @@ const FeatureShowcase: React.FC = () => {
       id: 'ai-test-management',
       title: 'AI-Powered Test Management',
       description: 'Smarter, Faster, and More Reliable Testing',
-      icon: <Wrench className="h-6 w-6 text-blue-500" />,
+      icon: <Wrench className="h-6 w-6 text-white" />,
       details: {
         description: 'Transform your testing process with AI-driven test planning, intelligent execution, and automated insights for comprehensive quality assurance.',
         features: [
@@ -75,7 +75,7 @@ const FeatureShowcase: React.FC = () => {
       id: 'ai-defect-management',
       title: 'AI-Powered Defect Management',
       description: 'Accelerate Defect Resolution with Intelligence',
-      icon: <Target className="h-6 w-6 text-blue-500" />,
+      icon: <Target className="h-6 w-6 text-white" />,
       details: {
         description: 'Streamline defect resolution with AI-powered root cause analysis, intelligent prioritization, and automated reporting for faster issue resolution.',
         features: [
@@ -89,7 +89,7 @@ const FeatureShowcase: React.FC = () => {
       id: 'ai-analytics-insights',
       title: 'AI-Powered Analytics & Insights',
       description: 'Transform Data into Actionable Intelligence',
-      icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
+      icon: <TrendingUp className="h-6 w-6 text-white" />,
       details: {
         description: 'Leverage advanced AI analytics to gain deep insights into your development process, predict trends, and make data-driven decisions for continuous improvement.',
         features: [
@@ -198,9 +198,9 @@ const FeatureShowcase: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 h-full">
           {/* Left Navigation */}
-          <div className="space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             {/* Feature Cards */}
             <div className="space-y-4">
               {features.map((feature, index) => {
@@ -208,7 +208,7 @@ const FeatureShowcase: React.FC = () => {
                 return (
                   <div
                     key={feature.id}
-                    className={`rounded-xl transition-all duration-300 ${
+                    className={`rounded-xl transition-all duration-1000 ease-in-out ${
                       activeFeature === index
                         ? 'border-l-4 border-blue-500'
                         : ''
@@ -256,7 +256,7 @@ const FeatureShowcase: React.FC = () => {
                     </div>
 
                     {/* Card Description - Collapsible */}
-                    <div className={`transition-all duration-300 overflow-hidden ${
+                    <div className={`transition-all duration-1000 ease-in-out overflow-hidden ${
                       isExpanded ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
                     }`}>
                       <div className="px-6 pb-6">
@@ -273,7 +273,7 @@ const FeatureShowcase: React.FC = () => {
 
           {/* Right Detail View - Scrollable */}
           <div 
-            className="h-[600px] overflow-y-auto scrollbar-hide" 
+            className="lg:col-span-7 h-[600px] overflow-y-auto scrollbar-hide" 
             ref={rightSideRef} 
             style={{ 
               scrollbarWidth: 'none', 
@@ -291,13 +291,13 @@ const FeatureShowcase: React.FC = () => {
                   <div
                     key={feature.id}
                     ref={el => featureRefs.current[index] = el}
-                    className={`rounded-xl p-8 h-[600px] flex flex-col justify-center transition-all duration-700 ease-in-out ${
+                    className={`rounded-xl p-8 h-[600px] flex flex-col justify-center transition-all duration-1500 ease-in-out ${
                       isActive 
                         ? 'opacity-100 transform translate-y-0 scale-100' 
                         : isVisible 
                           ? 'opacity-30 transform translate-y-4 scale-95' 
                           : 'opacity-0 transform translate-y-8 scale-90'
-                    } ${isScrolling ? 'transition-duration-300' : 'transition-duration-700'}`}
+                    } ${isScrolling ? 'transition-duration-800' : 'transition-duration-1500'}`}
                     style={{ 
                       scrollSnapAlign: 'start',
                       border: '1px solid rgba(75, 75, 75, 0.36)',
@@ -334,7 +334,7 @@ const FeatureShowcase: React.FC = () => {
                   <div className="flex items-center justify-end space-x-4">
                     <div className="flex-1 bg-gray-600 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full transition-all duration-500"
+                        className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full transition-all duration-1000 ease-in-out"
                         style={{ width: `${((index + 1) / features.length) * 100}%` }}
                       />
                     </div>

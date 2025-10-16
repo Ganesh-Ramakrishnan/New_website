@@ -22,9 +22,9 @@ const Navbar = () => {
   const handleFeatureClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname !== '/') {
-      navigate('/?scrollTo=features');
+      navigate('/?scrollTo=feature-showcase');
     } else {
-      const el = document.getElementById('features');
+      const el = document.getElementById('feature-showcase');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
@@ -64,7 +64,7 @@ const Navbar = () => {
                 Home
               </Link>
               <a
-                href="#features"
+                href="#feature-showcase"
                 onClick={handleFeatureClick}
                 className="font-medium transition-colors duration-200 text-gray-300 hover:text-white"
               >
@@ -164,7 +164,7 @@ const Navbar = () => {
                 Home
               </Link>
               <a
-                href="#features"
+                href="#feature-showcase"
                 onClick={e => { handleFeatureClick(e); setIsOpen(false); }}
                 className="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors duration-200"
               >

@@ -110,7 +110,7 @@ const DataAnalyticsShowcase: React.FC = () => {
   }, [isHovered, features.length]);
 
   return (
-    <section className="py-16 bg-gray-900 relative overflow-hidden">
+    <section className="py-16 pb-32 bg-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -121,19 +121,19 @@ const DataAnalyticsShowcase: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        {/* <div className="text-center mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
             Why Choose SimplifyQA?
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto">
             Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
           </p>
-        </div> */}
+        </div>
         <div className="border border-gray-600 rounded-xl bg-gray-800">
           <div className="flex flex-col lg:flex-row items-stretch">
-            {/* Left Section - Feature Showcase (45%) */}
+            {/* Left Section - Feature Showcase (50%) */}
             <div 
-              className="w-full lg:w-[45%]" 
+              className="w-full lg:w-[50%]" 
               style={{ padding: '0px 50px', background: 'rgb(24, 24, 27)', borderRadius: '12px 0 0 12px' }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -152,7 +152,9 @@ const DataAnalyticsShowcase: React.FC = () => {
                         padding: '10px',
                         marginTop: '5px',
                         borderRadius: '5px',
-                        boxShadow: activeFeature === index ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'none'
+                        boxShadow: activeFeature === index ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'var(--shd, 0 1px 4px rgba(0, 0, 0, .6))',
+                        width: '240px',
+                        height: '350px'
                       }}
                     >
                         {/* Feature Icon */}
@@ -162,22 +164,24 @@ const DataAnalyticsShowcase: React.FC = () => {
                           </div>
                         </div>
 
-                      {/* Feature Title */}
-                      <h3 className="text-lg font-bold mb-3" style={{ color: '#4A5568' }}>
-                        {feature.title}
-                      </h3>
+                      {/* Content moved to bottom */}
+                      <div className="mt-auto">
+                        {/* Feature Title */}
+                        <h3 className="text-lg font-bold mb-3" style={{ color: 'white' }}>
+                          {feature.title}
+                        </h3>
 
-                      {/* Feature Description */}
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                        {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
-                         feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
-                         feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
-                         feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
-                         'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
-                      </p>
-
-                      {/* Bottom Line */}
-                      <div className="pt-4 border-t border-gray-600"></div>
+                        {/* Feature Description */}
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                          {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
+                           feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
+                           feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
+                           feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
+                           'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
+                        </p>
+                        {/* Bottom Line */}
+                        <div className="pt-4 border-t border-gray-600"></div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -195,7 +199,9 @@ const DataAnalyticsShowcase: React.FC = () => {
                         padding: '10px',
                         marginTop: '5px',
                         borderRadius: '5px',
-                        boxShadow: activeFeature === (index + 2) ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'none'
+                        boxShadow: activeFeature === (index + 2) ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'none',
+                        width: '240px',
+                        height: '350px'
                       }}
                     >
                         {/* Feature Icon */}
@@ -205,30 +211,32 @@ const DataAnalyticsShowcase: React.FC = () => {
                           </div>
                         </div>
 
-                      {/* Feature Title */}
-                      <h3 className="text-lg font-bold mb-3" style={{ color: '#4A5568' }}>
-                        {feature.title}
-                      </h3>
+                      {/* Content moved to bottom */}
+                      <div className="mt-auto">
+                        {/* Feature Title */}
+                        <h3 className="text-lg font-bold mb-3" style={{ color: 'white' }}>
+                          {feature.title}
+                        </h3>
 
-                      {/* Feature Description */}
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                        {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
-                         feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
-                         feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
-                         feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
-                         'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
-                      </p>
-
-                      {/* Bottom Line */}
-                      <div className="pt-4 border-t border-gray-600"></div>
+                        {/* Feature Description */}
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                          {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
+                           feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
+                           feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
+                           feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
+                           'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
+                        </p>
+                        {/* Bottom Line */}
+                        <div className="pt-4 border-t border-gray-600"></div>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Right Section - Dynamic Content (55%) */}
-            <div className="w-full lg:w-[55%] relative flex flex-col border-l border-gray-600 overflow-hidden" style={{
+            {/* Right Section - Dynamic Content (50%) */}
+            <div className="w-full lg:w-[50%] relative flex flex-col border-l border-gray-600 overflow-hidden" style={{
               backgroundImage: 'url(/assets/bg_main.avif)',
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
@@ -242,12 +250,9 @@ const DataAnalyticsShowcase: React.FC = () => {
                   <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
                     {currentFeature.title}
                   </h2>
-                  <p className="text-xl text-blue-300 font-semibold mb-4">
-                    {currentFeature.details.subtitle}
-                  </p>
-                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                    {currentFeature.details.mainDescription}
-                  </p>
+                    <p className="text-xl text-blue-300 font-semibold mb-4">
+                      {currentFeature.details.subtitle}
+                    </p>
                 </div>
                 
                 <div className="space-y-3">
