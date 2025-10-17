@@ -20,6 +20,7 @@ interface ApiType {
 const ApiIntegrationShowcase: React.FC = () => {
   const [activeApi, setActiveApi] = useState<string>('rest');
   const [activeInnerIndex, setActiveInnerIndex] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const apiTypes: ApiType[] = [
     // Inner orbit (radius 130px)
@@ -78,12 +79,14 @@ const ApiIntegrationShowcase: React.FC = () => {
 
   // Auto-rotate through inner orbit circles
   useEffect(() => {
+    if (isHovered) return; // Don't auto-rotate when hovered
+    
     const interval = setInterval(() => {
       setActiveInnerIndex(prev => (prev + 1) % 5); // 5 circles in inner orbit
     }, 2000); // Change every 2 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   const currentApi = apiTypes.find(api => api.id === activeApi);
 
@@ -119,11 +122,11 @@ const ApiIntegrationShowcase: React.FC = () => {
         }}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left Side - API Visualization */}
-          <div className="w-full lg:w-1/2 flex justify-center" style={{ marginLeft: '-22%' }}>
+          <div className="w-full lg:w-1/2 flex justify-center" style={{ marginLeft: '-20%' }}>
             <div className="relative w-[600px] h-[600px] flex-shrink-0">
                {/* Central Sun */}
                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -198,6 +201,8 @@ const ApiIntegrationShowcase: React.FC = () => {
                          top: `${y}px`
                        }}
                        onClick={() => setActiveInnerIndex(index)}
+                       onMouseEnter={() => setIsHovered(true)}
+                       onMouseLeave={() => setIsHovered(false)}
                      >
                         <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center transition-all duration-500 ${
                           isActive 
@@ -266,9 +271,20 @@ const ApiIntegrationShowcase: React.FC = () => {
                  const centerX = 300;
                  const centerY = 300;
                  const radius = 280; // Same radius as the outer orbit line
-                 const startAngle = -Math.PI / 2; // Start from top
-                 const endAngle = Math.PI / 2; // End at bottom
-                 const angleStep = outerLogos.length > 1 ? (endAngle - startAngle) / (outerLogos.length - 1) : 0; // Dynamic spacing based on number of icons
+                 
+                 let startAngle, endAngle, angleStep;
+                 
+                 if (outerLogos.length === 2) {
+                   // For 2 icons: position them on the right side center (around 0 degrees)
+                   startAngle = -Math.PI / 6; // -30 degrees
+                   endAngle = Math.PI / 6;    // +30 degrees
+                   angleStep = (endAngle - startAngle) / (outerLogos.length - 1);
+                 } else {
+                   // For other numbers: use full right side arc
+                   startAngle = -Math.PI / 2; // Start from top
+                   endAngle = Math.PI / 2;    // End at bottom
+                   angleStep = outerLogos.length > 1 ? (endAngle - startAngle) / (outerLogos.length - 1) : 0;
+                 }
                  
                  return outerLogos.map((item, index) => {
                    const angle = startAngle + (index * angleStep);
