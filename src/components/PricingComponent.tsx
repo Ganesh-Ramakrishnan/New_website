@@ -19,7 +19,7 @@ const PricingComponent = () => {
 
   const addons = [
     {
-      name: 'Web Testing',
+      name: 'Web Automation',
       description: 'Cross-browser automation and visual regression testing',
       price: '$299',
       features: [
@@ -31,7 +31,7 @@ const PricingComponent = () => {
       ],
     },
     {
-      name: 'API & Database',
+      name: 'API & Database Automation',
       description: 'Complete API testing and database validation suite',
       price: '$349',
       features: [
@@ -43,7 +43,7 @@ const PricingComponent = () => {
       ],
     },
     {
-      name: 'Desktop Testing',
+      name: 'Desktop Automation',
       description: 'Native desktop application testing capabilities',
       price: '$399',
       features: [
@@ -55,7 +55,7 @@ const PricingComponent = () => {
       ],
     },
     {
-      name: 'Mobile Testing',
+      name: 'Mobile Automation',
       description: 'iOS and Android testing on real devices and simulators',
       price: '$449',
       features: [
@@ -98,9 +98,6 @@ const PricingComponent = () => {
             {/* Left Section - ALM Package */}
             <div style={{ flex: '2' }}>
               <div className="mb-6">
-                <div className="inline-block bg-gray-700 text-white px-3 py-1 rounded-full text-xs font-medium mb-4">
-                  REQUIRED BASE PACKAGE
-                </div>
                 <h3 className="text-4xl font-bold text-white mb-4">ALM Package</h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
                   Complete Application Lifecycle Management capabilities - Test Management, Execution, Requirements, Defect Tracking, Traceability & Analytics
@@ -200,8 +197,8 @@ const PricingComponent = () => {
               style={{
                 position: 'absolute',
                 right: '-125px',
-                top: '50px',
-                width: '300px',
+                top: '30px',
+                width: '325px',
                 borderRadius: '25px',
                 border: '1px solid rgb(68, 68, 68)',
                 background: 'rgb(54 54 54 / 45%)',
@@ -244,7 +241,7 @@ const PricingComponent = () => {
                     }
                   }}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">API & Database</h4>
+                  <h4 className="text-xl font-bold text-white mb-3">API & Database Automation</h4>
                   <p className="text-gray-300 text-sm">Complete API testing and database validation suite</p>
                 </div>
                 
@@ -264,7 +261,7 @@ const PricingComponent = () => {
                     }
                   }}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">Desktop Testing</h4>
+                  <h4 className="text-xl font-bold text-white mb-3">Desktop Automation</h4>
                   <p className="text-gray-300 text-sm">Native desktop application testing capabilities</p>
                 </div>
                 
@@ -284,7 +281,7 @@ const PricingComponent = () => {
                     }
                   }}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">Mobile Testing</h4>
+                  <h4 className="text-xl font-bold text-white mb-3">Mobile Automation</h4>
                   <p className="text-gray-300 text-sm">iOS and Android testing on real devices and simulators</p>
                 </div>
             </div>

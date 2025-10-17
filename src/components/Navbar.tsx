@@ -99,7 +99,7 @@ const Navbar = () => {
                     : 'text-gray-300 hover:text-purple-600'
                 }`}
               >
-                About
+                Our Story
               </Link>
               <a
                 href="https://discord.com/invite/e58NZySa2T"

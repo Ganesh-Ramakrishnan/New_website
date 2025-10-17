@@ -1,10 +1,8 @@
 import { Award, Target, Users } from 'lucide-react';
 
 import { useEffect } from 'react';
-import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const AboutPage = () => {
-  useScrollAnimations();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,7 +69,7 @@ const AboutPage = () => {
       <section className='plan_white_bg'>
 
         <div className="w-full md:w-[85%] lg:w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center pt-16 animate-on-scroll">
+          <div className="text-center pt-16">
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
               The SimplifyQA Story
             </h2>
@@ -110,7 +108,7 @@ const AboutPage = () => {
                     
                     {/* Content Section */}
                     <div className="w-full lg:w-1/2 p-4 lg:p-8">
-                      <p className="text-black leading-relaxed">
+                      <p className="text-black leading-relaxed" style={{ fontSize: '17px' }}>
                         {text}
                       </p>
                     </div>

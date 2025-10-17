@@ -22,7 +22,7 @@ import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
-import CircularWorkflow from '../components/CircularWorkflow';
+import ApiIntegrationShowcase from '../components/ApiIntegrationShowcase';
 import DataAnalyticsShowcase from '../components/DataAnalyticsShowcase';
 import FeatureShowcase from '../components/FeatureShowcase';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
@@ -415,6 +415,11 @@ const HomePage = () => {
         <DataAnalyticsShowcase />
       </div>
 
+      {/* API Integration Showcase */}
+      {/* <div className="animate-on-scroll" id="api-integration-showcase">
+        <ApiIntegrationShowcase />
+      </div> */}
+
       {/* Client Logos Slider */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
@@ -508,9 +513,9 @@ const HomePage = () => {
         </div> */}
 
 
-        {/* Product wheel inserted below hero */}
-        <div className="mx-auto animate-on-scroll" id="circular-workflow">
-          <CircularWorkflow />
+        {/* API Integration Showcase */}
+        <div className="mx-auto animate-on-scroll" id="api-integration-showcase">
+          <ApiIntegrationShowcase />
         </div>  
 
       {/* Project Dashboard Section */}

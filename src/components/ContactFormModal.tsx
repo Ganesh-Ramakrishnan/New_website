@@ -430,7 +430,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                   <path d="m22 2-7 20-4-9-9-4Z"></path>
                   <path d="M22 2 11 13"></path>
                 </svg>
-                {isSubmitting ? 'Submitting...' : 'Get My Quote'}
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </span>
             </button>
             
