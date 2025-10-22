@@ -277,9 +277,6 @@ const SuccessStoriesCarousel = () => {
 
         {/* Comment Text Below Cards */}
         <div className="text-center" style={{ width: '50vw', margin: '50px auto auto' }}>
-          <p className="text-gray-400 text-lg italic mb-8">
-            "They took the time to understand our <span style={{ fontStyle: 'italic', color: '#fff' }}>challenges</span>, identified our <span style={{ fontStyle: 'italic', color: '#fff' }}>target audience</span>, and made our brand shine. Their solutions were very effective!"
-          </p>
           
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2">

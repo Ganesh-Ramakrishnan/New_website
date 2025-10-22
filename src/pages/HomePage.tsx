@@ -416,9 +416,9 @@ const HomePage = () => {
       </div>
 
       {/* API Integration Showcase */}
-      {/* <div className="animate-on-scroll" id="api-integration-showcase">
+      <div className="animate-on-scroll" id="api-integration-showcase">
         <ApiIntegrationShowcase />
-      </div> */}
+      </div>
 
       {/* Client Logos Slider */}
       <section className="py-16 bg-white">
@@ -645,7 +645,7 @@ const HomePage = () => {
 
       {/* Compliance Badges Section */}
       <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="compliance-badges">
           <h2 className="text-center heading font-bold text-white mb-8">Our Certifications & Compliance</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
             <img

@@ -40,7 +40,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2 group">
+            <Link 
+              to="/" 
+              className="flex items-center space-x-2 group"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
               <img 
                 src="/simplify_logo.svg" 
                 alt="SimplifyQA" 

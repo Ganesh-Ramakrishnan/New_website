@@ -124,7 +124,7 @@ const FavoriteToolsGrid: React.FC = () => (
   <section className="py-16 bg-black">
     <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10">
-        <h2 className="heading font-bold text-white">Integrations & Favorite Tools</h2>
+        <h2 className="heading font-bold text-white">Expand Your Workflow with Powerful Integrations</h2>
         <p className="subheading text-gray-300 max-w-3xl mx-auto">Connect with your favorite DevOps, collaboration, and testing tools for a seamless workflow.</p>
       </div>
       <div style={{ position: 'relative', width: '100%' }}>

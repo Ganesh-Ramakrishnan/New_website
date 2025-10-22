@@ -83,7 +83,7 @@ const ApiIntegrationShowcase: React.FC = () => {
     
     const interval = setInterval(() => {
       setActiveInnerIndex(prev => (prev + 1) % 5); // 5 circles in inner orbit
-    }, 2000); // Change every 2 seconds
+    }, 4000); // Change every 4 seconds (slower)
 
     return () => clearInterval(interval);
   }, [isHovered]);
@@ -97,11 +97,15 @@ const ApiIntegrationShowcase: React.FC = () => {
         @keyframes fade-in-scale {
           0% {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.3);
+            transform: translate(-50%, -50%) scale(0.5);
           }
-          50% {
+          30% {
+            opacity: 0.3;
+            transform: translate(-50%, -50%) scale(0.8);
+          }
+          60% {
             opacity: 0.7;
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1.05);
           }
           100% {
             opacity: 1;
@@ -110,7 +114,26 @@ const ApiIntegrationShowcase: React.FC = () => {
         }
         
         .animate-fade-in-scale {
-          animation: fade-in-scale 0.6s ease-out forwards;
+          animation: fade-in-scale 2.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+          }
+          50% {
+            opacity: 0.6;
+            transform: translate(-50%, -50%) scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
       `}</style>
       
@@ -195,7 +218,7 @@ const ApiIntegrationShowcase: React.FC = () => {
                    return (
                      <div
                        key={index}
-                       className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500"
+                       className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
                        style={{
                          left: `${x}px`,
                          top: `${y}px`
@@ -204,7 +227,7 @@ const ApiIntegrationShowcase: React.FC = () => {
                        onMouseEnter={() => setIsHovered(true)}
                        onMouseLeave={() => setIsHovered(false)}
                      >
-                        <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center transition-all duration-500 ${
+                        <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center ${
                           isActive 
                             ? 'bg-white border-2 border-white scale-110' 
                             : 'bg-white border-2 border-gray-200'
@@ -294,11 +317,10 @@ const ApiIntegrationShowcase: React.FC = () => {
                    return (
                      <div
                        key={`outer-${activeInnerIndex}-${index}`}
-                       className="absolute transform -translate-x-1/2 -translate-y-1/2 animate-fade-in-scale"
+                       className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out animate-fade-in"
                        style={{
                          left: `${x}px`,
-                         top: `${y}px`,
-                         animationDelay: `${index * 0.1}s`
+                         top: `${y}px`
                        }}
                      >
                        <div className="w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 transition-all duration-500 hover:scale-110 hover:shadow-xl">
@@ -346,6 +368,8 @@ const ApiIntegrationShowcase: React.FC = () => {
                   {activeInnerIndex === 3 && "Supports automation for desktop applications built on .NET, Java, Win32, and legacy platforms."}
                   {activeInnerIndex === 4 && "Supports automation for both SQL and NoSQL databases for validating backend data integrity."}
                 </p>
+                
+                <div className="mb-4"></div>
               </div>
 
               <div className="space-y-3">

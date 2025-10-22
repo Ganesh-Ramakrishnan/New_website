@@ -1,7 +1,6 @@
 import {
   CheckCircle,
   ChevronDown,
-  ChevronUp,
   Shield,
   Target,
   TrendingUp,
@@ -30,73 +29,74 @@ const FeatureShowcase: React.FC = () => {
 
   const features: Feature[] = [
     {
-      id: 'ai-requirement-management',
-      title: 'AI-Powered Requirement Management',
-      description: 'Transform How You Capture & Manage Requirements',
-      icon: <Zap className="h-6 w-6 text-white" />,
+      id: 'smart-requirement-capture',
+      title: 'Smart Requirement Capture & Management',
+      description: 'Smart Requirement Capture & Management',
+      icon: <Zap className="h-6 w-6 text-blue-500" />,
       details: {
-        description: 'Revolutionize your requirement management with AI that automatically converts business documents, designs, and discussions into structured, traceable requirements.',
+        description: 'Smart Requirement Capture & Management',
         features: [
-          'Intelligent Requirement Generation - Automatically convert BRDs, specs, wireframes, Figma screens, and meeting discussions into structured Epics, Features, and User Stories',
-          'Traceability & Context - Link every requirement to its source, whether a document, design element, or meeting timestamp, ensuring full visibility and accountability',
-          'Quality & Priority Insights - AI detects ambiguities, highlights missing flows, and flags high-priority items to keep your requirements complete, precise, and aligned with business goals'
+          'Automate transformation of raw inputs into actionable Epics, Features, and User Stories.',
+          'Ensure full traceability by connecting requirements to original sources.',
+          'Use AI to detect gaps, ambiguities, and prioritize critical requirements.'
         ]
       }
     },
     {
-      id: 'ai-release-management',
-      title: 'AI-Powered Release Management',
-      description: 'Plan, Predict, and Deliver Releases with Confidence',
-      icon: <Shield className="h-6 w-6 text-white" />,
+      id: 'predictive-release-planning',
+      title: 'Predictive & Intelligent Release Planning',
+      description: 'Predictive & Intelligent Release Planning',
+      icon: <Shield className="h-6 w-6 text-blue-500" />,
       details: {
-        description: 'Leverage AI to anticipate risks, optimize release planning, and deliver high-quality releases with predictive insights and automated reporting.',
+        description: 'Predictive & Intelligent Release Planning',
         features: [
-          'Predictive Risk & Intelligent Planning - AI anticipates potential bottlenecks, assesses code, test results, and historical defect trends, highlights high-risk modules, and optimizes the sequencing of features, bug fixes, and test cases for smooth, efficient releases',
-          'Actionable Release Insights - Calculate Go/No-Go readiness scores, detect areas likely to cause regression or failures, and receive step-by-step recommendations to mitigate risks before deployment',
-          'Automated Reporting & Stakeholder Visibility - Generate real-time dashboards, scrum summaries, velocity charts, story progress, blockers, and detailed release health metrics to keep teams and stakeholders fully informed'
+          'Forecast bottlenecks and optimize release order with AI-driven insights.',
+          'Make informed Go/No-Go decisions backed by risk analysis and readiness scores.',
+          'Keep stakeholders aligned with real-time release dashboards and metrics.'
         ]
       }
     },
     {
-      id: 'ai-test-management',
-      title: 'AI-Powered Test Management',
-      description: 'Smarter, Faster, and More Reliable Testing',
-      icon: <Wrench className="h-6 w-6 text-white" />,
+      id: 'next-gen-test-creation',
+      title: 'Next-Gen Test Creation & Execution',
+      description: 'Next-Gen Test Creation & Execution',
+      icon: <Wrench className="h-6 w-6 text-blue-500" />,
       details: {
-        description: 'Transform your testing process with AI-driven test planning, intelligent execution, and automated insights for comprehensive quality assurance.',
+        description: 'Next-Gen Test Creation & Execution',
         features: [
-          'Intelligent Test Planning & Generation - AI suggests and generates test cases and automation scripts based on requirements, user stories, past defects, and risk analysis, while prioritizing tests for maximum coverage and business impact',
-          'Optimized Execution & Self-Healing - Detect duplicate steps, optimize test sequences, adapt to UI changes, dynamically schedule across devices and environments, and predict failures for faster, cleaner, and more reliable testing',
-          'Automated Insights & Analytics - Gain real-time test health insights, detect anomalies, ensure coverage, and generate executive-ready dashboards and reports for data-driven decisions'
+          'Generate prioritized test cases and automation scripts powered by AI analysis.',
+          'Seamlessly convert user stories to manual tests, then automate with ease.',
+          'Streamline API and web test creation side-by-side for comprehensive coverage.',
+          'Enhance execution with self-healing, adaptive scheduling, and failure prediction.'
         ]
       }
     },
     {
-      id: 'ai-defect-management',
-      title: 'AI-Powered Defect Management',
-      description: 'Accelerate Defect Resolution with Intelligence',
-      icon: <Target className="h-6 w-6 text-white" />,
+      id: 'ai-driven-defect-identification',
+      title: 'AI-Driven Defect Identification & Resolution',
+      description: 'AI-Driven Defect Identification & Resolution',
+      icon: <Target className="h-6 w-6 text-blue-500" />,
       details: {
-        description: 'Streamline defect resolution with AI-powered root cause analysis, intelligent prioritization, and automated reporting for faster issue resolution.',
+        description: 'AI-Driven Defect Identification & Resolution',
         features: [
-          'Root Cause & Pattern Analysis - AI examines logs, test steps, and historical defects to identify probable causes and detect recurring patterns across modules for systemic issue resolution',
-          'Data-Driven Prioritization - Quickly identify, analyze, and prioritize defects to focus on high-impact issues and streamline resolution',
-          'Automated Reporting & Metrics - Generate real-time dashboards, executive-ready reports, and track quality metrics across releases for continuous improvement and actionable insights'
+          'Uncover root causes and recurring defect patterns using AI-powered analysis.',
+          'Focus efforts on high-impact defects through data-driven prioritization.',
+          'Track quality progress and improvements with dynamic, executive-friendly reports.'
         ]
       }
     },
     {
-      id: 'ai-analytics-insights',
-      title: 'AI-Powered Analytics & Insights',
-      description: 'Transform Data into Actionable Intelligence',
-      icon: <TrendingUp className="h-6 w-6 text-white" />,
+      id: 'actionable-analytics',
+      title: 'Actionable Analytics for Continuous Improvement',
+      description: 'Actionable Analytics for Continuous Improvement',
+      icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
       details: {
-        description: 'Leverage advanced AI analytics to gain deep insights into your development process, predict trends, and make data-driven decisions for continuous improvement.',
+        description: 'Actionable Analytics for Continuous Improvement',
         features: [
-          'Predictive Analytics & Forecasting - Advanced AI models analyze historical data to predict future trends, bottlenecks, and opportunities for optimization',
-          'Performance Trend Analysis - Comprehensive analysis of development velocity, quality metrics, and team performance patterns over time',
-          'Custom Dashboard Creation - Build personalized dashboards with real-time data visualization and customizable KPIs for different stakeholder needs',
-          'Real-time Metrics & KPIs - Monitor critical performance indicators with live updates and automated alerts for proactive decision making'
+          'Leverage AI to predict trends and uncover optimization opportunities.',
+          'Analyze team performance, velocity, and quality patterns over time.',
+          'Customize dashboards with real-time KPIs tailored to different roles.',
+          'Proactively monitor critical metrics with live updates and smart alerts.'
         ]
       }
     }
@@ -191,16 +191,16 @@ const FeatureShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Intelligent Automation Across the ALM
+            Next-Gen ALM: AI-Driven Quality and Delivery Management
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Transform Your Application Lifecycle Management with AI-Powered Solutions
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
           {/* Left Navigation */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="space-y-4">
             {/* Feature Cards */}
             <div className="space-y-4">
               {features.map((feature, index) => {
@@ -208,7 +208,7 @@ const FeatureShowcase: React.FC = () => {
                 return (
                   <div
                     key={feature.id}
-                    className={`rounded-xl transition-all duration-1000 ease-in-out ${
+                    className={`rounded-xl transition-all duration-300 ${
                       activeFeature === index
                         ? 'border-l-4 border-blue-500'
                         : ''
@@ -244,25 +244,28 @@ const FeatureShowcase: React.FC = () => {
                             e.stopPropagation();
                             toggleCardExpansion(index);
                           }}
-                          className="p-1 rounded hover:bg-gray-600 transition-colors"
+                          className="p-1 rounded hover:bg-gray-600 transition-all duration-300 ease-in-out"
                         >
-                          {isExpanded ? (
-                            <ChevronUp className="h-4 w-4 text-gray-400" />
-                          ) : (
+                          <div className={`transform transition-transform duration-500 ease-in-out ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
                             <ChevronDown className="h-4 w-4 text-gray-400" />
-                          )}
+                          </div>
                         </button>
                       </div>
                     </div>
 
                     {/* Card Description - Collapsible */}
-                    <div className={`transition-all duration-1000 ease-in-out overflow-hidden ${
-                      isExpanded ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
+                    <div className={`transition-all duration-700 ease-in-out overflow-hidden ${
+                      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}>
                       <div className="px-6 pb-6">
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                          {feature.description}
-                        </p>
+                        <div className="space-y-2">
+                          {feature.details.features.map((featureItem, idx) => (
+                            <div key={idx} className="flex items-start space-x-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-300 text-sm">{featureItem}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -273,7 +276,7 @@ const FeatureShowcase: React.FC = () => {
 
           {/* Right Detail View - Scrollable */}
           <div 
-            className="lg:col-span-7 h-[600px] overflow-y-auto scrollbar-hide" 
+            className="h-[600px] overflow-y-auto scrollbar-hide" 
             ref={rightSideRef} 
             style={{ 
               scrollbarWidth: 'none', 
@@ -291,13 +294,13 @@ const FeatureShowcase: React.FC = () => {
                   <div
                     key={feature.id}
                     ref={el => featureRefs.current[index] = el}
-                    className={`rounded-xl p-8 h-[600px] flex flex-col justify-center transition-all duration-1500 ease-in-out ${
+                    className={`rounded-xl p-8 h-[600px] flex flex-col justify-center transition-all duration-700 ease-in-out ${
                       isActive 
                         ? 'opacity-100 transform translate-y-0 scale-100' 
                         : isVisible 
                           ? 'opacity-30 transform translate-y-4 scale-95' 
                           : 'opacity-0 transform translate-y-8 scale-90'
-                    } ${isScrolling ? 'transition-duration-800' : 'transition-duration-1500'}`}
+                    } ${isScrolling ? 'transition-duration-300' : 'transition-duration-700'}`}
                     style={{ 
                       scrollSnapAlign: 'start',
                       border: '1px solid rgba(75, 75, 75, 0.36)',
@@ -334,7 +337,7 @@ const FeatureShowcase: React.FC = () => {
                   <div className="flex items-center justify-end space-x-4">
                     <div className="flex-1 bg-gray-600 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full transition-all duration-1000 ease-in-out"
+                        className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full transition-all duration-500"
                         style={{ width: `${((index + 1) / features.length) * 100}%` }}
                       />
                     </div>

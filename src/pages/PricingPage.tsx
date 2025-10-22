@@ -84,14 +84,16 @@ const PricingPage = () => {
                     <h3 className="text-lg font-semibold text-white pr-4">
                       {faq.question}
                     </h3>
-                    <div className={`transform transition-transform duration-700 ease-out ${openFaq === index ? 'rotate-180' : 'rotate-0'}`}>
+                    <div className={`transform transition-transform duration-500 ease-in-out ${openFaq === index ? 'rotate-180' : 'rotate-0'}`}>
                       <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
                     </div>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-700 ease-out ${
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
-                    <div className="px-6 pb-5">
+                    <div className={`px-6 pb-5 transition-all duration-500 ease-in-out ${
+                      openFaq === index ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+                    }`}>
                       <p className="text-gray-300 leading-relaxed">
                         {faq.answer}
                       </p>
