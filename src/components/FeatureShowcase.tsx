@@ -122,10 +122,32 @@ const FeatureShowcase: React.FC = () => {
     if (rightSideRef.current) {
       const sectionHeight = rightSideRef.current.clientHeight;
       const scrollPosition = index * sectionHeight;
-      rightSideRef.current.scrollTo({
-        top: scrollPosition,
-        behavior: 'smooth'
-      });
+      
+      // Custom slow scroll animation
+      const startPosition = rightSideRef.current.scrollTop;
+      const distance = scrollPosition - startPosition;
+      const duration = 10000; // 10 seconds for ultra slow scroll
+      let startTime: number;
+      
+      const animateScroll = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth deceleration
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentPosition = startPosition + (distance * easeOutCubic);
+        
+        if (rightSideRef.current) {
+          rightSideRef.current.scrollTop = currentPosition;
+        }
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      };
+      
+      requestAnimationFrame(animateScroll);
     }
   };
 
@@ -151,7 +173,7 @@ const FeatureShowcase: React.FC = () => {
           // Set timeout to detect when scrolling stops
           scrollTimeout = setTimeout(() => {
             setIsScrolling(false);
-          }, 150);
+          }, 2000);
 
           const scrollTop = rightSideRef.current.scrollTop;
           const containerHeight = rightSideRef.current.clientHeight;
@@ -281,7 +303,7 @@ const FeatureShowcase: React.FC = () => {
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
-              scrollBehavior: 'smooth',
+              scrollBehavior: 'auto',
               scrollSnapType: 'y mandatory'
             }}
           >

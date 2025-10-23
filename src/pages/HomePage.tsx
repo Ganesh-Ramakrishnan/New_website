@@ -514,9 +514,9 @@ const HomePage = () => {
 
 
         {/* API Integration Showcase */}
-        <div className="mx-auto animate-on-scroll" id="api-integration-showcase">
+        {/* <div className="mx-auto animate-on-scroll" id="api-integration-showcase">
           <ApiIntegrationShowcase />
-        </div>  
+        </div>   */}
 
       {/* Project Dashboard Section */}
       
