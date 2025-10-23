@@ -1,17 +1,11 @@
 import { Award, Target, Users } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const AboutPage = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Trigger animations after a short delay
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    return () => clearTimeout(timer);
   }, []);
   const team = [
     {
@@ -76,9 +70,7 @@ const AboutPage = () => {
 
         <div className="w-full md:w-[85%] lg:w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center pt-16">
-            <h2 className={`text-4xl md:text-5xl font-bold text-black mb-6 transition-all duration-1000 ease-out ${
-              isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-            }`}>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
               The SimplifyQA Story
             </h2>
           </div>
@@ -131,6 +123,7 @@ const AboutPage = () => {
               '/assets/illustrate/people copy 1.png',
               '/assets/illustrate/Puzzle 1.png',
               '/assets/illustrate/SQA bot 1.png',
+              '/assets/illustrate/board.png',
             ];
 
             const sections = [
@@ -153,13 +146,7 @@ const AboutPage = () => {
             return (
               <>
                 {sections.map((s, i) => (
-                  <div 
-                    key={i}
-                    className={`transition-all duration-1000 ease-out ${
-                      isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-12'
-                    }`}
-                    style={{ transitionDelay: `${(i + 1) * 200}ms` }}
-                  >
+                  <div key={i}>
                     <ZigzagSection
                       img={illustrations[i % illustrations.length]}
                       title={s.title}
@@ -224,9 +211,7 @@ const AboutPage = () => {
   
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-          }`} style={{ transitionDelay: '600ms' }}>
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Team</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the experienced leaders driving SimplifyQA's vision and innovation.
@@ -235,13 +220,7 @@ const AboutPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div 
-                key={index} 
-                className={`rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group feature-gradient-bg ${
-                  isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-12'
-                }`}
-                style={{ transitionDelay: `${800 + (index * 200)}ms` }}
-              >
+              <div key={index} className="rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group feature-gradient-bg">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -269,9 +248,7 @@ const AboutPage = () => {
    
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-          }`} style={{ transitionDelay: '1200ms' }}>
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
             <p className="text-xl text-gray-600">
               From startup to industry leader - here's how we've grown.
@@ -279,17 +256,9 @@ const AboutPage = () => {
           </div>
           
           <div className="relative">
-            <div className={`absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200 transition-all duration-1000 ease-out ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`} style={{ transitionDelay: '1400ms' }}></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
             {milestones.map((milestone, index) => (
-              <div 
-                key={index} 
-                className={`relative flex items-start mb-12 transition-all duration-1000 ease-out ${
-                  isLoaded ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform translate-x-8'
-                }`}
-                style={{ transitionDelay: `${1600 + (index * 200)}ms` }}
-              >
+              <div key={index} className="relative flex items-start mb-12">
                 <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow"></div>
                 <div className="ml-16">
                   <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold inline-block mb-2">
