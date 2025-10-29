@@ -8,6 +8,8 @@ interface CalendlyPopupProps {
 
 const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
   const calendlyRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInitialized = useRef(false);
 
   // Prevent background scrolling when popup is open
   useEffect(() => {
@@ -26,7 +28,7 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isInitialized.current) {
       // Load Calendly script if not already loaded
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       
@@ -40,13 +42,36 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
 
       // Initialize Calendly widget
       const initCalendly = () => {
-        if (window.Calendly && calendlyRef.current) {
-           window.Calendly.initInlineWidget({
-             url: 'https://calendly.com/ankita-simplify3x/new-meeting',
-             parentElement: calendlyRef.current,
-             prefill: {},
-             utm: {}
-           });
+        if (window.Calendly && calendlyRef.current && !isInitialized.current) {
+          isInitialized.current = true;
+          
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/ankita-simplify3x/new-meeting',
+            parentElement: calendlyRef.current,
+            prefill: {},
+            utm: {}
+          });
+
+          // Try to size container to Calendly iframe height
+          const parentEl = calendlyRef.current;
+          const tryResize = () => {
+            const iframe = parentEl.querySelector('iframe') as HTMLIFrameElement | null;
+            if (iframe && containerRef.current) {
+              const px = iframe.style.height || iframe.getAttribute('height') || '';
+              if (px.endsWith('px')) {
+                containerRef.current.style.height = px;
+              }
+            }
+          };
+
+          // Observe changes inside calendly to keep height in sync
+          const mo = new MutationObserver(() => tryResize());
+          mo.observe(parentEl, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'height'] });
+
+          // Initial attempts
+          tryResize();
+          setTimeout(tryResize, 500);
+          setTimeout(tryResize, 1500);
         }
       };
 
@@ -66,13 +91,18 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
         setTimeout(() => clearInterval(checkCalendly), 10000);
       }
     }
+
+    // Reset initialization flag when popup closes
+    if (!isOpen) {
+      isInitialized.current = false;
+    }
   }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
-      <div className="bg-white rounded-2xl w-full max-w-6xl h-[95vh] max-h-[900px] overflow-hidden shadow-2xl relative">
+      <div className="bg-transparent w-full max-w-[1100px] h-screen relative" ref={containerRef}>
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -82,12 +112,12 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
           <X className="h-6 w-6" />
         </button>
 
-        {/* Calendly Widget Container - No Padding, Full Size */}
-        <div className="h-full w-full overflow-auto">
+        {/* Calendly Widget Container - Fill available height */}
+        <div className="w-full h-full overflow-auto">
           <div 
             ref={calendlyRef}
             className="calendly-inline-widget w-full h-full"
-            style={{ minWidth: '100%', height: '100%' }}
+            style={{ minWidth: '320px', height: '100%' }}
             data-url="https://calendly.com/ankita-simplify3x/new-meeting"
           />
         </div>
