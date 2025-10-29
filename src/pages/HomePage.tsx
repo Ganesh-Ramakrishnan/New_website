@@ -29,10 +29,16 @@ import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { TrialForm } from '../components/TrialForm';
 
 const HomePage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   useScrollAnimations();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Trigger animations after a short delay
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
     const params = new URLSearchParams(window.location.search);
     if (params.get('scrollTo') === 'feature-showcase') {
       setTimeout(() => {
@@ -42,6 +48,8 @@ const HomePage = () => {
         }
       }, 100);
     }
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Horizontal scroll image + text pairs
@@ -404,24 +412,30 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="text-white min-h-screen">
   <div className="w-full text-white">
         <Hero />
       
       </div>
 
       {/* Data Analytics Showcase - First section after Hero */}
-      <div className="animate-on-scroll" id="data-analytics-showcase">
+      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} id="data-analytics-showcase" style={{ transitionDelay: '200ms' }}>
         <DataAnalyticsShowcase />
       </div>
 
       {/* API Integration Showcase */}
-      <div className="animate-on-scroll" id="api-integration-showcase">
+      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} id="api-integration-showcase" style={{ transitionDelay: '400ms' }}>
         <ApiIntegrationShowcase />
       </div>
 
       {/* Client Logos Slider */}
-      <section className="py-16 bg-white">
+      <section className={`py-16 bg-white transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} style={{ transitionDelay: '600ms' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
           <div className="relative">
             {/* Slider for Client Logos */}
@@ -436,7 +450,9 @@ const HomePage = () => {
       </div> */}
 
       {/* Feature Showcase */}
-      <div className="animate-on-scroll" id="feature-showcase">
+      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} id="feature-showcase" style={{ transitionDelay: '800ms' }}>
         <FeatureShowcase />
       </div>
 
@@ -590,10 +606,16 @@ const HomePage = () => {
       />
 
       {/* Success Stories Carousel */}
-      <SuccessStoriesCarousel />
+      <div className={`transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} style={{ transitionDelay: '1200ms' }}>
+        <SuccessStoriesCarousel />
+      </div>
 
         {/* Favorite Tools Grid Section */}
-          <div className="animate-on-scroll" id="favorite-tools">
+          <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
+            isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+          }`} id="favorite-tools" style={{ transitionDelay: '1000ms' }}>
             <FavoriteToolsGrid />
           </div>
 

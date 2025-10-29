@@ -296,80 +296,29 @@ const FeatureShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Detail View - Scrollable */}
+          {/* Right Video View */}
           <div 
-            className="h-[600px] overflow-y-auto scrollbar-hide" 
+            className="flex items-center justify-center" 
             ref={rightSideRef} 
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
-              scrollBehavior: 'auto',
-              scrollSnapType: 'y mandatory'
-            }}
           >
-            <div>
-              {features.map((feature, index) => {
-                const isActive = index === activeFeature;
-                const isVisible = Math.abs(index - activeFeature) <= 1; // Show current and adjacent sections
-                
-                return (
-                  <div
-                    key={feature.id}
-                    ref={el => featureRefs.current[index] = el}
-                    className={`rounded-xl p-8 h-[600px] flex flex-col justify-center transition-all duration-700 ease-in-out ${
-                      isActive 
-                        ? 'opacity-100 transform translate-y-0 scale-100' 
-                        : isVisible 
-                          ? 'opacity-30 transform translate-y-4 scale-95' 
-                          : 'opacity-0 transform translate-y-8 scale-90'
-                    } ${isScrolling ? 'transition-duration-300' : 'transition-duration-700'}`}
+            <div 
+              className="w-full rounded-xl overflow-hidden"
                     style={{ 
-                      scrollSnapAlign: 'start',
                       border: '1px solid rgba(75, 75, 75, 0.36)',
-                      background: 'rgb(24, 24, 27)'
-                    }}
-                  >
-                  {/* Feature Icon and Title */}
-                  <div className="flex items-center gap-6 mb-6">
-                    <div className="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center">
-                      {feature.icon}
-                    </div>
-                    <h2 className="text-3xl font-bold text-white">
-                      {feature.title}
-                    </h2>
-                  </div>
-
-                  {/* Subtitle */}
-                  <p className="text-gray-300 text-lg mb-6">
-                    {feature.description}
-                  </p>
-
-
-                  {/* Feature List */}
-                  <div className="space-y-3 mb-8">
-                    {feature.details.features.map((featureItem, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-300">{featureItem}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Progress Indicator */}
-                  <div className="flex items-center justify-end space-x-4">
-                    <div className="flex-1 bg-gray-600 rounded-full h-2">
-                      <div 
-                        className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full transition-all duration-500"
-                        style={{ width: `${((index + 1) / features.length) * 100}%` }}
-                      />
-                    </div>
-                    <span className="text-white font-medium">
-                      {index + 1}/{features.length}
-                    </span>
-                  </div>
-                  </div>
-                );
-              })}
+                background: 'transparent'
+              }}
+            >
+              <video
+                className="w-full h-auto object-contain"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/assets/video/Testcase_animation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>

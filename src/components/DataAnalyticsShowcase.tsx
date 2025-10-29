@@ -121,7 +121,7 @@ const DataAnalyticsShowcase: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" style={{ marginLeft: '10%' }}>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
             Why Choose SimplifyQA?
           </h2>
@@ -131,9 +131,9 @@ const DataAnalyticsShowcase: React.FC = () => {
         </div>
         <div className="border border-gray-600 rounded-xl bg-gray-800">
           <div className="flex flex-col lg:flex-row items-stretch">
-            {/* Left Section - Feature Showcase (60%) */}
+            {/* Left Section - Feature Showcase (55%) */}
             <div 
-              className="w-full lg:w-[60%]" 
+              className="w-full lg:w-[55%]" 
               style={{ padding: '0px 50px', background: 'rgb(24, 24, 27)', borderRadius: '12px 0 0 12px' }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -237,8 +237,8 @@ const DataAnalyticsShowcase: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Section - Dynamic Content (40%) */}
-            <div className="w-full lg:w-[40%] relative flex flex-col border-l border-gray-600 overflow-hidden" style={{
+            {/* Right Section - Dynamic Content (45%) */}
+            <div className="w-full lg:w-[45%] relative flex flex-col border-l border-gray-600 overflow-hidden" style={{
               backgroundImage: 'url(/assets/bg_main.avif)',
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
@@ -247,7 +247,7 @@ const DataAnalyticsShowcase: React.FC = () => {
             }}>
               {/* Background Overlay for readability */}
               <div className="absolute inset-0 bg-gray-900 bg-opacity-70"></div>
-                     <div className="relative z-10 px-[90px] py-8 flex flex-col justify-center h-full">
+                     <div className="relative z-10 px-[60px] py-8 flex flex-col justify-center h-full">
                 <div className="mb-6">
                   <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
                     {currentFeature.title}

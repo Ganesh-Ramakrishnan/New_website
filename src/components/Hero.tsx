@@ -1,11 +1,13 @@
 import { ArrowRight, BarChart3, Brain, Bug, GitBranch, Play, Settings, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import CalendlyPopup from './CalendlyPopup';
 import { TrialForm } from './TrialForm';
 
 const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [isTrialFormOpen, setIsTrialFormOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const almPhases = [
     { 
@@ -45,7 +47,7 @@ const Hero = () => {
   const currentALM = almPhases[currentPhase];
 
   return (
-  <section className="relative bg-black overflow-hidden">
+    <section className="relative bg-black overflow-hidden">
       {/* Subtle Background Effects */}
       {/* <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -135,7 +137,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button onClick={() => window.open('https://calendly.com/ankita-simplify3x/30min', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button onClick={() => setIsCalendlyOpen(true)} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
@@ -189,6 +191,9 @@ const Hero = () => {
 
       {/* Trial Form Modal */}
       <TrialForm isOpen={isTrialFormOpen} onClose={() => setIsTrialFormOpen(false)} />
+      
+      {/* Calendly Popup Modal */}
+      <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </section>
   );
 };

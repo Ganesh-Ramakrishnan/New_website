@@ -146,10 +146,19 @@ const ApiIntegrationShowcase: React.FC = () => {
       </div>
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Main Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          Your One-Stop Hub for <br /> Smarter Test Automation.
+          </h2>
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          Automate across every technology stack with our comprehensive testing solution
+          </p>
+        </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Left Side - API Visualization */}
-          <div className="w-full lg:w-1/2 flex justify-center" style={{ marginLeft: '-20%' }}>
+           <div className="w-full lg:w-1/2 flex justify-center" style={{ marginLeft: '-20%', marginTop: '-10%' }}>
             <div className="relative w-[600px] h-[600px] flex-shrink-0">
                {/* Central Sun */}
                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -233,7 +242,7 @@ const ApiIntegrationShowcase: React.FC = () => {
                             : 'bg-white border-2 border-gray-200'
                         }`}
                         style={isActive ? {
-                          boxShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
+                          boxShadow: '0 0 20px rgba(255, 255, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px rgba(255, 255, 0, 0.2)'
                         } : {}}>
                          <img 
                            src={item.icon} 
@@ -341,17 +350,6 @@ const ApiIntegrationShowcase: React.FC = () => {
           {/* Right Side - Dynamic Content */}
           <div className="w-full lg:w-1/2 flex-grow" style={{ paddingLeft: '30px' }}>
             <div className="p-8">
-              {/* Main Heading */}
-              <div className="mb-8">
-                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-                  <div>Complete Test</div>
-                  <div className="">Automation Platform</div>
-                </h1>
-                <p>
-                  Automate across every technology stack with our comprehensive testing solution
-                </p>
-              </div>
-
               {/* Section Heading */}
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-white mb-4">
