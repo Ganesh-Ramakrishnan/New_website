@@ -23,8 +23,8 @@ import Hero from '../components/Hero';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 import ApiIntegrationShowcase from '../components/ApiIntegrationShowcase';
-import DataAnalyticsShowcase from '../components/DataAnalyticsShowcase';
 import FeatureShowcase from '../components/FeatureShowcase';
+import ProductTeamsCards from '../components/ProductTeamsCards';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { TrialForm } from '../components/TrialForm';
 
@@ -418,12 +418,22 @@ const HomePage = () => {
       
       </div>
 
-      {/* Data Analytics Showcase - First section after Hero */}
+      {/* Product Teams Cards (moved just after Hero) */}
       <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`} id="product-teams-cards" style={{ transitionDelay: '150ms' }}>
+        <ProductTeamsCards
+          headingTitle="Why Choose SimplifyQA?"
+          headingSubtitle="Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability."
+        />
+      </div>
+
+      {/* Data Analytics Showcase - First section after Hero */}
+      {/* <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
         isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
       }`} id="data-analytics-showcase" style={{ transitionDelay: '200ms' }}>
         <DataAnalyticsShowcase />
-      </div>
+      </div> */}
 
       {/* API Integration Showcase */}
       <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
@@ -455,6 +465,8 @@ const HomePage = () => {
       }`} id="feature-showcase" style={{ transitionDelay: '800ms' }}>
         <FeatureShowcase />
       </div>
+
+      
 
 
   {/* Features Section - Dark Theme */}
