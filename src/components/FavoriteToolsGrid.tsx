@@ -90,6 +90,7 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Edge fade to make the re-entry/exit transition visibly pleasant */}
       <div
         ref={containerRef}
         style={{
@@ -98,6 +99,11 @@ const ScrollingRow = ({ cards, direction = 'left', duration = 20 }: { cards: Too
           willChange: 'transform',
           backfaceVisibility: 'hidden',
           gap: '0px', // Ensure no gap between card sets
+          WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0))',
+          maskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0))',
+          WebkitMaskSize: '100% 100%',
+          maskSize: '100% 100%',
+          transformStyle: 'preserve-3d',
         } as React.CSSProperties}
       >
         {/* First set of cards */}
@@ -154,7 +160,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 1: scroll left */}
           <ScrollingRow
             direction="left"
-            duration={40}
+            duration={300}
             cards={[
               { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
@@ -175,7 +181,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 2: scroll right */}
           <ScrollingRow
             direction="right"
-            duration={40}
+            duration={300}
             cards={[
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/Slack.svg", label: "Slack" },

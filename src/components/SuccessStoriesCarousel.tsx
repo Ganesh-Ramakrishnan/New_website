@@ -85,7 +85,7 @@ const SuccessStoriesCarousel = () => {
     
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % stories.length);
-    }, 4000); // Change slide every 4 seconds
+    }, 15000); // Change slide every 15 seconds for a much slower scroll
 
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -277,6 +277,9 @@ const SuccessStoriesCarousel = () => {
 
         {/* Comment Text Below Cards */}
         <div className="text-center" style={{ width: '50vw', margin: '50px auto auto' }}>
+          <p className="text-gray-400 text-lg italic mb-8">
+            "They took the time to understand our <span style={{ fontStyle: 'italic', color: '#fff' }}>challenges</span>, identified our <span style={{ fontStyle: 'italic', color: '#fff' }}>target audience</span>, and made our brand shine. Their solutions were very effective!"
+          </p>
           
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2">
