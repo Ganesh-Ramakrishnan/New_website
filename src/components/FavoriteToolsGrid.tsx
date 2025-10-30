@@ -160,7 +160,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 1: scroll left */}
           <ScrollingRow
             direction="left"
-            duration={300}
+            duration={120}
             cards={[
               { src: "/assets/fav_tool/Jira.svg", label: "Jira" },
               { src: "/assets/fav_tool/MS teams.svg", label: "Teams" },
@@ -181,7 +181,7 @@ const FavoriteToolsGrid: React.FC = () => (
           {/* Row 2: scroll right */}
           <ScrollingRow
             direction="right"
-            duration={300}
+            duration={120}
             cards={[
               { src: "/assets/fav_tool/Jenkins_logo 1.svg", label: "Bamboo" },
               { src: "/assets/fav_tool/Slack.svg", label: "Slack" },
