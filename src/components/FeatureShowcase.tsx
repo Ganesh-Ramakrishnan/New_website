@@ -222,7 +222,7 @@ const FeatureShowcase: React.FC = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
           {/* Left Navigation */}
-          <div className="space-y-4">
+          <div className="flex flex-col justify-between h-full space-y-4">
             {/* Feature Cards */}
             <div className="space-y-4">
               {features.map((feature, index) => {
@@ -316,7 +316,7 @@ const FeatureShowcase: React.FC = () => {
                 loop
                 playsInline
               >
-                <source src="/assets/video/Testcase_animation.mov" type="video/mp4" />
+                <source src="/assets/video/Testcase_animation.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
