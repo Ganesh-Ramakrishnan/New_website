@@ -1,5 +1,5 @@
 import { Plus, X } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 type CardItem = {
@@ -169,15 +169,31 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     }
   }, [openImage]);
 
+  const autoPlayIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
   // Auto-play carousel - pause when modal is open
   useEffect(() => {
-    if (openImage) return; // Don't auto-play when modal is open
+    if (openImage) {
+      // Clear interval if modal is open
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
+      }
+      return;
+    }
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     }, 4000); // Change slide every 4 seconds
 
-    return () => clearInterval(interval);
+    autoPlayIntervalRef.current = interval;
+
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
+      }
+    };
   }, [openImage, totalSlides]);
 
   const closeModal = () => {
@@ -186,6 +202,12 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
   };
 
   const handleSlideClick = (slideIndex: number) => {
+    // Stop auto-play when user manually clicks
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+    
     setCurrentSlide(slideIndex);
   };
 
@@ -265,19 +287,9 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
               onClick={closeModal}
             />
           <div
-            className={`relative z-10 w-[95vw] sm:w-[92vw] max-w-[1100px] rounded-2xl overflow-hidden transform transition-all duration-500 ease-out ${modalMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-h-[90vh] sm:max-h-[85vh] overflow-y-auto`}
-            style={{
-              background: openImage ? `url(${openImage})` : 'rgb(18,18,20)',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center top',
-              backgroundSize: 'cover',
-              backgroundColor: 'rgb(18,18,20)'
-            }}
+            className={`relative z-10 w-[95vw] sm:w-[92vw] max-w-[1100px] rounded-2xl overflow-hidden transform transition-all duration-500 ease-out ${modalMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-h-[90vh] sm:max-h-[85vh] overflow-y-auto bg-[rgb(18,18,20)] modal-scrollbar`}
           >
-              {/* Gradient overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 pointer-events-none"></div>
-              
-              {/* Close button */}
+              {/* Close button - Sticky */}
               <div className="sticky top-3 sm:top-4 z-20 flex justify-end px-3 sm:px-4 pointer-events-none">
                 <button
                   type="button"
@@ -289,35 +301,56 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
                 </button>
               </div>
 
-              {/* Content area - Overlay on background */}
-              <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10">
+              {/* Overall Scrollable Content */}
+              <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
                 <div className="max-w-4xl mx-auto">
-                  {/* Category Title */}
-                  <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3 font-medium uppercase tracking-wide">{openTitle}</p>
-                  
-                  {/* Main Title */}
-                  <h4 className="font-bold text-white mb-6 sm:mb-8 leading-tight break-words" style={{ fontSize: '30px' }}>
-                    {(cards.find(c => c.title === openTitle)?.contentTitle) || openTitle}
+                  {/* Image - 250px width, centered */}
+                  {openImage && (
+                    <div className="flex justify-center mb-8 sm:mb-10">
+                      <img 
+                        src={openImage} 
+                        alt={openTitle}
+                        className="w-[250px] h-auto object-contain"
+                      />
+                    </div>
+                  )}
+
+                  {/* Heading - Sub-heading as main heading */}
+                  <h4 
+                    className="text-white mb-6 sm:mb-8 text-center" 
+                    style={{ 
+                      letterSpacing: '-0.0325em',
+                      fontVariationSettings: '"opsz" 28',
+                      fontSize: '56px',
+                      fontWeight: 538,
+                      lineHeight: 1.1
+                    }}
+                  >
+                    {openTitle}
                   </h4>
                   
-                  {/* Features List */}
-                  <div className="space-y-4 sm:space-y-5">
+                  {/* Body Text - First paragraph */}
+                  <p className="text-gray-300 text-base sm:text-lg leading-relaxed break-words text-center mb-8 sm:mb-10 max-w-3xl mx-auto">
+                    {(() => {
+                      const card = cards.find(c => c.title === openTitle);
+                      const contentTitle = card?.contentTitle;
+                      return contentTitle?.split(' - ')[1]?.trim() || '';
+                    })()}
+                  </p>
+                  
+                  {/* Content List - Clean paragraphs */}
+                  <div className="space-y-5 sm:space-y-6">
                     {(cards.find(c => c.title === openTitle)?.contentParagraphs || []).map((p, i) => {
                       const [label, ...rest] = p.split(':');
                       const description = rest.join(':').trim();
+                      const fullText = description || p;
                       
                       return (
-                        <div key={i} className="flex items-start gap-3 sm:gap-4">
-                          <div className="flex-shrink-0 mt-2 sm:mt-2.5">
-                            <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-500"></div>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-gray-100 text-sm sm:text-base md:text-lg leading-relaxed break-words">
-                              <span className="font-semibold text-white">{label}:</span>
-                              {description && ` ${description}`}
-                            </p>
-                          </div>
-                        </div>
+                        <p key={i} className="text-base sm:text-lg leading-relaxed break-words text-left max-w-3xl mx-auto" style={{ color: '#8a8f98' }}>
+                          <span className="font-semibold" style={{ color: '#8a8f98' }}>{label}:</span>
+                          {description && ` ${description}`}
+                          {!description && fullText}
+                        </p>
                       );
                     })}
                   </div>

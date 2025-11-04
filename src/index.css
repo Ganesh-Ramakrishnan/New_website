@@ -222,23 +222,23 @@ section.plan_white_bg {
 }
 
 .modal-scrollbar::-webkit-scrollbar-track {
-  background: #1a1d24;
+  background: #121212;
   border-radius: 4px;
 }
 
 .modal-scrollbar::-webkit-scrollbar-thumb {
-  background: #4a5568;
+  background: #3a3a3a;
   border-radius: 4px;
 }
 
 .modal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #5a6678;
+  background: #4a4a4a;
 }
 
 /* Firefox scrollbar */
 .modal-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #4a5568 #1a1d24;
+  scrollbar-color: #3a3a3a #121212;
 }
 
 /* Heading class for consistent styling */
