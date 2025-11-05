@@ -73,7 +73,12 @@ const PricingComponent = () => {
       {/* New ALM Package Section */}
 
 
-      <section className="max-w-7xl mx-auto px-6 py-16 pt-32">
+      <section 
+        className="max-w-7xl mx-auto px-6 py-16 pt-32"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent animate-on-scroll">
             Simple, Transparent Pricing
@@ -83,7 +88,12 @@ const PricingComponent = () => {
           </p>
         </div>
       </section>
-      <section className="max-w-7xl mx-auto px-6">
+      <section 
+        className="max-w-7xl mx-auto px-6 py-20"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         {/* Main ALM Package Box */}
         <div 
           className="p-12 shadow-2xl animate-on-scroll relative fade-in-up"
@@ -293,7 +303,13 @@ const PricingComponent = () => {
 
 
       {/* Add-ons Section */}
-      <section id="powerful-addons" className="max-w-7xl mx-auto px-6 pt-20 pb-20">
+      <section 
+        id="powerful-addons" 
+        className="max-w-7xl mx-auto px-6 pt-20 pb-20"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <div className="text-center mb-16 animate-on-scroll">
           <h3 className="text-4xl font-bold mb-4">Powerful Add-Ons</h3>
           <p className="text-xl text-zinc-400">Extend your testing capabilities with specialized modules</p>

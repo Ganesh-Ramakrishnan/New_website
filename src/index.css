@@ -26,7 +26,7 @@ body {
 }
 
 section, .bg-gray-50, .bg-white {
-  background: #08090a !important;
+  /* background: #08090a !important; */
   color: #f3f3f3 !important;
 }
 
@@ -73,6 +73,10 @@ section, .bg-gray-50, .bg-white {
 .bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
   background: #232323 !important;
 }
+:root {
+  --color-bg-translucent: rgba(255, 255, 255, .05);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -193,6 +197,17 @@ section, .bg-gray-50, .bg-white {
 .group:hover .group-hover\:bg-black\/30 {
   /* increase overlay to 60% black on hover */
   background-color: rgb(0 0 0 / 0.6);
+}
+section.bg-black{
+  background: unset !important;
+}
+
+.bg-gray-900 {
+  background: unset !important;
+}
+
+.navbar-bg {
+  background: rgb(8, 9, 10) !important;
 }
 
 section.plan_white_bg {

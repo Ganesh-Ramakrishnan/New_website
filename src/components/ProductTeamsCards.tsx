@@ -85,12 +85,12 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
       id: 'release-requirement-management',
       title: 'Release & Requirement Management',
       imageSrc: '/assets/modal_image/modal-1.png',
-      contentTitle: 'The Project Blueprint 🗺️ - Establish a solid, strategic foundation for your development and testing efforts.',
+      contentTitle: 'Release & Requirement Management - Centralized control and intelligent orchestration for seamless releases.',
       contentParagraphs: [
-        'Strategic Alignment: Instantly verify that every release and Feature directly maps back to an approved Epic, ensuring investment is focused on high-priority outcomes.',
-        'AI-Driven Clarity: Use AI to generate precise Acceptance Criteria for user stories, eliminating ambiguity and drastically reducing development rework cycles.',
-        'Project Predictability: Manage work using both Agile (Sprints) and Non-Agile (Releases) frameworks in one place, uniting Product and QA planning.',
-        'Efficient Planning: Easily create, manage, and track progress across Releases & Sprints, providing a clear timeline for delivery and resource management.'
+        'Centralized Release Orchestrator: Configure and control every release through a centralized board integrated with sprint data and test executions. SimplifyQA enables real-time tracking of build versions, linked test suites, and deployment readiness across environments.',
+        'Release Intelligence Metrics: Gain real-time visibility into release quality with automated dashboards tracking execution status, defect trends, and test coverage. SimplifyQA delivers data-driven insights to assess readiness and optimize every deployment cycle.',
+        'Intelligent Version Control: Maintain complete traceability with automatic version control for your test cases, modules, and releases. Easily compare, restore, or link versions to specific builds for consistent, reliable testing.',
+        'Cross-Project Release Integrator: Manage and synchronize releases spanning multiple projects from a single dashboard. SimplifyQA unifies execution tracking, dependencies, and reporting to ensure seamless coordination across integrated systems.'
       ]
     },
     {
@@ -145,11 +145,14 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
       id: 'dashboard-reports',
       title: 'Dashboard & Reports',
       imageSrc: '/assets/modal_image/modal-3.png',
-      contentTitle: 'Data-Driven Control 📈 - Turn raw quality data into strategic intelligence for every stakeholder.',
+      contentTitle: 'Dashboard - Transform complex testing data into actionable, real-time insights with intelligent analytics.',
       contentParagraphs: [
-        'Executive Confidence: Customizable Dashboards provide the C-Suite with a real-time view of overall project risk and ROI on testing efforts.',
-        'Actionable Insights: QA Managers gain granular visibility into failure patterns, allowing for efficient resource reallocation.',
-        'Predictive Quality: Track KPIs like defect trends and coverage gaps to accurately predict release readiness.'
+        'Data Intelligence Engine: Leverage advanced business intelligence to visualize test performance, defect trends, and release metrics. SimplifyQA transforms complex testing data into actionable, real-time insights.',
+        'Smart Dashboard Builder: Design custom dashboards effortlessly with an intuitive drag-and-drop interface. SimplifyQA lets you build and organize widgets, charts, and reports without any coding effort.',
+        'Connected Data Framework: Connect multiple reports for end-to-end visibility across projects, sprints, and releases. SimplifyQA dynamically links data sources, ensuring consistency and traceability in every dashboard view.',
+        'Intelligent Dependency Mapping: Analyze dependencies between test cases, modules, and releases through intelligent visual graphs. SimplifyQA enables deep drill-downs to uncover root causes and track impact instantly.',
+        'One-Click Report Exporter: Convert dashboards into professional PDF reports with a single click. SimplifyQA ensures every chart and metric is formatted perfectly for documentation and stakeholder reviews.',
+        'Collaborative Insight Hub: Collaborate seamlessly by sharing real-time dashboards across teams and stakeholders. SimplifyQA provides secure, role-based access for transparent and informed decision-making.'
       ]
     }
   ];

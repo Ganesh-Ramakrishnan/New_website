@@ -116,7 +116,7 @@ const ClientLogoSlider = () => {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="w-32 h-20 object-contain bg-white rounded-xl shadow"
+                className="w-32 h-20 object-contain rounded-xl shadow"
                 style={{}}
               />
             </div>

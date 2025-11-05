@@ -419,9 +419,16 @@ const HomePage = () => {
       </div>
 
       {/* Product Teams Cards (moved just after Hero) */}
-      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} id="product-teams-cards" style={{ transitionDelay: '150ms' }}>
+      <div 
+        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        id="product-teams-cards" 
+        style={{ 
+          transitionDelay: '150ms',
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <ProductTeamsCards
           headingTitle="Why Choose SimplifyQA?"
           headingSubtitle="Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability."
@@ -436,16 +443,29 @@ const HomePage = () => {
       </div> */}
 
       {/* API Integration Showcase */}
-      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} id="api-integration-showcase" style={{ transitionDelay: '400ms' }}>
+      <div 
+        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        id="api-integration-showcase" 
+        style={{ 
+          transitionDelay: '400ms',
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <ApiIntegrationShowcase />
       </div>
 
       {/* Client Logos Slider */}
-      <section className={`py-16 bg-white transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} style={{ transitionDelay: '600ms' }}>
+      <section 
+        className={`py-16 bg-white transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        style={{ 
+          transitionDelay: '600ms',
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
           <div className="relative">
             {/* Slider for Client Logos */}
@@ -460,9 +480,16 @@ const HomePage = () => {
       </div> */}
 
       {/* Feature Showcase */}
-      <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} id="feature-showcase" style={{ transitionDelay: '800ms' }}>
+      <div 
+        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        id="feature-showcase" 
+        style={{ 
+          transitionDelay: '800ms',
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <FeatureShowcase />
       </div>
 
@@ -618,16 +645,29 @@ const HomePage = () => {
       />
 
       {/* Success Stories Carousel */}
-      <div className={`transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} style={{ transitionDelay: '1200ms' }}>
+      <div 
+        className={`transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        style={{ 
+          transitionDelay: '1200ms',
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <SuccessStoriesCarousel />
       </div>
 
         {/* Favorite Tools Grid Section */}
-          <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-          }`} id="favorite-tools" style={{ transitionDelay: '1000ms' }}>
+          <div 
+            className={`animate-on-scroll transition-all duration-1000 ease-out ${
+              isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+            }`} 
+            id="favorite-tools" 
+            style={{ 
+              transitionDelay: '1000ms',
+              background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+            }}
+          >
             <FavoriteToolsGrid />
           </div>
 
@@ -678,7 +718,12 @@ const HomePage = () => {
 
 
       {/* Compliance Badges Section */}
-      <section className="bg-white py-16">
+      <section 
+        className="bg-white py-16"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="compliance-badges">
           <h2 className="text-center heading font-bold text-white mb-8">Our Certifications & Compliance</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
