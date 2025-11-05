@@ -8,7 +8,7 @@ export const useScrollAnimations = () => {
       .animate-on-scroll {
         opacity: 0;
         transform: translateY(80px);
-        transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       
       .animate-on-scroll.fade-in-up {
@@ -80,8 +80,8 @@ export const useScrollAnimations = () => {
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '100px 0px -50px 0px'
       }
     );
 

@@ -420,12 +420,11 @@ const HomePage = () => {
 
       {/* Product Teams Cards (moved just after Hero) */}
       <div 
-        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
         id="product-teams-cards" 
         style={{ 
-          transitionDelay: '150ms',
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
@@ -444,12 +443,11 @@ const HomePage = () => {
 
       {/* API Integration Showcase */}
       <div 
-        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
         id="api-integration-showcase" 
         style={{ 
-          transitionDelay: '400ms',
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
@@ -458,12 +456,11 @@ const HomePage = () => {
 
       {/* Client Logos Slider */}
       <section 
-        className={`py-16 bg-white transition-all duration-1000 ease-out ${
+        className={`py-16 bg-white transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
         style={{ 
-          transitionDelay: '600ms',
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+          background: '#08090a'
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
@@ -481,12 +478,11 @@ const HomePage = () => {
 
       {/* Feature Showcase */}
       <div 
-        className={`animate-on-scroll transition-all duration-1000 ease-out ${
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
         id="feature-showcase" 
         style={{ 
-          transitionDelay: '800ms',
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
@@ -646,11 +642,10 @@ const HomePage = () => {
 
       {/* Success Stories Carousel */}
       <div 
-        className={`transition-all duration-1000 ease-out ${
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
         style={{ 
-          transitionDelay: '1200ms',
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
@@ -659,14 +654,10 @@ const HomePage = () => {
 
         {/* Favorite Tools Grid Section */}
           <div 
-            className={`animate-on-scroll transition-all duration-1000 ease-out ${
+            className={`animate-on-scroll transition-all duration-300 ease-out ${
               isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
             }`} 
-            id="favorite-tools" 
-            style={{ 
-              transitionDelay: '1000ms',
-              background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-            }}
+            id="favorite-tools"
           >
             <FavoriteToolsGrid />
           </div>
