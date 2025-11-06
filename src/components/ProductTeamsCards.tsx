@@ -84,7 +84,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'release-requirement-management',
       title: 'Release & Requirement Management',
-      imageSrc: '/assets/modal_image/modal-1.png',
+      imageSrc: '/assets/modal_image/frame_1.png',
       contentTitle: 'Release & Requirement Management - Centralized control and intelligent orchestration for seamless releases.',
       contentParagraphs: [
         'Centralized Release Orchestrator: Configure and control every release through a centralized board integrated with sprint data and test executions. SimplifyQA enables real-time tracking of build versions, linked test suites, and deployment readiness across environments.',
@@ -96,7 +96,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'test-management',
       title: 'Test Management',
-      imageSrc: '/assets/modal_image/modal-2.png',
+      imageSrc: '/assets/modal_image/Frame_2.png',
       contentTitle: 'Scaling Quality without Scaling Headcount 🛡️ - Transform your QA team into a high-efficiency center by empowering everyone to automate.',
       contentParagraphs: [
         'Cost Optimization: Democratize Automation with our script-less platform, leveraging existing manual resources to build robust automation, drastically lowering the cost per test case.',
@@ -108,7 +108,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'test-execution',
       title: 'Test Execution',
-      imageSrc: '/assets/modal_image/modal-3.png',
+      imageSrc: '/assets/modal_image/frame_3.png',
       contentTitle: 'Velocity and Stability ⏱️ - Accelerate delivery speed while reinforcing quality gates with massive scale and seamless integration.',
       contentParagraphs: [
         'Fastest Time-to-Market (TTM): Parallel Cloud Execution delivers test results in minutes, not hours, allowing for more frequent and safer deployments.',
@@ -120,7 +120,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'defect-management',
       title: 'Defect Management',
-      imageSrc: '/assets/modal_image/modal-1.png',
+      imageSrc: '/assets/modal_image/frame_1.png',
       contentTitle: 'Closing the Quality Loop Instantly 🐞 - Slash incident costs and accelerate resolution times with automated, transparent defect tracking.',
       contentParagraphs: [
         'Reduced Incident Costs: Auto-logging of Defects and bi-directional synchronization with Jira cuts the Mean Time To Resolution (MTTR).',
@@ -132,7 +132,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'requirement-traceability-management',
       title: 'Requirement and Traceability Management (RTM)',
-      imageSrc: '/assets/modal_image/modal-2.png',
+      imageSrc: '/assets/modal_image/Frame_2.png',
       contentTitle: 'The Trust Factor 🔗 - Ensure every line of code aligns with business needs and that quality is provable and auditable.',
       contentParagraphs: [
         'Compliance & Audit: The End-to-End Traceability and Hierarchy Tree provide a clear, indisputable chain of quality, crucial for regulatory and stakeholder trust.',
@@ -144,7 +144,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'dashboard-reports',
       title: 'Dashboard & Reports',
-      imageSrc: '/assets/modal_image/modal-3.png',
+      imageSrc: '/assets/modal_image/frame_3.png',
       contentTitle: 'Dashboard - Transform complex testing data into actionable, real-time insights with intelligent analytics.',
       contentParagraphs: [
         'Data Intelligence Engine: Leverage advanced business intelligence to visualize test performance, defect trends, and release metrics. SimplifyQA transforms complex testing data into actionable, real-time insights.',

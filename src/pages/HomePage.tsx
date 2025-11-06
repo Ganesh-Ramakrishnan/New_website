@@ -658,6 +658,9 @@ const HomePage = () => {
               isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
             }`} 
             id="favorite-tools"
+            style={{
+              background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+            }}
           >
             <FavoriteToolsGrid />
           </div>
@@ -710,10 +713,7 @@ const HomePage = () => {
 
       {/* Compliance Badges Section */}
       <section 
-        className="bg-white py-16"
-        style={{
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-        }}
+        className="py-16"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="compliance-badges">
           <h2 className="text-center heading font-bold text-white mb-8">Our Certifications & Compliance</h2>
