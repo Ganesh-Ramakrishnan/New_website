@@ -120,7 +120,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'defect-management',
       title: 'Defect Management',
-      imageSrc: '/assets/modal_image/frame_1.png',
+      imageSrc: '/assets/modal_image/frame_4.png',
       contentTitle: 'Closing the Quality Loop Instantly 🐞 - Slash incident costs and accelerate resolution times with automated, transparent defect tracking.',
       contentParagraphs: [
         'Reduced Incident Costs: Auto-logging of Defects and bi-directional synchronization with Jira cuts the Mean Time To Resolution (MTTR).',
@@ -132,7 +132,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'requirement-traceability-management',
       title: 'Requirement and Traceability Management (RTM)',
-      imageSrc: '/assets/modal_image/Frame_2.png',
+      imageSrc: '/assets/modal_image/frame_5.png',
       contentTitle: 'The Trust Factor 🔗 - Ensure every line of code aligns with business needs and that quality is provable and auditable.',
       contentParagraphs: [
         'Compliance & Audit: The End-to-End Traceability and Hierarchy Tree provide a clear, indisputable chain of quality, crucial for regulatory and stakeholder trust.',
@@ -144,7 +144,7 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
     {
       id: 'dashboard-reports',
       title: 'Dashboard & Reports',
-      imageSrc: '/assets/modal_image/frame_3.png',
+      imageSrc: '/assets/modal_image/frame_6.png',
       contentTitle: 'Dashboard - Transform complex testing data into actionable, real-time insights with intelligent analytics.',
       contentParagraphs: [
         'Data Intelligence Engine: Leverage advanced business intelligence to visualize test performance, defect trends, and release metrics. SimplifyQA transforms complex testing data into actionable, real-time insights.',
