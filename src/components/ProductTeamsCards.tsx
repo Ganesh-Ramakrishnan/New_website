@@ -307,13 +307,13 @@ const ProductTeamsCards: React.FC<ProductTeamsCardsProps> = ({ heading = 'Built 
               {/* Overall Scrollable Content */}
               <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
                 <div className="max-w-4xl mx-auto">
-                  {/* Image - 250px width, centered */}
+                  {/* Image - 40% width, centered with border radius */}
                   {openImage && (
                     <div className="flex justify-center mb-8 sm:mb-10">
                       <img 
                         src={openImage} 
                         alt={openTitle}
-                        className="w-[250px] h-auto object-contain"
+                        className="w-[40%] h-auto object-contain rounded-xl"
                       />
                     </div>
                   )}
