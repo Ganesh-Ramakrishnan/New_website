@@ -1,6 +1,4 @@
 import {
-  CheckCircle,
-  ChevronDown,
   Shield,
   Target,
   TrendingUp,
@@ -212,7 +210,7 @@ const FeatureShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500 mb-6">
             Next-Gen ALM: AI-Driven Quality and Delivery Management
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -220,10 +218,8 @@ const FeatureShowcase: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
-          {/* Left Navigation */}
-          <div className="flex flex-col justify-between h-full space-y-4">
-            {/* Feature Cards */}
+        <div className="grid grid-cols-1 h-full">
+          {/* <div className="flex flex-col justify-between h-full space-y-4">
             <div className="space-y-4">
               {features.map((feature, index) => {
                 const isExpanded = expandedCards.includes(index);
@@ -240,7 +236,6 @@ const FeatureShowcase: React.FC = () => {
                       background: 'rgb(24, 24, 27)'
                     }}
                   >
-                    {/* Card Header - Always Visible */}
                     <div 
                       className="p-6 cursor-pointer"
                       onClick={() => {
@@ -275,7 +270,6 @@ const FeatureShowcase: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Card Description - Collapsible */}
                     <div className={`transition-all duration-700 ease-in-out overflow-hidden ${
                       isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}>
@@ -294,15 +288,15 @@ const FeatureShowcase: React.FC = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
           {/* Right Video View */}
           <div 
-            className="flex items-center justify-center" 
+            className="flex items-center justify-center w-full" 
             ref={rightSideRef} 
           >
             <div 
-              className="w-full rounded-xl overflow-hidden"
+              className="w-full lg:w-1/2 mx-auto rounded-xl overflow-hidden"
                     style={{ 
                       border: '1px solid rgba(75, 75, 75, 0.36)',
                 background: 'transparent'

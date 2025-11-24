@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, Shield, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 
 import { useEffect } from 'react';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
@@ -101,36 +101,42 @@ const CustomerSuccessPage = () => {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 bg-[#040405] text-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Customer 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Success Stories</span>
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[#050506]"></div>
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/12 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm uppercase tracking-[0.4em] text-gray-400 mb-6">
+            CUSTOMER SUCCESS STORIES
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-white mb-6 leading-tight">
+            Customer Success Stories
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how leading organizations are transforming their testing workflows 
-            and achieving remarkable results with SimplifyQA.
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Discover how leading organizations are transforming their testing workflows and achieving
+            remarkable results with SimplifyQA.
           </p>
         </div>
       </section>
 
       {/* Case Studies */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-[#050506]" style={{ background: 'linear-gradient(to bottom, rgba(8,9,10,0.95), transparent 35%)' }}>
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-20 pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-white mb-4">
               Detailed Case Studies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Dive deep into how different organizations have solved their testing challenges with SimplifyQA.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer transform hover:-translate-y-2">
+              <div key={index} className="bg-[#111217] rounded-2xl shadow-[0_15px_45px_rgba(0,0,0,0.45)] border border-white/5 hover:border-cyan-400/60 transition-all duration-500 overflow-hidden group cursor-pointer transform hover:-translate-y-2">
                 <div className="relative overflow-hidden">
                 <img
                   src={study.image}
@@ -139,7 +145,7 @@ const CustomerSuccessPage = () => {
                 />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-white/15 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {study.industry}
                     </span>
                   </div>
@@ -149,32 +155,32 @@ const CustomerSuccessPage = () => {
                 </div>
                 <div className="p-6">
                   <div className="mb-4">
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">Challenge</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <h4 className="text-lg font-bold text-white mb-2">Challenge</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">
                       {study.challenge}
                     </p>
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">Solution</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <h4 className="text-lg font-bold text-white mb-2">Solution</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">
                       {study.solution}
                     </p>
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-3">Key Results</h4>
+                    <h4 className="text-lg font-bold text-white mb-3">Key Results</h4>
                     <div className="space-y-2">
                       {study.results.map((result, resultIndex) => (
                         <div key={resultIndex} className="flex items-start">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-700 text-sm font-medium">{result}</span>
+                          <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-200 text-sm font-medium">{result}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-semibold transition-all flex items-center justify-center group-hover:shadow-lg">
+                  <button className="w-full bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center group-hover:shadow-lg">
                     Read Full Case Study
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
@@ -189,18 +195,14 @@ const CustomerSuccessPage = () => {
               {caseStudies.map((_, index) => (
                 <button
                   key={index}
-                  className="w-3 h-3 rounded-full bg-gray-300 hover:bg-blue-600 transition-colors duration-200"
+                  className="w-3 h-3 rounded-full bg-white/20 hover:bg-cyan-400 transition-colors duration-200"
                 ></button>
               ))}
             </div>
           </div>
           
           {/* View All Button */}
-          <div className="text-center mt-8">
-            <button className="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
-              View All Case Studies
-            </button>
-          </div>
+          <div className="text-center mt-8"></div>
         </div>
       </section>
 
@@ -275,72 +277,42 @@ const CustomerSuccessPage = () => {
         </div>
       </section>
 
-      {/* Success Metrics */}
-      <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">Success by the Numbers</h2>
-          <p className="text-xl text-blue-100 mb-16 max-w-3xl mx-auto">
-            See the measurable impact SimplifyQA delivers for our customers
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="group">
-              <TrendingUp className="h-12 w-12 text-blue-200 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-4xl font-bold mb-2">70%</div>
-              <div className="text-blue-100">Average Time Savings</div>
-            </div>
-            <div className="group">
-              <Users className="h-12 w-12 text-blue-200 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-blue-100">Enterprise Customers</div>
-            </div>
-            <div className="group">
-              <Clock className="h-12 w-12 text-blue-200 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-4xl font-bold mb-2">24 hrs</div>
-              <div className="text-blue-100">Average Setup Time</div>
-            </div>
-            <div className="group">
-              <Shield className="h-12 w-12 text-blue-200 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-4xl font-bold mb-2">99.9%</div>
-              <div className="text-blue-100">Platform Uptime</div>
-            </div>
-          </div>
-        </div>
-      </section>
+  
 
       {/* Customer Support Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-[#050506]">
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-20 pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-white mb-6">
                 Dedicated Customer Success
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-300 mb-8">
                 Our customer success team works closely with you to ensure you're getting 
                 maximum value from SimplifyQA. From onboarding to optimization, we're here to help.
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-blue-600 mt-2 mr-4"></div>
+                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-cyan-400 mt-2 mr-4"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Dedicated Success Manager</h3>
-                    <p className="text-gray-600">Your dedicated point of contact for strategic guidance and support</p>
+                    <h3 className="font-semibold text-white mb-1">Dedicated Success Manager</h3>
+                    <p className="text-gray-400">Your dedicated point of contact for strategic guidance and support</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-blue-600 mt-2 mr-4"></div>
+                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-cyan-400 mt-2 mr-4"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">24/7 Technical Support</h3>
-                    <p className="text-gray-600">Round-the-clock assistance when you need it most</p>
+                    <h3 className="font-semibold text-white mb-1">24/7 Technical Support</h3>
+                    <p className="text-gray-400">Round-the-clock assistance when you need it most</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-blue-600 mt-2 mr-4"></div>
+                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-cyan-400 mt-2 mr-4"></div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Training & Best Practices</h3>
-                    <p className="text-gray-600">Ongoing education to maximize your testing efficiency</p>
+                    <h3 className="font-semibold text-white mb-1">Training & Best Practices</h3>
+                    <p className="text-gray-400">Ongoing education to maximize your testing efficiency</p>
                   </div>
                 </div>
               </div>
@@ -350,7 +322,7 @@ const CustomerSuccessPage = () => {
               <img
                 src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="Customer Success Team"
-                className="rounded-2xl shadow-xl"
+                className="rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-white/5"
               />
             </div>
           </div>
@@ -361,8 +333,9 @@ const CustomerSuccessPage = () => {
       <SuccessStoriesCarousel />
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-gray-900 overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-20 pointer-events-none"></div>
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Join Our Success Stories?
           </h2>
@@ -370,11 +343,11 @@ const CustomerSuccessPage = () => {
             See how SimplifyQA can transform your testing process and deliver measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center">
+            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
-            <button className="border border-gray-600 hover:border-blue-400 text-white hover:text-blue-400 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
               Schedule Demo
             </button>
           </div>

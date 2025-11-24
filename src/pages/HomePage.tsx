@@ -418,6 +418,19 @@ const HomePage = () => {
       
       </div>
 
+      {/* Feature Showcase (moved just after Hero) */}
+      <div 
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`} 
+        id="feature-showcase" 
+        style={{ 
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
+        <FeatureShowcase />
+      </div>
+
       {/* Product Teams Cards (moved just after Hero) */}
       <div 
         className={`animate-on-scroll transition-all duration-300 ease-out ${
@@ -475,21 +488,6 @@ const HomePage = () => {
       {/* <div className="animate-on-scroll" id="ai-features">
         <AIFeaturesShowcase />
       </div> */}
-
-      {/* Feature Showcase */}
-      <div 
-        className={`animate-on-scroll transition-all duration-300 ease-out ${
-          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-        }`} 
-        id="feature-showcase" 
-        style={{ 
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-        }}
-      >
-        <FeatureShowcase />
-      </div>
-
-      
 
 
   {/* Features Section - Dark Theme */}
