@@ -22,8 +22,14 @@ const FeatureShowcase: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [expandedCards, setExpandedCards] = useState<number[]>([0]); // Only first card expanded by default
   const [isScrolling, setIsScrolling] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const rightSideRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  const videos = [
+    '/assets/video/Testcase_animation.mov',
+    '/assets/video/video_2.mp4'
+  ];
 
   const features: Feature[] = [
     {
@@ -290,19 +296,20 @@ const FeatureShowcase: React.FC = () => {
             </div>
           </div> */}
 
-          {/* Right Video View */}
+          {/* Right Video View with Carousel */}
           <div 
-            className="flex items-center justify-center w-full" 
+            className="flex flex-col items-center justify-center w-full" 
             ref={rightSideRef} 
           >
             <div 
-              className="w-full lg:w-1/2 mx-auto rounded-xl overflow-hidden"
-                    style={{ 
-                      border: '1px solid rgba(75, 75, 75, 0.36)',
+              className="w-full lg:w-3/4 mx-auto rounded-xl overflow-hidden relative"
+              style={{ 
+                border: '1px solid rgba(75, 75, 75, 0.36)',
                 background: 'transparent'
               }}
             >
               <video
+                key={currentVideoIndex}
                 className="w-full h-auto object-contain"
                 controls
                 autoPlay
@@ -310,9 +317,25 @@ const FeatureShowcase: React.FC = () => {
                 loop
                 playsInline
               >
-                <source src="/assets/video/Testcase_animation.mp4" type="video/mp4" />
+                <source src={videos[currentVideoIndex]} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+            </div>
+            
+            {/* Carousel Navigation Dots - Outside video */}
+            <div className="flex gap-2 mt-4">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentVideoIndex(index)}
+                  className={`transition-all duration-300 ${
+                    index === currentVideoIndex 
+                      ? 'w-8 bg-white' 
+                      : 'w-2 bg-white/50 hover:bg-white/75'
+                  } h-2 rounded-full`}
+                  aria-label={`Go to video ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

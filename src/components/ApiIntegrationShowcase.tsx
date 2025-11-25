@@ -238,12 +238,15 @@ const ApiIntegrationShowcase: React.FC = () => {
                      >
                         <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center ${
                           isActive 
-                            ? 'bg-white border-2 border-white scale-110' 
-                            : 'bg-white border-2 border-gray-200'
+                            ? 'border-2 border-white scale-110' 
+                            : 'border-2 border-gray-200'
                         }`}
-                        style={isActive ? {
-                          boxShadow: '0 0 20px rgba(255, 255, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px rgba(255, 255, 0, 0.2)'
-                        } : {}}>
+                        style={{
+                          backgroundColor: 'rgb(3, 3, 3)',
+                          ...(isActive ? {
+                            boxShadow: '0 0 20px rgba(255, 255, 0, 0.8), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px rgba(255, 255, 0, 0.2)'
+                          } : {})
+                        }}>
                          <img 
                            src={item.icon} 
                            alt={item.name}
@@ -332,7 +335,12 @@ const ApiIntegrationShowcase: React.FC = () => {
                          top: `${y}px`
                        }}
                      >
-                       <div className="w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 transition-all duration-500 hover:scale-110 hover:shadow-xl">
+                       <div 
+                         className="w-[50px] h-[50px] rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 transition-all duration-500 hover:scale-110 hover:shadow-xl"
+                         style={{
+                           backgroundColor: 'rgb(3, 3, 3)'
+                         }}
+                       >
                          <img 
                            src={item.icon} 
                            alt={item.name}
