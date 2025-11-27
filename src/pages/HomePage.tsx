@@ -451,9 +451,7 @@ const HomePage = () => {
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`}
-        style={{
-          background: 'linear-gradient(to bottom, rgba(8, 12, 20, 0.9), transparent 40%)'
-        }}
+        style={{ background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)' }}
       >
         <WhyChooseTechBackground />
       </div>
@@ -491,11 +489,11 @@ const HomePage = () => {
 
       {/* Client Logos Slider */}
       <section 
-        className={`py-16 bg-white transition-all duration-300 ease-out ${
+        className={`py-16 transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-        }`} 
-        style={{ 
-          background: '#08090a'
+        }`}
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8" id="client-logos">
@@ -665,9 +663,6 @@ const HomePage = () => {
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
-        style={{ 
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-        }}
       >
         <SuccessStoriesCarousel />
       </div>
@@ -678,10 +673,10 @@ const HomePage = () => {
               isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
             }`} 
             id="favorite-tools"
-            style={{
-              background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-            }}
-          >
+          style={{
+            background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+          }}
+        >
             <FavoriteToolsGrid />
           </div>
 

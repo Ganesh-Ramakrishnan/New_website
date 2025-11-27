@@ -9,7 +9,7 @@ type ToolCardProps = {
 const ToolCard = ({ src, label }: ToolCardProps) => (
   <div
     className="flex flex-col items-center justify-center p-8 shadow-lg"
-    style={{ width: '150px', height: '150px', background: '#535353', borderRadius: 0, marginRight: '5px' }}
+    style={{ width: '150px', height: '150px', background: 'rgb(12 41 81)', borderRadius: 0, marginRight: '5px' }}
   >
     <img src={src} alt={label} className="h-12 w-12 mb-4 object-contain" />
     <span className="text-gray-200 text-base font-medium">{label}</span>

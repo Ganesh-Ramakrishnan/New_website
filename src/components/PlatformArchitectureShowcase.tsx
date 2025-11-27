@@ -18,16 +18,6 @@ const PlatformArchitectureShowcase: React.FC = () => {
   return (
     <section className="sq-tech-bg text-slate-200 py-24 border-y border-white/5 relative overflow-hidden">
       <style>{`
-        .sq-tech-bg {
-          background-color: #0f172a;
-          background-image:
-            radial-gradient(at 50% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
-            radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-          background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
-          background-attachment: fixed;
-        }
         .scanline::after {
           content: '';
           position: absolute;

@@ -101,7 +101,7 @@ const PricingComponent = () => {
             width: 'calc(100% - 180px)',
             borderRadius: '35px',
             border: '1px solid rgba(75, 75, 75, 0.36)',
-            background: '#18181B'
+            background: 'rgba(30, 41, 59, 0.7)'
           }}
         >
           <div className="flex gap-12" style={{ width: 'calc(100% - 180px)' }}>
@@ -222,7 +222,7 @@ const PricingComponent = () => {
                   style={{
                     borderRadius: '15px',
                     border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgb(24, 24, 27)'
+                    background: 'rgba(30, 41, 59, 0.7);'
                   }}
                   onClick={() => {
                     const element = document.getElementById('powerful-addons');
@@ -241,7 +241,7 @@ const PricingComponent = () => {
                   style={{
                     borderRadius: '15px',
                     border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgb(24, 24, 27)',
+                    background: 'rgba(30, 41, 59, 0.7);',
                     marginTop: '10px'
                   }}
                   onClick={() => {
@@ -261,7 +261,7 @@ const PricingComponent = () => {
                   style={{
                     borderRadius: '15px',
                     border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgb(24, 24, 27)',
+                    background: 'rgba(30, 41, 59, 0.7);',
                     marginTop: '10px'
                   }}
                   onClick={() => {
@@ -281,7 +281,7 @@ const PricingComponent = () => {
                   style={{
                     borderRadius: '15px',
                     border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgb(24, 24, 27)',
+                    background: 'rgba(30, 41, 59, 0.7);',
                     marginTop: '10px'
                   }}
                   onClick={() => {
