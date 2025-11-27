@@ -22,11 +22,11 @@ import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
-import ApiIntegrationShowcase from '../components/ApiIntegrationShowcase';
 import FeatureShowcase from '../components/FeatureShowcase';
-import ProductTeamsCards from '../components/ProductTeamsCards';
+import PlatformArchitectureShowcase from '../components/PlatformArchitectureShowcase';
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { TrialForm } from '../components/TrialForm';
+import WhyChooseTechBackground from '../components/WhyChooseTechBackground';
 
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -432,7 +432,7 @@ const HomePage = () => {
       </div>
 
       {/* Product Teams Cards (moved just after Hero) */}
-      <div 
+      {/* <div 
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
@@ -445,6 +445,17 @@ const HomePage = () => {
           headingTitle="Why Choose SimplifyQA?"
           headingSubtitle="Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability."
         />
+      </div> */}
+
+      <div
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}
+        style={{
+          background: 'linear-gradient(to bottom, rgba(8, 12, 20, 0.9), transparent 40%)'
+        }}
+      >
+        <WhyChooseTechBackground />
       </div>
 
       {/* Data Analytics Showcase - First section after Hero */}
@@ -455,7 +466,18 @@ const HomePage = () => {
       </div> */}
 
       {/* API Integration Showcase */}
-      <div 
+      <div
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
+        <PlatformArchitectureShowcase />
+      </div>
+
+      {/* <div 
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`} 
@@ -465,7 +487,7 @@ const HomePage = () => {
         }}
       >
         <ApiIntegrationShowcase />
-      </div>
+      </div> */}
 
       {/* Client Logos Slider */}
       <section 
@@ -476,7 +498,7 @@ const HomePage = () => {
           background: '#08090a'
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 animate-on-scroll" id="client-logos">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8" id="client-logos">
           <div className="relative">
             {/* Slider for Client Logos */}
             <ClientLogoSlider />

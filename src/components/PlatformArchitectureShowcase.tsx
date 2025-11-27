@@ -1,0 +1,483 @@
+import React, { useState } from 'react';
+
+const tabs = [
+  { id: 'web', label: 'Web' },
+  { id: 'mobile', label: 'Mobile' },
+  { id: 'desktop', label: 'Desktop' },
+  { id: 'mainframe', label: 'Mainframe' },
+  { id: 'api', label: 'API' },
+  { id: 'db', label: 'Database' }
+];
+
+const buttonBase =
+  'px-4 py-2 text-sm font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400';
+
+const PlatformArchitectureShowcase: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<string>('web');
+
+  return (
+    <section className="sq-tech-bg text-slate-200 py-24 border-y border-white/5 relative overflow-hidden">
+      <style>{`
+        .sq-tech-bg {
+          background-color: #0f172a;
+          background-image:
+            radial-gradient(at 50% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+          background-attachment: fixed;
+        }
+        .scanline::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+          background-size: 100% 3px;
+          opacity: 0.25;
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
+      `}</style>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="mb-12 text-center md:text-left md:flex md:items-end md:justify-between">
+          <div>
+            <h2 className="font-display text-3xl font-bold text-white">One Platform. All Architectures.</h2>
+            <p className="text-slate-400 mt-2">Stop buying separate tools for Mobile and Mainframe.</p>
+          </div>
+          <div className="mt-6 md:mt-0 inline-flex flex-wrap gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                aria-pressed={activeTab === tab.id}
+                className={`${buttonBase} ${
+                  activeTab === tab.id
+                    ? 'bg-slate-800 text-white shadow'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 lg:p-12 min-h-[400px] relative overflow-hidden">
+          {activeTab === 'web' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Cross-Browser at Scale</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  Execute tests in parallel across Chrome, Firefox, Safari, and Edge. Our cloud grid spins up environments
+                  instantly, reducing execution time from days to minutes.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-400">✓</span> Auto-detect browser version
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-400">✓</span> Visual regression testing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-400">✓</span> Headless execution mode
+                  </li>
+                </ul>
+              </div>
+              <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden">
+                <div className="h-8 bg-slate-800 border-b border-slate-700 flex items-center px-3 space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-slate-600" />
+                  <div className="w-2 h-2 rounded-full bg-slate-600" />
+                  <div className="ml-auto text-xs text-slate-500">Grid View</div>
+                </div>
+                <div className="flex-1 p-4 grid grid-cols-2 gap-4 bg-slate-950">
+                  {[
+                    { name: 'Chrome 118', color: 'bg-blue-500', progress: 'w-[80%]', status: 'Executing Login...' },
+                    { name: 'Firefox 119', color: 'bg-orange-500', progress: 'w-[65%]', status: 'Executing Cart...' },
+                    { name: 'Safari 17', color: 'bg-cyan-500', progress: 'w-[90%]', status: 'Verifying Payment...' },
+                    { name: 'Edge 118', color: 'bg-green-500', progress: 'w-[45%]', status: 'Loading Home...' }
+                  ].map((browser) => (
+                    <div
+                      key={browser.name}
+                      className="bg-slate-900 border border-slate-800 rounded p-3 flex flex-col justify-between hover:border-blue-500/40 transition"
+                    >
+                      <div className="flex justify-between items-start">
+                        <span className="text-xs text-slate-400 font-bold">{browser.name}</span>
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      </div>
+                      <div className="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+                        <div className={`${browser.color} h-full ${browser.progress}`} />
+                      </div>
+                      <div className="text-[10px] text-slate-500 mt-1">{browser.status}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'mobile' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Native &amp; Hybrid Apps</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  Test on real iOS and Android devices in the cloud. Inspect elements, simulate gestures, and validate biometric
+                  logins without writing Appium code.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  {['Real Device Farm', 'Geolocation testing', 'Network throttling simulation'].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-purple-400">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative flex justify-center">
+                <div className="w-56 h-[400px] bg-slate-900 border-[6px] border-slate-800 rounded-[2.5rem] shadow-2xl relative overflow-hidden ring-1 ring-white/10">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-800 rounded-b-xl z-20" />
+                  <div className="w-full h-full bg-slate-950 flex flex-col pt-8 relative">
+                    <div className="px-4 mb-6 flex justify-between items-center">
+                      <div className="w-4 h-4 rounded bg-slate-800" />
+                      <div className="h-2 w-20 bg-slate-800 rounded" />
+                    </div>
+                    <div className="px-6 space-y-4">
+                      <div className="h-8 w-16 bg-purple-600/20 rounded mb-2" />
+                      <div className="h-4 w-32 bg-slate-800 rounded" />
+                      <div className="relative">
+                        <div className="h-10 w-full bg-slate-900 border border-slate-700 rounded flex items-center px-3 text-xs text-slate-500">
+                          username
+                        </div>
+                        <div className="absolute inset-0 border-2 border-purple-500 bg-purple-500/10 rounded flex items-center justify-center">
+                          <span className="bg-purple-500 text-white text-[9px] px-1 rounded absolute -top-2 left-2">id: input_user</span>
+                        </div>
+                      </div>
+                      <div className="h-10 w-full bg-slate-900 border border-slate-700 rounded flex items-center px-3 text-xs text-slate-500">
+                        password
+                      </div>
+                      <div className="h-10 w-full bg-purple-600 rounded flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-purple-600/20">
+                        Log In
+                      </div>
+                    </div>
+                    <div className="absolute bottom-6 right-4 w-10 h-10 bg-white rounded-full text-slate-900 flex items-center justify-center shadow-lg">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'desktop' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Desktop Applications</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  Automate traditional desktop applications across Windows, macOS, and Linux. Perfect for testing SAP GUI, Oracle
+                  Forms, and custom .NET/Java apps.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  {['Windows, Mac, Linux support', 'SAP GUI automation', 'Image & text recognition (OCR)'].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-teal-400">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden">
+                <div className="h-8 bg-slate-800 border-b border-slate-700 flex items-center px-3 justify-between">
+                  <div className="text-xs text-slate-400">SAP GUI - Order Processing</div>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 border border-slate-600 rounded-sm" />
+                    <div className="w-3 h-3 border border-slate-600 rounded-sm" />
+                    <div className="w-3 h-3 bg-red-500/50 rounded-sm" />
+                  </div>
+                </div>
+                <div className="flex-1 bg-slate-200 p-4 relative text-slate-800 text-xs">
+                  <div className="w-1/4 h-full bg-slate-300 absolute left-0 top-0 border-r border-slate-400 p-2">
+                    <div className="mb-2 font-bold text-slate-600">Menu</div>
+                    <div className="space-y-1">
+                      <div className="bg-blue-600 text-white p-1 rounded shadow cursor-pointer">Orders</div>
+                      <div className="p-1 hover:bg-slate-400/20 rounded cursor-pointer">Inventory</div>
+                      <div className="p-1 hover:bg-slate-400/20 rounded cursor-pointer">Reports</div>
+                    </div>
+                  </div>
+                  <div className="ml-[25%] pl-4 pt-2">
+                    <h4 className="font-bold text-lg mb-4 text-slate-700">New Order #8821</h4>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[10px] font-bold mb-1">Customer ID</label>
+                        <div className="bg-white border border-slate-400 p-1 w-full shadow-inner">C-9921</div>
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold mb-1">Date</label>
+                        <div className="bg-white border border-slate-400 p-1 w-full shadow-inner">2024-11-26</div>
+                      </div>
+                    </div>
+                    <div className="absolute top-28 left-1/3 border-2 border-red-500 bg-red-500/10 w-32 h-8 flex items-center justify-center animate-pulse">
+                      <span className="bg-red-500 text-white text-[9px] px-1 absolute -top-4 left-0">win_id: txt_cust_id</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'mainframe' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Legacy Green Screen (3270)</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  The only platform that seamlessly integrates modern web testing with legacy Mainframe terminals. Validate end-to-end
+                  flows from a React frontend to an IBM backend.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  {['TE/3270 & 5250 support', 'Screen scraping & OCR', 'Data verification'].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-amber-500">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative rounded-lg bg-black border border-slate-800 aspect-video shadow-2xl flex flex-col overflow-hidden">
+                <div className="bg-slate-800 h-6 w-full flex items-center px-2">
+                  <div className="text-[10px] text-slate-400 font-mono">SSH: 192.168.1.105 - IBM 3270</div>
+                </div>
+                <div className="flex-1 p-6 font-mono text-green-500 text-xs leading-relaxed opacity-90 relative">
+                  <div className="absolute inset-0 bg-green-500/5 pointer-events-none scanline" />
+                  <div>CICS TRANSACTION SERVER V5.3</div>
+                  <div className="mb-4">WELCOME TO SIMPLIFYQA BANKING SYSTEM</div>
+                  <div className="grid grid-cols-[100px_1fr] gap-2 mb-2">
+                    <span>USERID:</span>
+                    <span className="bg-green-500 text-black px-1 w-fit">ADMIN___</span>
+                  </div>
+                  <div className="grid grid-cols-[100px_1fr] gap-2 mb-8">
+                    <span>PASSWORD:</span>
+                    <span>********</span>
+                  </div>
+                  <div>
+                    COMMAND ===&gt; <span className="animate-pulse">_</span>
+                  </div>
+                  <div className="absolute bottom-4 left-6 text-green-700">F1=HELP F3=EXIT F12=CANCEL</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'api' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">API &amp; Microservices</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  Comprehensive automation for REST, SOAP, gRPC, and GraphQL. Validate payloads, check status codes, and assert
+                  schema compliance before UI integration.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  {['REST & SOAP Support', 'gRPC & GraphQL Ready', 'Swagger / OpenAPI Import'].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-pink-500">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden text-xs">
+                <div className="p-3 border-b border-slate-800 flex items-center gap-2 bg-slate-950">
+                  <div className="px-2 py-1 bg-green-600 text-white font-bold rounded text-[10px]">POST</div>
+                  <div className="text-slate-300 font-mono flex-1 truncate">https://api.simplifyqa.com/graphql</div>
+                  <div className="px-3 py-1 bg-pink-600 text-white font-bold rounded cursor-pointer">Send</div>
+                </div>
+                <div className="flex flex-1">
+                  <div className="w-1/2 border-right border-slate-800 p-4 font-mono text-slate-400">
+                    <div className="mb-2 text-slate-500 uppercase text-[10px] font-bold">Query (GraphQL)</div>
+                    <div className="text-pink-400">query &#123;</div>
+                    <div className="pl-4">
+                      <span className="text-blue-300">user</span>(id: <span className="text-orange-300">"101"</span>) &#123;
+                      <br />
+                      &nbsp;&nbsp;<span className="text-blue-300">name</span>
+                      <br />
+                      &nbsp;&nbsp;<span className="text-blue-300">orders</span> &#123; id &#125;
+                      <br />
+                      &#125;
+                    </div>
+                    <div className="text-pink-400">&#125;</div>
+                  </div>
+                  <div className="w-1/2 p-4 font-mono bg-slate-950/50">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-slate-500 uppercase text-[10px] font-bold">Response</span>
+                      <span className="text-green-500 text-[10px] font-bold">200 OK</span>
+                    </div>
+                    <div className="text-slate-300">
+                      <span className="text-yellow-400">&#123;</span>
+                      <br />
+                      <span className="pl-4 text-blue-300">"data"</span>: &#123;
+                      <br />
+                      <span className="pl-8 text-blue-300">"user"</span>: &#123;
+                      <br />
+                      <span className="pl-12 text-blue-300">"name"</span>: <span className="text-green-300">"Alice"</span>
+                      <br />
+                      <span className="pl-8">&#125;</span>
+                      <br />
+                      <span className="pl-4">&#125;</span>
+                      <br />
+                      <span className="text-yellow-400">&#125;</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'db' && (
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Database Validation</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  Ensure data integrity directly at the source. Connect to SQL and NoSQL databases to validate migration scripts,
+                  check ETL processes, and verify backend state without manual queries.
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  {['MySQL, Oracle, PostgreSQL, MongoDB', 'Auto-generated data assertions', 'ETL pipeline testing'].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="text-indigo-500">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden text-xs">
+                <div className="h-8 bg-slate-800 border-b border-slate-700 flex items-center px-3 justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-slate-400 text-[10px]">Connected: production-db-01</span>
+                  </div>
+                  <div className="bg-indigo-600 text-white px-3 py-0.5 rounded text-[10px] font-bold cursor-pointer transition">
+                    RUN QUERY
+                  </div>
+                </div>
+                <div className="flex flex-1">
+                  <div className="w-1/4 border-r border-slate-800 bg-slate-950 p-3 space-y-2 hidden sm:block">
+                    <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-2">Tables</div>
+                    <div className="text-slate-500 pl-2 border-l-2 border-slate-800 hover:text-slate-300 cursor-pointer">
+                      public.users
+                    </div>
+                    <div className="text-white pl-2 border-l-2 border-indigo-500 bg-slate-900/50 cursor-pointer">public.orders</div>
+                    <div className="text-slate-500 pl-2 border-l-2 border-slate-800 hover:text-slate-300 cursor-pointer">
+                      public.inventory
+                    </div>
+                  </div>
+                  <div className="w-full sm:w-3/4 flex flex-col">
+                    <div className="h-1/3 border-b border-slate-800 p-3 font-mono text-slate-300 bg-slate-900 leading-relaxed">
+                      <span className="text-purple-400">SELECT</span> * <span className="text-purple-400">FROM</span> orders
+                      <br />
+                      <span className="text-purple-400">WHERE</span> status = <span className="text-orange-300">'SHIPPED'</span>
+                      <br />
+                      <span className="text-purple-400">LIMIT</span> 3;
+                    </div>
+                    <div className="flex-1 bg-slate-950 p-0 overflow-hidden relative">
+                      <table className="w-full text-left">
+                        <thead className="bg-slate-900 text-slate-500 text-[9px] uppercase">
+                          <tr>
+                            <th className="p-2 font-medium border-b border-slate-800">id</th>
+                            <th className="p-2 font-medium border-b border-slate-800">customer</th>
+                            <th className="p-2 font-medium border-b border-slate-800">amount</th>
+                            <th className="p-2 font-medium border-b border-slate-800">status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="text-slate-400 font-mono text-[10px]">
+                          {[
+                            { id: '1021', customer: '"Alice"', amount: '$450.00' },
+                            { id: '1022', customer: '"Bob"', amount: '$120.50' },
+                            { id: '1023', customer: '"Charlie"', amount: '$89.99' }
+                          ].map((row) => (
+                            <tr key={row.id} className="border-b border-slate-800/50 hover:bg-slate-900/50">
+                              <td className="p-2 text-blue-400">{row.id}</td>
+                              <td className="p-2">{row.customer}</td>
+                              <td className="p-2 text-green-400">{row.amount}</td>
+                              <td className="p-2">
+                                <span className="bg-green-500/10 text-green-400 px-1 rounded border border-green-500/20">SHIPPED</span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      <div className="absolute bottom-4 right-4 bg-slate-800 border border-green-500/30 text-green-400 px-3 py-2 rounded shadow-lg flex items-center gap-2 text-xs animate-bounce">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Validation Passed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PlatformArchitectureShowcase;
+

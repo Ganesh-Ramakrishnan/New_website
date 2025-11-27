@@ -23,6 +23,7 @@ const FeatureShowcase: React.FC = () => {
   const [expandedCards, setExpandedCards] = useState<number[]>([0]); // Only first card expanded by default
   const [isScrolling, setIsScrolling] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isVideoFading, setIsVideoFading] = useState(false);
   const rightSideRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   
@@ -298,9 +299,27 @@ const FeatureShowcase: React.FC = () => {
 
           {/* Right Video View with Carousel */}
           <div 
-            className="flex flex-col items-center justify-center w-full" 
+            className="relative flex items-center justify-center w-full" 
             ref={rightSideRef} 
           >
+            {videos.length > 1 && (
+              <button
+                onClick={() => {
+                  if (isVideoFading) return;
+                  setIsVideoFading(true);
+                  setTimeout(() => {
+                    setCurrentVideoIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
+                    setTimeout(() => setIsVideoFading(false), 300);
+                  }, 250);
+                }}
+                className="absolute left-0 lg:left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+                aria-label="Previous video"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
             <div 
               className="w-full lg:w-3/4 mx-auto rounded-xl overflow-hidden relative"
               style={{ 
@@ -308,35 +327,39 @@ const FeatureShowcase: React.FC = () => {
                 background: 'transparent'
               }}
             >
-              <video
-                key={currentVideoIndex}
-                className="w-full h-auto object-contain"
-                controls
-                autoPlay
-                muted
-                loop
-                playsInline
+              <div className={`transition-opacity duration-500 ${isVideoFading ? 'opacity-0' : 'opacity-100'}`}>
+                <video
+                  key={currentVideoIndex}
+                  className="w-full h-auto object-contain"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src={videos[currentVideoIndex]} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            {videos.length > 1 && (
+              <button
+                onClick={() => {
+                  if (isVideoFading) return;
+                  setIsVideoFading(true);
+                  setTimeout(() => {
+                    setCurrentVideoIndex((prev) => (prev === videos.length - 1 ? 0 : prev + 1));
+                    setTimeout(() => setIsVideoFading(false), 300);
+                  }, 250);
+                }}
+                className="absolute right-0 lg:right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+                aria-label="Next video"
               >
-                <source src={videos[currentVideoIndex]} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            
-            {/* Carousel Navigation Dots - Outside video */}
-            <div className="flex gap-2 mt-4">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentVideoIndex(index)}
-                  className={`transition-all duration-300 ${
-                    index === currentVideoIndex 
-                      ? 'w-8 bg-white' 
-                      : 'w-2 bg-white/50 hover:bg-white/75'
-                  } h-2 rounded-full`}
-                  aria-label={`Go to video ${index + 1}`}
-                />
-              ))}
-            </div>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
