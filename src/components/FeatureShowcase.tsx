@@ -29,7 +29,7 @@ const FeatureShowcase: React.FC = () => {
   
   const mediaItems = [
     {
-      src: '/assets/video/AI_Studio.gif',
+      src: '/assets/video/Automation_Testcase.gif',
       title: 'AI Studio',
       description: 'Eliminate the manual translation of requirements. AI Studio parses your uploaded files to structure actionable Features, generates precise User Stories, and finally converts them into executable Test Cases. Simply toggle between Auto mode for high-level speed or Max mode for exhaustive rigor, depending on your release needs.'
     },
