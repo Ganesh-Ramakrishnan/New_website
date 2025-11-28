@@ -1,8 +1,10 @@
 import {
-  Cloud,
-  Diamond,
-  Layers,
-  Users
+  Code,
+  Database,
+  Globe,
+  Monitor,
+  Server,
+  Smartphone
 } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -25,64 +27,98 @@ const DataAnalyticsShowcase: React.FC = () => {
 
   const features: Feature[] = [
     {
-      id: 'release-requirement-management',
-      title: 'Release & Requirement Management',
-      description: 'Transform your data infrastructure with modern cloud analytics solutions that scale with your business needs.',
-      icon: <Cloud className="h-6 w-6 text-white" />,
+      id: 'web-automation',
+      title: 'Web Automation',
+      description: 'Deliver Flawless Experiences Across Every Browser. Ensure your web applications perform perfectly for every user, on every device.',
+      icon: <Globe className="h-6 w-6 text-white" />,
       details: {
-        subtitle: 'Plan smarter, release faster.',
-        mainDescription: 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.',
+        subtitle: 'Deliver Flawless Experiences Across Every Browser',
+        mainDescription: 'SimplifyQA empowers teams to run scalable, scriptless tests across the modern web.',
         features: [
-          'RTM (Requirements Traceability Matrix): Ensure end-to-end traceability between requirements and test cases.',
-          'Impact Analysis: Instantly identify test cases affected by any change in requirements.',
-          'Service Virtualization: Simulate unavailable APIs or services to enable uninterrupted testing.',
-          'CI/CD Integration: Integrate seamlessly with Jenkins, Azure DevOps, and other CI/CD tools for continuous testing.'
+          'Cross-Browser Compatibility: Automate tests seamlessly on Chrome, Firefox, Safari, Edge, and IE to guarantee consistent UI rendering.',
+          'Responsive & Mobile Web: Validate responsive designs with real-time device emulation and dynamic resolution adjustments.',
+          'Smart Object Recognition: Utilize robust identification (XPath, CSS, Image Recognition) to stabilize tests against dynamic web elements.',
+          'Cloud Scaling: Execute parallel tests on the cloud to slash regression cycles and accelerate release velocity.'
         ]
       }
     },
     {
-      id: 'test-management',
-      title: 'Test Management',
-      description: 'Accelerate your data science initiatives with powerful tools and automated workflows.',
-      icon: <Layers className="h-6 w-6 text-white" />,
+      id: 'api-automation',
+      title: 'API Automation',
+      description: 'Validate Backend Logic with Precision. Shift left and secure your application\'s core.',
+      icon: <Code className="h-6 w-6 text-white" />,
       details: {
-        subtitle: 'Organize, automate, and control with ease.',
-        mainDescription: 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.',
+        subtitle: 'Validate Backend Logic with Precision',
+        mainDescription: 'Our API testing suite ensures your backend services are robust, secure, and ready for integration.',
         features: [
-          'Scriptless Automation: Build automated tests without coding using a visual, drag-and-drop interface.',
-          'Workflow Builder: Customize and control your testing workflows to suit your QA process.',
-          'Hybrid Test Cases: Combine manual and automated steps in one flexible test case.',
-          'Admin Control: Manage user roles, access, and configurations from one secure platform.'
+          'Multi-Protocol Support: Comprehensive automation for REST, SOAP, and GraphQL APIs with automated response validation.',
+          'CI/CD Integration: Embed backend workflow validation directly into your pipeline for early defect detection.',
+          'Performance & Security: Run automated health checks and security scans on endpoints before they hit production.',
+          'Data-Driven Coverage: Dynamically parameterize requests to test edge cases and ensure total API reliability.'
         ]
       }
     },
     {
-      id: 'test-execution',
-      title: 'Test Execution',
-      description: 'Adaptable solutions that work across multiple platforms and use cases for maximum flexibility.',
-      icon: <Diamond className="h-6 w-6 text-white" />,
+      id: 'mobile-automation',
+      title: 'Mobile Automation',
+      description: 'Native & Hybrid App Testing at Scale. Conquer fragmentation with a unified mobile testing strategy.',
+      icon: <Smartphone className="h-6 w-6 text-white" />,
       details: {
-        subtitle: 'Accelerate testing and gain real-time insights.',
-        mainDescription: 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.',
+        subtitle: 'Native & Hybrid App Testing at Scale',
+        mainDescription: 'Automate complex gestures and user flows across the devices your customers actually use.',
         features: [
-          'Parallel / Cloud Execution: Execute tests across multiple devices or environments simultaneously.',
-          'Scheduler: Automate and plan test runs at specific intervals or release cycles.',
-          'Dashboard / Business Reports: Track coverage, progress, and results with real-time analytics.',
-          'Code Editor: Edit and fine-tune automation scripts directly within the platform.'
+          'Android & iOS Support: Automate native and hybrid apps on real devices, emulators, and simulators.',
+          'Cross-OS Flexibility: Uniquely supports iOS automation execution on both Windows and Mac environments.',
+          'Parallel Execution: Run tests simultaneously across multiple devices to drastically reduce time-to-market.',
+          'Deep Diagnostics: Capture device-level logs, screenshots, and videos for rapid root cause analysis.'
         ]
       }
     },
     {
-      id: 'defect-management',
-      title: 'Defect Management',
-      description: 'Comprehensive customer analytics to understand and improve every touchpoint in the customer journey.',
-      icon: <Users className="h-6 w-6 text-white" />,
+      id: 'database-automation',
+      title: 'Database Automation',
+      description: 'Ensure Data Integrity & Reliability. Data is the lifeblood of your application.',
+      icon: <Database className="h-6 w-6 text-white" />,
       details: {
-        subtitle: 'Detect faster, log smarter, resolve quicker.',
-        mainDescription: 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.',
+        subtitle: 'Ensure Data Integrity & Reliability',
+        mainDescription: 'Automate complex validations to ensure your frontend actions match your backend reality.',
         features: [
-          'Bug Genesis: Capture detailed defects automatically from failed executions with logs and screenshots.',
-          'Auto Defect Logging: Automatically create and sync bugs with integrated tools like Jira for seamless defect management.'
+          'SQL & NoSQL Support: Native connectivity for Oracle, MySQL, SQL Server, MongoDB, and more.',
+          'End-to-End Validation: Seamlessly chain database checks with UI and API tests for full-transaction verification.',
+          'Complex Query Execution: Automate data integrity checks, stored procedure testing, and transaction rollbacks.',
+          'Audit-Ready Reporting: Generate detailed logs comparing data states before and after transactions for compliance.'
+        ]
+      }
+    },
+    {
+      id: 'desktop-automation',
+      title: 'Desktop Automation',
+      description: 'Modernize Testing for Legacy & Desktop Apps. Don\'t leave your core business applications behind.',
+      icon: <Monitor className="h-6 w-6 text-white" />,
+      details: {
+        subtitle: 'Modernize Testing for Legacy & Desktop Apps',
+        mainDescription: 'Bring the speed of modern automation to your critical desktop software.',
+        features: [
+          'Broad Tech Stack: Support for .NET, Java, Win32, WPF, and legacy Windows applications.',
+          'Native UI Interaction: Precisely control menus, ribbons, pop-ups, and complex desktop controls.',
+          'Smart Identification: Hybrid property-based and image-based recognition ensures stability even on older interfaces.',
+          'Cross-Platform Ready: Build stable automation for both Windows and macOS desktop environments without coding.'
+        ]
+      }
+    },
+    {
+      id: 'mainframe-automation',
+      title: 'Mainframe Automation',
+      description: 'Unlock the Value of Legacy Systems. Bridge the gap between foundational mainframes and digital agility.',
+      icon: <Server className="h-6 w-6 text-white" />,
+      details: {
+        subtitle: 'Unlock the Value of Legacy Systems',
+        mainDescription: 'Automate green-screen workflows to modernize your critical business logic.',
+        features: [
+          'Terminal Emulation: Seamless integration with 3270 and 5250 terminal emulators (IBM i/AS400, z/OS).',
+          'Green Screen to GUI: Validate data flow between legacy mainframe screens and modern web/mobile interfaces in a single test.',
+          'High-Speed Entry: Automate complex keystrokes and data entry tasks faster and more accurately than human operators.',
+          'Legacy Modernization: Ensure stability while refactoring or migrating mainframe data to modern cloud architectures.'
         ]
       }
     }
@@ -123,10 +159,13 @@ const DataAnalyticsShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16" style={{ marginLeft: '10%' }}>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Why Choose SimplifyQA?
+            One Platform. All Architectures.
           </h2>
-          <p className="text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto">
-            Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
+          <p className="text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto mb-4">
+            Unified Vision. Absolute Control.
+          </p>
+          <p className="text-base text-gray-400 leading-relaxed max-w-4xl mx-auto">
+            Stop toggling tools. Unify your entire testing landscape—from legacy mainframes to cloud-native microservices—under one intelligent, scriptless command center.
           </p>
         </div>
         <div className="border border-gray-600 rounded-xl bg-gray-800">
@@ -139,9 +178,9 @@ const DataAnalyticsShowcase: React.FC = () => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="flex flex-col md:flex-row gap-5 h-full justify-center">
-                {/* Column 1 - First 2 cards */}
+                {/* Column 1 - First 3 cards */}
                 <div style={{ gap: '10px', position: 'relative', top: '-70px' }}>
-                  {features.slice(0, 2).map((feature, index) => (
+                  {features.slice(0, 3).map((feature, index) => (
                     <div
                       key={feature.id}
                       onClick={() => setActiveFeature(index)}
@@ -150,12 +189,11 @@ const DataAnalyticsShowcase: React.FC = () => {
                         border: activeFeature === index ? '2px solid #3B82F6' : '1px solid rgba(75, 75, 75, 0.36)',
                         background: activeFeature === index ? 'rgb(30, 30, 35)' : 'rgb(24, 24, 27)',
                         padding: '10px',
-                        marginTop: '5px',
                         borderRadius: '5px',
                         boxShadow: activeFeature === index ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'var(--shd, 0 1px 4px rgba(0, 0, 0, .6))',
-                               width: '240px',
-                               height: '300px',
-                               marginTop: '20px'
+                        width: '240px',
+                        height: '300px',
+                        marginTop: '20px'
                       }}
                     >
                         {/* Feature Icon */}
@@ -174,11 +212,7 @@ const DataAnalyticsShowcase: React.FC = () => {
 
                         {/* Feature Description */}
                         <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                          {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
-                           feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
-                           feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
-                           feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
-                           'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
+                          {feature.description}
                         </p>
                         {/* Bottom Line */}
                         <div className="pt-4 border-t border-gray-600"></div>
@@ -187,23 +221,22 @@ const DataAnalyticsShowcase: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Column 2 - Last 2 cards */}
+                {/* Column 2 - Last 3 cards */}
                 <div style={{ gap: '10px', position: 'relative', bottom: '-100px' }}>
-                  {features.slice(2, 4).map((feature, index) => (
+                  {features.slice(3, 6).map((feature, index) => (
                     <div
                       key={feature.id}
-                      onClick={() => setActiveFeature(index + 2)}
+                      onClick={() => setActiveFeature(index + 3)}
                       className="flex flex-col cursor-pointer transition-all duration-300 hover:scale-105"
                       style={{
-                        border: activeFeature === (index + 2) ? '2px solid #3B82F6' : '1px solid rgba(75, 75, 75, 0.36)',
-                        background: activeFeature === (index + 2) ? 'rgb(30, 30, 35)' : 'rgb(24, 24, 27)',
+                        border: activeFeature === (index + 3) ? '2px solid #3B82F6' : '1px solid rgba(75, 75, 75, 0.36)',
+                        background: activeFeature === (index + 3) ? 'rgb(30, 30, 35)' : 'rgb(24, 24, 27)',
                         padding: '10px',
-                        marginTop: '5px',
                         borderRadius: '5px',
-                        boxShadow: activeFeature === (index + 2) ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'none',
-                               width: '240px',
-                               height: '300px',
-                               marginTop: '20px'
+                        boxShadow: activeFeature === (index + 3) ? '0 4px 12px rgba(59, 130, 246, 0.3)' : 'none',
+                        width: '240px',
+                        height: '300px',
+                        marginTop: '20px'
                       }}
                     >
                         {/* Feature Icon */}
@@ -222,11 +255,7 @@ const DataAnalyticsShowcase: React.FC = () => {
 
                         {/* Feature Description */}
                         <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                          {feature.id === 'release-requirement-management' ? 'Manage requirements, analyze impacts, and streamline releases with full visibility from change to delivery.' : 
-                           feature.id === 'test-management' ? 'Simplify the way you design, manage, and govern test assets through intuitive, code-free automation.' : 
-                           feature.id === 'test-execution' ? 'Run tests faster, schedule effortlessly, and monitor execution performance through powerful dashboards.' :
-                           feature.id === 'defect-management' ? 'Simplify bug tracking and resolution through auto-logging and intelligent defect insights.' :
-                           'I\'m a paragraph. Click here to add your own text and edit me. Let your users get to know you.'}
+                          {feature.description}
                         </p>
                         {/* Bottom Line */}
                         <div className="pt-4 border-t border-gray-600"></div>

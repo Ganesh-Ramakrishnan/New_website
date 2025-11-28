@@ -159,7 +159,7 @@ const SuccessStoriesCarousel = () => {
             Success Stories to Inspire
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Discover how businesses and creators achieve results
+          Real stories of how we helped enterprises conquer technical debt, crush bottlenecks, and modernize their QA. 
           </p>
         </div>
 
@@ -195,7 +195,7 @@ const SuccessStoriesCarousel = () => {
                  <div
                    className="overflow-hidden relative"
                    style={{
-                     background: 'rgb(4, 7, 13)',
+                     background: 'rgb(0 0 35)',
                      border: '1px solid rgba(216, 231, 242, 0.07)',
                      borderRadius: '16px',
                      boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',

@@ -101,10 +101,10 @@ const CustomerSuccessPage = () => {
   ];
 
   return (
-    <div className="pt-16 bg-[#040405] text-white">
+    <div className="pt-16 text-white">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[#050506]"></div>
+        <div className="absolute inset-0"></div>
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/12 via-transparent to-transparent opacity-30 pointer-events-none"></div>
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -122,7 +122,7 @@ const CustomerSuccessPage = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="relative py-16 bg-[#050506]" style={{ background: 'linear-gradient(to bottom, rgba(8,9,10,0.95), transparent 35%)' }}>
+      <section className="relative py-16">
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-20 pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -136,7 +136,7 @@ const CustomerSuccessPage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <div key={index} className="bg-[#111217] rounded-2xl shadow-[0_15px_45px_rgba(0,0,0,0.45)] border border-white/5 hover:border-cyan-400/60 transition-all duration-500 overflow-hidden group cursor-pointer transform hover:-translate-y-2">
+              <div key={index} className="rounded-2xl shadow-[0_15px_45px_rgba(0,0,0,0.45)] border border-white/5 hover:border-cyan-400/60 transition-all duration-500 overflow-hidden group cursor-pointer transform hover:-translate-y-2">
                 <div className="relative overflow-hidden">
                 <img
                   src={study.image}
@@ -280,7 +280,7 @@ const CustomerSuccessPage = () => {
   
 
       {/* Customer Support Section */}
-      <section className="relative py-16 bg-[#050506]">
+      <section className="relative py-16">
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/15 via-transparent to-transparent opacity-20 pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

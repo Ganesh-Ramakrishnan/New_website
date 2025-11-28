@@ -731,7 +731,14 @@ const HomePage = () => {
         className="py-16"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="compliance-badges">
-          <h2 className="text-center heading font-bold text-white mb-8">Our Certifications & Compliance</h2>
+        <div className="text-center mb-8 md:mb-10 px-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+          Our Certifications & Compliance
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          Real stories of how we helped enterprises conquer technical debt, crush bottlenecks, and modernize their QA. 
+          </p>
+        </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
             <img
               src="/assets/crt/SOC.png"

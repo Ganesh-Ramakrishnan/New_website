@@ -208,7 +208,10 @@ const Navbar = () => {
             <div className="pt-4 border-t border-gray-200">
               <Link
                 to="/request-demo"
-                className="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200"
+                className="w-full block text-center border-l-4 border-cyan-500 sq-border-glow-cyan px-4 py-3 rounded-lg font-medium shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden text-white"
+                style={{
+                  background: '#49494945'
+                }}
                 onClick={() => setIsOpen(false)}
               >
                 Request Demo

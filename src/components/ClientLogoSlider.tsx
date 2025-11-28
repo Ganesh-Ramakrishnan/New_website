@@ -1,47 +1,43 @@
 // Removed ChevronLeft, ChevronRight imports as manual controls are removed
 import { useEffect, useRef, useState } from 'react';
 
-const clientLogos = [
-  { src: '/assets/client/AKPK Logo.svg', alt: 'AKPK' },
-  { src: '/assets/client/Analec logo.svg', alt: 'Analec' },
-  { src: '/assets/client/BMMB.svg', alt: 'BMMB' },
-  { src: '/assets/client/CARELON.svg', alt: 'Carelon' },
-  { src: '/assets/client/carwford.svg', alt: 'Carwford' },
-  { src: '/assets/client/CGC.svg', alt: 'CGC' },
-  { src: '/assets/client/Dexcom Logo.svg', alt: 'Dexcom' },
-  { src: '/assets/client/Dr reddys laboratory.svg', alt: 'Dr Reddys Laboratory' },
-  { src: '/assets/client/Elevence health.svg', alt: 'Elevence Health' },
-  { src: '/assets/client/Envista Logo.svg', alt: 'Envista' },
-  { src: '/assets/client/Equity.svg', alt: 'Equity' },
-  { src: '/assets/client/euNetworks.svg', alt: 'euNetworks' },
-  { src: '/assets/client/Finfort Logo.svg', alt: 'Finfort' },
-  { src: '/assets/client/Globitel.svg', alt: 'Globitel' },
-  { src: '/assets/client/hucu.svg', alt: 'Hucu' },
-  { src: '/assets/client/IQST Logo.svg', alt: 'IQST' },
-  { src: '/assets/client/leapscholar.svg', alt: 'Leap Scholar' },
-  { src: '/assets/client/logisfleet.svg', alt: 'Logisfleet' },
-  { src: '/assets/client/Malaysia Airlines Logo.svg', alt: 'Malaysia Airlines' },
-  { src: '/assets/client/Net Health.svg', alt: 'Net Health' },
-  { src: '/assets/client/Perfios-Logo.svg', alt: 'Perfios' },
-  { src: '/assets/client/persyst.svg', alt: 'Persyst' },
-  { src: '/assets/client/pirmal.svg', alt: 'Piramal' },
-  { src: '/assets/client/Quest alliance.svg', alt: 'Quest Alliance' },
-  { src: '/assets/client/Rawbank.svg', alt: 'Rawbank' },
-  { src: '/assets/client/smartkarrot.svg', alt: 'Smartkarrot' },
-  { src: '/assets/client/Smartx technologies.svg', alt: 'Smartx Technologies' },
-  { src: '/assets/client/SMFG-Logo.svg', alt: 'SMFG' },
-  { src: '/assets/client/Svatantra.svg', alt: 'Svatantra' },
-  { src: '/assets/client/technotree.svg', alt: 'Technotree' },
-  { src: '/assets/client/UST Global Logo.svg', alt: 'UST Global' },
-  { src: '/assets/client/website logo-04.svg', alt: 'Website Logo' },
-  { src: '/assets/client/worklama.svg', alt: 'Worklama' },
+const clientNames = [
+  'ELEVANCE HEALTH',
+  'SMFG',
+  'MALAYSIA AIRLINES',
+  'DR. REDDY\'S',
+  'UST',
+  'PIRAMAL FINANCE',
+  'DEXCOM',
+  'AKPK',
+  'ANALEC',
+  'BANK MUAMALAT',
+  'CGC',
+  'EQUITY',
+  'PERFIOS',
+  'RAWBANK',
+  'SVATANTRA',
+  'CARELON',
+  'ENVISTA',
+  'NET HEALTH',
+  'PERSYST',
+  'CRAWFORD SOFTWARE',
+  'IQST',
+  'LEAPSCHOLAR',
+  'LOGISFLEET',
+  'NUVIZZ',
+  'QUEST ALLIANCE',
+  'SMARTKARROT',
+  'SMARTX',
+  'TECNOTREE',
+  'WORKLLAMA',
 ];
 
 
 const ClientLogoSlider = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
-  // Duplicate logos for seamless loop
-  const logos = [...clientLogos, ...clientLogos];
+  // Duplicate names for seamless loop
+  const names = [...clientNames, ...clientNames];
   const positionRef = useRef(0);
   const reqIdRef = useRef(0);
   const speed = 1.0; // px per frame (matching tools speed)
@@ -100,25 +96,25 @@ const ClientLogoSlider = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Logo Marquee - continuous loop */}
+      {/* Names Marquee - continuous loop */}
       <div className="overflow-hidden">
         <div
           ref={marqueeRef}
           className="flex"
           style={{ willChange: 'transform' }}
         >
-          {logos.map((logo, idx) => (
+          {names.map((name, idx) => (
             <div
               key={idx}
               className={`min-w-[${100/cardsVisible}%] max-w-[${100/cardsVisible}%] flex items-center justify-center px-6`}
               style={{ boxSizing: 'border-box', minWidth: `${100/cardsVisible}%`, maxWidth: `${100/cardsVisible}%` }}
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="w-32 h-20 object-contain rounded-xl shadow"
-                style={{}}
-              />
+              <span
+                className="text-white text-lg font-medium whitespace-nowrap"
+                style={{ opacity: 0.8 }}
+              >
+                {name}
+              </span>
             </div>
           ))}
         </div>

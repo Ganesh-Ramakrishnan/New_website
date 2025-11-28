@@ -50,12 +50,10 @@ const RequestDemoPage = () => {
             <div className="space-y-6 animate-on-scroll animate-delay-200">
               {/* Email Us Card */}
               <div 
-                className="rounded-2xl p-8 relative overflow-hidden" 
+                className="border-l-4 border-cyan-500 sq-border-glow-cyan rounded-2xl p-8 relative overflow-hidden shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02]" 
                 style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
+                  background: '#49494945',
                   borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
                   width: '100%'
                 }}
               >
@@ -98,12 +96,10 @@ const RequestDemoPage = () => {
 
               {/* Contact Sales Card */}
               <div 
-                className="rounded-2xl p-8 relative overflow-hidden" 
+                className="border-l-4 border-cyan-500 sq-border-glow-cyan rounded-2xl p-8 relative overflow-hidden shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02]" 
                 style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
+                  background: '#49494945',
                   borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
                   width: '100%'
                 }}
               >
@@ -146,12 +142,10 @@ const RequestDemoPage = () => {
             {/* Right side - Demo Request Form */}
             <div className="animate-on-scroll animate-delay-200">
               <div 
-                className="rounded-2xl p-8 relative overflow-hidden" 
+                className="border-l-4 border-cyan-500 sq-border-glow-cyan rounded-2xl p-8 relative overflow-hidden shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02]" 
                 style={{ 
-                  background: 'rgb(4, 7, 13)',
-                  border: '1px solid rgba(216, 231, 242, 0.07)',
+                  background: '#49494945',
                   borderRadius: '16px',
-                  boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
                   width: '100%'
                 }}
               >
@@ -171,7 +165,7 @@ const RequestDemoPage = () => {
                           placeholder="John"
                           className="w-full focus:outline-none transition-all"
                           style={{ 
-                            background: '#04070d',
+                            background: 'rgba(4, 7, 13, 0.41)',
                             border: '1px solid rgba(216, 231, 242, 0.07)',
                             borderRadius: '8px',
                             color: '#d5dbe6',
@@ -198,7 +192,7 @@ const RequestDemoPage = () => {
                           placeholder="Doe"
                           className="w-full focus:outline-none transition-all"
                           style={{ 
-                            background: '#04070d',
+                            background: 'rgba(4, 7, 13, 0.41)',
                             border: '1px solid rgba(216, 231, 242, 0.07)',
                             borderRadius: '8px',
                             color: '#d5dbe6',
@@ -227,7 +221,7 @@ const RequestDemoPage = () => {
                         placeholder="john.doe@company.com"
                         className="w-full focus:outline-none transition-all"
                         style={{ 
-                          background: '#04070d',
+                          background: 'rgba(4, 7, 13, 0.41)',
                           border: '1px solid rgba(216, 231, 242, 0.07)',
                           borderRadius: '8px',
                           color: '#d5dbe6',
@@ -256,7 +250,7 @@ const RequestDemoPage = () => {
                           placeholder="Your Company"
                           className="w-full focus:outline-none transition-all"
                           style={{ 
-                            background: '#04070d',
+                            background: 'rgba(4, 7, 13, 0.41)',
                             border: '1px solid rgba(216, 231, 242, 0.07)',
                             borderRadius: '8px',
                             color: '#d5dbe6',
@@ -282,7 +276,7 @@ const RequestDemoPage = () => {
                           placeholder="QA Manager"
                           className="w-full focus:outline-none transition-all"
                           style={{ 
-                            background: '#04070d',
+                            background: 'rgba(4, 7, 13, 0.41)',
                             border: '1px solid rgba(216, 231, 242, 0.07)',
                             borderRadius: '8px',
                             color: '#d5dbe6',
@@ -310,7 +304,7 @@ const RequestDemoPage = () => {
                         placeholder="Describe your current testing challenges and goals..."
                         className="w-full focus:outline-none transition-all resize-none"
                         style={{ 
-                          background: '#04070d',
+                          background: 'rgba(4, 7, 13, 0.41)',
                           border: '1px solid rgba(216, 231, 242, 0.07)',
                           borderRadius: '8px',
                           color: '#d5dbe6',

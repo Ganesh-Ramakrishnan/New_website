@@ -218,10 +218,8 @@ const PricingComponent = () => {
             >
                 {/* Card 1 - Web Automation */}
                 <div 
-                  className="p-4 cursor-pointer"
+                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02]"
                   style={{
-                    borderRadius: '15px',
-                    border: '0.5px solid rgba(18, 185, 129, 0.2)',
                     background: 'rgba(30, 41, 59, 0.7);'
                   }}
                   onClick={() => {
@@ -237,12 +235,9 @@ const PricingComponent = () => {
                 
                 {/* Card 2 - API & Database */}
                 <div 
-                  className="p-4 cursor-pointer"
+                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    borderRadius: '15px',
-                    border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgba(30, 41, 59, 0.7);',
-                    marginTop: '10px'
+                    background: 'rgba(30, 41, 59, 0.7);'
                   }}
                   onClick={() => {
                     const element = document.getElementById('powerful-addons');
@@ -257,12 +252,9 @@ const PricingComponent = () => {
                 
                 {/* Card 3 - Desktop Testing */}
                 <div 
-                  className="p-4 cursor-pointer"
+                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    borderRadius: '15px',
-                    border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgba(30, 41, 59, 0.7);',
-                    marginTop: '10px'
+                    background: 'rgba(30, 41, 59, 0.7);'
                   }}
                   onClick={() => {
                     const element = document.getElementById('powerful-addons');
@@ -277,12 +269,9 @@ const PricingComponent = () => {
                 
                 {/* Card 4 - Mobile Testing */}
                 <div 
-                  className="p-4 cursor-pointer"
+                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    borderRadius: '15px',
-                    border: '0.5px solid rgba(18, 185, 129, 0.2)',
-                    background: 'rgba(30, 41, 59, 0.7);',
-                    marginTop: '10px'
+                    background: 'rgba(30, 41, 59, 0.7);'
                   }}
                   onClick={() => {
                     const element = document.getElementById('powerful-addons');
@@ -319,8 +308,11 @@ const PricingComponent = () => {
           {addons.map((addon, index) => (
             <div
               key={index}
-              className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 hover:border-zinc-700 transition-all duration-300 hover:shadow-xl hover:shadow-zinc-900/50 flex flex-col animate-on-scroll"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="border-l-4 border-cyan-500 sq-border-glow-cyan rounded-xl p-8 shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] flex flex-col animate-on-scroll relative overflow-hidden fade-in-up"
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                background: '#49494945'
+              }}
             >
               <div className="mb-6">
                 <h4 className="text-2xl font-bold mb-2">{addon.name}</h4>
