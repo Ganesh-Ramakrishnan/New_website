@@ -131,7 +131,7 @@ const FavoriteToolsGrid: React.FC = () => (
     <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-8 md:mb-10 px-4">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-          Expand Your Workflow with Powerful Integrations
+          Connect. Orchestrate. Deliver.
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
           Bridge the gap between fragmented tools. Turn your disconnected CI/CD, management, and testing tools into a single, unified delivery engine 

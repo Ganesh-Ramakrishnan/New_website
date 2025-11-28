@@ -52,6 +52,93 @@ const HomePage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-scroll from Hero to ALM section when scrolling down
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    let isAutoScrolling = false;
+
+    const handleScroll = () => {
+      // Don't interfere if we're auto-scrolling
+      if (isAutoScrolling) {
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+      const heroSection = document.getElementById('hero-section');
+      const featureSection = document.getElementById('feature-showcase');
+      
+      if (!heroSection || !featureSection) {
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      const heroSectionBottom = heroSection.getBoundingClientRect().bottom + window.scrollY;
+      const featureSectionTop = featureSection.getBoundingClientRect().top + window.scrollY;
+      const viewportTop = currentScrollY;
+      const viewportBottom = currentScrollY + window.innerHeight;
+
+      // Check if scrolling down
+      const isScrollingDown = currentScrollY > lastScrollY;
+      const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+      
+      // Check if user is in Hero section or just past it
+      const isInHeroSection = viewportTop < heroSectionBottom;
+      const isJustPastHero = currentScrollY >= heroSectionBottom && currentScrollY < featureSectionTop;
+      
+      // Check if feature section is already in view
+      const isFeatureInView = viewportTop <= featureSectionTop && viewportBottom >= featureSectionTop;
+
+      // Trigger auto-scroll when:
+      // 1. Scrolling down
+      // 2. User is in or just past Hero section
+      // 3. Feature section is not in view
+      // 4. Scroll delta is significant enough
+      if (isScrollingDown && (isInHeroSection || isJustPastHero) && !isFeatureInView && scrollDelta > 10) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isAutoScrolling = true;
+          window.scrollTo({
+            top: featureSectionTop,
+            behavior: 'smooth'
+          });
+          
+          // Reset flag after scroll animation
+          setTimeout(() => {
+            isAutoScrolling = false;
+            lastScrollY = window.scrollY;
+          }, 1000);
+        }, 150);
+      } else {
+        lastScrollY = currentScrollY;
+      }
+    };
+
+    // Use requestAnimationFrame for smoother performance
+    let ticking = false;
+    const rafHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    // Wait for DOM to be ready
+    const timer = setTimeout(() => {
+      window.addEventListener('scroll', rafHandleScroll, { passive: true });
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(scrollTimeout);
+      window.removeEventListener('scroll', rafHandleScroll);
+    };
+  }, []);
+
   // Horizontal scroll image + text pairs
   const imageTextPairs = [
     {
@@ -413,7 +500,7 @@ const HomePage = () => {
 
   return (
     <div className="text-white min-h-screen">
-  <div className="w-full text-white">
+  <div className="w-full text-white" id="hero-section">
         <Hero />
       
       </div>

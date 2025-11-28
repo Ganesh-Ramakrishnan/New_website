@@ -151,12 +151,12 @@ const SuccessStoriesCarousel = () => {
 
 
   return (
-    <section className="py-16">
+    <section className="pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10 px-4">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Success Stories to Inspire
+          Quality at the Speed of Innovation.
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
           Real stories of how we helped enterprises conquer technical debt, crush bottlenecks, and modernize their QA. 
@@ -277,9 +277,6 @@ const SuccessStoriesCarousel = () => {
 
         {/* Comment Text Below Cards */}
         <div className="text-center" style={{ width: '50vw', margin: '50px auto auto' }}>
-          <p className="text-gray-400 text-lg italic mb-8">
-            "They took the time to understand our <span style={{ fontStyle: 'italic', color: '#fff' }}>challenges</span>, identified our <span style={{ fontStyle: 'italic', color: '#fff' }}>target audience</span>, and made our brand shine. Their solutions were very effective!"
-          </p>
           
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2">

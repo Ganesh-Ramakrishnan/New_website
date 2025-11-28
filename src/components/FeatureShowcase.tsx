@@ -22,14 +22,27 @@ const FeatureShowcase: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [expandedCards, setExpandedCards] = useState<number[]>([0]); // Only first card expanded by default
   const [isScrolling, setIsScrolling] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isVideoFading, setIsVideoFading] = useState(false);
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [isMediaFading, setIsMediaFading] = useState(false);
   const rightSideRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   
-  const videos = [
-    '/assets/video/Testcase_animation.mov',
-    '/assets/video/video_2.mp4'
+  const mediaItems = [
+    {
+      src: '/assets/video/AI_Studio.gif',
+      title: 'AI Studio',
+      description: 'Eliminate the manual translation of requirements. AI Studio parses your uploaded files to structure actionable Features, generates precise User Stories, and finally converts them into executable Test Cases. Simply toggle between Auto mode for high-level speed or Max mode for exhaustive rigor, depending on your release needs.'
+    },
+    {
+      src: '/assets/video/Test_data_generation.gif',
+      title: 'Test Data Generation',
+      description: 'SimplifyQA delivers AI-powered test data generation rooted in advanced formula logic. Accurate, reusable, and scalable — built to support any industry\'s complexity.'
+    },
+    {
+      src: '/assets/video/Automation_Testcase.gif',
+      title: 'Automation Testcase',
+      description: 'Go from a simple text prompt to a rigorous test case without writing a single line. Our GenAI engine analyzes your intent and automatically builds the detailed steps required for execution, ensuring precision at the speed of thought.'
+    }
   ];
 
   const features: Feature[] = [
@@ -216,7 +229,7 @@ const FeatureShowcase: React.FC = () => {
     <section className="py-16 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500 mb-6">
             Next-Gen ALM: AI-Driven Quality and Delivery Management
           </h2>
@@ -297,23 +310,23 @@ const FeatureShowcase: React.FC = () => {
             </div>
           </div> */}
 
-          {/* Right Video View with Carousel */}
+          {/* Right Media View with Carousel */}
           <div 
-            className="relative flex items-center justify-center w-full" 
+            className="relative flex flex-col items-center justify-center w-full space-y-6" 
             ref={rightSideRef} 
           >
-            {videos.length > 1 && (
+            {mediaItems.length > 1 && (
               <button
                 onClick={() => {
-                  if (isVideoFading) return;
-                  setIsVideoFading(true);
+                  if (isMediaFading) return;
+                  setIsMediaFading(true);
                   setTimeout(() => {
-                    setCurrentVideoIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
-                    setTimeout(() => setIsVideoFading(false), 300);
+                    setCurrentMediaIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1));
+                    setTimeout(() => setIsMediaFading(false), 300);
                   }, 250);
                 }}
-                className="absolute left-0 lg:left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-                aria-label="Previous video"
+                className="absolute left-0 lg:left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-10"
+                aria-label="Previous media"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -327,39 +340,44 @@ const FeatureShowcase: React.FC = () => {
                 background: 'transparent'
               }}
             >
-              <div className={`transition-opacity duration-500 ${isVideoFading ? 'opacity-0' : 'opacity-100'}`}>
-                <video
-                  key={currentVideoIndex}
+              <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
+                <img
+                  key={currentMediaIndex}
+                  src={mediaItems[currentMediaIndex].src}
+                  alt={mediaItems[currentMediaIndex].title}
                   className="w-full h-auto object-contain"
-                  controls
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                >
-                  <source src={videos[currentVideoIndex]} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                />
               </div>
             </div>
-            {videos.length > 1 && (
+            {mediaItems.length > 1 && (
               <button
                 onClick={() => {
-                  if (isVideoFading) return;
-                  setIsVideoFading(true);
+                  if (isMediaFading) return;
+                  setIsMediaFading(true);
                   setTimeout(() => {
-                    setCurrentVideoIndex((prev) => (prev === videos.length - 1 ? 0 : prev + 1));
-                    setTimeout(() => setIsVideoFading(false), 300);
+                    setCurrentMediaIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
+                    setTimeout(() => setIsMediaFading(false), 300);
                   }, 250);
                 }}
-                className="absolute right-0 lg:right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-                aria-label="Next video"
+                className="absolute right-0 lg:right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-10"
+                aria-label="Next media"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             )}
+            {/* Description Section */}
+            <div className="w-full lg:w-3/4 mx-auto px-4">
+              <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {mediaItems[currentMediaIndex].title}
+                </h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  {mediaItems[currentMediaIndex].description}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
