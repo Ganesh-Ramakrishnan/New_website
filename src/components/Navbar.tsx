@@ -63,8 +63,8 @@ const Navbar = () => {
                 to="/"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/')
-                    ? 'text-purple-600'
-                    : 'text-gray-300 hover:text-purple-600'
+                    ? 'text-[#26c8ef]'
+                    : 'text-gray-300 hover:text-[#26c8ef]'
                 }`}
               >
                 Home
@@ -72,7 +72,7 @@ const Navbar = () => {
               <a
                 href="#feature-showcase"
                 onClick={handleFeatureClick}
-                className="font-medium transition-colors duration-200 text-gray-300 hover:text-white"
+                className="font-medium transition-colors duration-200 text-gray-300 hover:text-[#26c8ef]"
               >
                 Features
               </a>
@@ -80,8 +80,8 @@ const Navbar = () => {
                 to="/pricing"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/pricing')
-                    ? 'text-purple-600'
-                    : 'text-gray-300 hover:text-purple-600'
+                    ? 'text-[#26c8ef]'
+                    : 'text-gray-300 hover:text-[#26c8ef]'
                 }`}
               >
                 Pricing
@@ -101,8 +101,8 @@ const Navbar = () => {
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${
                   isActive('/about')
-                    ? 'text-purple-600'
-                    : 'text-gray-300 hover:text-purple-600'
+                    ? 'text-[#26c8ef]'
+                    : 'text-gray-300 hover:text-[#26c8ef]'
                 }`}
               >
                 Our Story
@@ -111,7 +111,7 @@ const Navbar = () => {
                 href="https://discord.com/invite/e58NZySa2T"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium transition-colors duration-200 text-gray-300 hover:text-purple-600"
+                className="font-medium transition-colors duration-200 text-gray-300 hover:text-[#26c8ef]"
               >
                 Discord
               </a>
@@ -132,7 +132,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => window.open('https://app.simplifyqa.ai/login', '_blank')}
-              className="text-gray-300 hover:text-purple-600 font-medium transition-colors duration-200"
+              className="text-gray-300 hover:text-[#26c8ef] font-medium transition-colors duration-200"
             >
               Sign In
             </button>
@@ -162,9 +162,9 @@ const Navbar = () => {
         <div className="lg:hidden">
           <div className="px-4 pt-2 pb-6 space-y-1 bg-gray-50 border-t border-gray-200 shadow-lg">
             <div className="space-y-1">
-              <Link 
-                to="/" 
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
+              <Link
+                to="/"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Home
@@ -172,13 +172,13 @@ const Navbar = () => {
               <a
                 href="#feature-showcase"
                 onClick={e => { handleFeatureClick(e); setIsOpen(false); }}
-                className="block px-3 py-2 text-base text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
               >
                 Features
               </a>
-              <Link 
-                to="/pricing" 
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
+              <Link
+                to="/pricing"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Pricing
@@ -187,21 +187,21 @@ const Navbar = () => {
                 href="https://discord.com/invite/e58NZySa2T"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Discord
               </a>
-              <Link 
-                to="/about" 
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
+              <Link
+                to="/about"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
-              <Link 
-                to="/contact" 
-                className="block px-3 py-2 text-base text-gray-300 hover:text-purple-600 hover:bg-gray-800 rounded-md transition-colors duration-200"
+              <Link
+                to="/contact"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Contact

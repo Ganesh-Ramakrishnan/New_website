@@ -343,7 +343,14 @@ const CustomerSuccessPage = () => {
             See how SimplifyQA can transform your testing process and deliver measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button
+              onClick={() => window.open('https://outlook.office.com/book/SimplifyQAMeeting@simplify3x.com/?ismsaljsauthenabled', '_blank')}
+              className="text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center hover:scale-105"
+              style={{
+                background: 'linear-gradient(120deg, #3b82f6, #a855f7)',
+                boxShadow: '0 10px 25px rgba(168, 85, 247, 0.25)'
+              }}
+            >
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>

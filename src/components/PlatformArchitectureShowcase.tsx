@@ -9,9 +9,6 @@ const tabs = [
   { id: 'mainframe', label: 'Mainframe' }
 ];
 
-const buttonBase =
-  'px-4 py-2 text-sm font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400';
-
 const PlatformArchitectureShowcase: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('web');
 
@@ -28,37 +25,115 @@ const PlatformArchitectureShowcase: React.FC = () => {
           mix-blend-mode: screen;
           pointer-events: none;
         }
+        .platform-nav-dock {
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.5rem;
+          border-radius: 999px;
+          background: rgba(15, 23, 42, 0.7);
+          border: 1px solid rgba(148, 163, 184, 0.2);
+          backdrop-filter: blur(12px);
+          box-shadow: 0 10px 30px rgba(8, 47, 73, 0.25);
+        }
+        .platform-nav-item {
+          font-size: 0.85rem;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          padding: 0.65rem 1.25rem;
+          border-radius: 999px;
+          color: rgba(226, 232, 240, 0.7);
+          border: 1px solid transparent;
+          transition: all 0.25s ease;
+          background: transparent;
+          cursor: pointer;
+        }
+        .platform-nav-item:hover {
+          color: #f8fafc;
+          border-color: rgba(148, 163, 184, 0.35);
+        }
+        .platform-nav-item-active {
+          color: #0f172a;
+          border-color: transparent;
+          background: linear-gradient(120deg, #22d3ee, #3b82f6);
+          box-shadow: 0 10px 25px rgba(14, 165, 233, 0.25);
+        }
+        @keyframes sq-float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(3deg); }
+        }
       `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="mb-12 text-center md:text-left md:flex md:items-end md:justify-between">
-          <div>
-            <h2 className="font-display text-3xl font-bold text-white">Unified Vision. Absolute Control.</h2>
-            <p className="text-slate-400 mt-2">Stop toggling tools. Unify your entire testing landscape—from legacy mainframes to cloud-native microservices—under one intelligent, scriptless command center.</p>
-          </div>
-          <div className="mt-6 md:mt-0 inline-flex flex-wrap md:flex-nowrap gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                aria-pressed={activeTab === tab.id}
-                className={`${buttonBase} ${
-                  activeTab === tab.id
-                    ? 'bg-slate-800 text-white shadow'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        {/* Header - Centered like HoneycombGrid */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+            Unified Vision. Absolute Control.
+          </h2>
+          <p
+            className="text-base md:text-lg lg:text-xl text-blue-100/80 max-w-3xl mx-auto"
+            style={{ fontWeight: 400, letterSpacing: '0.3px' }}
+          >
+            Stop toggling tools. Unify your entire testing landscape—from legacy mainframes to cloud-native microservices—under one intelligent, scriptless command center.
+          </p>
+
+          {/* Tabs - Below the heading with new design */}
+          <div className="mt-8 flex justify-center">
+            <nav className="platform-nav-dock">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`platform-nav-item ${activeTab === tab.id ? 'platform-nav-item-active' : ''}`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </nav>
           </div>
         </div>
 
-        <div className="rounded-2xl p-8 lg:p-12 min-h-[400px] relative overflow-hidden" style={{
-          background: 'linear-gradient(135deg, #0a1628 0%, #0c1a2a 50%, #0a1628 100%)',
+        <div className="rounded-2xl p-8 lg:p-12 min-h-[400px] relative overflow-hidden border-l-4 border-indigo-500 shadow-2xl shadow-indigo-900/20 transition-transform hover:scale-[1.01] group" style={{
+          background: 'rgba(30, 41, 59, 0.7)',
+          backdropFilter: 'blur(10px)',
           border: '1px solid rgba(255,255,255,0.1)',
-          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.3)'
+          borderLeft: '4px solid #6366f1',
+          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.3), 0 0 15px rgba(99, 102, 241, 0.1)'
         }}>
+          {/* Floating background icon - changes based on active tab */}
+          <div className="absolute top-0 right-0 p-4 opacity-5 text-blue-400 pointer-events-none" style={{ animation: 'sq-float 6s ease-in-out infinite', animationDelay: '1s' }}>
+            {activeTab === 'web' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            )}
+            {activeTab === 'api' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            )}
+            {activeTab === 'mobile' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            )}
+            {activeTab === 'db' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            )}
+            {activeTab === 'desktop' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            )}
+            {activeTab === 'mainframe' && (
+              <svg className="w-48 h-48 -mt-8 -mr-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+              </svg>
+            )}
+          </div>
           {activeTab === 'web' && (
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>

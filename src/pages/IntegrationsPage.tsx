@@ -163,7 +163,13 @@ console.log('Test created:', test.id);`}
           <p className="text-xl text-gray-300 mb-8">
             Start integrating SimplifyQA with your existing workflow in minutes.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+          <button
+            className="text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
+            style={{
+              background: 'linear-gradient(120deg, #3b82f6, #a855f7)',
+              boxShadow: '0 10px 25px rgba(168, 85, 247, 0.25)'
+            }}
+          >
             Start Free Trial
           </button>
         </div>

@@ -433,22 +433,6 @@ const HomePage = () => {
         <FeatureShowcase />
       </div>
 
-      {/* Product Teams Cards (moved just after Hero) */}
-      {/* <div 
-        className={`animate-on-scroll transition-all duration-300 ease-out ${
-          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-        }`} 
-        id="product-teams-cards" 
-        style={{ 
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-        }}
-      >
-        <ProductTeamsCards
-          headingTitle="Why Choose SimplifyQA?"
-          headingSubtitle="Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability."
-        />
-      </div> */}
-
       <div
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
@@ -457,13 +441,6 @@ const HomePage = () => {
       >
         <WhyChooseTechBackground />
       </div>
-
-      {/* Data Analytics Showcase - First section after Hero */}
-      {/* <div className={`animate-on-scroll transition-all duration-1000 ease-out ${
-        isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`} id="data-analytics-showcase" style={{ transitionDelay: '200ms' }}>
-        <DataAnalyticsShowcase />
-      </div> */}
 
       {/* API Integration Showcase */}
       <div
@@ -477,18 +454,6 @@ const HomePage = () => {
       >
         <PlatformArchitectureShowcase />
       </div>
-
-      {/* <div 
-        className={`animate-on-scroll transition-all duration-300 ease-out ${
-          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-        }`} 
-        id="api-integration-showcase" 
-        style={{ 
-          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-        }}
-      >
-        <ApiIntegrationShowcase />
-      </div> */}
 
       {/* Client Logos Slider */}
       <section 
@@ -506,155 +471,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* AI Features Showcase */}
-      {/* <div className="animate-on-scroll" id="ai-features">
-        <AIFeaturesShowcase />
-      </div> */}
-
-
-  {/* Features Section - Dark Theme */}
-
-  {/* <div className="animate-on-scroll" id="project-dashboard">
-        <ProjectDashboard />
-      </div> */}
-
-{/*       
-      <section className="py-16 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="features-section">
-          <div className="text-center mb-10">
-            <h2 className="heading font-bold text-white">
-              Why Choose SimplifyQA?
-            </h2>
-            <p className="subheading text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {getCurrentFeatures().map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 text-center group">
-             
-                <div className="relative mb-6 flex justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    {feature.icon}
-                  </div>
-                </div>
-             
-                <div className="relative text-center">
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm light_grey">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center items-center space-x-6 mt-12">
-            <button
-              onClick={prevSlide}
-              disabled={currentSlide === 0}
-              className={`bg-gray-700 hover:bg-gray-500 text-white rounded-full p-2 shadow-lg transition-all duration-200 flex items-center justify-center ${currentSlide === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-              aria-label="Previous"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              disabled={currentSlide === totalSlides - 1}
-              className={`bg-gray-700 hover:bg-gray-500 text-white rounded-full p-2 shadow-lg transition-all duration-200 flex items-center justify-center ${currentSlide === totalSlides - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-              aria-label="Next"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </button>
-          </div>
-
-        
-        </div>
-      </section> */}
-
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
-          <div className="text-center mb-10">
-            <h2 className="heading font-bold text-gray-900 mb-6">Why Choose SimplifyQA?</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Streamline your entire development lifecycle with our comprehensive, AI-powered platform designed for modern teams who demand quality, speed, and reliability.
-            </p>
-          </div>
-        </div> */}
-
-
-        {/* API Integration Showcase */}
-        {/* <div className="mx-auto animate-on-scroll" id="api-integration-showcase">
-          <ApiIntegrationShowcase />
-        </div>   */}
-
-      {/* Project Dashboard Section */}
-      
-
-  {/* Removed start and end horizontal scroll section divs as requested */}
-
-  {/* Horizontal scroll effect JS (React useEffect) */}
-
-      {/* AI Features Two-Column Scroller */}
-
-      {/* Detailed Features Section */}
-      {/* <section id="features" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="detailed-features">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Testing Platform
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed light_grey">
-              Everything you need to deliver quality software faster. From AI-powered test generation
-              to enterprise-grade security and reporting.
-            </p>
-          </div>
-
-          <div className="animate-on-scroll animate-delay-200" id="carousel-card">
-            <CarouselCard />
-          </div>
-
-        </div>
-      </section> */}
-
-      {/* Everything You Need Section */}
-      {/* <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="everything-section">
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Everything You Need in One Platform
-            </h2>
-            <p className="text-base sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed light_grey">
-              From AI-powered automation to comprehensive reporting, SimplifyQA provides all the tools 
-              modern QA teams need to deliver exceptional software quality.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59,130,246,0.5) 1px, transparent 0)`,
-                backgroundSize: '32px 32px'
-              }}></div>
-            </div>
-
-            <div className="w-full">
-              <FeatureCategorySlider />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-
-      {/* Webinar Registration Form */}
-      {/* <WebinarForm
-        isOpen={isWebinarFormOpen}
-        onClose={() => setIsWebinarFormOpen(false)}
-        webinarTitle={upcomingWebinar.title}
-        webinarDate={upcomingWebinar.date}
-        presenter={upcomingWebinar.presenter} webinarTime={''}      /> */}
       {/* Demo Request Form */}
       <DemoRequestForm
         isOpen={isDemoFormOpen}
@@ -670,18 +486,6 @@ const HomePage = () => {
         <SuccessStoriesCarousel />
       </div>
 
-        {/* Favorite Tools Grid Section */}
-          {/* <div
-            className={`animate-on-scroll transition-all duration-300 ease-out ${
-              isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-            }`}
-            id="favorite-tools"
-          style={{
-            background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
-          }}
-        >
-            <FavoriteToolsGrid />
-          </div> */}
 
       {/* Honeycomb Grid Section */}
       <div
@@ -696,50 +500,8 @@ const HomePage = () => {
         <HoneycombGrid />
       </div>
 
-      {/* Testimonials Section */}
-      {/* <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="testimonials-section">
-          <div className="text-center mb-10">
-            <h2 className="heading font-bold text-white">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="subheading text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              See how SimplifyQA is helping teams worldwide deliver better software faster.
-            </p>
-          </div>
-      <div className="animate-on-scroll animate-delay-200" id="testimonials">
-        <TestimonySection />
-      </div>
-        </div>
-      </section> */}
 
-      
 
-      {/* CTA Section */}
-      {/* <section className="py-16 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Testing?
-          </h2>
-          <p className="text-lg md:text-xl text-gray-300 mb-8">
-            Join thousands of teams who trust SimplifyQA to deliver quality software faster.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setIsTrialFormOpen(true)}
-              className="bg-purple-500 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
-            >
-              Start Free Trial
-            </button>
-            <button
-              onClick={() => setIsDemoFormOpen(true)}
-              className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all"
-            >
-              Schedule Demo
-            </button>
-          </div>
-        </div>
-      </section> */}
 
 
       {/* Compliance Badges Section */}
@@ -779,26 +541,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* Next Live Session Section */}
-      {/* <section className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-6 flex items-center justify-center gap-2">
-            <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEXT LIVE SESSION</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white">Advanced Test Automation with AI: Best Practices for 2025</h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <p className="text-base md:text-lg text-gray-300 mb-0">Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.</p>
-            
-          </div>
-          <p className="flex items-center gap-2 justify-center m-auto my-2">
-              <span className="text-gray-400 text-xs font-semibold">Date & Time</span>
-              <span className="text-white font-bold text-lg">January 30, 2025</span>
-              <span className="text-gray-300 text-sm">2:00 PM EST</span>
-            </p>
-          <button className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center m-auto">Register Now</button>
-        </div>
-      </section> */}
 
       {/* Trial Form Modal */}
       <TrialForm isOpen={isTrialFormOpen} onClose={() => setIsTrialFormOpen(false)} />

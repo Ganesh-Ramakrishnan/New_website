@@ -263,7 +263,24 @@ const FeatureShowcase: React.FC = () => {
           </h2>
           <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              {mediaItems[currentMediaIndex].description}
+              {currentMediaIndex === 0 ? (
+                <>
+                  <span
+                    className="font-bold"
+                    style={{
+                      background: 'linear-gradient(120deg, #3b82f6, #a855f7)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
+                  >
+                    AI Studio
+                  </span>
+                  {' interprets your requirements to define actionable features, creates accurate user stories from them, and then transforms those into executable test cases.'}
+                </>
+              ) : (
+                mediaItems[currentMediaIndex].description
+              )}
             </p>
           </div>
         </div>

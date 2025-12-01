@@ -137,7 +137,14 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button onClick={() => setIsCalendlyOpen(true)} className="bg-purple-500 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              className="text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center hover:scale-105"
+              style={{
+                background: 'linear-gradient(120deg, #3b82f6, #a855f7)',
+                boxShadow: '0 10px 25px rgba(168, 85, 247, 0.25)'
+              }}
+            >
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
