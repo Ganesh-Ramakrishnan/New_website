@@ -31,6 +31,7 @@ const WhyChooseTechBackground: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeSection, setActiveSection] = useState('creation');
   const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const [enableTransition, setEnableTransition] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const navItemIds = ['creation', 'automation', 'lifecycle', 'coverage'];
@@ -54,9 +55,10 @@ const WhyChooseTechBackground: React.FC = () => {
     };
   }, [isAutoRotating]);
 
-  // Handle manual tab click - stops auto rotation
+  // Handle manual tab click - stops auto rotation and enables transition
   const handleTabClick = (id: string) => {
     setIsAutoRotating(false);
+    setEnableTransition(true);
     setActiveSection(id);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -229,10 +231,17 @@ const WhyChooseTechBackground: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-12 min-h-[400px]">
+          <div className="relative min-h-[420px]">
             <div
-              className="sq-tech-reveal relative grid md:grid-cols-2 gap-0 md:gap-8 items-center"
-              style={{ display: activeSection === 'creation' ? 'grid' : 'none' }}
+              className={`sq-tech-reveal grid md:grid-cols-2 gap-0 md:gap-8 items-center ${enableTransition ? 'transition-all duration-500 ease-out' : ''}`}
+              style={{
+                opacity: activeSection === 'creation' ? 1 : 0,
+                visibility: activeSection === 'creation' ? 'visible' : 'hidden',
+                position: activeSection === 'creation' ? 'relative' : 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%'
+              }}
             >
               <div className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-t-2xl md:rounded-2xl border border-slate-800 md:mr-4 opacity-80 hover:opacity-100 transition-all duration-300 shadow-lg">
                 <div className="text-slate-700 text-4xl mb-4">
@@ -278,8 +287,15 @@ const WhyChooseTechBackground: React.FC = () => {
             </div>
 
             <div
-              className="sq-tech-reveal sq-delay-100 relative grid md:grid-cols-2 gap-0 md:gap-8 items-center pt-4"
-              style={{ display: activeSection === 'automation' ? 'grid' : 'none' }}
+              className={`sq-tech-reveal grid md:grid-cols-2 gap-0 md:gap-8 items-center ${enableTransition ? 'transition-all duration-500 ease-out' : ''}`}
+              style={{
+                opacity: activeSection === 'automation' ? 1 : 0,
+                visibility: activeSection === 'automation' ? 'visible' : 'hidden',
+                position: activeSection === 'automation' ? 'relative' : 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%'
+              }}
             >
               <div className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-t-2xl md:rounded-2xl border border-slate-800 md:mr-4 opacity-80 hover:opacity-100 transition-all duration-300 shadow-lg">
                 <div className="text-slate-700 text-4xl mb-4">
@@ -319,8 +335,15 @@ const WhyChooseTechBackground: React.FC = () => {
             </div>
 
             <div
-              className="sq-tech-reveal sq-delay-200 relative grid md:grid-cols-2 gap-0 md:gap-8 items-center pt-4"
-              style={{ display: activeSection === 'lifecycle' ? 'grid' : 'none' }}
+              className={`sq-tech-reveal grid md:grid-cols-2 gap-0 md:gap-8 items-center ${enableTransition ? 'transition-all duration-500 ease-out' : ''}`}
+              style={{
+                opacity: activeSection === 'lifecycle' ? 1 : 0,
+                visibility: activeSection === 'lifecycle' ? 'visible' : 'hidden',
+                position: activeSection === 'lifecycle' ? 'relative' : 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%'
+              }}
             >
               <div className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-t-2xl md:rounded-2xl border border-slate-800 md:mr-4 opacity-80 hover:opacity-100 transition-all duration-300 shadow-lg">
                 <div className="text-slate-700 text-4xl mb-4">
@@ -369,8 +392,15 @@ const WhyChooseTechBackground: React.FC = () => {
             </div>
 
             <div
-              className="sq-tech-reveal sq-delay-300 relative grid md:grid-cols-2 gap-0 md:gap-8 items-center pt-4"
-              style={{ display: activeSection === 'coverage' ? 'grid' : 'none' }}
+              className={`sq-tech-reveal grid md:grid-cols-2 gap-0 md:gap-8 items-center ${enableTransition ? 'transition-all duration-500 ease-out' : ''}`}
+              style={{
+                opacity: activeSection === 'coverage' ? 1 : 0,
+                visibility: activeSection === 'coverage' ? 'visible' : 'hidden',
+                position: activeSection === 'coverage' ? 'relative' : 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%'
+              }}
             >
               <div className="bg-slate-900/80 backdrop-blur-sm p-8 rounded-t-2xl md:rounded-2xl border border-slate-800 md:mr-4 opacity-80 hover:opacity-100 transition-all duration-300 shadow-lg">
                 <div className="text-slate-700 text-4xl mb-4">
