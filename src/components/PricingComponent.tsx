@@ -220,7 +220,7 @@ const PricingComponent = () => {
                   </div>
                 </div>
 
-                <button
+                {/* <button
                   onClick={() => setIsModalOpen(true)}
                   className="text-white font-semibold px-12 py-3 rounded-lg transition-all duration-200 hover:scale-105"
                   style={{
@@ -229,7 +229,7 @@ const PricingComponent = () => {
                   }}
                 >
                   Get Started
-                </button>
+                </button> */}
               </div>
 
               {/* Right Section - Capability Cards (Desktop Only) */}
