@@ -77,7 +77,7 @@ const PricingPage = () => {
                     onClick={() => setIsCalendlyOpen(true)}
                     className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200"
                   >
-                    Ask A Question
+                    Request a Call
                   </button>
                 </div>
               </div>

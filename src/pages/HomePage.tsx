@@ -434,6 +434,7 @@ const HomePage = () => {
       </div>
 
       <div
+        id="why-choose-simplifyqa"
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`}

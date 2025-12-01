@@ -40,7 +40,20 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><Link to="/#why-choose-simplifyqa" className="text-gray-400 hover:text-white transition-colors">Why Choose SimplifyQA</Link></li>
+              <li>
+                <a
+                  href="/#why-choose-simplifyqa"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('why-choose-simplifyqa');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=why-choose-simplifyqa';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  Why Choose SimplifyQA
+                </a>
+              </li>
               <li>
                 <a
                   href="/#feature-showcase"
