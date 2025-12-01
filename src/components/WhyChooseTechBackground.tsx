@@ -250,7 +250,7 @@ const WhyChooseTechBackground: React.FC = () => {
                 </div>
 
                 <span className="absolute top-4 right-4 bg-cyan-500/20 text-cyan-300 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.3)] flex items-center gap-1">
-                  <FaMicrochip className="animate-pulse" /> AUTONOMOUS AGENTS
+                  <FaMicrochip className="animate-pulse" /> ALL-IN-ONE ALM
                 </span>
 
                 <div className="text-cyan-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
@@ -297,7 +297,7 @@ const WhyChooseTechBackground: React.FC = () => {
                 </div>
 
                 <span className="absolute top-4 right-4 bg-blue-500/20 text-blue-300 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30 shadow-[0_0_10px_rgba(59,130,246,0.3)] flex items-center gap-1">
-                  <FaBolt className="animate-pulse" /> SCRIPTLESS ENGINE
+                  <FaBolt className="animate-pulse" /> ALL-IN-ONE ALM
                 </span>
 
                 <div className="text-blue-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
@@ -388,7 +388,7 @@ const WhyChooseTechBackground: React.FC = () => {
                 </div>
 
                 <span className="absolute top-4 right-4 bg-sky-500/20 text-sky-300 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full border border-sky-500/30 shadow-[0_0_10px_rgba(14,165,233,0.3)] flex items-center gap-1">
-                  <FaServer className="animate-pulse" /> FULL STACK READY
+                  <FaServer className="animate-pulse" /> ALL-IN-ONE ALM
                 </span>
 
                 <div className="text-sky-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
