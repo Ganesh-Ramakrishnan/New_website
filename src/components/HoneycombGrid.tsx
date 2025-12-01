@@ -121,34 +121,29 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
   const colStep = hexWidth + horizontalSpacing;
   const rowStep = hexHeight * 0.87;
 
-  // Define exact positions matching the image with SVG icons from integrations
+  // Define exact positions - 2 rows layout
   const items = [
-    // Row 0: 3 hexagons
-    { row: 0, col: 0.5, icon: '/assets/fav_tool/Azure devops.svg', label: 'Azure' },
-    { row: 0, col: 1.5, icon: '/assets/fav_tool/Jira.svg', label: 'Jira' },
-    { row: 0, col: 2.5, icon: '/assets/fav_tool/Browser stack.svg', label: 'BrowserStack' },
+    // Row 0: 6 hexagons
+    { row: 0, col: 0, icon: '/assets/fav_tool/Azure devops.svg', label: 'Azure' },
+    { row: 0, col: 1, icon: '/assets/fav_tool/Jira.svg', label: 'Jira' },
+    { row: 0, col: 2, icon: '/assets/fav_tool/Browser stack.svg', label: 'BrowserStack' },
+    { row: 0, col: 3, icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
+    { row: 0, col: 4, icon: '/assets/fav_tool/LambdaTest.svg', label: 'LambdaTest' },
+    { row: 0, col: 5, icon: '/assets/fav_tool/AWS.svg', label: 'AWS' },
 
-    // Row 1: 4 hexagons
-    { row: 1, col: 0, icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
-    { row: 1, col: 1, icon: '/assets/fav_tool/LambdaTest.svg', label: 'LambdaTest' },
-    { row: 1, col: 2, icon: '/assets/fav_tool/AWS.svg', label: 'AWS' },
-    { row: 1, col: 3, icon: '/assets/fav_tool/Travis CI.svg', label: 'Travis CI' },
-
-    // Row 2: 3 hexagons
-    { row: 2, col: 0.5, icon: '/assets/fav_tool/Linear.svg', label: 'Linear' },
-    { row: 2, col: 1.5, icon: '/assets/fav_tool/Codeship.svg', label: 'Codeship' },
-    { row: 2, col: 2.5, icon: '/assets/fav_tool/Trello.svg', label: 'Trello' },
-
-    // Row 3: 2 hexagons
-    { row: 3, col: 1, icon: '/assets/fav_tool/Jenkins_logo 1.svg', label: 'Jenkins' },
-    { row: 3, col: 2, icon: '/assets/fav_tool/Slack.svg', label: 'Slack' },
+    // Row 1: 5 hexagons (offset for honeycomb effect)
+    { row: 1, col: 0.5, icon: '/assets/fav_tool/Travis CI.svg', label: 'Travis CI' },
+    { row: 1, col: 1.5, icon: '/assets/fav_tool/Linear.svg', label: 'Linear' },
+    { row: 1, col: 2.5, icon: '/assets/fav_tool/Codeship.svg', label: 'Codeship' },
+    { row: 1, col: 3.5, icon: '/assets/fav_tool/Jenkins_logo 1.svg', label: 'Jenkins' },
+    { row: 1, col: 4.5, icon: '/assets/fav_tool/Slack.svg', label: 'Slack' },
   ];
 
-  // Calculate container dimensions
-  const maxCol = 3;
-  const maxRow = 3;
-  const containerWidth = (maxCol + 1) * colStep + hexWidth * 0.25;
-  const containerHeight = (maxRow + 1) * rowStep + hexHeight * 0.15;
+  // Calculate container dimensions for 2 rows
+  const maxCol = 5;
+  const maxRow = 1;
+  const containerWidth = (maxCol + 1) * colStep + hexWidth * 0.5;
+  const containerHeight = (maxRow + 1) * rowStep + hexHeight * 0.5;
 
   return (
     <section

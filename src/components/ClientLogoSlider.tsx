@@ -42,12 +42,12 @@ const ClientLogoSlider = () => {
   const reqIdRef = useRef(0);
   const speed = 1.0; // px per frame (matching tools speed)
 
-  // Responsive visible cards
+  // Responsive visible cards - 7 logos on desktop
   const getCardsVisible = () => {
     if (typeof window !== 'undefined' && window.innerWidth < 600) {
       return 3;
     }
-    return 5;
+    return 7;
   };
   const [cardsVisible, setCardsVisible] = useState(getCardsVisible());
 

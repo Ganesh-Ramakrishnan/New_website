@@ -26,7 +26,11 @@ const FeatureShowcase: React.FC = () => {
   const [isMediaFading, setIsMediaFading] = useState(false);
   const rightSideRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
+  const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Duration for each video in milliseconds (26s, 9s, 9s for third)
+  const videoDurations = [26000, 9000, 9000];
+
   const mediaItems = [
     {
       src: '/assets/video/open_ai.gif',
@@ -121,6 +125,30 @@ const FeatureShowcase: React.FC = () => {
   ];
 
   const currentFeature = features[activeFeature];
+
+  // Auto-advance media based on duration for each video
+  useEffect(() => {
+    // Clear any existing timeout
+    if (autoAdvanceRef.current) {
+      clearTimeout(autoAdvanceRef.current);
+    }
+
+    // Set timeout for current video duration
+    const duration = videoDurations[currentMediaIndex];
+    autoAdvanceRef.current = setTimeout(() => {
+      setIsMediaFading(true);
+      setTimeout(() => {
+        setCurrentMediaIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
+        setTimeout(() => setIsMediaFading(false), 300);
+      }, 250);
+    }, duration);
+
+    return () => {
+      if (autoAdvanceRef.current) {
+        clearTimeout(autoAdvanceRef.current);
+      }
+    };
+  }, [currentMediaIndex, mediaItems.length]);
 
   const toggleCardExpansion = (index: number) => {
     setExpandedCards(prev => 
@@ -230,7 +258,7 @@ const FeatureShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500 mb-6" style={{lineHeight: '65px'}}>
             Next-Gen ALM: AI-Driven Quality and Delivery Management
           </h2>
           <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>

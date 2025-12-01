@@ -30,6 +30,39 @@ import {
 const WhyChooseTechBackground: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeSection, setActiveSection] = useState('creation');
+  const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const navItemIds = ['creation', 'automation', 'lifecycle', 'coverage'];
+
+  // Auto-rotate tabs every 3 seconds
+  useEffect(() => {
+    if (isAutoRotating) {
+      intervalRef.current = setInterval(() => {
+        setActiveSection((prev) => {
+          const currentIndex = navItemIds.indexOf(prev);
+          const nextIndex = (currentIndex + 1) % navItemIds.length;
+          return navItemIds[nextIndex];
+        });
+      }, 3000);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isAutoRotating]);
+
+  // Handle manual tab click - stops auto rotation
+  const handleTabClick = (id: string) => {
+    setIsAutoRotating(false);
+    setActiveSection(id);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -385,7 +418,7 @@ const WhyChooseTechBackground: React.FC = () => {
                 key={`bottom-${id}`}
                 type="button"
                 className={`sq-nav-item ${activeSection === id ? 'sq-nav-item-active' : ''}`}
-                onClick={() => setActiveSection(id)}
+                onClick={() => handleTabClick(id)}
               >
                 {label}
               </button>

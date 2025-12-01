@@ -66,11 +66,11 @@ const AboutPage = () => {
     
 
       {/* Zigzag sections: alternating left-right layout */}
-      <section className='plan_white_bg'>
+      <section className=''>
 
         <div className="w-full md:w-[85%] lg:w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center pt-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               The SimplifyQA Story
             </h2>
           </div>
@@ -108,7 +108,7 @@ const AboutPage = () => {
                     
                     {/* Content Section */}
                     <div className="w-full lg:w-1/2 p-4 lg:p-8">
-                      <p className="text-black leading-relaxed" style={{ fontSize: '17px' }}>
+                      <p className="text-white leading-relaxed" style={{ fontSize: '17px' }}>
                         {text}
                       </p>
                     </div>
@@ -158,16 +158,18 @@ const AboutPage = () => {
                     {i < sections.length - 1 && (
                       <div style={{ width: '75%', margin: 'auto' }}>
                         {(i === 0 || i === 2 || i === 4 || i === 6) ? (
-                          <img 
-                            src="/assets/illustrate/right_dot.svg" 
-                            alt="Right dot" 
+                          <img
+                            src="/assets/illustrate/right_dot.svg"
+                            alt="Right dot"
                             className="w-full"
+                            style={{ filter: 'invert(1)' }}
                           />
                         ) : (
-                          <img 
-                            src="/assets/illustrate/left_dot.svg" 
-                            alt="Left dot" 
+                          <img
+                            src="/assets/illustrate/left_dot.svg"
+                            alt="Left dot"
                             className="w-full"
+                            style={{ filter: 'invert(1)' }}
                           />
                         )}
                       </div>

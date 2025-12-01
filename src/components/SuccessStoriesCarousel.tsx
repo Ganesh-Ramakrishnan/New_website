@@ -195,7 +195,7 @@ const SuccessStoriesCarousel = () => {
                  <div
                    className="overflow-hidden relative"
                    style={{
-                     background: 'rgb(0 0 35)',
+                     background: '#091522',
                      border: '1px solid rgba(216, 231, 242, 0.07)',
                      borderRadius: '16px',
                      boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
