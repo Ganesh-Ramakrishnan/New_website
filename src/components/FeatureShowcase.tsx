@@ -372,20 +372,19 @@ const FeatureShowcase: React.FC = () => {
                     setTimeout(() => setIsMediaFading(false), 300);
                   }, 250);
                 }}
-                className="absolute left-0 lg:left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-10"
+                className="absolute left-1 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 md:p-3 rounded-full transition-all z-10"
                 aria-label="Previous media"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
             )}
             <div
-              className="w-full lg:w-3/4 mx-auto rounded-xl overflow-hidden relative"
+              className="w-full md:w-[90%] lg:w-3/4 mx-auto rounded-xl overflow-hidden relative"
               style={{
                 border: '1px solid rgba(75, 75, 75, 0.36)',
-                background: 'transparent',
-                minHeight: '400px'
+                background: 'transparent'
               }}
             >
               <img
@@ -405,10 +404,10 @@ const FeatureShowcase: React.FC = () => {
                     setTimeout(() => setIsMediaFading(false), 300);
                   }, 250);
                 }}
-                className="absolute right-0 lg:right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all z-10"
+                className="absolute right-1 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 md:p-3 rounded-full transition-all z-10"
                 aria-label="Next media"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>

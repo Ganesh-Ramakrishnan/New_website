@@ -160,8 +160,14 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="lg:hidden">
-          <div className="px-4 pt-2 pb-6 space-y-1 bg-gray-50 border-t border-gray-200 shadow-lg">
-            <div className="space-y-1">
+          <div
+            className="px-4 pt-4 pb-6 space-y-1 border-t border-gray-700/50 shadow-lg"
+            style={{
+              background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(10, 15, 30, 0.98) 100%)',
+              backdropFilter: 'blur(20px)'
+            }}
+          >
+            <div className="space-y-2">
               <Link
                 to="/"
                 className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
@@ -183,6 +189,13 @@ const Navbar = () => {
               >
                 Pricing
               </Link>
+              <Link
+                to="/about"
+                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Our Story
+              </Link>
               <a
                 href="https://discord.com/invite/e58NZySa2T"
                 target="_blank"
@@ -192,22 +205,8 @@ const Navbar = () => {
               >
                 Discord
               </a>
-              <Link
-                to="/about"
-                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                to="/contact"
-                className="block px-3 py-2 text-base text-gray-300 hover:text-[#26c8ef] hover:bg-gray-800 rounded-md transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
             </div>
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-700/50">
               <button
                 onClick={() => {
                   setIsOpen(false);

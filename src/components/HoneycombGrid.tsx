@@ -6,6 +6,7 @@ type HexagonCellProps = {
   size?: number;
   animationDelay?: number;
   pulseType?: 'big' | 'small';
+  isMobile?: boolean;
 };
 
 const HexagonCell: React.FC<HexagonCellProps> = ({
@@ -13,7 +14,8 @@ const HexagonCell: React.FC<HexagonCellProps> = ({
   label,
   size = 130,
   animationDelay = 0,
-  pulseType = 'big'
+  pulseType = 'big',
+  isMobile = false
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -85,20 +87,20 @@ const HexagonCell: React.FC<HexagonCellProps> = ({
           src={icon}
           alt={label}
           style={{
-            width: '36px',
-            height: '36px',
+            width: isMobile ? '24px' : '36px',
+            height: isMobile ? '24px' : '36px',
             objectFit: 'contain',
-            marginBottom: '10px',
+            marginBottom: isMobile ? '6px' : '10px',
           }}
         />
         <span
           style={{
             color: isHovered ? '#b0d0f0' : '#708090',
-            fontSize: '10px',
+            fontSize: isMobile ? '7px' : '10px',
             fontWeight: 700,
             textAlign: 'center',
             textTransform: 'uppercase',
-            letterSpacing: '1.5px',
+            letterSpacing: isMobile ? '0.5px' : '1.5px',
             transition: 'color 0.3s ease',
           }}
         >
@@ -110,39 +112,83 @@ const HexagonCell: React.FC<HexagonCellProps> = ({
 };
 
 const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => {
-  const hexSize = 130;
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const hexSize = isMobile ? 80 : 130;
   const hexWidth = hexSize;
   const hexHeight = hexSize * 1.1547;
 
   // Add spacing between hexagons
-  const horizontalSpacing = 10; // horizontal gap between hexagons
+  const horizontalSpacing = isMobile ? 5 : 10;
 
   // For honeycomb with spacing
   const colStep = hexWidth + horizontalSpacing;
   const rowStep = hexHeight * 0.87;
 
-  // Define exact positions - 2 rows layout
-  const items = [
-    // Row 0: 6 hexagons
-    { row: 0, col: 0, icon: '/assets/fav_tool/Azure devops.svg', label: 'Azure' },
-    { row: 0, col: 1, icon: '/assets/fav_tool/Jira.svg', label: 'Jira' },
-    { row: 0, col: 2, icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
-    { row: 0, col: 3, icon: '/assets/fav_tool/Browser stack.svg', label: 'Browser Stack' },
-    { row: 0, col: 4, icon: '/assets/fav_tool/sauce_lab.svg', label: 'Sauce Labs' },
-    { row: 0, col: 5, icon: '/assets/fav_tool/AWS.svg', label: 'AWS' },
-
-    // Row 1: 5 hexagons (offset for honeycomb effect)
-    { row: 1, col: 0.5, icon: '/assets/fav_tool/gitlab.svg', label: 'GitLab' },
-    { row: 1, col: 1.5, icon: '/assets/fav_tool/concourse.svg', label: 'Concourse' },
-    { row: 1, col: 2.5, icon: '/assets/fav_tool/bamboo.svg', label: 'Bamboo' },
-    { row: 1, col: 3.5, icon: '/assets/fav_tool/Jenkins_logo 1.svg', label: 'Jenkins' },
-    { row: 1, col: 4.5, icon: '/assets/fav_tool/Slack.svg', label: 'Slack' },
+  // Define items
+  const allItems = [
+    { icon: '/assets/fav_tool/Azure devops.svg', label: 'Azure' },
+    { icon: '/assets/fav_tool/Jira.svg', label: 'Jira' },
+    { icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
+    { icon: '/assets/fav_tool/Browser stack.svg', label: 'Browser Stack' },
+    { icon: '/assets/fav_tool/sauce_lab.svg', label: 'Sauce Labs' },
+    { icon: '/assets/fav_tool/AWS.svg', label: 'AWS' },
+    { icon: '/assets/fav_tool/gitlab.svg', label: 'GitLab' },
+    { icon: '/assets/fav_tool/concourse.svg', label: 'Concourse' },
+    { icon: '/assets/fav_tool/bamboo.svg', label: 'Bamboo' },
+    { icon: '/assets/fav_tool/Jenkins_logo 1.svg', label: 'Jenkins' },
+    { icon: '/assets/fav_tool/Slack.svg', label: 'Slack' },
   ];
 
-  // Calculate container dimensions for 2 rows
-  const maxCol = 5;
-  const maxRow = 1;
-  const containerWidth = (maxCol + 1) * colStep + hexWidth * 0.5;
+  // Desktop: 2 rows (6 + 5)
+  // Mobile: 3 rows (4 + 3 + 4) - honeycomb pattern
+  const items = isMobile
+    ? [
+        // Row 0: 4 hexagons
+        { row: 0, col: 0, ...allItems[0] },
+        { row: 0, col: 1, ...allItems[1] },
+        { row: 0, col: 2, ...allItems[2] },
+        { row: 0, col: 3, ...allItems[3] },
+        // Row 1: 3 hexagons (offset by 0.5)
+        { row: 1, col: 0.5, ...allItems[4] },
+        { row: 1, col: 1.5, ...allItems[5] },
+        { row: 1, col: 2.5, ...allItems[6] },
+        // Row 2: 4 hexagons
+        { row: 2, col: 0, ...allItems[7] },
+        { row: 2, col: 1, ...allItems[8] },
+        { row: 2, col: 2, ...allItems[9] },
+        { row: 2, col: 3, ...allItems[10] },
+      ]
+    : [
+        // Row 0: 6 hexagons
+        { row: 0, col: 0, ...allItems[0] },
+        { row: 0, col: 1, ...allItems[1] },
+        { row: 0, col: 2, ...allItems[2] },
+        { row: 0, col: 3, ...allItems[3] },
+        { row: 0, col: 4, ...allItems[4] },
+        { row: 0, col: 5, ...allItems[5] },
+        // Row 1: 5 hexagons (offset)
+        { row: 1, col: 0.5, ...allItems[6] },
+        { row: 1, col: 1.5, ...allItems[7] },
+        { row: 1, col: 2.5, ...allItems[8] },
+        { row: 1, col: 3.5, ...allItems[9] },
+        { row: 1, col: 4.5, ...allItems[10] },
+      ];
+
+  // Calculate container dimensions
+  const maxRow = isMobile ? 2 : 1;
+  // For desktop: 6 hexagons (cols 0-5), last hex at col 5 * colStep, width = 5 * colStep + hexWidth
+  // For mobile: 4 hexagons (cols 0-3), last hex at col 3 * colStep, width = 3 * colStep + hexWidth
+  const containerWidth = isMobile
+    ? (3 * colStep) + hexWidth
+    : (5 * colStep) + hexWidth;
   const containerHeight = (maxRow + 1) * rowStep + hexHeight * 0.5;
 
   return (
@@ -170,7 +216,7 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
           }
         `}
       </style>
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-2 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
             Connect. Orchestrate. Deliver.
@@ -183,12 +229,13 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
           </p>
         </div>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center w-full">
           <div
             style={{
               position: 'relative',
               width: containerWidth,
               height: containerHeight,
+              margin: '0 auto',
             }}
           >
             {items.map((item, index) => {
@@ -214,6 +261,7 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
                     size={hexSize}
                     animationDelay={delay}
                     pulseType={pulseType}
+                    isMobile={isMobile}
                   />
                 </div>
               );

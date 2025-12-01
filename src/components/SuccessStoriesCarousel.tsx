@@ -111,7 +111,8 @@ const SuccessStoriesCarousel = () => {
           opacity: 1,
           top: '0px',
           pointerEvents: 'auto' as const,
-          cursor: 'pointer' as const
+          cursor: 'pointer' as const,
+          visibility: 'visible' as const
         };
       } else if (position === 1) {
         // Second card - peeking out from top
@@ -122,7 +123,8 @@ const SuccessStoriesCarousel = () => {
           opacity: 1,
           top: '0px',
           pointerEvents: 'auto' as const,
-          cursor: 'pointer' as const
+          cursor: 'pointer' as const,
+          visibility: 'visible' as const
         };
       } else if (position === 2) {
         // Third card - peeking out even more from top
@@ -133,7 +135,8 @@ const SuccessStoriesCarousel = () => {
           opacity: 1,
           top: '0px',
           pointerEvents: 'auto' as const,
-          cursor: 'pointer' as const
+          cursor: 'pointer' as const,
+          visibility: 'visible' as const
         };
       }
     }
@@ -145,7 +148,8 @@ const SuccessStoriesCarousel = () => {
       zIndex: 5,
       opacity: 0,
       top: '0px',
-      pointerEvents: 'none' as const
+      pointerEvents: 'none' as const,
+      visibility: 'hidden' as const
     };
   };
 
@@ -164,14 +168,14 @@ const SuccessStoriesCarousel = () => {
         </div>
 
          {/* Carousel Container */}
-         <div 
-           className="relative min-h-[425px] sm:min-h-[425px]" 
-           style={{ top: '135px' }}
+         <div
+           className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[425px]"
+           style={{ top: '100px' }}
            onMouseEnter={() => setIsPaused(true)}
            onMouseLeave={() => setIsPaused(false)}
          >
            {/* Cards Stack */}
-           <div className="relative flex items-start justify-center pt-8 px-4">
+           <div className="relative flex items-start justify-center pt-4 md:pt-8 px-2 md:px-4">
             {stories.map((story, index) => (
               <div
                 key={story.id}
@@ -203,7 +207,7 @@ const SuccessStoriesCarousel = () => {
                    }}
                  >
                     {/* Header Section */}
-                    <div className="flex items-center justify-between" style={{ padding: '8px 30px', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                    <div className="flex items-center justify-between px-4 md:px-8 py-2" style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                       <div
                         className="rounded-lg flex items-center justify-center"
                         style={{
@@ -223,18 +227,18 @@ const SuccessStoriesCarousel = () => {
                     </div>
 
                     {/* Body Section */}
-                    <div style={{ padding: '30px' }}>
-                      <h3 className="text-2xl font-bold text-white mb-4">
+                    <div className="p-4 md:p-6 lg:p-8">
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-3 md:mb-4">
                         {story.title}
                       </h3>
 
-                      <p className="text-gray-400 leading-relaxed mb-6" style={{ opacity: 0.8 }}>
+                      <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-4 md:mb-6" style={{ opacity: 0.8 }}>
                         {story.description}
                       </p>
 
                       {/* Single Metric */}
-                      <div className="flex items-start gap-3">
-                        <div className="w-5 h-5 mt-1 flex-shrink-0">
+                      <div className="flex items-start gap-2 md:gap-3">
+                        <div className="w-4 h-4 md:w-5 md:h-5 mt-1 flex-shrink-0">
                           <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-blue-400">
                             <path
                               d="M9 12l2 2 4-4"
@@ -253,7 +257,7 @@ const SuccessStoriesCarousel = () => {
                             />
                           </svg>
                         </div>
-                        <div>
+                        <div className="text-sm md:text-base">
                           <span className="text-white font-medium">{story.metrics[story.id - 1]?.label}: </span>
                           <span className="text-blue-400 font-semibold">{story.metrics[story.id - 1]?.value}</span>
                         </div>
@@ -276,7 +280,7 @@ const SuccessStoriesCarousel = () => {
         </div>
 
         {/* Comment Text Below Cards */}
-        <div className="text-center" style={{ width: '50vw', margin: '50px auto auto' }}>
+        <div className="text-center w-full md:w-[50vw] mx-auto mt-8 md:mt-12">
           
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2">

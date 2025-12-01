@@ -29,25 +29,40 @@ const PlatformArchitectureShowcase: React.FC = () => {
           display: inline-flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 0.5rem;
-          padding: 0.5rem;
-          border-radius: 999px;
+          gap: 0.35rem;
+          padding: 0.4rem;
+          border-radius: 20px;
           background: rgba(15, 23, 42, 0.7);
           border: 1px solid rgba(148, 163, 184, 0.2);
           backdrop-filter: blur(12px);
           box-shadow: 0 10px 30px rgba(8, 47, 73, 0.25);
+          max-width: 100%;
+        }
+        @media (min-width: 768px) {
+          .platform-nav-dock {
+            border-radius: 999px;
+            gap: 0.5rem;
+            padding: 0.5rem;
+          }
         }
         .platform-nav-item {
-          font-size: 0.85rem;
+          font-size: 0.65rem;
           letter-spacing: 0.02em;
           text-transform: uppercase;
-          padding: 0.65rem 1.25rem;
+          padding: 0.5rem 0.65rem;
           border-radius: 999px;
           color: rgba(226, 232, 240, 0.7);
           border: 1px solid transparent;
           transition: all 0.25s ease;
           background: transparent;
           cursor: pointer;
+          white-space: nowrap;
+        }
+        @media (min-width: 768px) {
+          .platform-nav-item {
+            font-size: 0.85rem;
+            padding: 0.65rem 1.25rem;
+          }
         }
         .platform-nav-item:hover {
           color: #f8fafc;
@@ -78,7 +93,7 @@ const PlatformArchitectureShowcase: React.FC = () => {
           </p>
 
           {/* Tabs - Below the heading with new design */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex justify-center px-2 md:px-0">
             <nav className="platform-nav-dock">
               {tabs.map((tab) => (
                 <button

@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 import ContactFormModal from './ContactFormModal';
 
@@ -7,6 +7,14 @@ const PricingComponent = () => {
   useScrollAnimations();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [highlightedCard, setHighlightedCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Handle card click to scroll to Powerful Add-Ons section and highlight the card
   const handleCardClick = (cardIndex: number) => {
@@ -92,22 +100,22 @@ const PricingComponent = () => {
 
 
       <section
-        className="px-6 py-16 pt-32"
+        className="px-4 md:px-6 py-12 md:py-16 pt-24 md:pt-32"
         style={{
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
         <div className="max-w-7xl mx-auto text-center max-w-3xl mx-auto">
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent animate-on-scroll">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent animate-on-scroll">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-zinc-400 animate-on-scroll animate-delay-200">
+          <p className="text-base md:text-xl text-zinc-400 animate-on-scroll animate-delay-200">
             Start with comprehensive ALM capabilities, then expand with powerful testing add-ons as you grow
           </p>
         </div>
       </section>
       <section
-        className=" px-6 py-20"
+        className="px-4 md:px-6 py-10 md:py-20"
         style={{
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
@@ -115,20 +123,20 @@ const PricingComponent = () => {
         {/* Main ALM Package Box */}
         <div className='max-w-7xl mx-auto'>
           <div
-            className="p-12 shadow-2xl animate-on-scroll relative fade-in-up"
+            className="p-6 md:p-12 shadow-2xl animate-on-scroll relative fade-in-up"
             style={{
-              width: 'calc(100% - 180px)',
-              borderRadius: '35px',
+              width: isMobile ? '100%' : 'calc(100% - 180px)',
+              borderRadius: isMobile ? '20px' : '35px',
               border: '1px solid rgba(75, 75, 75, 0.36)',
               background: 'rgba(30, 41, 59, 0.7)'
             }}
           >
-            <div className="flex gap-12" style={{ width: 'calc(100% - 180px)' }}>
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12" style={{ width: isMobile ? '100%' : 'calc(100% - 180px)' }}>
               {/* Left Section - ALM Package */}
               <div style={{ flex: '2' }}>
                 <div className="mb-6">
-                  <h3 className="text-4xl font-bold text-white mb-4">ALM Package</h3>
-                  <p className="text-gray-300 text-lg leading-relaxed">
+                  <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">ALM Package</h3>
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
                     Complete Application Lifecycle Management capabilities - Test Management, Execution, Requirements, Defect Tracking, Traceability & Analytics
                   </p>
                 </div>
@@ -224,70 +232,125 @@ const PricingComponent = () => {
                 </button>
               </div>
 
-              {/* Right Section - Capability Cards */}
-              <div
-                className="space-y-4"
-                style={{
-                  position: 'absolute',
-                  right: '-125px',
-                  top: '30px',
-                  width: '325px',
-                  borderRadius: '25px',
-                  border: '1px solid rgb(68, 68, 68)',
-                  background: 'rgb(54 54 54 / 45%)',
-                  backdropFilter: 'blur(2px)',
-                  padding: '10px'
-                }}
-              >
+              {/* Right Section - Capability Cards (Desktop Only) */}
+              {!isMobile && (
+                <div
+                  className="space-y-4"
+                  style={{
+                    position: 'absolute',
+                    right: '-125px',
+                    top: '30px',
+                    width: '325px',
+                    borderRadius: '25px',
+                    border: '1px solid rgb(68, 68, 68)',
+                    background: 'rgb(54 54 54 / 45%)',
+                    backdropFilter: 'blur(2px)',
+                    padding: '10px'
+                  }}
+                >
+                  {/* Card 1 - Web Automation */}
+                  <div
+                    className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02]"
+                    style={{
+                      background: 'rgba(30, 41, 59, 0.7)'
+                    }}
+                    onClick={() => handleCardClick(0)}
+                  >
+                    <h4 className="text-xl font-bold text-white mb-3">Web Automation</h4>
+                    <p className="text-gray-300 text-sm">Cross-browser automation and visual regression testing</p>
+                  </div>
+
+                  {/* Card 2 - API & Database */}
+                  <div
+                    className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                    style={{
+                      background: 'rgba(30, 41, 59, 0.7)'
+                    }}
+                    onClick={() => handleCardClick(1)}
+                  >
+                    <h4 className="text-xl font-bold text-white mb-3">API & Database Automation</h4>
+                    <p className="text-gray-300 text-sm">Complete API testing and database validation suite</p>
+                  </div>
+
+                  {/* Card 3 - Desktop Testing */}
+                  <div
+                    className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                    style={{
+                      background: 'rgba(30, 41, 59, 0.7)'
+                    }}
+                    onClick={() => handleCardClick(2)}
+                  >
+                    <h4 className="text-xl font-bold text-white mb-3">Desktop Automation</h4>
+                    <p className="text-gray-300 text-sm">Native desktop application testing capabilities</p>
+                  </div>
+
+                  {/* Card 4 - Mobile Testing */}
+                  <div
+                    className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                    style={{
+                      background: 'rgba(30, 41, 59, 0.7)'
+                    }}
+                    onClick={() => handleCardClick(3)}
+                  >
+                    <h4 className="text-xl font-bold text-white mb-3">Mobile Automation</h4>
+                    <p className="text-gray-300 text-sm">iOS and Android testing on real devices and simulators</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Capability Cards - Below ALM Package content */}
+            {isMobile && (
+              <div className="grid grid-cols-2 gap-3 mt-8">
                 {/* Card 1 - Web Automation */}
                 <div
-                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02]"
+                  className="p-3 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[12px] shadow-xl shadow-cyan-900/20 relative overflow-hidden"
                   style={{
                     background: 'rgba(30, 41, 59, 0.7)'
                   }}
                   onClick={() => handleCardClick(0)}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">Web Automation</h4>
-                  <p className="text-gray-300 text-sm">Cross-browser automation and visual regression testing</p>
+                  <h4 className="text-sm font-bold text-white mb-1">Web Automation</h4>
+                  <p className="text-gray-300 text-xs">Cross-browser automation and visual regression testing</p>
                 </div>
 
                 {/* Card 2 - API & Database */}
                 <div
-                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                  className="p-3 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[12px] shadow-xl shadow-cyan-900/20 relative overflow-hidden"
                   style={{
                     background: 'rgba(30, 41, 59, 0.7)'
                   }}
                   onClick={() => handleCardClick(1)}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">API & Database Automation</h4>
-                  <p className="text-gray-300 text-sm">Complete API testing and database validation suite</p>
+                  <h4 className="text-sm font-bold text-white mb-1">API & Database Automation</h4>
+                  <p className="text-gray-300 text-xs">Complete API testing and database validation suite</p>
                 </div>
 
                 {/* Card 3 - Desktop Testing */}
                 <div
-                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                  className="p-3 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[12px] shadow-xl shadow-cyan-900/20 relative overflow-hidden"
                   style={{
                     background: 'rgba(30, 41, 59, 0.7)'
                   }}
                   onClick={() => handleCardClick(2)}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">Desktop Automation</h4>
-                  <p className="text-gray-300 text-sm">Native desktop application testing capabilities</p>
+                  <h4 className="text-sm font-bold text-white mb-1">Desktop Automation</h4>
+                  <p className="text-gray-300 text-xs">Native desktop application testing capabilities</p>
                 </div>
 
                 {/* Card 4 - Mobile Testing */}
                 <div
-                  className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
+                  className="p-3 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[12px] shadow-xl shadow-cyan-900/20 relative overflow-hidden"
                   style={{
                     background: 'rgba(30, 41, 59, 0.7)'
                   }}
                   onClick={() => handleCardClick(3)}
                 >
-                  <h4 className="text-xl font-bold text-white mb-3">Mobile Automation</h4>
-                  <p className="text-gray-300 text-sm">iOS and Android testing on real devices and simulators</p>
+                  <h4 className="text-sm font-bold text-white mb-1">Mobile Automation</h4>
+                  <p className="text-gray-300 text-xs">iOS and Android testing on real devices and simulators</p>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -299,40 +362,40 @@ const PricingComponent = () => {
       {/* Add-ons Section */}
       <section
         id="powerful-addons"
-        className="px-6 pt-20 pb-20"
+        className="px-4 md:px-6 pt-12 md:pt-20 pb-12 md:pb-20"
         style={{
           background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
         }}
       >
-        <div className="text-center mb-16 animate-on-scroll">
-          <h3 className="text-4xl font-bold mb-4">Powerful Add-Ons</h3>
-          <p className="text-xl text-zinc-400">Extend your testing capabilities with specialized modules</p>
+        <div className="text-center mb-8 md:mb-16 animate-on-scroll">
+          <h3 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Powerful Add-Ons</h3>
+          <p className="text-base md:text-xl text-zinc-400">Extend your testing capabilities with specialized modules</p>
         </div>
         <div className='max-w-7xl mx-auto'>
-          <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {addons.map((addon, index) => (
               <div
                 key={index}
                 id={`addon-card-${index}`}
-                className={`border-l-4 border-cyan-500 sq-border-glow-cyan rounded-xl p-8 shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] flex flex-col animate-on-scroll relative overflow-hidden fade-in-up ${highlightedCard === index ? 'ring-2 ring-cyan-400 scale-[1.05]' : ''}`}
+                className={`border-l-4 border-cyan-500 sq-border-glow-cyan rounded-xl p-4 md:p-8 shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] flex flex-col animate-on-scroll relative overflow-hidden fade-in-up ${highlightedCard === index ? 'ring-2 ring-cyan-400 scale-[1.05]' : ''}`}
                 style={{
                   animationDelay: `${index * 100}ms`,
                   background: highlightedCard === index ? 'rgba(6, 182, 212, 0.15)' : '#49494945',
                   boxShadow: highlightedCard === index ? '0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(6, 182, 212, 0.2)' : undefined
                 }}
               >
-                <div className="mb-6">
-                  <h4 className="text-2xl font-bold mb-2">{addon.name}</h4>
-                  <p className="text-zinc-400 text-sm mb-4">{addon.description}</p>
+                <div className="mb-4 md:mb-6">
+                  <h4 className="text-lg md:text-2xl font-bold mb-2">{addon.name}</h4>
+                  <p className="text-zinc-400 text-xs md:text-sm mb-3 md:mb-4">{addon.description}</p>
                 </div>
 
-                <div className="flex-1 space-y-3">
+                <div className="flex-1 space-y-2 md:space-y-3">
                   {addon.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-2">
-                      <div className="mt-1 bg-zinc-800 rounded-full p-0.5">
+                      <div className="mt-0.5 md:mt-1 bg-zinc-800 rounded-full p-0.5">
                         <Check className="w-3 h-3 text-zinc-400" />
                       </div>
-                      <span className="text-sm text-zinc-300">{feature}</span>
+                      <span className="text-xs md:text-sm text-zinc-300">{feature}</span>
                     </div>
                   ))}
                 </div>

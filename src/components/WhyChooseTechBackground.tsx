@@ -90,29 +90,42 @@ const WhyChooseTechBackground: React.FC = () => {
   }, []);
 
   const styleBlock = `
-   
+
     .sq-nav-dock {
       display: inline-flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.5rem;
       padding: 0.5rem;
-      border-radius: 999px;
+      border-radius: 24px;
       background: rgba(15, 23, 42, 0.7);
       border: 1px solid rgba(148, 163, 184, 0.2);
       backdrop-filter: blur(12px);
       box-shadow: 0 10px 30px rgba(8, 47, 73, 0.25);
+      max-width: 100%;
+    }
+    @media (min-width: 768px) {
+      .sq-nav-dock {
+        border-radius: 999px;
+      }
     }
     .sq-nav-item {
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      padding: 0.65rem 1.25rem;
+      padding: 0.5rem 0.75rem;
       border-radius: 999px;
       color: rgba(226, 232, 240, 0.7);
       border: 1px solid transparent;
       transition: all 0.25s ease;
       background: transparent;
+      white-space: nowrap;
+    }
+    @media (min-width: 768px) {
+      .sq-nav-item {
+        font-size: 0.85rem;
+        padding: 0.65rem 1.25rem;
+      }
     }
     .sq-nav-item:hover {
       color: #f8fafc;
@@ -441,7 +454,7 @@ const WhyChooseTechBackground: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-6 sq-tech-reveal">
+        <div className="mt-10 flex flex-col items-center gap-6 sq-tech-reveal px-2 md:px-0">
           <nav className="sq-nav-dock">
             {navItems.map(({ id, label }) => (
               <button
