@@ -1,11 +1,13 @@
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import CalendlyPopup from '../components/CalendlyPopup';
 import PricingComponent from '../components/PricingComponent';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const PricingPage = () => {
   useScrollAnimations();
-  
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -71,7 +73,10 @@ const PricingPage = () => {
                   <p className="text-gray-400 mb-8">
                     Still have questions? Feel free to get in touch with us today!
                   </p>
-                  <button className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200">
+                  <button
+                    onClick={() => setIsCalendlyOpen(true)}
+                    className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200"
+                  >
                     Ask A Question
                   </button>
                 </div>
@@ -110,6 +115,9 @@ const PricingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Calendly Popup */}
+      <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </div>
   );
 };

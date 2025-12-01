@@ -1,10 +1,12 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import CalendlyPopup from './CalendlyPopup';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -128,19 +130,19 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button 
+            <button
               onClick={() => window.open('https://app.simplifyqa.ai/login', '_blank')}
               className="text-gray-300 hover:text-purple-600 font-medium transition-colors duration-200"
             >
               Sign In
             </button>
-            <Link
-              to="/request-demo"
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
               className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200"
               style={{ background: '#fff', color: '#000' }}
             >
               Request Demo
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -206,20 +208,25 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="pt-4 border-t border-gray-200">
-              <Link
-                to="/request-demo"
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsCalendlyOpen(true);
+                }}
                 className="w-full block text-center border-l-4 border-cyan-500 sq-border-glow-cyan px-4 py-3 rounded-lg font-medium shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden text-white"
                 style={{
                   background: '#49494945'
                 }}
-                onClick={() => setIsOpen(false)}
               >
                 Request Demo
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Calendly Popup */}
+      <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </nav>
   );
 };

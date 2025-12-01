@@ -6,6 +6,24 @@ import ContactFormModal from './ContactFormModal';
 const PricingComponent = () => {
   useScrollAnimations();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [highlightedCard, setHighlightedCard] = useState<number | null>(null);
+
+  // Handle card click to scroll to Powerful Add-Ons section and highlight the card
+  const handleCardClick = (cardIndex: number) => {
+    const targetSection = document.getElementById('powerful-addons');
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+
+      // Highlight the card after scrolling completes
+      setTimeout(() => {
+        setHighlightedCard(cardIndex);
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+          setHighlightedCard(null);
+        }, 3000);
+      }, 500);
+    }
+  };
   const baseFeatures = [
     'Test Case Management',
     'Requirements Traceability',
@@ -217,68 +235,48 @@ const PricingComponent = () => {
               }}
             >
                 {/* Card 1 - Web Automation */}
-                <div 
+                <div
                   className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02]"
                   style={{
-                    background: 'rgba(30, 41, 59, 0.7);'
+                    background: 'rgba(30, 41, 59, 0.7)'
                   }}
-                  onClick={() => {
-                    const element = document.getElementById('powerful-addons');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+                  onClick={() => handleCardClick(0)}
                 >
                   <h4 className="text-xl font-bold text-white mb-3">Web Automation</h4>
                   <p className="text-gray-300 text-sm">Cross-browser automation and visual regression testing</p>
                 </div>
-                
+
                 {/* Card 2 - API & Database */}
-                <div 
+                <div
                   className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    background: 'rgba(30, 41, 59, 0.7);'
+                    background: 'rgba(30, 41, 59, 0.7)'
                   }}
-                  onClick={() => {
-                    const element = document.getElementById('powerful-addons');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+                  onClick={() => handleCardClick(1)}
                 >
                   <h4 className="text-xl font-bold text-white mb-3">API & Database Automation</h4>
                   <p className="text-gray-300 text-sm">Complete API testing and database validation suite</p>
                 </div>
-                
+
                 {/* Card 3 - Desktop Testing */}
-                <div 
+                <div
                   className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    background: 'rgba(30, 41, 59, 0.7);'
+                    background: 'rgba(30, 41, 59, 0.7)'
                   }}
-                  onClick={() => {
-                    const element = document.getElementById('powerful-addons');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+                  onClick={() => handleCardClick(2)}
                 >
                   <h4 className="text-xl font-bold text-white mb-3">Desktop Automation</h4>
                   <p className="text-gray-300 text-sm">Native desktop application testing capabilities</p>
                 </div>
-                
+
                 {/* Card 4 - Mobile Testing */}
-                <div 
+                <div
                   className="p-4 cursor-pointer border-l-4 border-cyan-500 sq-border-glow-cyan rounded-[15px] shadow-2xl shadow-cyan-900/20 relative overflow-hidden transition-transform hover:scale-[1.02] mt-[10px]"
                   style={{
-                    background: 'rgba(30, 41, 59, 0.7);'
+                    background: 'rgba(30, 41, 59, 0.7)'
                   }}
-                  onClick={() => {
-                    const element = document.getElementById('powerful-addons');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+                  onClick={() => handleCardClick(3)}
                 >
                   <h4 className="text-xl font-bold text-white mb-3">Mobile Automation</h4>
                   <p className="text-gray-300 text-sm">iOS and Android testing on real devices and simulators</p>
@@ -308,10 +306,12 @@ const PricingComponent = () => {
           {addons.map((addon, index) => (
             <div
               key={index}
-              className="border-l-4 border-cyan-500 sq-border-glow-cyan rounded-xl p-8 shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] flex flex-col animate-on-scroll relative overflow-hidden fade-in-up"
-              style={{ 
+              id={`addon-card-${index}`}
+              className={`border-l-4 border-cyan-500 sq-border-glow-cyan rounded-xl p-8 shadow-2xl shadow-cyan-900/20 hover:shadow-cyan-900/40 transition-all duration-300 hover:scale-[1.02] flex flex-col animate-on-scroll relative overflow-hidden fade-in-up ${highlightedCard === index ? 'ring-2 ring-cyan-400 scale-[1.05]' : ''}`}
+              style={{
                 animationDelay: `${index * 100}ms`,
-                background: '#49494945'
+                background: highlightedCard === index ? 'rgba(6, 182, 212, 0.15)' : '#49494945',
+                boxShadow: highlightedCard === index ? '0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(6, 182, 212, 0.2)' : undefined
               }}
             >
               <div className="mb-6">

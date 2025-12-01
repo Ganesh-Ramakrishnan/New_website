@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const tabs = [
   { id: 'web', label: 'Web' },
-  { id: 'mobile', label: 'Mobile' },
-  { id: 'desktop', label: 'Desktop' },
-  { id: 'mainframe', label: 'Mainframe' },
   { id: 'api', label: 'API' },
-  { id: 'db', label: 'Database' }
+  { id: 'mobile', label: 'Mobile' },
+  { id: 'db', label: 'Database' },
+  { id: 'desktop', label: 'Desktop' },
+  { id: 'mainframe', label: 'Mainframe' }
 ];
 
 const buttonBase =
@@ -32,10 +32,10 @@ const PlatformArchitectureShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="mb-12 text-center md:text-left md:flex md:items-end md:justify-between">
           <div>
-            <h2 className="font-display text-3xl font-bold text-white">One Platform. All Architectures.</h2>
-            <p className="text-slate-400 mt-2">Stop buying separate tools for Mobile and Mainframe.</p>
+            <h2 className="font-display text-3xl font-bold text-white">Unified Vision. Absolute Control.</h2>
+            <p className="text-slate-400 mt-2">Stop toggling tools. Unify your entire testing landscape—from legacy mainframes to cloud-native microservices—under one intelligent, scriptless command center.</p>
           </div>
-          <div className="mt-6 md:mt-0 inline-flex flex-wrap gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
+          <div className="mt-6 md:mt-0 inline-flex flex-wrap md:flex-nowrap gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -54,7 +54,11 @@ const PlatformArchitectureShowcase: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 lg:p-12 min-h-[400px] relative overflow-hidden">
+        <div className="rounded-2xl p-8 lg:p-12 min-h-[400px] relative overflow-hidden" style={{
+          background: 'linear-gradient(135deg, #0a1628 0%, #0c1a2a 50%, #0a1628 100%)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.3)'
+        }}>
           {activeTab === 'web' && (
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -68,20 +72,22 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Cross-Browser at Scale</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Deliver Flawless Experiences Across Every Browser</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Execute tests in parallel across Chrome, Firefox, Safari, and Edge. Our cloud grid spins up environments
-                  instantly, reducing execution time from days to minutes.
+                  Ensure your web applications perform perfectly for every user, on every device. SimplifyQA empowers teams to run scalable, scriptless tests across the modern web.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
                   <li className="flex items-center gap-2">
-                    <span className="text-blue-400">✓</span> Auto-detect browser version
+                    <span className="text-blue-400">✓</span> Cross-Browser Compatibility: Automate tests seamlessly on Chrome, Firefox, Safari, Edge, and IE
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-blue-400">✓</span> Visual regression testing
+                    <span className="text-blue-400">✓</span> Responsive & Mobile Web: Validate responsive designs with real-time device emulation
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-blue-400">✓</span> Headless execution mode
+                    <span className="text-blue-400">✓</span> Smart Object Recognition: Utilize robust identification (XPath, CSS, Image Recognition)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-400">✓</span> Cloud Scaling: Execute parallel tests on the cloud to slash regression cycles
                   </li>
                 </ul>
               </div>
@@ -130,17 +136,23 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Native &amp; Hybrid Apps</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Native & Hybrid App Testing at Scale</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Test on real iOS and Android devices in the cloud. Inspect elements, simulate gestures, and validate biometric
-                  logins without writing Appium code.
+                  Conquer fragmentation with a unified mobile testing strategy. Automate complex gestures and user flows across the devices your customers actually use.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
-                  {['Real Device Farm', 'Geolocation testing', 'Network throttling simulation'].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="text-purple-400">✓</span> {item}
-                    </li>
-                  ))}
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">✓</span> Android & iOS Support: Automate native and hybrid apps on real devices, emulators, and simulators
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">✓</span> Cross-OS Flexibility: Uniquely supports iOS automation execution on both Windows and Mac
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">✓</span> Parallel Execution: Run tests simultaneously across multiple devices
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-400">✓</span> Deep Diagnostics: Capture device-level logs, screenshots, and videos for rapid root cause analysis
+                  </li>
                 </ul>
               </div>
               <div className="relative flex justify-center">
@@ -193,17 +205,23 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Desktop Applications</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Modernize Testing for Legacy & Desktop Apps</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Automate traditional desktop applications across Windows, macOS, and Linux. Perfect for testing SAP GUI, Oracle
-                  Forms, and custom .NET/Java apps.
+                  Don't leave your core business applications behind. Bring the speed of modern automation to your critical desktop software.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
-                  {['Windows, Mac, Linux support', 'SAP GUI automation', 'Image & text recognition (OCR)'].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="text-teal-400">✓</span> {item}
-                    </li>
-                  ))}
+                  <li className="flex items-center gap-2">
+                    <span className="text-teal-400">✓</span> Broad Tech Stack: Support for .NET, Java, Win32, WPF, and legacy Windows applications
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-teal-400">✓</span> Native UI Interaction: Precisely control menus, ribbons, pop-ups, and complex desktop controls
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-teal-400">✓</span> Smart Identification: Hybrid property-based and image-based recognition for stability
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-teal-400">✓</span> Cross-Platform Ready: Build stable automation for Windows and macOS without coding
+                  </li>
                 </ul>
               </div>
               <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden">
@@ -258,17 +276,23 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Legacy Green Screen (3270)</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Unlock the Value of Legacy Systems</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  The only platform that seamlessly integrates modern web testing with legacy Mainframe terminals. Validate end-to-end
-                  flows from a React frontend to an IBM backend.
+                  Bridge the gap between foundational mainframes and digital agility. Automate green-screen workflows to modernize your critical business logic.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
-                  {['TE/3270 & 5250 support', 'Screen scraping & OCR', 'Data verification'].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="text-amber-500">✓</span> {item}
-                    </li>
-                  ))}
+                  <li className="flex items-center gap-2">
+                    <span className="text-amber-500">✓</span> Terminal Emulation: Seamless integration with 3270 and 5250 terminal emulators (IBM i/AS400, z/OS)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-amber-500">✓</span> Green Screen to GUI: Validate data flow between legacy mainframe screens and modern web/mobile interfaces
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-amber-500">✓</span> High-Speed Entry: Automate complex keystrokes and data entry tasks faster than human operators
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-amber-500">✓</span> Legacy Modernization: Ensure stability while refactoring or migrating mainframe data to cloud
+                  </li>
                 </ul>
               </div>
               <div className="relative rounded-lg bg-black border border-slate-800 aspect-video shadow-2xl flex flex-col overflow-hidden">
@@ -309,17 +333,23 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">API &amp; Microservices</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Validate Backend Logic with Precision</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Comprehensive automation for REST, SOAP, gRPC, and GraphQL. Validate payloads, check status codes, and assert
-                  schema compliance before UI integration.
+                  Shift left and secure your application's core. Our API testing suite ensures your backend services are robust, secure, and ready for integration.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
-                  {['REST & SOAP Support', 'gRPC & GraphQL Ready', 'Swagger / OpenAPI Import'].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="text-pink-500">✓</span> {item}
-                    </li>
-                  ))}
+                  <li className="flex items-center gap-2">
+                    <span className="text-pink-500">✓</span> Multi-Protocol Support: Comprehensive automation for REST, SOAP, and GraphQL APIs
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-pink-500">✓</span> CI/CD Integration: Embed backend workflow validation directly into your pipeline
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-pink-500">✓</span> Performance & Security: Run automated health checks and security scans on endpoints
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-pink-500">✓</span> Data-Driven Coverage: Dynamically parameterize requests to test edge cases
+                  </li>
                 </ul>
               </div>
               <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden text-xs">
@@ -382,17 +412,23 @@ const PlatformArchitectureShowcase: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Database Validation</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Ensure Data Integrity & Reliability</h3>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Ensure data integrity directly at the source. Connect to SQL and NoSQL databases to validate migration scripts,
-                  check ETL processes, and verify backend state without manual queries.
+                  Data is the lifeblood of your application. Automate complex validations to ensure your frontend actions match your backend reality.
                 </p>
                 <ul className="space-y-3 text-slate-300 text-sm">
-                  {['MySQL, Oracle, PostgreSQL, MongoDB', 'Auto-generated data assertions', 'ETL pipeline testing'].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="text-indigo-500">✓</span> {item}
-                    </li>
-                  ))}
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-500">✓</span> SQL & NoSQL Support: Native connectivity for Oracle, MySQL, SQL Server, MongoDB, and more
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-500">✓</span> End-to-End Validation: Seamlessly chain database checks with UI and API tests
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-500">✓</span> Complex Query Execution: Automate data integrity checks, stored procedure testing, and rollbacks
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-500">✓</span> Audit-Ready Reporting: Generate detailed logs comparing data states for compliance
+                  </li>
                 </ul>
               </div>
               <div className="relative rounded-lg bg-slate-900 border border-slate-700 aspect-video shadow-2xl flex flex-col overflow-hidden text-xs">

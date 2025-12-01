@@ -35,7 +35,7 @@ const FeatureShowcase: React.FC = () => {
     {
       src: '/assets/video/open_ai.gif',
       title: 'AI Studio',
-      description: 'Eliminate the manual translation of requirements. AI Studio parses your uploaded files to structure actionable Features, generates precise User Stories, and finally converts them into executable Test Cases. Simply toggle between Auto mode for high-level speed or Max mode for exhaustive rigor, depending on your release needs.'
+      description: 'AI Studio interprets your requirements to define actionable features, creates accurate user stories from them, and then transforms those into executable test cases.'
     },
     {
       src: '/assets/video/Test_data_generation.gif',
@@ -363,21 +363,20 @@ const FeatureShowcase: React.FC = () => {
                 </svg>
               </button>
             )}
-            <div 
+            <div
               className="w-full lg:w-3/4 mx-auto rounded-xl overflow-hidden relative"
-              style={{ 
+              style={{
                 border: '1px solid rgba(75, 75, 75, 0.36)',
-                background: 'transparent'
+                background: 'transparent',
+                minHeight: '400px'
               }}
             >
-              <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
-                <img
-                  key={currentMediaIndex}
-                  src={mediaItems[currentMediaIndex].src}
-                  alt={mediaItems[currentMediaIndex].title}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+              <img
+                key={currentMediaIndex}
+                src={mediaItems[currentMediaIndex].src}
+                alt={mediaItems[currentMediaIndex].title}
+                className={`w-full h-auto object-contain transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}
+              />
             </div>
             {mediaItems.length > 1 && (
               <button

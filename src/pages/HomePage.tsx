@@ -38,17 +38,19 @@ const HomePage = () => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
-    
+
     const params = new URLSearchParams(window.location.search);
-    if (params.get('scrollTo') === 'feature-showcase') {
+    const scrollTo = params.get('scrollTo');
+
+    if (scrollTo) {
       setTimeout(() => {
-        const el = document.getElementById('feature-showcase');
+        const el = document.getElementById(scrollTo);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
     }
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -465,6 +467,7 @@ const HomePage = () => {
 
       {/* API Integration Showcase */}
       <div
+        id="integrations"
         className={`animate-on-scroll transition-all duration-300 ease-out ${
           isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`}

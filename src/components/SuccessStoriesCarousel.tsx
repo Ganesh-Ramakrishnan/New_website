@@ -195,22 +195,22 @@ const SuccessStoriesCarousel = () => {
                  <div
                    className="overflow-hidden relative"
                    style={{
-                     background: '#091522',
-                     border: '1px solid rgba(216, 231, 242, 0.07)',
+                     background: 'linear-gradient(135deg, #0a1628 0%, #0c1a2a 50%, #0a1628 100%)',
+                     border: '1px solid rgba(255, 255, 255, 0.1)',
                      borderRadius: '16px',
-                     boxShadow: 'rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset',
+                     boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.3)',
                      width: '100%'
                    }}
                  >
                     {/* Header Section */}
-                    <div className="flex items-center justify-between" style={{ padding: '8px 30px', borderBottom: '1px solid rgba(216, 231, 242, 0.07)' }}>
-                      <div 
+                    <div className="flex items-center justify-between" style={{ padding: '8px 30px', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                      <div
                         className="rounded-lg flex items-center justify-center"
                         style={{
                           padding: '5px',
-                          background: 'rgb(16, 19, 28)',
+                          background: 'rgba(10, 22, 40, 0.8)',
                           borderRadius: '8px',
-                          boxShadow: 'rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset'
+                          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.05)'
                         }}
                       >
                         <User className="h-5 w-5 text-gray-400" strokeWidth={1.5} />

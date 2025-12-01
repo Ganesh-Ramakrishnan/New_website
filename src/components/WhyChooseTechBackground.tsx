@@ -187,8 +187,8 @@ const WhyChooseTechBackground: React.FC = () => {
   ];
 
   const unifiedLifecycleLeft = [
-    { icon: <FaClipboardList />, label: 'Requirement Mgmt' },
-    { icon: <FaRocket />, label: 'Release Mgmt' },
+    { icon: <FaClipboardList />, label: 'Requirement Management' },
+    { icon: <FaRocket />, label: 'Release Management' },
     { icon: <FaVials />, label: 'Test Management' },
     { icon: <FaBug />, label: 'Defect Tracking' }
   ];

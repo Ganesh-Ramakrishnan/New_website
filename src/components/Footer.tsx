@@ -41,8 +41,34 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
             <ul className="space-y-2">
               <li><Link to="/#why-choose-simplifyqa" className="text-gray-400 hover:text-white transition-colors">Why Choose SimplifyQA</Link></li>
-              <li><Link to="/#ai-features" className="text-gray-400 hover:text-white transition-colors">AI Features</Link></li>
-              <li><Link to="/integrations" className="text-gray-400 hover:text-white transition-colors">Integrations</Link></li>
+              <li>
+                <a
+                  href="/#feature-showcase"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('feature-showcase');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=feature-showcase';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  AI Features
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#honeycomb-grid"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('honeycomb-grid');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=honeycomb-grid';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  Integrations
+                </a>
+              </li>
               <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
             </ul>
           </div>
@@ -68,7 +94,6 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Our Story</Link></li>
-              <li><Link to="/customer-success" className="text-gray-400 hover:text-white transition-colors">Customer Success</Link></li>
             </ul>
           </div>
         </div>

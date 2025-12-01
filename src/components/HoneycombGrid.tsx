@@ -126,15 +126,15 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
     // Row 0: 6 hexagons
     { row: 0, col: 0, icon: '/assets/fav_tool/Azure devops.svg', label: 'Azure' },
     { row: 0, col: 1, icon: '/assets/fav_tool/Jira.svg', label: 'Jira' },
-    { row: 0, col: 2, icon: '/assets/fav_tool/Browser stack.svg', label: 'BrowserStack' },
-    { row: 0, col: 3, icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
-    { row: 0, col: 4, icon: '/assets/fav_tool/LambdaTest.svg', label: 'LambdaTest' },
+    { row: 0, col: 2, icon: '/assets/fav_tool/MS teams.svg', label: 'Teams' },
+    { row: 0, col: 3, icon: '/assets/fav_tool/Browser stack.svg', label: 'Browser Stack' },
+    { row: 0, col: 4, icon: '/assets/fav_tool/sauce_lab.svg', label: 'Sauce Labs' },
     { row: 0, col: 5, icon: '/assets/fav_tool/AWS.svg', label: 'AWS' },
 
     // Row 1: 5 hexagons (offset for honeycomb effect)
-    { row: 1, col: 0.5, icon: '/assets/fav_tool/Travis CI.svg', label: 'Travis CI' },
-    { row: 1, col: 1.5, icon: '/assets/fav_tool/Linear.svg', label: 'Linear' },
-    { row: 1, col: 2.5, icon: '/assets/fav_tool/Codeship.svg', label: 'Codeship' },
+    { row: 1, col: 0.5, icon: '/assets/fav_tool/gitlab.svg', label: 'GitLab' },
+    { row: 1, col: 1.5, icon: '/assets/fav_tool/concourse.svg', label: 'Concourse' },
+    { row: 1, col: 2.5, icon: '/assets/fav_tool/bamboo.svg', label: 'Bamboo' },
     { row: 1, col: 3.5, icon: '/assets/fav_tool/Jenkins_logo 1.svg', label: 'Jenkins' },
     { row: 1, col: 4.5, icon: '/assets/fav_tool/Slack.svg', label: 'Slack' },
   ];
@@ -179,7 +179,7 @@ const HoneycombGrid: React.FC<{ className?: string }> = ({ className = '' }) => 
             className="text-base md:text-lg lg:text-xl text-blue-100/80 max-w-3xl mx-auto"
             style={{ fontWeight: 400, letterSpacing: '0.3px' }}
           >
-            Bridge the gap between fragmented tools. Turn your disconnected CI/CD, management, and testing tools into a single, unified delivery engine
+            Bridge the gap between fragmented tools. Turn your disconnected CI/CD, management, and testing tools into a single, unified delivery engine for integration
           </p>
         </div>
 
