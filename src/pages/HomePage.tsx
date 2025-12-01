@@ -18,8 +18,8 @@ import {
 import React, { useEffect, useState } from 'react';
 import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
-import FavoriteToolsGrid from '../components/FavoriteToolsGrid';
 import Hero from '../components/Hero';
+import HoneycombGrid from '../components/HoneycombGrid';
 import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 import FeatureShowcase from '../components/FeatureShowcase';
@@ -668,17 +668,30 @@ const HomePage = () => {
       </div>
 
         {/* Favorite Tools Grid Section */}
-          <div 
+          {/* <div
             className={`animate-on-scroll transition-all duration-300 ease-out ${
               isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-            }`} 
+            }`}
             id="favorite-tools"
           style={{
             background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
           }}
         >
             <FavoriteToolsGrid />
-          </div>
+          </div> */}
+
+      {/* Honeycomb Grid Section */}
+      <div
+        className={`animate-on-scroll transition-all duration-300 ease-out ${
+          isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}
+        id="honeycomb-grid"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-bg-translucent), transparent 20%)'
+        }}
+      >
+        <HoneycombGrid />
+      </div>
 
       {/* Testimonials Section */}
       {/* <section className="py-16 bg-blue-600">
