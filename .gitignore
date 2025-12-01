@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 .env
 public/assets/video/AI_Studio.gif
+nul

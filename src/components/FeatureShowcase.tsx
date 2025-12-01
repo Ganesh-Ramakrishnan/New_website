@@ -233,9 +233,11 @@ const FeatureShowcase: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500 mb-6">
             Next-Gen ALM: AI-Driven Quality and Delivery Management
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Transform Your Application Lifecycle Management with AI-Powered Solutions
-          </p>
+          <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              {mediaItems[currentMediaIndex].description}
+            </p>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 h-full">
@@ -367,17 +369,6 @@ const FeatureShowcase: React.FC = () => {
                 </svg>
               </button>
             )}
-            {/* Description Section */}
-            <div className="w-full lg:w-3/4 mx-auto px-4">
-              <div className={`transition-opacity duration-500 ${isMediaFading ? 'opacity-0' : 'opacity-100'}`}>
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  {mediaItems[currentMediaIndex].title}
-                </h3>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  {mediaItems[currentMediaIndex].description}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
