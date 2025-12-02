@@ -121,7 +121,7 @@ const AboutPage = () => {
               '/assets/illustrate/Artboard 1@2x 10.png',
               '/assets/illustrate/Girl 1.png',
               '/assets/illustrate/people copy 1.png',
-              '/assets/illustrate/Puzzle 1.png',
+              '/assets/illustrate/Puzzle_copy.png',
               '/assets/illustrate/SQA bot 1.png',
               '/assets/illustrate/board.png',
             ];
