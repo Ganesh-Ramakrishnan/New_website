@@ -82,7 +82,7 @@ const AboutPage = () => {
               const totalSections = 6; // Based on the sections array length
               const isLastImage = index === totalSections - 1;
               const isSecondToLastImage = index === totalSections - 2;
-              const isPuzzleImage = img === '/assets/illustrate/Puzzle 1.png';
+              const isPuzzleImage = img === '/assets/illustrate/Puzzle_copy.png';
               
               let imageWidth = '350px'; // default
               if (isLastImage) {
