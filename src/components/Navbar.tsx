@@ -33,6 +33,7 @@ const Navbar = () => {
     }
   };
   return (
+    <>
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 navbar-bg ${
       scrolled 
         ? 'shadow-lg border-b border-gray-800' 
@@ -224,9 +225,10 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Calendly Popup */}
-      <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </nav>
+    {/* Calendly Popup - rendered outside nav for proper positioning */}
+    <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
+    </>
   );
 };
 

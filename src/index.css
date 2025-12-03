@@ -28,6 +28,7 @@ body {
   background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
   background-attachment: fixed;
   background-image: radial-gradient(circle at 50% 0%, rgb(0 95 111 / 20%), transparent 70%), radial-gradient(circle at 100% 0%, rgb(0 47 123 / 15%), transparent 70%);
+  zoom: 0.9;
 }
 
 section, .bg-gray-50, .bg-white {

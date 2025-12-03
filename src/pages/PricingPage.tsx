@@ -62,7 +62,7 @@ const PricingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left Column - Still Have Questions */}
             <div className="animate-on-scroll">
-              <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
+              <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 border-l-4 border-l-cyan-500">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-700/50 rounded-full mb-6">
                     <HelpCircle className="h-8 w-8 text-gray-300" />
@@ -75,7 +75,11 @@ const PricingPage = () => {
                   </p>
                   <button
                     onClick={() => setIsCalendlyOpen(true)}
-                    className="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200"
+                    className="inline-flex items-center px-6 py-3 text-white rounded-lg transition-colors duration-200"
+                    style={{
+                      background: 'linear-gradient(120deg, rgb(59, 130, 246), rgb(168, 85, 247))',
+                      boxShadow: 'rgba(168, 85, 247, 0.25) 0px 10px 25px'
+                    }}
                   >
                     Request a Call
                   </button>
@@ -86,7 +90,7 @@ const PricingPage = () => {
             {/* Right Column - FAQ Accordions */}
             <div className="space-y-4 animate-on-scroll animate-delay-200">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-gray-800/30 rounded-xl border border-gray-700 overflow-hidden">
+                <div key={index} className={`bg-gray-800/30 rounded-xl border overflow-hidden transition-all duration-300 ${openFaq === index ? 'border-cyan-500/70 shadow-[0_0_15px_rgba(34,211,238,0.15)]' : 'border-gray-700'}`}>
                   <button
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                     className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-800/50 transition-colors duration-200"
