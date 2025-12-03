@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, Brain, Bug, GitBranch, Play, Settings, Users } from 'lucide-react';
+import { ArrowRight, BarChart3, Brain, Bug, GitBranch, Settings, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import CalendlyPopup from './CalendlyPopup';
 import { TrialForm } from './TrialForm';
@@ -149,10 +149,10 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             
-            <button onClick={() => setIsTourOpen(true)} className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
+            {/* <button onClick={() => setIsTourOpen(true)} className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
               <Play className="h-4 w-4 mr-2" />
               Product Tour
-            </button>
+            </button> */}
           </div>
         </div>
 
