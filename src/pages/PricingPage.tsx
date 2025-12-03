@@ -25,10 +25,10 @@ const PricingPage = () => {
       question: "Can you integrate with our existing tools?",
       answer: "Yes! We support integrations with CRMs, project management tools, communication apps, and more — tailored to your stack."
     },
-    {
-      question: "How long does implementation take?",
-      answer: "Implementation typically takes 2-4 weeks depending on complexity. We work closely with your team to ensure smooth deployment and minimal disruption."
-    },
+    // {
+    //   question: "How long does implementation take?",
+    //   answer: "Implementation typically takes 2-4 weeks depending on complexity. We work closely with your team to ensure smooth deployment and minimal disruption."
+    // },
     {
       question: "Is your AI secure and compliant?",
       answer: "Absolutely. We follow enterprise-grade security protocols and comply with GDPR, CCPA, and other industry standards to protect your data."
