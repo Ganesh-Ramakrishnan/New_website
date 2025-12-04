@@ -81,7 +81,7 @@ const PricingPage = () => {
                       boxShadow: 'rgba(168, 85, 247, 0.25) 0px 10px 25px'
                     }}
                   >
-                    Request a Call
+                    Request a Meeting
                   </button>
                 </div>
               </div>
