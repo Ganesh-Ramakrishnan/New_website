@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 // import { Tag } from 'lucide-react'; // Commented out - will add later
 import { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -38,24 +38,6 @@ const BlogDetailPage = () => {
 
   const relatedPosts = getRelatedPosts(post.id);
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: post.title,
-          text: post.excerpt,
-          url: window.location.href,
-        });
-      } catch (error) {
-        console.log('Error sharing:', error);
-      }
-    } else {
-      // Fallback: copy to clipboard
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  };
-
   return (
     <div className="pt-16">
       {/* Back Button */}
@@ -92,24 +74,7 @@ const BlogDetailPage = () => {
         </p>
 
         {/* Meta Info */}
-        <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-800 animate-on-scroll animate-delay-300">
-          {/* Author */}
-          <div className="flex items-center space-x-3">
-            {post.author.avatar && (
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-            )}
-            <div>
-              <p className="font-semibold text-white">{post.author.name}</p>
-              <p className="text-sm text-gray-400">{post.author.role}</p>
-            </div>
-          </div>
-
-          <div className="h-8 w-px bg-gray-700 hidden sm:block"></div>
-
+        <div className="flex flex-wrap items-center gap-4 mb-8 pb-8 border-b border-gray-800 animate-on-scroll animate-delay-300">
           {/* Date and Reading Time */}
           <div className="flex items-center space-x-4 text-gray-400">
             <div className="flex items-center">
@@ -121,17 +86,6 @@ const BlogDetailPage = () => {
               <span className="text-sm">{post.readTime}</span>
             </div>
           </div>
-
-          <div className="h-8 w-px bg-gray-700 hidden sm:block"></div>
-
-          {/* Share Button */}
-          <button
-            onClick={handleShare}
-            className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <Share2 className="h-4 w-4 mr-2" />
-            <span className="text-sm">Share</span>
-          </button>
         </div>
 
         {/* Featured Image */}
