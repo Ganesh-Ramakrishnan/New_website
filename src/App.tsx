@@ -1,5 +1,7 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
@@ -13,10 +15,27 @@ import RequestDemoPage from './pages/RequestDemoPage';
 import ResourcesPage from './pages/ResourcesPage';
 import SolutionsPage from './pages/SolutionsPage';
 
-function App() {
+function AppContent() {
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setLoading(true);
+    document.body.style.overflow = 'hidden';
+    const timer = setTimeout(() => {
+      setLoading(false);
+      document.body.style.overflow = 'unset';
+    }, 1500);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = 'unset';
+    };
+  }, [location.pathname]);
+
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
+    <>
+      {loading && <Loader />}
+      <div className={`flex flex-col min-h-screen ${loading ? 'pointer-events-none' : ''}`}>
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -35,6 +54,14 @@ function App() {
         </main>
         <Footer />
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
