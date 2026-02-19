@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
       role: "CTO, SimplifyQA",
       avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop"
     },
-    publishedDate: "Jan 15, 2025",
+    publishedDate: "Feb 15, 2026",
     readTime: "14 min read",
     featuredImage: "/assets/blog_images/blog_main.png",
     tags: ["Cloud", "Infrastructure", "Kubernetes", "DevOps", "Scalability", "Architecture"]
@@ -136,8 +136,6 @@ export const blogPosts: BlogPost[] = [
       <p>So, work stops. Messages fly across Teams: <em>"Is the API ready yet?" "Is the staging environment up?"</em> Hours are wasted — hours that should be spent on coding and testing, not waiting.</p>
       <p>At SimplifyQA, we have seen this friction in teams across the globe. The frustration of having productivity tied to dependencies outside of your control is one of the biggest bottlenecks in modern software delivery.</p>
       <p>That is exactly why we champion the use of <strong>Virtualized Services</strong>. It isn't just a testing tool; it is a development accelerator.</p>
-
-      <img src="/assets/blog_images/blog2-inbetween.png" alt="Service Virtualization Infrastructure" style="width:100%;border-radius:12px;margin:32px 0;" />
 
       <h2>The Real Problem: "Dependency Hell"</h2>
       <p>Both developers and testers face the same core issue: <strong>Dependency</strong>.</p>
@@ -171,6 +169,8 @@ export const blogPosts: BlogPost[] = [
       <p>Think of a virtualized service as a <strong>"stunt double"</strong> for your API.</p>
       <p><strong>Scenario A (Development):</strong> The backend actor hasn't arrived on set yet. The stunt double steps in, reading lines and acting exactly like the backend will, so the frontend developer can keep filming.</p>
       <p><strong>Scenario B (Testing):</strong> The real payment service is "injured" (down for maintenance). The stunt double steps in to take the hits, ensuring the test suite finishes successfully.</p>
+
+      <img src="/assets/blog_images/blog2-inbetween.png" alt="Virtualized Services Infrastructure" style="width:100%;border-radius:12px;margin:32px 0;" />
 
       <h2>Key Features Explained</h2>
       <p><strong>Parallel Development (Dev & QA)</strong></p>
@@ -210,7 +210,7 @@ export const blogPosts: BlogPost[] = [
       role: "CTO, SimplifyQA",
       avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop"
     },
-    publishedDate: "Feb 17, 2026",
+    publishedDate: "Feb 19, 2026",
     readTime: "8 min read",
     featuredImage: "/assets/blog_images/blog-2home.png",
     tags: ["Service Virtualization", "API", "DevOps", "Testing", "Agile", "Microservices"]
